@@ -1,14 +1,17 @@
 {
   "name": "infolektuell.github.io",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
   "description": "Source repo for my infolektuell website",
   "author": "",
   "license": "ISC",
   "keywords": [],
+  "type": "module",
+  "private": true,
   "scripts": {
+    "format": "prettier -w .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
 }
