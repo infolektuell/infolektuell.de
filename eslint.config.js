@@ -1,4 +1,3 @@
-// import { FlatCompat } from "@eslint/eslintrc"
 // Globals for browser code
 import globals from 'globals'
 
@@ -13,6 +12,10 @@ import prettierConfig from 'eslint-config-prettier'
 // Astro
 import astroPlugin from 'eslint-plugin-astro'
 import astroParser from 'astro-eslint-parser'
+
+// Svelte
+import sveltePlugin from 'eslint-plugin-svelte'
+import svelteParser from 'svelte-eslint-parser'
 
 export default [
   {
@@ -60,10 +63,29 @@ export default [
     },
   },
 
+  // Svelte components
+  {
+    files: ['**/*.svelte'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+      parser: svelteParser,
+    },
+    plugins: {
+      svelte: sveltePlugin,
+    },
+    processor: 'svelte/svelte',
+    rules: {
+      ...sveltePlugin.configs.recommended.rules,
+    },
+  },
+
   // Disable rules interferring with prettier
   {
     rules: {
       ...prettierConfig.rules,
+      ...sveltePlugin.configs.prettier.rules,
     },
   },
 ]
