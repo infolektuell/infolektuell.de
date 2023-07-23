@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "elements": ["html5"],
+  "extends": ["html-validate:recommended", "html-validate:document", "html-validate:prettier"],
+  "rules": {
+    "require-sri": [
+      "error",
+      {
+        "target": "crossorigin",
+        "exclude": ["infolektuell.de"]
+      }
+    ]
+  }
+}
