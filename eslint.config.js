@@ -9,6 +9,10 @@ import promisePlugin from 'eslint-plugin-promise'
 import standardJsConfig from 'eslint-config-standard'
 import prettierConfig from 'eslint-config-prettier'
 
+// Typescript
+import tsPlugin from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+
 // Astro
 import astroPlugin from 'eslint-plugin-astro'
 import astroParser from 'astro-eslint-parser'
@@ -24,6 +28,11 @@ export default [
 
   // Standard style
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
     plugins: {
       import: importPlugin,
       n: nPlugin,
@@ -35,14 +44,34 @@ export default [
     },
   },
 
+  {
+    files: ['src/**/*.{js,jsx,ts,tsx,astro,svelte}'],
+    ignores: ['src/**/*.astro/*.js'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: true,
+        extraFileExtensions: ['.astro', '.svelte'],
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      ...tsPlugin.configs['eslint-recommended'].overrides[0].rules,
+      ...tsPlugin.configs['strict-type-checked'].rules,
+      ...tsPlugin.configs['stylistic-type-checked'].rules,
+    },
+  },
+
   // Astro components
   {
     files: ['**/*.astro'],
     languageOptions: {
-      globals: {
-        ...globals.node,
-      },
       parser: astroParser,
+      parserOptions: {
+        parser: tsParser,
+      },
     },
     plugins: {
       astro: astroPlugin,
@@ -57,20 +86,26 @@ export default [
   {
     files: ['**/*.astro/*.js', '*.astro/*.js'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
+      parser: tsParser,
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      ...tsPlugin.configs['eslint-recommended'].overrides[0].rules,
+      ...tsPlugin.configs.strict.rules,
+      ...tsPlugin.configs.stylistic.rules,
     },
   },
 
   // Svelte components
   {
-    files: ['**/*.svelte'],
+    files: ['src/**/*.svelte'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
       parser: svelteParser,
+      parserOptions: {
+        parser: tsParser,
+      },
     },
     plugins: {
       svelte: sveltePlugin,
@@ -78,14 +113,14 @@ export default [
     processor: 'svelte/svelte',
     rules: {
       ...sveltePlugin.configs.recommended.rules,
+      ...sveltePlugin.configs.prettier.rules,
     },
   },
 
-  // Disable rules interferring with prettier
+  // Disable formatting-related rules
   {
     rules: {
       ...prettierConfig.rules,
-      ...sveltePlugin.configs.prettier.rules,
     },
   },
 ]
