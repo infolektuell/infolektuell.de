@@ -22,8 +22,9 @@
   "devDependencies": {
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/sitemap": "^2.0.1",
+    "@astrojs/svelte": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "astro": "^2.9.1",
+    "astro": "^2.9.2",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.1.0",
@@ -40,6 +41,7 @@
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "prettier-plugin-svelte": "^3.0.0",
-    "remark-custom-heading-id": "^1.0.1"
+    "remark-custom-heading-id": "^1.0.1",
+    "svelte": "^4.1.1"
   }
 }
