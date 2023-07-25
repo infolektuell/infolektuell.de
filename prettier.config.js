@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import * as astroPlugin from 'prettier-plugin-astro'
 import * as sveltePlugin from 'prettier-plugin-svelte'
 

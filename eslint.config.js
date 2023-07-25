@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 // Globals for browser code
 import globals from 'globals'
 
