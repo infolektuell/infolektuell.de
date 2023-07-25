@@ -1,9 +1,10 @@
+import site from './site'
 export type LanguageDefinition = {
   code: string
   dir: 'ltr' | 'rtl'
 }
 
-const languages: Record<string, LanguageDefinition> = {
+export const languages: Record<string, LanguageDefinition | undefined> = {
   de: {
     code: 'de',
     dir: 'ltr',
@@ -14,4 +15,6 @@ const languages: Record<string, LanguageDefinition> = {
   },
 }
 
-export default languages
+export const lang = function (key: string = site.defaultLanguage): LanguageDefinition | null {
+  return languages[key] ?? null
+}
