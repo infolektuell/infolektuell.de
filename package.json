@@ -19,11 +19,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
+  "dependencies": {
+    "@picocss/pico": "^1.5.10"
+  },
   "devDependencies": {
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/sitemap": "^2.0.1",
     "@astrojs/svelte": "^3.1.0",
-    "@picocss/pico": "^1.5.10",
+    "@types/unist": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "astro": "^2.9.2",
     "eslint": "^8.45.0",
@@ -39,10 +42,13 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "markdownlint-cli": "^0.35.0",
+    "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "prettier-plugin-svelte": "^3.0.0",
+    "reading-time": "^1.5.0",
     "remark-custom-heading-id": "^1.0.1",
+    "simple-git": "^3.19.1",
     "svelte": "^4.1.1"
   }
 }
