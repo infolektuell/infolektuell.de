@@ -5,11 +5,11 @@ robots: { index: false }
 ---
 
 Zweck meiner Webseite ist es, Sie über mich und meine hauptberuflichen Tätigkeitsfelder zu informieren
-sowie Ihnen als potentiellem Klienten Wege zu bieten, mit mir in Kontakt zu treten und Aufträge anzubahnen.
+sowie Ihnen als potenziellem Klienten Wege zu bieten, mit mir in Kontakt zu treten und Aufträge anzubahnen.
 Durch die Nutzung meiner Seite geben Sie gelegentlich personenbezogene Daten an mich oder meine Auftragsverarbeiter weiter.
 Mit Personenbezzogenen Daten sind alle Daten gemeint, die auf eine bestimmte Person zurückgeführt werden können
 oder zur Identifizierung einer Person beitragen können.
-Dazu zählen z.B. Name, Email oder Anschrift, aber auch technische Daten wie die IP-Adresse und der Zeitpunkt, wann Sie die Seite besucht haben.
+Dazu zählen z.B. Name, E-Mail oder Anschrift, aber auch technische Daten wie die IP-Adresse und der Zeitpunkt, wann Sie die Seite besucht haben.
 Geschlecht, Alter oder Gesundheitsdaten zählen ebenfalls dazu, auch wenn sie allein nicht für eine Identifizierung ausreichen.
 Der Begriff ist also sehr weit gefasst.
 In Situationen, in denen ich personenbezogene Daten von Ihnen benötige, werde ich Sie immer vorher über den Zweck informieren und Ihre Einwilligung einholen.
@@ -17,7 +17,7 @@ In Situationen, in denen ich personenbezogene Daten von Ihnen benötige, werde i
 In diesem Dokument versuche ich verständlich zu erklären, welche Ihrer Daten ich für welche Zwecke nutze und welche Rechte Sie bzgl. Ihrer Daten haben.
 Verantwortlich für diese Seite und für den Datenschutz bin ich selbst, Kontaktdaten befinden sich im Impressum.
 
-## Zwecke der Nutzung Personenbezogener Daten
+## Zwecke der Nutzung personenbezogener Daten
 
 ### Logdateien und IP-Adressen
 
@@ -28,7 +28,7 @@ Die Verarbeitung dieser Daten ist also für den Betrieb zwingend notwendig.
 Dazu gehören die IP-Adresse Ihres Gerätes, Ihr Internet-Provider, Uhrzeit und Datum der Anfrage,
 aber auch z.B. welches Betriebssystem und welchen Browser Sie nutzen.
 
-Der Server speichert diese Anfragedaten in so genannten Log-Dateien.
+Der Server speichert diese Anfragedaten in sogenannten Log-Dateien.
 Diese Daten werden nicht mit anderen personenbezogenen Daten vermischt oder zusammengeführt.
 Zweck der Speicherung ist es, ggf. auf gezielte Cyberangriffe angemessen reagieren zu können oder Funktionsfehler zeitnah beheben zu können.
 Grundlage für die Datenverabeitung ist Artikel 6 der DS-GVO.
@@ -36,11 +36,11 @@ Dort wird die Verarbeitung von Daten zur Erfüllung von Vertrags- und rechtliche
 
 ### Kontaktdaten
 
-Wenn Sie das Kontaktformular nutzen, mir eine Email schreiben oder mich anrufen,
-erhalte ich Kontaktdaten von Ihnen, also Email-Adresse oder Telefonnummer.
+Wenn Sie das Kontaktformular nutzen, mir eine E-Mail schreiben oder mich anrufen,
+erhalte ich Kontaktdaten von Ihnen, also E-Mail-Adresse oder Telefonnummer.
 Dies ist notwendig, um auf Ihre Anfrage reagieren zu können.
 
-## Umgang mit Personenbezogenen Daten
+## Umgang mit personenbezogenen Daten
 
 ## Sicherheit
 
@@ -53,7 +53,7 @@ Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglic
 
 ### Hosting
 
-Diese Website und die geschäftliche Email-Korrespondenz liegen bei dem Hosting-Anbieter [ALL-INKL].
+Diese Website und die geschäftliche E-Mail-Korrespondenz liegen bei dem Hosting-Anbieter [ALL-INKL].
 Mit diesem Anbieter habe ich gemäß DS-GVO einen Auftragsdatenverarbeitungsvertrag abgeschlossen.
 Die Server stehen in Deutschland und die Daten werden nicht ins Ausland weitergegeben.
 
@@ -63,7 +63,7 @@ Die Server stehen in Deutschland und die Daten werden nicht ins Ausland weiterge
 
 Über das Kontaktformular können Sie mich direkt auf der Website anschreiben, ohne selbst eine Mail schicken zu müssen.
 Für die Verarbeitung der Einsendungen nutze ich den Dienst [Formspark],
-der die von Ihnen eingegebenen Inhalte entgegennimmt und an meine Email-Adresse weiterleitet.
+der die von Ihnen eingegebenen Inhalte entgegennimmt und an meine E-Mail-Adresse weiterleitet.
 Es erfolgt keine Weitergabe Ihrer Eingaben an Dritte.
 
 Um automatisierten Spam-Nachrichten vorzubeugen und andererseits die Eingabe eines Captcha zu vermeiden, nutze ich außerdem den Dienst [Botpoison].
@@ -82,4 +82,4 @@ sofern sie für den Zweck ihrer Erhebung und Verarbeitung nicht mehr benötigt w
 
 Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten,
 deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten.
-Bitte wenden Sie sich hierzu an die Impressum angegebene Adresse.
+Bitte wenden Sie sich hierzu an die im Impressum angegebene Adresse.

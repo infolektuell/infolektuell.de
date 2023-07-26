@@ -46,9 +46,9 @@ Warum habe ich mich dazu entschlossen, diese Angebote zu entwickeln?
 ## Mental Load
 
 Falls Sie in Beruf oder Privatleben für viele Bereiche die Verantwortung tragen, sind Sie evtl. einer hohen **mentalen Belastung** ausgesetzt.
-Sie müssen flexibel organisieren, für unvorhergesehene Fälle einen Plan B haben, alles mögliche berücksichtigen.
+Sie müssen flexibel organisieren, für unvorhergesehene Fälle einen Plan B haben, alles Mögliche berücksichtigen.
 Am Ende hängt es von Ihnen ab, dass keine Pannen auftreten.
-Die Belastung besteht darin, dass Sie immer neue hereinkommende Infos schnell bewerten und gewichten und dabei viele Abhängigkeiten berücksichtigen müssen.
+Die Belastung besteht darin, dass Sie immer neue hereinkommende Informationen schnell bewerten und gewichten und dabei viele Abhängigkeiten berücksichtigen müssen.
 Sie können keine Routinen aufbauen und sind im Dauerbereitschaftsmodus.
 Sie können nichts mehr **ausblenden** und sich nicht mehr auf eine Aufgabe **konzentrieren**.
 Das ist **geistiger und physischer Stress**, der nicht bagatellisiert werden sollte.
@@ -76,7 +76,7 @@ Wer ohne Internet aufgewachsen ist, hat die **Heuristik (Faustregel)** verinnerl
 Natürlich steht in vielen Büchern sehr viel Unsinn und über Details lässt sich immer streiten, aber es geht ja um eine Faustregel.
 So ein Buch zu schreiben und drucken zu lassen, ist schon eine gewisse Hürde, das hat jemand ernst gemeint.
 Sich zu spezielleren Themen zu informieren und Bücher aufzutreiben, kann mit viel Aufwand verbunden sein, da ist jede Information wertvoll.
-Inzwischen ist es aber so leicht, Worte öffentlich zu schreiben, dass das geschriebene Wort an sich kaum mehr Wert ist als das spontan gesprochene.
+Inzwischen ist es aber so leicht, Worte öffentlich zu schreiben, dass das geschriebene Wort an sich kaum mehr wert ist als das spontan gesprochene.
 Die **Heuristik** zieht also nicht mehr wie früher und wir müssen andere Kriterien für den **Wert einer Information** heranziehen.
 
 ## Selektion statt Kollektion
