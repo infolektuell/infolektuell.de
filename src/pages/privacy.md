@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/PageLayout.astro'
 title: Datenschutzerklärung
-robots: { index: false }
+robots: [noindex, follow, noarchive]
 ---
 
 Zweck meiner Webseite ist es, Sie über mich und meine hauptberuflichen Tätigkeitsfelder zu informieren

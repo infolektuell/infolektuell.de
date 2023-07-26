@@ -1,7 +1,6 @@
 ---
 layout: '@layouts/PageLayout.astro'
 title: Warum Infolektuell
-lang: fr
 keywords:
   - mentale Belastung
   - geistiger und physischer Stress

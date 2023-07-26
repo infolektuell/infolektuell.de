@@ -1,7 +1,7 @@
 ---
 layout: '@layouts/PageLayout.astro'
 title: Impressum
-robots: { index: false }
+robots: [noindex, follow, noarchive]
 ---
 
 Infolektuell\
