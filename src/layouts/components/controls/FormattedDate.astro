@@ -1,0 +1,13 @@
+---
+export type Props = {
+  date: Date
+  locale: string
+}
+const { date, locale }: Props = Astro.props
+const shortDate = new Intl.DateTimeFormat(locale, {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+})
+---
+
+<time datetime={date.toISOString()}>{shortDate.format(date)}</time>
