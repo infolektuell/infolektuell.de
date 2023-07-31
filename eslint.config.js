@@ -25,7 +25,7 @@ import svelteParser from 'svelte-eslint-parser'
 
 export default [
   {
-    ignores: ['.astro/**/*', 'dist/**/*'],
+    ignores: ['.astro/**/*', 'dist/**/*', 'src/env.d.ts'],
   },
 
   // Standard style
