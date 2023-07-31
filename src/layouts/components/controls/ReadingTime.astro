@@ -1,0 +1,9 @@
+---
+export type Props = {
+  minutes: number
+}
+const { minutes }: Props = Astro.props
+const duration = `${minutes}m`
+---
+
+<time datetime={duration}>{minutes} min</time>

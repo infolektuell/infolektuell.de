@@ -12,7 +12,7 @@ const plugin: RemarkPlugin = function remarkReadingTime() {
     }
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
-    data.frontmatter.minutesRead = readingTime.minutes
+    data.frontmatter.minutesRead = Math.ceil(readingTime.minutes)
   }
 }
 
