@@ -1,11 +1,25 @@
-export const MAIN_MENU = [
-  { href: '/blog', name: 'Blog' },
-  { href: '/about', name: '🤝 Über Infolektuell' },
-]
+export type MenuItem = {
+  name: string
+  href: string
+}
 
-export const FOOTER_MENU = [
-  { href: '/privacy', name: '🤐 Datenschutz' },
-  { href: '/impressum', name: '📮 Impressum' },
-]
+export type Menu = {
+  name: string
+  items: MenuItem[]
+}
 
-export default { main: MAIN_MENU, footer: FOOTER_MENU }
+export const mainMenu: Menu = {
+  name: 'Hauptnavigation',
+  items: [
+    { href: '/about', name: '🤝 Über Infolektuell' },
+    { href: '/contact', name: 'Kontakt' },
+  ],
+}
+
+export const legalMenu: Menu = {
+  name: 'Rechtliche Links',
+  items: [
+    { href: '/privacy', name: '🤐 Datenschutz' },
+    { href: '/impressum', name: '📮 Impressum' },
+  ],
+}
