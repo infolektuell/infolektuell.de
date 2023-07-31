@@ -1,0 +1,21 @@
+---
+import NavLink from '../controls/NavLink.astro'
+import site from '../../../config/site'
+import { mainMenu } from '../../../config/menus'
+---
+
+<header>
+  <h1><NavLink href="/">{site.title}</NavLink></h1>
+  <p>{site.subtitle}</p>
+</header>
+<nav aria-label={mainMenu.name}>
+  <ul>
+    {
+      mainMenu.items.map(({ href, name }) => (
+        <li>
+          <NavLink {href}>{name}</NavLink>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

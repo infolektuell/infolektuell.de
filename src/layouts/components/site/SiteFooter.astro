@@ -1,0 +1,21 @@
+---
+import NavLink from '../controls/NavLink.astro'
+import site from '../../../config/site'
+import { legalMenu } from '../../../config/menus'
+const today = new Date()
+---
+
+<footer>
+  <nav aria-label={legalMenu.name}>
+    <ul>
+      {
+        legalMenu.items.map(({ href, name }) => (
+          <li>
+            <NavLink {href}>{name}</NavLink>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <p>&copy; {today.getFullYear()} {site.author.name}. Alle Rechte vorbehalten.</p>
+</footer>
