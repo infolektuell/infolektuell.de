@@ -1,5 +1,6 @@
 export default {
   title: 'Infolektuell',
+  subtitle: 'Das Leben ist zu kurz für schlechte Informationen',
   description: 'Training und Beratung für Informationskompetenz',
   defaultLanguage: 'de',
   author: {
