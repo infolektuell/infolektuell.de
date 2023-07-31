@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/PageLayout.astro'
+layout: '@layouts/ArticleLayout.astro'
 title: Warum Infolektuell
 keywords:
   - mentale Belastung

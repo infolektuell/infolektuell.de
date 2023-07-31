@@ -1,0 +1,30 @@
+---
+import type { MarkdownLayoutProps } from 'astro'
+import { type ArticleData, articleData } from '../lib/schemas/article'
+import BaseLayout from './BaseLayout.astro'
+import FormattedDate from './components/controls/FormattedDate.astro'
+import ReadingTime from './components/controls/ReadingTime.astro'
+export type Props = MarkdownLayoutProps<ArticleData>
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+const fm = articleData.parse((Astro.props as Props).frontmatter)
+---
+
+<BaseLayout {...fm}>
+  <article>
+    <header>
+      <h1>{fm.title}</h1>
+      <p>Lesedauer: <ReadingTime minutes={fm.minutesRead} /></p>
+    </header>
+    <slot />
+    <footer>
+      {
+        fm.lastModified && fm.published && (
+          <p>
+            Aktualisiert: <FormattedDate date={fm.lastModified} locale={fm.lang.code} />, Veröffentlicht:{' '}
+            <FormattedDate date={fm.published} locale={fm.lang.code} />
+          </p>
+        )
+      }
+    </footer>
+  </article>
+</BaseLayout>
