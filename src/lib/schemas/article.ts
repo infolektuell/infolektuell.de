@@ -1,34 +1,13 @@
-// noinspection SpellCheckingInspection
-
 import { z } from 'zod'
-import site from '@config/site'
-import { type LanguageDefinition, languages } from '@config/languages'
+import { baseData } from './base'
 
-export const pageData = z.object({
+export const articleData = baseData.extend({
   title: z.string(),
   subtitle: z.string().optional(),
-  description: z.string().default(site.description),
-  lastModified: z.coerce.date(),
-  published: z.coerce.date(),
-  lang: z
-    .string()
-    .default(site.defaultLanguage)
-    .transform((val, ctx): LanguageDefinition => {
-      const languageDefinition = languages[val]
-      if (!languageDefinition) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `${val} is no defined language`,
-        })
-        return z.NEVER
-      }
-      return languageDefinition
-    }),
-  robots: z
-    .tuple([z.enum(['index', 'noindex']), z.enum(['follow', 'nofollow']), z.enum(['archive', 'noarchive'])])
-    .default(['index', 'follow', 'archive']),
-  image: z.string().optional(),
+  keywords: z.string().array().default([]),
+  lastModified: z.coerce.date().optional(),
+  published: z.coerce.date().optional(),
   minutesRead: z.number().min(1),
 })
 
-export type PageData = z.infer<typeof pageData>
+export type ArticleData = z.infer<typeof articleData>
