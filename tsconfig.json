@@ -10,6 +10,6 @@
       "@layouts/*": ["src/layouts/*"]
     },
     "strictNullChecks": true,
-    "typeRoots": ["./src/types", "./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"]
   }
 }
