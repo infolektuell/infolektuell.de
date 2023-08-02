@@ -1,0 +1,32 @@
+---
+import { type CollectionListData, collectionListData } from '@lib/schemas/collection-list'
+import { getCollection } from 'astro:content'
+import CollectionListLayout from '@layouts/CollectionListLayout.astro'
+
+const title = 'Trainings'
+const description = 'Neuigkeiten, Anleitungen und ergänzende Materialien rund ums Thema'
+const props: CollectionListData = collectionListData.parse({
+  title,
+  description,
+})
+const trainings = await getCollection('trainings')
+trainings.sort((a, b) => a.data.order - b.data.order)
+const createUrl = (slug: string) => `${Astro.url.pathname}/${slug}`
+---
+
+<CollectionListLayout {...props}>
+  {
+    trainings.map((training) => (
+      <article>
+        <h2>
+          <a href={createUrl(training.slug)}>{training.data.title}</a>
+        </h2>
+        <p>{training.data.description}</p>
+        <h2>
+          <a href={createUrl(training.slug)}>{training.data.title}</a>
+        </h2>
+        <p>{training.data.description}</p>
+      </article>
+    ))
+  }
+</CollectionListLayout>

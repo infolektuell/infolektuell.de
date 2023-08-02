@@ -1,0 +1,12 @@
+---
+import type { CollectionListData } from '@lib/schemas/collection-list'
+import BaseLayout from './BaseLayout.astro'
+export type Props = CollectionListData
+const { title, description }: Props = Astro.props
+---
+
+<BaseLayout {...Astro.props}>
+  <h1>{title}</h1>
+  <p>{description}</p>
+  <slot />
+</BaseLayout>
