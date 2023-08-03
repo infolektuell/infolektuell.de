@@ -11,6 +11,7 @@ export type Menu = {
 export const mainMenu: Menu = {
   name: 'Hauptnavigation',
   items: [
+    { href: '/', name: 'Infolektuell' },
     { href: '/trainings', name: '🎓 Trainings' },
     { href: '/about', name: '📝 Über Infolektuell' },
     { href: '/contact', name: '🤝 Kontakt' },
