@@ -9,7 +9,7 @@ import importPlugin from 'eslint-plugin-import'
 import nPlugin from 'eslint-plugin-n'
 import promisePlugin from 'eslint-plugin-promise'
 import standardJsConfig from 'eslint-config-standard'
-import prettierConfig from 'eslint-config-prettier'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 // Typescript
 import tsPlugin from '@typescript-eslint/eslint-plugin'
@@ -121,9 +121,5 @@ export default [
   },
 
   // Disable formatting-related rules
-  {
-    rules: {
-      ...prettierConfig.rules,
-    },
-  },
+  eslintConfigPrettier,
 ]
