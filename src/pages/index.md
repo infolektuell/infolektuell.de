@@ -9,12 +9,12 @@ Digitale oder Informationsmedien sind aus diversen Lebensbereichen kaum mehr weg
 Sie können das Alltagsleben erleichtern, aber auch belasten:
 
 - Sie versprechen Bequemlichkeit im Alltag, stattdessen wird vieles umständlicher und schwieriger.
-- Sie können Menschen zusammenbringen, aber auch trennen, z.B. wenn sich angehörige immer mehr zurückziehen.
-- Sie können informieren, durch ein Überangebot an Nachrichten aber auch verwirren.
+- Sie können Menschen zusammenbringen, aber auch trennen, z.B. wenn sich angehörige immer mehr zurückziehen oder politisch radikalisieren.
+- Sie können informieren, durch ein Überangebot an Nachrichten aber auch verunsichern, z.B. zu Themen über Gesundheit oder Ernährung.
 
 Mit vielen dieser Belastungen muss man sich nicht abfinden oder sich selbst dafür die Schuld geben.
 In meinen [Trainings](/trainings/) erfahren Sie,
-wie Sie digitale Medien in Ihrer individuellen Lebenssituation als Bereicherung einsetzen und Belastungen eliminieren können.
+wie Sie digitale Medien in Ihrer individuellen Lebenssituation als Bereicherung einsetzen und Belastungen reduzieren können.
 Sehen Sie sich gern genauer in meinem [Angebot](trainings/) um.
 
 ## Keine Realitätsflucht
