@@ -1,11 +1,11 @@
 <script lang="ts">
 import { createForm } from 'felte'
 import { z } from 'zod'
-import { validateSchema } from '@felte/validator-zod'
+import { validateSchema } from './felte-validator-zod'
 import reporter from '@felte/reporter-dom'
 import providers from '@config/providers'
 import { formsparkData, formsparkSubmit } from './formspark'
-
+import { formErrorMap } from './error-map'
 const contactFormData = formsparkData.extend({
   name: z.string().nonempty(),
   contact: z.discriminatedUnion('preferred', [
@@ -19,7 +19,7 @@ const contactFormData = formsparkData.extend({
     }),
   ]),
   message: z.string().nonempty(),
-  accept: z.boolean().refine((val) => val),
+  accept: z.boolean().refine((val) => val, { message: 'Sie müssen die Datenschutzbedingungen akzeptieren' }),
 })
 type ContactFormData = z.infer<typeof contactFormData>
 
@@ -33,7 +33,7 @@ const { form, data, isSubmitting } = createForm<ContactFormData>({
   onError: (errors) => {
     console.log(errors)
   },
-  validate: validateSchema(contactFormData),
+  validate: validateSchema(contactFormData, formErrorMap),
   initialValues: {
     contact: {
       preferred: 'email',
@@ -44,8 +44,7 @@ const { form, data, isSubmitting } = createForm<ContactFormData>({
 })
 </script>
 
-<pre>{JSON.stringify($data, null, 2)}</pre>
-<form use:form data-botpoison-public-key="{providers.botpoison.publicKey}">
+<form use:form>
   <input type="hidden" name="_email.from" value="infolektuell.de" />
   <input type="hidden" name="_email.subject" value="Neue Kontaktanfrage" />
   <label for="inputName">Name</label>
@@ -71,8 +70,8 @@ const { form, data, isSubmitting } = createForm<ContactFormData>({
   <label for="inputMessage">Nachricht</label>
   <textarea required name="message" id="inputMessage" rows="5" placeholder="Ihre Nachricht"></textarea>
   <div data-felte-reporter-dom-for="message" aria-live="polite"></div>
-  <label for="acceptInput"> Ich akzeptiere die Datenschutzbedingungen. </label>
   <input type="checkbox" required name="accept" id="acceptInput" />
+  <label for="acceptInput"> Ich akzeptiere die Datenschutzbedingungen. </label>
   <div data-felte-reporter-dom-for="accept" aria-live="polite"></div>
   <button type="submit" disabled="{$isSubmitting}">Abschicken</button>
 </form>
