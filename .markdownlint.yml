@@ -2,6 +2,7 @@
 MD013:
   line_length: 160
   code_block_line_length: 120
+MD025: false
 MD046: { style: fenced }
 
 # Rules covered by prettier
