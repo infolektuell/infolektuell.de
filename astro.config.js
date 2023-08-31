@@ -15,7 +15,6 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
   },
-  compressHTML: true,
   server: {
     port: 8080,
   },
