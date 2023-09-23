@@ -8,70 +8,75 @@ import { formsparkData, formsparkSubmit } from './formspark'
 import { formErrorMap } from './error-map'
 const contactFormData = formsparkData.extend({
   name: z.string().nonempty(),
-  contact: z.discriminatedUnion('preferred', [
-    z.object({
-      preferred: z.literal('email'),
-      email: z.string().email(),
-    }),
-    z.object({
-      preferred: z.literal('phone'),
-      phone: z.string().nonempty(),
-    }),
-  ]),
+  contact: z.object({
+    email: z.string().email(),
+    phone: z.string(),
+  }),
   message: z.string().nonempty(),
-  accept: z.boolean().refine((val) => val, { message: 'Sie müssen die Datenschutzbedingungen akzeptieren' }),
+  accept: z.boolean().refine((val) => val, { message: 'Bitte akzeptieren Sie die Datenschutzbedingungen' }),
 })
 type ContactFormData = z.infer<typeof contactFormData>
+enum SubmitState {
+  Unsubmitted,
+  Success,
+  Failure,
+}
 
-const { form, data, isSubmitting } = createForm<ContactFormData>({
+const { form, isSubmitting, isValid, reset } = createForm<ContactFormData>({
   onSubmit: async (values) => {
     return await formsparkSubmit(providers.formspark.forms.contact.id, values)
   },
-  onSuccess: (response) => {
-    console.log(response)
+  onSuccess: () => {
+    submitState = SubmitState.Success
   },
-  onError: (errors) => {
-    console.log(errors)
+  onError: () => {
+    submitState = SubmitState.Failure
   },
   validate: validateSchema(contactFormData, formErrorMap),
   initialValues: {
-    contact: {
-      preferred: 'email',
-    },
     accept: false,
   },
   extend: [reporter({ single: true })],
 })
+let submitState = SubmitState.Unsubmitted
+const resetSubmitState = function () {
+  reset()
+  submitState = SubmitState.Unsubmitted
+}
+$: isSubmittable = $isValid && !$isSubmitting
 </script>
 
 <form use:form>
   <input type="hidden" name="_email.from" value="infolektuell.de" />
   <input type="hidden" name="_email.subject" value="Neue Kontaktanfrage" />
-  <label for="inputName">Name</label>
-  <input type="text" required name="name" id="inputName" placeholder="Alex Anonym" aria-describedby="name-validation" />
-  <div id="name-validation" data-felte-reporter-dom-for="name" aria-live="polite"></div>
-  <fieldset>
-    <legend>Wie soll ich Ihre Anfrage beantworten?</legend>
-    <input type="radio" checked id="prefer_email" name="contact.preferred" value="email" />
-    <label for="prefer_email">Email</label>
-    <input type="radio" id="prefer_phone" name="contact.preferred" value="phone" />
-    <label for="prefer_phone">Telefon</label>
-    {#if $data.contact.preferred === 'email'}
-      <label for="inputEmail">Email</label>
-      <input type="email" required name="contact.email" id="inputEmail" placeholder="beispiel@beispiel.de" />
-      <div data-felte-reporter-dom-for="contact.email" aria-live="polite"></div>
-    {/if}
-    {#if $data.contact.preferred === 'phone'}
-      <label for="inputPhone">Telefon</label>
-      <input type="tel" required name="contact.phone" id="inputPhone" placeholder="01234 56789" />
-      <div data-felte-reporter-dom-for="contact.phone" aria-live="polite"></div>
-    {/if}
-  </fieldset>
-  <label for="inputMessage">Nachricht</label>
+  <label for="inputMessage">Was kann ich für Sie tun?</label>
   <textarea required name="message" id="inputMessage" rows="5" placeholder="Ihre Nachricht"></textarea>
   <div data-felte-reporter-dom-for="message" aria-live="polite"></div>
+  <label for="inputName">Name</label>
+  <input type="text" required name="name" id="inputName" placeholder="Alex Meyer" aria-describedby="name-validation" />
+  <div id="name-validation" data-felte-reporter-dom-for="name" aria-live="polite"></div>
+  <label for="inputEmail">Email-Adresse</label>
+  <input type="email" required name="contact.email" id="inputEmail" placeholder="beispiel@beispiel.de" />
+  <div data-felte-reporter-dom-for="contact.email" aria-live="polite"></div>
+  <label for="inputPhone">Telefonnummer für Rückfragen (Optional)</label>
+  <input type="tel" name="contact.phone" id="inputPhone" placeholder="01234 56789" />
+  <div data-felte-reporter-dom-for="contact.phone" aria-live="polite"></div>
   <input type="checkbox" required name="accept" id="acceptInput" />
-  <label for="acceptInput"> Ich akzeptiere die Datenschutzbedingungen. </label>
+  <label for="acceptInput"
+    >Hiermit akzeptiere ich die Verarbeitung meiner Angaben gemäß der <a href="/privacy">Datenschutzbedingungen</a
+    >.</label
+  >
   <div data-felte-reporter-dom-for="accept" aria-live="polite"></div>
-  <button type="submit" disabled="{$isSubmitting}">Abschicken</button>
+  {#if submitState === SubmitState.Unsubmitted}
+    <button type="submit" disabled="{!isSubmittable}">Absenden</button>
+  {:else if submitState === SubmitState.Success}
+    <p>
+      Vielen Dank. Ihre Anfrage ist eingegangen und ich werde mich innerhalb der nächsten zwei Werktage bei Ihnen
+      melden.
+    </p>
+    <button type="reset" on:click="{resetSubmitState}">Neue Anfrage</button>
+  {:else if submitState === SubmitState.Failure}
+    <p>Beim Absenden ist ein Fehler aufgetreten.</p>
+    <button type="submit" disabled="{!isSubmittable}">Noch einmal versuchen</button>
+  {/if}
 </form>
