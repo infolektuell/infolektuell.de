@@ -1,0 +1,17 @@
+photo: './tamara-cook.jpg'
+name:
+  family: Cook
+  given: Tamara
+  additional: Chantal
+  suffix: M.Sc. Psych.
+title: Digital-Coach
+email: 'info@infolektuell.de'
+tel: '+49 6421 5438843'
+address:
+  street: Gisselberger Str. 2
+  locality: Marburg
+  postalCode: '35037'
+  country: Deutschland
+social:
+  github: 'https://github.com/infolektuell'
+  linkedin: 'https://linkedin.com/in/tamaracook'
