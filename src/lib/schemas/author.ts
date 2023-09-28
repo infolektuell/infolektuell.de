@@ -29,6 +29,7 @@ export const authorSchema = z.object({
     .regex(/^\+[\d\s]+/g)
     .optional(),
   address: addressSchema.optional(),
+  social: z.record(z.string(), z.string().url()),
 })
 
 export type Author = z.infer<typeof authorSchema>

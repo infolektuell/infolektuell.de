@@ -1,6 +1,6 @@
 // noinspection SpellCheckingInspection
 
-import { z } from 'zod'
+import { z } from 'astro:content'
 import site from '@config/site'
 import { type LanguageDefinition, languages } from '@config/languages'
 

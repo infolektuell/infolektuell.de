@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from 'astro:content'
 import { baseData } from './base'
 
 export const articleData = baseData.extend({
