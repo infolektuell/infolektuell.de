@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import axios from 'axios'
 import Botpoison from '@botpoison/browser'
 import providers from '@config/providers'
 const botpoison = new Botpoison({ publicKey: providers.botpoison.publicKey })
@@ -25,5 +24,25 @@ export const formsparkSubmit = async function <T extends FormsparkData>(id: stri
   const url = `https://submit-form.com/${id}`
   const { solution } = await botpoison.challenge()
   values._botpoison = solution
-  return await axios.post(url, values)
+  const options = {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+    },
+    body: JSON.stringify(values),
+  }
+  const response = await fetch(url, options)
+  if (response.ok) {
+    return response.json()
+  } else {
+    throw new FetchError(response)
+  }
+}
+
+class FetchError extends Error {
+  public status: number
+  constructor(public response: Response) {
+    super(response.statusText)
+    this.status = response.status
+  }
 }

@@ -29,7 +29,6 @@
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
     "@picocss/pico": "^1.5.10",
-    "axios": "^1.4.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {
