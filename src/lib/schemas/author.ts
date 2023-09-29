@@ -1,12 +1,34 @@
 import { z } from 'astro:content'
 
-const nameSchema = z.object({
-  prefix: z.string().optional(),
-  family: z.string(),
-  given: z.string(),
-  additional: z.string().optional(),
-  suffix: z.string().optional(),
-})
+const nameSchema = z
+  .object({
+    prefix: z.string().optional(),
+    family: z.string(),
+    given: z.string(),
+    additional: z.string().optional(),
+    suffix: z.string().optional(),
+    display: z.string().optional(),
+  })
+  .transform((val) => {
+    if (val.display) {
+      return val
+    }
+    const { family, given, additional, prefix, suffix } = val
+    let str: string
+    if (additional) {
+      str = `${given} ${additional.charAt(0)}. ${family}`
+    } else {
+      str = `${given} ${family}`
+    }
+    if (prefix) {
+      str = `${prefix} ${str}`
+    }
+    if (suffix) {
+      str = `${str}, ${suffix}`
+    }
+    val.display = str
+    return val
+  })
 export type Name = z.infer<typeof nameSchema>
 
 const addressSchema = z.object({
