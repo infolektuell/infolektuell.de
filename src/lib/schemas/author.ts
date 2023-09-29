@@ -20,16 +20,16 @@ const addressSchema = z.object({
 })
 export type Address = z.infer<typeof addressSchema>
 
+const phoneNumberSchema = z.string().regex(/^\+[\d\s]+/g)
+
 export const authorSchema = z.object({
   name: nameSchema,
   title: z.string().optional(),
   email: z.string().email().optional(),
-  phone: z
-    .string()
-    .regex(/^\+[\d\s]+/g)
-    .optional(),
+  phone: phoneNumberSchema.optional(),
+  mobile: phoneNumberSchema.optional(),
   address: addressSchema.optional(),
-  social: z.record(z.string(), z.string().url()),
+  social: z.record(z.string(), z.string().url()).optional(),
 })
 
 export type Author = z.infer<typeof authorSchema>
