@@ -1,8 +1,10 @@
 ---
+import { getEntry } from 'astro:content'
 import NavLink from '../controls/NavLink.astro'
-import site from '../../../config/site'
+import siteConfig from '@config/site'
 import { legalMenu } from '../../../config/menus'
 const today = new Date()
+const author = await getEntry('authors', siteConfig.author)
 ---
 
 <footer>
@@ -17,5 +19,11 @@ const today = new Date()
       }
     </ul>
   </nav>
-  <p>&copy; {today.getFullYear()} {site.author.name}. Alle Rechte vorbehalten.</p>
+  {
+    author && (
+      <p>
+        &copy; {today.getFullYear()} {author.data.name.display}. Alle Rechte vorbehalten.
+      </p>
+    )
+  }
 </footer>
