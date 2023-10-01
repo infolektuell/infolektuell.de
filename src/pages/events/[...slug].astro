@@ -1,0 +1,32 @@
+---
+import { type GetStaticPaths } from 'astro'
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import FormattedDate from '@layouts/components/controls/FormattedDate.astro'
+
+type Props = {
+  event: CollectionEntry<'events'>
+}
+
+const { event }: Props = Astro.props
+const { Content } = await event.render()
+const host = await getEntry(event.data.host)
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const events = await getCollection('events')
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }))
+}
+---
+
+<BaseLayout {...event.data}>
+  <h1>{event.data.title}</h1>
+  <ul>
+    <li>{host.data.name.display}</li>
+    <li>Datum: <FormattedDate date={event.data.start} /></li>
+    <li>Ort: {event.data.location}</li>
+  </ul>
+  <Content />
+</BaseLayout>

@@ -13,6 +13,7 @@ export const mainMenu: Menu = {
   items: [
     { href: '/', name: 'Infolektuell' },
     { href: '/trainings', name: '🎓 Trainings' },
+    { href: '/events', name: '📅 Termine' },
     { href: '/about', name: '📝 Über Infolektuell' },
     { href: '/contact', name: '🤝 Kontakt' },
   ],

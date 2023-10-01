@@ -1,0 +1,30 @@
+---
+import { type CollectionListData, collectionListData } from '@lib/schemas/collection-list'
+import { getCollection } from 'astro:content'
+import CollectionListLayout from '@layouts/CollectionListLayout.astro'
+
+const title = 'Termine'
+const description = 'Infolektuelle Veranstaltungen, Vorträge, Diskussionen'
+const props: CollectionListData = collectionListData.parse({
+  title,
+  description,
+})
+const events = await getCollection('events')
+const createUrl = (slug: string) => `${Astro.url.pathname}/${slug}`
+---
+
+<CollectionListLayout {...props}>
+  {
+    events.map((event) => (
+      <article>
+        <h2>
+          <a href={createUrl(event.slug)}>{event.data.title}</a>
+        </h2>
+        <ul>
+          <li>Zeit: {event.data.start}</li>
+          <li>Ort: {event.data.location}</li>
+        </ul>
+      </article>
+    ))
+  }
+</CollectionListLayout>
