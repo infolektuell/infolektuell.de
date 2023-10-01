@@ -8,7 +8,7 @@ Infolektuell\
 Tamara Cook\
 Gisselberger Str. 2\
 35037 Marburg\
-Tel: 06421 8090642\
+Tel: +49 6421 8843543\
 [info@infolektuell.de](mailto:info@infolektuell.de)
 
 ## Disclaimer - rechtliche Hinweise
