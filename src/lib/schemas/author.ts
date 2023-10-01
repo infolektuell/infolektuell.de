@@ -9,26 +9,28 @@ const nameSchema = z
     suffix: z.string().optional(),
     display: z.string().optional(),
   })
-  .transform((val) => {
-    if (val.display) {
-      return val
-    }
-    const { family, given, additional, prefix, suffix } = val
-    let str: string
-    if (additional) {
-      str = `${given} ${additional.charAt(0)}. ${family}`
-    } else {
-      str = `${given} ${family}`
-    }
-    if (prefix) {
-      str = `${prefix} ${str}`
-    }
-    if (suffix) {
-      str = `${str}, ${suffix}`
-    }
-    val.display = str
-    return val
-  })
+  .transform((val) => ({
+    ...val,
+    get display() {
+      if (val.display) {
+        return val.display
+      }
+      const { family, given, additional, prefix, suffix } = val
+      let str: string
+      if (additional) {
+        str = `${given} ${additional.charAt(0)}. ${family}`
+      } else {
+        str = `${given} ${family}`
+      }
+      if (prefix) {
+        str = `${prefix} ${str}`
+      }
+      if (suffix) {
+        str = `${str}, ${suffix}`
+      }
+      return str
+    },
+  }))
 export type Name = z.infer<typeof nameSchema>
 
 const addressSchema = z.object({
