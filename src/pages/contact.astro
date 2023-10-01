@@ -1,0 +1,22 @@
+---
+import { getEntry } from 'astro:content'
+import { baseData } from '@lib/schemas/base'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import ContactForm from '@layouts/components/forms/ContactForm.svelte'
+import VCard from '@layouts/components/controls/vcard.astro'
+const title = 'Kontakt'
+const person = await getEntry('authors', 'tamara-cook')
+const fm = baseData.parse({ title })
+---
+
+<BaseLayout {...fm}>
+  <h1>{title}</h1>
+  <p>
+    Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen
+    melden und einen Kennenlerntermin vorschlagen.
+  </p>
+  <ContactForm client:load />
+  <h2>Weitere Kontaktmöglichkeiten</h2>
+  <p>Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.</p>
+  <VCard {person} />
+</BaseLayout>
