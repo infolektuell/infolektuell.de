@@ -4,7 +4,7 @@ import { eventSchema } from '@lib/schemas/event'
 import { trainingData } from '@lib/schemas/training'
 
 const authors = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: ({ image }) => {
     return authorSchema.extend({
       photo: image().optional(),

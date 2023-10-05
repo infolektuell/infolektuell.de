@@ -1,3 +1,5 @@
+---
+title: Tamara Cook
 photo: './tamara-cook.jpg'
 name:
   family: Cook
@@ -15,3 +17,9 @@ address:
 social:
   github: 'https://github.com/infolektuell'
   linkedin: 'https://linkedin.com/in/tamaracook'
+---
+
+- Studium der Psychologie an der JLU Gießen
+- Themenschwerpunkte: Kognitive Psychologie, Methodenlehre und Statistik, pädagogische Psychologie, Erkenntnisgewinn
+- Berufserfahrung in verschiedenen IT-Bereichen wie Softwareentwicklung oder Forschungsdatenmanagement
+- Aufmerksame Zuhörerin und Problemlöserin

@@ -4,7 +4,9 @@ import { baseData } from './base'
 export const trainingData = baseData.extend({
   title: z.string(),
   subtitle: z.string().optional(),
-  order: z.number().int().min(1),
+  icon: z.string().optional(),
+  motto: z.string().optional(),
+  order: z.number().int().min(1).default(10),
   keywords: z.string().array().default([]),
   sessions: z.number().int().min(1).default(5),
   price: z.string().default('120/h'),
