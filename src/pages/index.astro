@@ -1,0 +1,45 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+import { baseData } from '@lib/schemas/base'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import TrainingSummary from '@layouts/components/controls/TrainingSummary.astro'
+const title = 'Willkommen'
+const fm = baseData.parse({ title })
+const person = await getEntry('authors', 'tamara-cook')
+const { name } = person.data
+const { Content: Bio } = await person.render()
+const trainings = await getCollection('trainings')
+---
+
+<BaseLayout {...fm}>
+  <h1>{title}</h1>
+  <h2>Angebote</h2>
+  {
+    trainings.map((training) => (
+      <article>
+        <h3>
+          <a href={'/trainings/' + training.slug}>
+            {training.data.icon} {training.data.title}
+          </a>
+        </h3>
+        <TrainingSummary {training} />
+      </article>
+    ))
+  }
+  <h2>🚫 Das bekommen Sie hier nicht</h2>
+  <ul>
+    <li>
+      Sie müssen bei mir nicht Ihr Ego loslassen oder Ihre Probleme wegatmen. Sie und Ihr Anliegen stehen im Mittelpunkt
+      und wir entwickeln gemeinsam Lösungsansätze und Strategien.
+    </li>
+    <li>Esoterik und Realitätsflucht, Reichtum und Schönheit durch Wünsche ans Universum</li>
+    <li>
+      Ich bin keine Psychotherapeutin. Sollten sich Klienten für eine Therapie entscheiden, erhalten sie dabei meine
+      vollste Unterstützung. Am besten ist es natürlich, wenn es dazu nicht erst kommen muss.
+    </li>
+  </ul>
+  <h2>{name.display}</h2>
+  <Bio />
+  <h2>Interessiert?</h2>
+  <a href="/contact/">Kontaktanfrage senden und kostenloses Kennenlerngespräch vereinbaren</a>
+</BaseLayout>

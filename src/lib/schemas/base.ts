@@ -25,6 +25,8 @@ export const baseData = z.object({
     .tuple([z.enum(['index', 'noindex']), z.enum(['follow', 'nofollow']), z.enum(['archive', 'noarchive'])])
     .default(['index', 'follow', 'archive']),
   image: z.string().optional(),
+  categories: z.string().array().default([]),
+  tags: z.string().array().default([]),
 })
 
 export type BaseData = z.infer<typeof baseData>
