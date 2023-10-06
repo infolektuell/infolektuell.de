@@ -1,8 +1,8 @@
 ---
-import '@picocss/pico/css/pico.min.css'
+import 'bulma/css/bulma.css'
 import type { BaseData } from '../lib/schemas/base'
-import Header from './components/site/SiteHeader.astro'
-import Footer from './components/site/SiteFooter.astro'
+import Header from '../components/site/SiteHeader.astro'
+import Footer from '../components/site/SiteFooter.astro'
 import site from '@config/site'
 
 export type Props = BaseData
@@ -10,7 +10,7 @@ const { title, description, lang, image, robots }: Props = Astro.props
 const pageTitle = `${title} | ${site.title}`
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang.code} dir={lang.dir}>
   <head>
     <!-- Global Metadata -->

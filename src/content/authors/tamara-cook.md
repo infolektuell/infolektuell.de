@@ -1,5 +1,4 @@
 ---
-title: Tamara Cook
 photo: './tamara-cook.jpg'
 name:
   family: Cook

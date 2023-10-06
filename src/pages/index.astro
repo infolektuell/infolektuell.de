@@ -2,7 +2,7 @@
 import { getCollection, getEntry } from 'astro:content'
 import { baseData } from '@lib/schemas/base'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import TrainingSummary from '@layouts/components/controls/TrainingSummary.astro'
+import TrainingSummary from '../components/controls/TrainingSummary.astro'
 const title = 'Willkommen'
 const fm = baseData.parse({ title })
 const person = await getEntry('authors', 'tamara-cook')

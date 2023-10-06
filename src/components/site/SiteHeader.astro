@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets'
+import NavLink from '../controls/NavLink.astro'
+import siteConfig from '@config/site'
+import { mainMenu } from '../../config/menus'
+import logo from '../../assets/images/placeholder-social.jpg'
+---
+
+<header>
+  <bulma-navbar>
+    <nav class="navbar" aria-label={mainMenu.name}>
+      <div class="navbar-brand">
+        <a class="navbar-item" href={Astro.site}>
+          <Image src={logo} alt={siteConfig.title} />
+        </a>
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          id="navBurger"
+          data-target="navMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+          {
+            mainMenu.items.map(({ href, name }) => (
+              <NavLink class="menu-item" {href}>
+                {name}
+              </NavLink>
+            ))
+          }
+        </div>
+      </div>
+    </nav>
+  </bulma-navbar>
+</header>
+
+<script>
+  class Navbar extends HTMLElement {
+    constructor() {
+      super()
+      const $burger: HTMLElement | null = this.querySelector('#navBurger')
+      $burger?.addEventListener('click', () => {
+        const target = $burger.dataset.target
+        const $target = this.querySelector('#' + target)
+        if ($target) {
+          $burger.classList.toggle('is-active')
+          $target.classList.toggle('is-active')
+        }
+      })
+    }
+  }
+  window.customElements.define('bulma-navbar', Navbar)
+</script>

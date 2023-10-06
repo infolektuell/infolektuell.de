@@ -1,18 +1,18 @@
 <script lang="ts">
 import { createForm } from 'felte'
 import { z } from 'zod'
-import { validateSchema } from './felte-validator-zod'
+import { validateSchema } from './felte-validator-zod.ts'
 import reporter from '@felte/reporter-dom'
-import providers from '@config/providers'
-import { formsparkData, formsparkSubmit } from './formspark'
-import { formErrorMap } from './error-map'
+import providers from '@config/providers.ts'
+import { formsparkData, formsparkSubmit } from './formspark.ts'
+import { formErrorMap } from './error-map.ts'
 const contactFormData = formsparkData.extend({
-  name: z.string().nonempty(),
+  name: z.string().min(1),
   contact: z.object({
     email: z.string().email(),
     phone: z.string(),
   }),
-  message: z.string().nonempty(),
+  message: z.string().min(1),
   accept: z.boolean().refine((val) => val, { message: 'Bitte akzeptieren Sie die Datenschutzbedingungen' }),
 })
 type ContactFormData = z.infer<typeof contactFormData>

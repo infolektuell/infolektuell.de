@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import Botpoison from '@botpoison/browser'
-import providers from '@config/providers'
+import providers from '@config/providers.ts'
 const botpoison = new Botpoison({ publicKey: providers.botpoison.publicKey })
 
 const formsparkEmail = z
@@ -33,7 +33,7 @@ export const formsparkSubmit = async function <T extends FormsparkData>(id: stri
   }
   const response = await fetch(url, options)
   if (response.ok) {
-    return response.json()
+    return response
   } else {
     throw new FetchError(response)
   }

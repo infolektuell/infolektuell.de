@@ -2,8 +2,8 @@
 import { getEntry } from 'astro:content'
 import { baseData } from '@lib/schemas/base'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import ContactForm from '@layouts/components/forms/ContactForm.svelte'
-import VCard from '@layouts/components/controls/vcard.astro'
+import ContactForm from '../components/forms/ContactForm.svelte'
+import VCard from '../components/controls/vcard.astro'
 const title = 'Kontakt'
 const person = await getEntry('authors', 'tamara-cook')
 const fm = baseData.parse({ title })
