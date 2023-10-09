@@ -1,7 +1,10 @@
 ---
 title: No Bullshit Kommunikationstraining
 icon: ⚙️
-categories: [Training]
+customers: business
+format:
+  kind: course
+  price-per-hour: { amount: 12000 }
 audience: [Unternehmen, IT-Betriebe, Ingenieursbetriebe]
 ---
 
@@ -37,3 +40,9 @@ In meinem Training kommt diesem Thema eine besondere Bedeutung zu.
 
 Agile Methoden wie das Scrum-Modell haben ihre Berechtigung, die Umsetzung muss aber zum Unternehmen passen.
 Bei Bedarf gehe ich auch auf agile Modelle ein, falls sich Elemente daraus sinnvoll integrieren lassen.
+
+# 🚫 Das bekommen Sie hier nicht, versprochen
+
+- Sie müssen bei mir nicht _Ihr Ego loslassen_ oder _Ihre Probleme wegatmen._
+- Ich versuche nicht, in Ihre Mimik irgendetwas hineinzuinterpretieren oder heimlich Ihre Gedanken durch Sprache zu manipulieren.
+- Ich will nicht, dass Sie sich hinterher alle lieb haben, sondern ich will, dass motivierte Mitarbeiter besser arbeiten können.
