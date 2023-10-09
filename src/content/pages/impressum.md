@@ -1,5 +1,4 @@
 ---
-layout: '@layouts/ArticleLayout.astro'
 title: Impressum
 robots: [noindex, follow, noarchive]
 ---

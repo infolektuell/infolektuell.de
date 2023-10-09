@@ -1,0 +1,51 @@
+---
+import { type GetStaticPaths } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import ReadingTime from '../../components/controls/ReadingTime.astro'
+import FormattedDate from '../../components/controls/FormattedDate.astro'
+import { frontmatterSchema } from '../../schemas/frontmatter'
+
+type Props = CollectionEntry<'pages'>
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const pages = await getCollection('pages')
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }))
+}
+
+const page: Props = Astro.props
+const { title, lang } = page.data
+const { Content, remarkPluginFrontmatter } = await page.render()
+const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
+const { minutesRead, lastModified } = fm
+const seo = { title }
+---
+
+<BaseLayout {seo}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      {
+        minutesRead && (
+          <p>
+            Lesedauer:
+            <ReadingTime minutes={minutesRead} />
+          </p>
+        )
+      }
+    </header>
+    <Content />
+    <footer>
+      {
+        lastModified && (
+          <p>
+            Aktualisiert: <FormattedDate date={lastModified} locale={lang.code} />
+          </p>
+        )
+      }
+    </footer>
+  </article>
+</BaseLayout>

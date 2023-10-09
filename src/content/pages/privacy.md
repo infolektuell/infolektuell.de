@@ -1,5 +1,4 @@
 ---
-layout: '@layouts/ArticleLayout.astro'
 title: Datenschutzerklärung
 robots: [noindex, follow, noarchive]
 ---
