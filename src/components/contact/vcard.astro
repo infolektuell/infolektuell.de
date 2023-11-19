@@ -1,0 +1,81 @@
+---
+import { type CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import SocialLink from './SocialLink.astro'
+
+type Props = {
+  person: CollectionEntry<'authors'>
+}
+const { person } = Astro.props
+const { name, photo, title, address, email, phone, mobile, social } = person.data
+---
+
+<article class="card">
+  <header class="card-header">
+    <p class="card-header-title">Kontaktdaten</p>
+    <a class="card-header-icon" href={`/vcards/${person.id}.vcf`} aria-label="Download VCard">
+      <span class="icon">
+        <Icon name="fa6-regular:address-card" />
+      </span>
+    </a>
+  </header>
+  <div class="card-image">
+    <figure class="image">
+      {photo && <Image alt="Photo" src={photo} />}
+    </figure>
+  </div>
+  <div class="card-content">
+    <p class="title">{name.display}</p>
+    <p class="subtitle">{title}</p>
+    {
+      address && (
+        <address class="has-text-left">
+          {email && (
+            <>
+              <a class="button is-link" href={'mailto:' + email}>
+                <span class="icon">
+                  <Icon name="fa6-solid:envelope" />
+                </span>
+                <span>{email}</span>
+              </a>
+              <br />
+            </>
+          )}
+          {phone && (
+            <>
+              <a class="button is-link" href={'tel:' + phone.replace(/\s+/g, '')}>
+                <span class="icon">
+                  <Icon name="fa6-solid:phone" />
+                </span>
+                <span>{phone}</span>
+              </a>
+              <br />
+            </>
+          )}
+          {mobile && (
+            <>
+              <a class="button is-link" href={'tel:' + mobile.replace(/\s+/g, '')}>
+                <span class="icon">
+                  <Icon name="fa6-solid:mobile" />
+                </span>
+                <span>{mobile}</span>
+              </a>
+              <br />
+            </>
+          )}
+          <span>{address.street}</span>
+          <br />
+          <span>{address.postalCode}</span>
+          <span>{address.locality}</span>
+        </address>
+      )
+    }
+  </div>
+  <footer class="card-footer">
+    {
+      social &&
+        Object.entries(social).map(([provider, handle]) => <SocialLink class="card-footer-item" {provider} {handle} />)
+    }
+  </footer>
+</article>
