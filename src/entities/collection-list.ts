@@ -1,5 +1,5 @@
 import { z } from 'astro:content'
-import { baseData } from './base'
+import { baseData } from './base.ts'
 
 export const collectionListData = baseData.extend({
   robots: z

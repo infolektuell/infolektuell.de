@@ -1,15 +1,48 @@
-import { defineCollection } from 'astro:content'
-import { authorSchema } from '@lib/schemas/author'
-import { eventSchema } from '@lib/schemas/event'
-import { trainingData } from '@lib/schemas/training'
+import { defineCollection, z } from 'astro:content'
+import {
+  authorSchema,
+  localeSchema,
+  tagSchema,
+  eventSchema,
+  pageSchema,
+  coachingSchema,
+  courseSchema,
+  serviceSchema,
+  quizSchema,
+  trainingSchema,
+} from '../entities'
+
+const locales = defineCollection({
+  type: 'data',
+  schema: localeSchema,
+})
+
+const tags = defineCollection({
+  type: 'data',
+  schema: tagSchema,
+})
 
 const authors = defineCollection({
-  type: 'content',
-  schema: ({ image }) => {
-    return authorSchema.extend({
+  type: 'data',
+  schema: ({ image }) =>
+    authorSchema.extend({
       photo: image().optional(),
-    })
-  },
+    }),
+})
+
+const pages = defineCollection({
+  type: 'content',
+  schema: pageSchema,
+})
+
+const posts = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    pageSchema.extend({
+      cover: image().optional(),
+      cover_alt: z.string().optional(),
+      publishedTime: z.coerce.date().default(new Date()),
+    }),
 })
 
 const events = defineCollection({
@@ -17,9 +50,41 @@ const events = defineCollection({
   schema: eventSchema,
 })
 
-const trainings = defineCollection({
+const coachings = defineCollection({
   type: 'content',
-  schema: trainingData,
+  schema: coachingSchema,
 })
 
-export const collections = { authors, events, trainings }
+const courses = defineCollection({
+  type: 'content',
+  schema: courseSchema,
+})
+
+const services = defineCollection({
+  type: 'content',
+  schema: serviceSchema,
+})
+
+const trainings = defineCollection({
+  type: 'content',
+  schema: trainingSchema,
+})
+
+const quizzes = defineCollection({
+  type: 'data',
+  schema: quizSchema,
+})
+
+export const collections = {
+  authors,
+  locales,
+  tags,
+  coachings,
+  courses,
+  events,
+  pages,
+  posts,
+  quizzes,
+  services,
+  trainings,
+}

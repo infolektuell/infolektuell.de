@@ -6,10 +6,10 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
-      "@lib/*": ["src/lib/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@entities/*": ["src/entities/*"]
     },
     "strictNullChecks": true,
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": ["node_modules/@types", "./types", "./node_modules/@types"]
   }
 }

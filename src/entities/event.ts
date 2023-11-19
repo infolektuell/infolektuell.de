@@ -1,7 +1,7 @@
 import { z, reference } from 'astro:content'
-import { baseData } from './base'
+import { pageSchema } from './page'
 
-export const eventSchema = baseData.extend({
+export const eventSchema = pageSchema.extend({
   start: z.coerce.date(),
   end: z.coerce.date().optional(),
   repeating: z
