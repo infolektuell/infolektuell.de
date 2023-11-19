@@ -1,0 +1,197 @@
+title: Warum die Impfung gegen Corona nicht krank macht
+description: Wie man Zahlen aus Risikostudien richtig liest und interpretiert
+intro: |
+  **Boulevaros**: Letztens habe ich bei Lanz gehört, dass mehr Geimpfte sich mit Corona anstecken als Ungeimpfte. Bei den Geimpften waren es 60%, bei den Ungeimpften nur 40%.
+
+  **Ignoratos**: Sicher? Das wäre so ein extremes Verhältnis, das würde selbst dann überhaupt keinen Sinn ergeben, wenn die Impfungen noch Federn lassen. Dass die Impfung vielleicht schwächer wirkt als erhofft, geschenkt, Aber in so einem Ausmaß falsch herum … Die hätten es gar nicht erst durch die klinischen Vorstudien geschafft.
+
+  **Boulevaros**: Hatten die zumindest so gesagt, und da war auch eine Schautafel mit Diagramm und Zahlen. Und da war eine Virologin und ein Pressetyp, das sollte dann doch auch stimmen.
+
+  **Sokrates**: Vielleicht ist die Sache einfach genug, dass wir uns selbst ein Bild machen können. Hier sind zuerst mal die Daten des Anstoßes. Es geht um 100 Personen ab 65 Jahre, ihren Impfstatus und wie viele sich in den beiden Gruppen jeweils angesteckt haben:
+
+  - 💉 Geimpft: 91
+    - 🦠 Erkrankt: 6
+    - 🤸🏼 gesund: 85
+  - 🔒 Ungeimpft: 9
+    - 🦠 erkrankt: 4
+    - 🤸🏼 gesund: 5
+
+questions:
+  - text: |
+      **Sokrates**: Hast du schon eine Strategie, wie du generell an solche Infos herangehen würdest?
+    format: select
+    choices:
+      - text: Nicht wirklich, außerdem bin ich kein Virologe. Dafür gibts doch Experten
+        category: Ausrede
+        feedback: Auch Experten kann man hinterfragen. Außerdem klingt das Thema eher nach Statistik als nach Virologie. Ein bisschen Statistik kann immer wieder hilfreich sein.
+      - text: Ich hätte schon Ideen, die wir ausprobieren könnten.
+        level: right
+        category: Motivierter Beitrag
+        feedback: vielleicht haben wir ja die gleichen.
+      - text: Woher weiß ich denn, dass diese Zahlen kein Fake sind?
+        level: neutral
+        category: Berechtigter Einwand
+        feedback: Eine völlig berechtigte Frage, denn nur aus wahren Aussagen können logisch wahre Schlüsse gezogen werden. Die Prüfung aller Aussagen auf Wahrheitsgehalt kann sich aber als ineffizient herausstellen. Bei der heutigen Informationsflut ist es umso wichtiger, schnell zu entscheiden, ob es ein Thema überhaupt wert ist, ihm genauer nachzugehen. Es kann den Entscheidungsprozess deutlich beschleunigen, wenn man zuerst mit den Zahlen durchspielt, ob sie überhaupt einen Aufreger hergeben würden. Falls ja, kann man der Quelle immer noch nachgehen. Falls nein, kann man sich den Aufwand sparen. Wir werden im Verlauf dieses Quiz sehen, dass die hier genannten Zahlen keinen Anlass zur Beunruhigung bieten, selbst wenn irgendjemand dies so suggeriert hat.
+      - text: Ignoratos Argumente von vorhin fand ich eigentlich schon ganz überzeugend.
+        level: neutral
+        category: Etwas unterambitionierte Entscheidung
+        feedback: Stimmt, Plausibilitätsprüfungen sind wichtig für effiziente Entscheidungen. Lass uns trotzdem schauen, ob wir noch eine bessere Antwort finden. Dadurch kann auch die Intuition weiterentwickelt werden.
+  - text: |
+      **Sokrates**: Es geht um Zahlen und Diagramme, versuchen wir also den statistischen Zugang. Wie sicher bist du im Umgang mit Zahlen und Statistik?
+    format: select
+    choices:
+      - text: Rechnen ist kein Problem, aber bei Statistik bin ich irgendwie ausgestiegen.
+        level: neutral
+        category: Nachvollziehbar
+        feedback: Der größte Teil unseres schulischen Mathematikunterrichts dreht sich um richtig und falsch, präzise Zahlen, keine Unsicherheiten. Statistik versucht aber, aus unsicheren Beobachtungen noch etwas herauszuholen. Das wird in jeder Wissenschaft gebraucht, die Beobachtungen anstellt und sich mit der Welt um uns herum beschäftigt. Der Matheunterricht vermittelt eigentlich eine Scheingenauigkeit und der plötzliche Ausbruch ist für viele irritierend.
+      - text: Traue keiner Statistik, die du nicht selbst gefälscht hast.
+        category: Holzweg
+        feedback: Statistik wird gern fehlerhaft angewendet und kommuniziert. Statt zu einem langweiligen Sophisten zu werden, solltest du lieber die häufigsten Fehler kennen und zum besseren Kritiker werden. Oder würdest du auch die Logik aufgeben, weil es rhetorisch geschulte Wortverdreher gibt?
+      - text: Ich komme mit beidem zurecht.
+        level: right
+        category: Beste Voraussetzungen
+        feedback: Wunderbar, dann kann es gleich weiter gehen.
+  - text: |
+      Erst mal ein paar Aufwärmübungen zu absoluten Aussagen: Unter den erkrankten Personen befinden sich …
+    format: select
+    choices:
+      - text: … mehr geimpfte als ungeimpfte Personen
+        level: right
+        feedback: Erkrankt sind 6 Geimpfte und 4 Ungeimpfte.
+      - text: … weniger geimpfte als ungeimpfte Personen
+        feedback: Erkrankt sind 6 Geimpfte und 4 Ungeimpfte.
+      - text: … gleich viele geimpfte und ungeimpfte Personen
+        feedback: Erkrankt sind 6 Geimpfte und 4 Ungeimpfte.
+  - text: |
+      Unter den gesund gebliebenen Personen befinden sich …
+    format: select
+    choices:
+      - text: … mehr geimpfte als ungeimpfte Personen
+        level: right
+        feedback: Gesund geblieben sind 85 Geimpfte und 5 Ungeimpfte.
+      - text: … weniger geimpfte als ungeimpfte Personen
+        feedback: Gesund geblieben sind 85 Geimpfte und 5 Ungeimpfte.
+      - text: … gleich viele geimpfte und ungeimpfte Personen
+        feedback: Gesund geblieben sind 85 Geimpfte und 5 Ungeimpfte.
+  - text: |
+      **Sokrates**: Bevor es zahlenlastig wird, sollten wir zuerst unsere Erwartungen auch in Zahlen definieren. Stell dir eine Welt vor, in der 90% der Einwohner Hutträger sind. Du bist ein Virus, das zufällig auf Köpfe springt. Nachdem du zehnmal gesprungen bist, wie viele Hüte hast du dann wahrscheinlich getroffen?
+    format: input
+    feedback: Nach 10 Sprüngen wurden statistisch gesehen 9 Hutträger getroffen und einer ohne Hut. Sind Hüte jetzt ein mögliches Erkrankungsrisiko? Eine solche Quote von 9:1 wäre in einer neutralen Situation mit unseren Daten zu erwarten, in der die Impfung weder nutzt, noch schadet. Eine noch extremere Quote würde langsam ungemütlich für die Impfung, eine weniger extreme spricht eher schon für die Impfung.
+    input:
+      type: number
+      min: 0
+      max: 10
+      step: 1
+      value: 9
+  - text: |
+      Die weniger extreme Quote von 6:4 weist eher auf Schutz als auf Gefahr der Impfung hin. Das Beispiel vorhin sollte veranschaulichen, dass die unterschiedliche Gruppengröße die Zahlen nicht mehr direkt vergleichbar macht (6 schlimmer als 4). Hier sollte deutlich werden, warum Irreführung vor allem bei der Interpretation stattfindet. Bei den berichteten Prozentwerten wurde die Bezugsgruppe falsch gewählt ("60% der Erkrankten sind geimpft", statt richtigerweise "x% der Geimpften sind erkrankt"). Wer das tut, ist entweder zahlenblind oder böswillig. Interessant wäre jetzt aber, was diese Daten uns darüber hinaus zur Impfung sagen könnten.
+    format: select
+    amount: 2
+    choices:
+      - text: … ob die Impfung schützt
+        level: right
+        feedback: Ja, das können wir gut einschätzen, indem wir einfach die _Inzidenzraten_ für Geimpfte und Ungeimpfte bestimmen. Kenntnisse in Bruchrechnung sind völlig ausreichend und Taschenrechner sind erlaubt, versprochen.
+      - text: … wie stark der Schutz durch die Impfung wäre
+        level: right
+        feedback: Auch das ist möglich, indem wir aus den Inzidenzraten das _relative Risiko_ ermitteln. Hier kannst du mit deinen Bruchrechenskills richtig angeben.
+      - text: … ob und wie sich der Schutz in Zukunft verändern wird.
+        level: neutral
+        feedback: Das lässt sich mit diesen Daten leider nicht direkt vorhersagen, hier wäre tatsächlich Virologie gefragt.
+  - text: |
+      Um nicht mehr ständig die Gruppengröße mitdenken zu müssen, vergleichen wir jetzt die Gruppen anhand ihrer Inzidenzraten. Die Inzidenzrate ist die Anzahl von Erkrankten innerhalb einer Gruppe geteilt durch die Gesamtgröße der Gruppe. Meistens wird sie als Prozentanteil ausgedrückt. Wie viel Prozent der Geimpften sind erkrankt (gerundet ohne Nachkommastellen?
+    format: input
+    input:
+      type: number
+      min: 0
+      max: 100
+      step: 1
+      value: 7
+    feedback: |
+      $$
+      \begin{equation}
+      \begin{split}
+      R_{\textup{geimpft}} & = \frac{6}{91}\\
+      & = 0,0659\\
+      & = 0,07\\
+      & = 7\%
+      \end{split}
+      \end{equation}
+      $$
+  - text: Wie hoch ist die Inzidenzrate bei den Ungeimpften?
+    format: input
+    input:
+      type: number
+      min: 0
+      max: 100
+      step: 1
+      value: 44
+    feedback: |
+      $$
+      \begin{equation}
+      \begin{split}
+      R_{\textup{ungeimpft}} & = \frac{4}{9}\\
+      & = 0,44444\\
+      & = 0,44\\
+      & = 44\%
+      \end{split}
+      \end{equation}
+      $$
+  - text: |
+      Die Geimpften stehen mit 7% Erkrankungen deutlich besser da als die Ungeimpften mit 44%. Das hört sich jetzt schon ganz anders an. Um die Höhe des Schutzes zu bestimmen und nicht nur zwei Prozentwerte zu vergleichen, bestimmen wir jetzt das _relative Risiko_. Das ist die Inzidenzrate der Risikogruppe (ungeimpft) geteilt durch die Inzidenzrate der anderen Gruppe. Nimm am besten die ursprünglichen absoluten Zahlen (nicht die Prozentwerte) und löse die Aufgabe mit Bruchrechnung. Was ist nun also das relative Erkrankungsrisiko für Ungeimpfte gegenüber Geimpften?
+    format: input
+    input:
+      type: number
+      min: 0
+      step: 0.01
+      value: 6.74
+    feedback: |
+      $$
+      \begin{equation}
+      \begin{split}
+      \mathrm{RR} & = \frac{4}{9}/\frac{6}{91}\\
+      & = \frac{4}{9}\cdot\frac{91}{6}\\
+      & = \frac{364}{54}\\
+      & = 6,74
+      \end{split}
+      \end{equation}
+      $$
+  - text: Auf einen erkrankten Geimpften kommen also fast 7 erkrankte Ungeimpfte. Das ist definitiv eine Ansage für die Impfung. Wir sind jetzt eigentlich fertig, aber ein kleines mathematisches Bonusproblem gibt es noch. Die Formel für das relative Risiko ist bei unterschiedlich großen Gruppen nicht ideal geeignet und sollte möglichst nur bei gleich großen Gruppen angewendet werden. Das ist hier kein Showstopper, eher eine mathematische Feinheit der Statistik. Gibt es insgesamt sehr viele Kranke, wird das Risiko tendenziell überschätzt, bei sehr wenig Kranken unterschätzt. Was könnten wir da jetzt tun?
+    format: select
+    choices:
+      - text: Wir sollten nur mit Daten arbeiten, bei denen die Statistik auch funktioniert.
+        level: neutral
+        category: Zu idealistisch
+        feedback: Natürlich bringt es die besten Ergebnisse, wenn man zwei sich möglichst ähnliche Gruppen vergleichen kann, das betrifft auch die Gruppengröße. Aber wir haben es oft mit Situationen zu tun, in denen wir nicht frei bestimmen können, wer in welche Gruppe geht. Die Daten hier kommen nicht aus einem geplanten Experiment, sondern wurden verlaufsbegleitend erfasst. Wir können sie trotzdem nutzen, auch wenn man sich mit der Statistik noch etwas mehr Mühe geben muss.
+      - text: Wir sollten die Statistik verbessern.
+        level: right
+        category: Konstruktiver Beitrag
+        feedback: Glückwunsch, und diese Verbesserung gibt es auch schon, wie wir gleich sehen werden.
+      - text: Mir genügt das Bisherige schon.
+        category: Etwas unterambitioniert
+        feedback: Du bist jetzt schon deutlich weiter gekommen als Laberlänzchen und die Tagesschau, das letzte Stückchen schaffst du auch noch.
+  - text: Um das Erkrankungsrisiko noch genauer zu berechnen, sollten wir statt des relativen Risikos einen anderen Kennwert berechnen, der die Gruppengröße berücksichtigt. Er heißt chancenverhältnis, Quotenverhältnis oder auch Odds Ratio. Hier arbeiten wir jetzt nicht mehr mit den Inzidenzraten, sondern mit Quoten. Bei einer Inzidenzrate steht die Gruppengröße im Nenner, bei der Quote steht hier die Anzahl der Gesunden. Das Quotenverhältnis ist die Quote der Geimpften geteilt durch die der Ungeimpften. Wie lautet es für unsere Daten?
+    format: input
+    input:
+      type: number
+      min: 0
+      step: 0.01
+      value: 11.33
+    feedback: |
+      Risikoteam Ungeimpft hat eine Erkrankungsquote von 4:5, Team Geimpft hat eine von 6:85.
+
+      $$
+      \begin{equation}
+      \begin{split}
+      \mathrm{OR} & = \frac{4}{5}/\frac{6}{85}\\
+      & = \frac{4}{5}\cdot\frac{85}{6}\\
+      & = \frac{340}{30}\\
+      & = 11,33
+      \end{split}
+      \end{equation}
+      $$
+outro: |
+  **Boulevaros**: Auf einen erkrankten Geimpften kommen demnach also 11 bei den Ungeimpften?
+
+  **Ignoratos**: Ja, das ist die Aussage, die man aus diesen Daten ablesen kann. Wenn jemand bewusst Angst vor der Impfung schüren wollte, hat er sich ziemlich blamiert, weil die Zahlen das überhaupt nicht stützen.
+
+  **Sokrates**: Wenn du Interpretationen von Zahlen kolportierst, versuche möglichst, die Interpretation nachzuvollziehen.
