@@ -1,13 +1,23 @@
-// noinspection JSUnusedGlobalSymbols
-
-import * as astroPlugin from 'prettier-plugin-astro'
-import * as sveltePlugin from 'prettier-plugin-svelte'
-
 /** @type {import('prettier').Options} */
 export default {
-  plugins: [astroPlugin, sveltePlugin],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-svelte'],
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
+    {
+      files: '*.svelte',
+      options: {
+        parser: 'svelte',
+      },
+    },
+  ],
   singleQuote: true,
   semi: false,
+  astroAllowShorthand: true,
   svelteStrictMode: true,
   svelteIndentScriptAndStyle: false,
 }

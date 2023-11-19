@@ -117,6 +117,7 @@ export default [
     rules: {
       ...sveltePlugin.configs.recommended.rules,
       ...sveltePlugin.configs.prettier.rules,
+      'svelte/no-at-html-tags': ['off'],
     },
   },
 
