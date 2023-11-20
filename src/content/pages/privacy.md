@@ -1,6 +1,6 @@
 ---
 title: Datenschutzerklärung
-robots: [noindex, follow, noarchive]
+noindex: true
 ---
 
 Zweck meiner Webseite ist es, Sie über mich und meine hauptberuflichen Tätigkeitsfelder zu informieren

@@ -1,6 +1,6 @@
 ---
 title: Impressum
-robots: [noindex, follow, noarchive]
+noindex: true
 ---
 
 Infolektuell\
