@@ -1,7 +1,14 @@
-import { type GetStaticPaths, type APIRoute } from 'astro'
+import type { GetStaticPaths, APIRoute } from 'astro'
 import { getCollection, getEntry } from 'astro:content'
 import VCard from 'vcf'
 import siteConfig from '@config/site.ts'
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const authors = await getCollection('authors')
+  return authors.map(({ id }) => ({
+    params: { id },
+  }))
+}
 
 export const GET: APIRoute = async function ({ request, params, site }) {
   const { id } = params
@@ -55,11 +62,4 @@ export const GET: APIRoute = async function ({ request, params, site }) {
       'Content-Type': 'text/x-vcard',
     },
   })
-}
-
-export const getStaticPaths: GetStaticPaths = async function () {
-  const authors = await getCollection('authors')
-  return authors.map(({ id }) => ({
-    params: { id },
-  }))
 }
