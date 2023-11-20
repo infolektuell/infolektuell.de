@@ -1,0 +1,37 @@
+---
+import { type ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+import type { Props as HeroProps } from '../bulma/Hero.astro'
+import BulmaHero from '@components/bulma/Hero.astro'
+export type Props = HeroProps & {
+  title: string
+  subtitle: string
+  image?: ImageMetadata
+  imageAlt?: string
+  cta?: {
+    text: string
+    href: string
+  }
+}
+const { title, subtitle, image, imageAlt = '', cta, size, color } = Astro.props
+---
+
+<BulmaHero {size} {color}>
+  <h1 class="title">{title}</h1>
+  <p class="subtitle">{subtitle}</p>
+  {
+    image && (
+      <figure class="image">
+        <Image src={image} alt={imageAlt} />
+      </figure>
+    )
+  }
+  <slot />
+  {
+    cta && (
+      <a class="button is-fullwidth is-info is-medium" href={cta.href}>
+        {cta.text}
+      </a>
+    )
+  }
+</BulmaHero>

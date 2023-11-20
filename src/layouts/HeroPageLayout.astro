@@ -1,0 +1,25 @@
+---
+import { type CollectionEntry } from 'astro:content'
+import BaseLayout from './BaseLayout.astro'
+import Hero, { type Props as HeroProps } from '@components/site/Hero.astro'
+
+type Props = {
+  locale?: CollectionEntry<'locales'>
+  title?: string
+  description?: string
+  hero: HeroProps
+}
+const { hero }: Props = Astro.props
+
+const openGraph = {
+  title: hero.title,
+  description: hero.subtitle,
+  image: hero.image,
+}
+---
+
+<BaseLayout {...Astro.props} {openGraph}>
+  <Hero slot="hero" {...hero} />
+  <slot name="breadcrumbs" slot="breadcrumbs" />
+  <slot />
+</BaseLayout>

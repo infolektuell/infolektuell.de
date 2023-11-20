@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import TagList from '@components/bulma/TagList.astro'
+import Level from '../components/bulma/Level.astro'
+
+type Props = {
+  locale: CollectionEntry<'locales'>
+  title: string
+  description?: string
+  headline?: string
+  summary?: string
+  motto?: string
+  tags: CollectionEntry<'tags'>[]
+  category: string
+}
+const { locale, title, description, motto, tags, category }: Props = Astro.props
+const headline = Astro.props.headline ?? title
+const summary = Astro.props.summary ?? description
+const openGraph = {
+  title: headline,
+  description: summary,
+}
+const tagItems = tags.map(({ data, id }) => ({ href: `/tags/${id}`, text: data.label }))
+---
+
+<BaseLayout {locale} {title} {description} {openGraph}>
+  <article class="container">
+    <header>
+      <h1 class="title"><span>{headline}</span><br /><span class="tag">{category}</span></h1>
+      {
+        motto && (
+          <p class="title is-5">
+            <q>{motto}</q>
+          </p>
+        )
+      }
+      <Level>
+        <p class="level-item" slot="left">
+          <a class="button is-large is-success" href="/contact">Kostenlos Probetermin buchen</a>
+        </p>
+        <slot name="details" />
+        <p class="level-item" slot="right"><TagList color="link" size="medium" tags={tagItems} /></p>
+      </Level>
+    </header>
+    <div class="content"><slot /></div>
+  </article>
+</BaseLayout>
