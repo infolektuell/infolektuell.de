@@ -12,7 +12,7 @@ const handleClose = () => {
 }
 </script>
 
-{#if visible}
+{#if !closable || visible}
   <div transition:slide class="{`message is-${color}`}">
     <div class="message-header">
       <p>{title}</p>

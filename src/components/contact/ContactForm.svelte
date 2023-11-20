@@ -2,7 +2,7 @@
 import { onMount } from 'svelte'
 import Botpoison from '@botpoison/browser'
 import providers from '@config/providers.ts'
-import Message from './Message.svelte'
+import Message from '../bulma/Message.svelte'
 const FORMSPARK_ACTION_URL = `${providers.formspark.endpoint}/${providers.formspark.forms.contact.id}`
 let botpoison: Botpoison
 onMount(() => {

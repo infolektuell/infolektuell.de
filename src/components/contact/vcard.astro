@@ -2,6 +2,7 @@
 import { type CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
+import type { SocialProvider } from '@entities/author'
 import SocialLink from './SocialLink.astro'
 
 type Props = {
@@ -9,6 +10,13 @@ type Props = {
 }
 const { person } = Astro.props
 const { name, photo, title, address, email, phone, mobile, social } = person.data
+
+const socialItems = social
+  ? (Object.entries(social) as [SocialProvider, string][]).map(([provider, handle]: [SocialProvider, string]) => ({
+      provider,
+      handle,
+    }))
+  : null
 ---
 
 <article class="card">
@@ -73,9 +81,6 @@ const { name, photo, title, address, email, phone, mobile, social } = person.dat
     }
   </div>
   <footer class="card-footer">
-    {
-      social &&
-        Object.entries(social).map(([provider, handle]) => <SocialLink class="card-footer-item" {provider} {handle} />)
-    }
+    {socialItems?.map(({ provider, handle }) => <SocialLink class="card-footer-item" {provider} {handle} />)}
   </footer>
 </article>

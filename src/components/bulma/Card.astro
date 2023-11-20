@@ -1,0 +1,56 @@
+---
+import Icon from './Icon.astro'
+type FooterLink = {
+  text: string
+  href: string
+  icon?: string
+}
+type Props = {
+  title: string
+  href?: string
+  links?: FooterLink[]
+}
+const { title, href, links }: Props = Astro.props
+const hasIcon = Astro.slots.has('icon')
+const hasImage = Astro.slots.has('image')
+---
+
+<article class="card">
+  <header class="card-header">
+    {
+      href ? (
+        <a class="card-header-title" {href}>
+          {title}
+        </a>
+      ) : (
+        <p class="card-header-title">{title}</p>
+      )
+    }
+    {
+      hasIcon && (
+        <div class="card-header-icon">
+          <slot name="icon" />
+        </div>
+      )
+    }
+  </header>
+  {
+    hasImage && (
+      <div class="card-image">
+        <slot name="image" />
+      </div>
+    )
+  }
+  <div class="card-content"><slot /></div>
+  {
+    links && (
+      <footer class="card-footer">
+        {links.map(({ text, href, icon }) => (
+          <a class="card-footer-item" {href}>
+            {icon ? <Icon name={icon} {text} /> : { text }}
+          </a>
+        ))}
+      </footer>
+    )
+  }
+</article>

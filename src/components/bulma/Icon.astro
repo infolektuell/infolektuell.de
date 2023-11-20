@@ -1,0 +1,23 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components'
+type Props = {
+  name: string
+  text?: string
+}
+const { name, text, ...props }: Props = Astro.props
+---
+
+{
+  text ? (
+    <span class="icon-text">
+      <span class="icon">
+        <AstroIcon {name} aria-hidden="true" {...props} />
+      </span>
+      <span>{text}</span>
+    </span>
+  ) : (
+    <span class="icon">
+      <AstroIcon {name} aria-hidden="true" {...props} />
+    </span>
+  )
+}

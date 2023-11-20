@@ -1,0 +1,31 @@
+---
+export type HeroColor = 'light' | 'dark' | 'primary' | 'link' | 'info' | 'success' | 'warning' | 'danger'
+export type HeroSize = 'small' | 'medium' | 'large' | 'halfheight' | 'fullheight' | 'fullheight-with-navbar'
+export type Props = {
+  color?: HeroColor
+  size?: HeroSize
+}
+const { color = 'primary', size = 'medium' } = Astro.props
+const colorClass = `is-${color}`
+const sizeClass = `is-${size}`
+const hasHead = Astro.slots.has('head')
+const hasFoot = Astro.slots.has('footer')
+---
+
+<section class:list={['hero', colorClass, sizeClass]}>
+  {
+    hasHead && (
+      <div class="hero-head">
+        <slot name="head" />
+      </div>
+    )
+  }
+  <div class="hero-body"><slot /></div>
+  {
+    hasFoot && (
+      <div class="hero-foot">
+        <slot name="foot" />
+      </div>
+    )
+  }
+</section>

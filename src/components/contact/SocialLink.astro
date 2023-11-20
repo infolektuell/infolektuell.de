@@ -1,8 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { Icon } from 'astro-icon/components'
+import Icon from '../bulma/Icon.astro'
 import type { SocialProvider } from '@entities/author'
-const providers = {
+export type ProviderConfig = Record<'endpoint' | 'icon' | 'title', string>
+const providers: Record<SocialProvider, ProviderConfig> = {
   github: {
     endpoint: 'https://github.com/',
     title: 'Github',
@@ -39,8 +40,5 @@ const url = new URL(href ?? `${endpoint}${handle}`)
 ---
 
 <a href={url} target="_blank" {...props}>
-  <span class="icon">
-    <Icon name={icon} />
-  </span>
-  <span>{title}</span>
+  <Icon name={icon} text={title} />
 </a>
