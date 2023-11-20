@@ -1,6 +1,5 @@
 <script lang="ts">
 export let label = 'Navigation'
-export let site: URL | undefined
 let isExpanded = false
 const toggleMenu = function () {
   isExpanded = !isExpanded
@@ -9,12 +8,11 @@ const toggleMenu = function () {
 
 <nav class="navbar" aria-label="{label}">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{site?.toString()}">
-      <slot name="logo" />
-    </a>
+    <slot name="brand" />
     <button
       aria-expanded="{isExpanded}"
-      aria-label="{isExpanded ? 'Navigation ausblenden' : 'Navigation einblenden'}"
+      aria-controls="navMenu"
+      aria-label="Menü"
       class="navbar-burger"
       class:is-active="{isExpanded}"
       data-target="navMenu"

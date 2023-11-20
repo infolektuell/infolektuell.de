@@ -1,21 +1,25 @@
 ---
-import { Image } from 'astro:assets'
+import '@fontsource/dejavu-sans'
 import Navbar from '../nav/Navbar.svelte'
 import NavLink from '../nav/NavLink.astro'
-import siteConfig from '@config/site'
 import { mainMenu } from '@config/menus'
-import logo from '../../assets/images/placeholder-social.jpg'
+import Logo from '@components/nav/Logo.astro'
 ---
 
-<header>
-  <Navbar client:load label={mainMenu.name} site={Astro.site}>
-    <Image slot="logo" src={logo} alt={siteConfig.title} />
-    {
-      mainMenu.items.map(({ href, name }) => (
-        <NavLink slot="start" class="menu-item" {href}>
-          {name}
-        </NavLink>
-      ))
-    }
-  </Navbar>
-</header>
+<Navbar client:load label={mainMenu.name}>
+  <NavLink slot="brand" href={Astro.site} class="navbar-item is-size-4">
+    <Logo />
+  </NavLink>
+  {
+    mainMenu.items.map(({ href, name }) => (
+      <NavLink slot="start" {href} class="navbar-item is-size-4">
+        {name}
+      </NavLink>
+    ))
+  }
+</Navbar>
+<style>
+  a {
+    font-family: 'DejaVu sans', sans-serif;
+  }
+</style>

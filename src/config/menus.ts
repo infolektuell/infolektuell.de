@@ -11,8 +11,8 @@ export type Menu = {
 export const mainMenu: Menu = {
   name: 'Hauptnavigation',
   items: [
-    { href: '/', name: 'Infolektuell' },
-    { href: '/trainings', name: '🎓 Trainings' },
+    { href: '/products', name: '🎓 Trainings' },
+    { href: '/risikokompetenz', name: '🧮 Risikokompetenz' },
     { href: '/about', name: '📝 Über Infolektuell' },
     { href: '/contact', name: '🤝 Kontakt' },
   ],
@@ -21,7 +21,7 @@ export const mainMenu: Menu = {
 export const legalMenu: Menu = {
   name: 'Rechtliche Links',
   items: [
-    { href: '/privacy', name: '🤐 Datenschutz' },
-    { href: '/impressum', name: '📮 Impressum' },
+    { href: '/page/privacy', name: '🤐 Datenschutz' },
+    { href: '/page/impressum', name: '📮 Impressum' },
   ],
 }

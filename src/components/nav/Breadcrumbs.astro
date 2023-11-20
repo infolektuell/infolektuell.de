@@ -1,0 +1,30 @@
+---
+import NavLink from './NavLink.astro'
+import Icon from '../bulma/Icon.astro'
+type Item = {
+  href: string
+  text: string
+  icon?: string
+}
+type Props = {
+  items: Item[]
+  separator?: 'arrow' | 'bullet' | 'dot' | 'succeeds'
+  size?: 'small' | 'medium' | 'large'
+}
+const { items, separator, size }: Props = Astro.props
+---
+
+<nav
+  class:list={['breadcrumb', separator ? `has-${separator}-separator` : null, size ? `is-${size}` : null]}
+  aria-label="Breadcrumbs"
+>
+  <ul>
+    {
+      items.map(({ href, text, icon }) => (
+        <li>
+          <NavLink {href}>{icon ? <Icon name={icon} {text} /> : { text }}</NavLink>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
