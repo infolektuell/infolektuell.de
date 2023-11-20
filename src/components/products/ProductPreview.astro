@@ -1,0 +1,35 @@
+---
+import { type CollectionEntry, getEntries } from 'astro:content'
+import Card from '@components/bulma/Card.astro'
+import TagList from '@components/bulma/TagList.astro'
+
+type Props = {
+  product: CollectionEntry<'coachings' | 'courses' | 'services' | 'trainings'>
+  href: string
+}
+const { product, href }: Props = Astro.props
+const { title, motto } = product.data
+const tags = await getEntries(product.data.tags)
+const { headings } = await product.render()
+const tagItems = tags.map(({ id, data }) => ({ href: `/tags/${id}`, text: data.label }))
+---
+
+<Card {title} {href}>
+  {
+    motto && (
+      <p>
+        <q>{motto}</q>
+      </p>
+    )
+  }
+  <TagList tags={tagItems} size="medium" color="link" />
+  <ul>
+    {
+      headings.map((h) => (
+        <li>
+          <a href={`${href}#${h.slug}`}>{h.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Card>
