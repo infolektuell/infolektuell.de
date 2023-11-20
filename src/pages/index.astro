@@ -1,45 +1,86 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
-import { baseData } from '@lib/schemas/base'
-import BaseLayout from '@layouts/BaseLayout.astro'
-import TrainingSummary from '../components/controls/TrainingSummary.astro'
-const title = 'Willkommen'
-const fm = baseData.parse({ title })
+import { getEntry } from 'astro:content'
+import Card from '@components/bulma/Card.astro'
+import HeroPageLayout from '@layouts/HeroPageLayout.astro'
+import image from '../assets/images/placeholder-hero.jpg'
+const hero = {
+  title: 'Training, Beratung und Dienstleistungen für mehr Digitale Kompetenz und Selbstbestimmung',
+  subtitle:
+    'Hier finden Sie verschiedene Lehrangebote und Dienstleistungen rund um das Leben und Arbeiten mit digitalen Technologien sowie Data Science und Data Literacy. Als technisch versierte Psychologin besteht meine Zielsetzung darin, Menschen Kompetenzen zu vermitteln und ihre Lebensqualität zu erhöhen.',
+  image,
+  cta: {
+    text: 'Kostenloses Erstgespräch vereinbaren',
+    href: '/contact/',
+  },
+}
+
 const person = await getEntry('authors', 'tamara-cook')
-const { name } = person.data
-const { Content: Bio } = await person.render()
-const trainings = await getCollection('trainings')
+const { name, bio } = person.data
+const aboutLinks = [{ ...hero.cta }, { href: ' page about ', text: 'Meine Mission' }]
 ---
 
-<BaseLayout {...fm}>
-  <h1>{title}</h1>
-  <h2>Angebote</h2>
-  {
-    trainings.map((training) => (
-      <article>
-        <h3>
-          <a href={'/trainings/' + training.slug}>
-            {training.data.icon} {training.data.title}
-          </a>
-        </h3>
-        <TrainingSummary {training} />
-      </article>
-    ))
-  }
-  <h2>🚫 Das bekommen Sie hier nicht</h2>
-  <ul>
-    <li>
-      Sie müssen bei mir nicht Ihr Ego loslassen oder Ihre Probleme wegatmen. Sie und Ihr Anliegen stehen im Mittelpunkt
-      und wir entwickeln gemeinsam Lösungsansätze und Strategien.
-    </li>
-    <li>Esoterik und Realitätsflucht, Reichtum und Schönheit durch Wünsche ans Universum</li>
-    <li>
-      Ich bin keine Psychotherapeutin. Sollten sich Klienten für eine Therapie entscheiden, erhalten sie dabei meine
-      vollste Unterstützung. Am besten ist es natürlich, wenn es dazu nicht erst kommen muss.
-    </li>
-  </ul>
-  <h2>{name.display}</h2>
-  <Bio />
-  <h2>Interessiert?</h2>
-  <a href="/contact/">Kontaktanfrage senden und kostenloses Kennenlerngespräch vereinbaren</a>
-</BaseLayout>
+<HeroPageLayout {hero}>
+  <section class="box">
+    <h2 class="title">Privatkunden</h2>
+    <Card
+      title="Coachings für Digitale Fitness"
+      links={[{ href: '/products/coachings/', text: 'Finden Sie jetzt Ihr passendes Coaching' }]}
+    >
+      <p class="content">
+        In meinen Coachings geht es um digitale Medien und Technik in Privatleben sowie Studium und Beruf. Ich gehe
+        individuell auf Ihre Wünsche und Probleme ein und hole Sie da ab, wo Sie stehen. So können Sie mehr aus Ihrem
+        digitalen Leben machen.
+      </p>
+    </Card>
+    <Card
+      title="Kurse für praktische digitale Kompetenzen"
+      links={[{ href: '/products/courses/', text: 'Finden Sie und bleiben Sie Ihren passenden Kurs' }]}
+    >
+      <p class="content">
+        In meinen Kursen können Sie spezifische Kompetenzen für den digitalen Alltag erwerben wie einkaufen, richtig
+        informieren, Datenschutz etc.
+      </p>
+    </Card>
+  </section>
+  <section class="box">
+    <h2 class="title">Unternehmen</h2>
+    <Card
+      title="Trainings für produktiveres Entwickeln"
+      links={[{ href: '/products/trainings/', text: 'Finden Sie jetzt Ihr passendes Training' }]}
+    >
+      <p class="content">
+        In meinen Trainings für IT- und Ingenieursbetriebe erlernen Ihre Teams Kompetenzen aus Bereichen wie Devops,
+        Qualitätssicherung und Management, um endlich wieder produktiver zu entwickeln.
+      </p>
+    </Card>
+    <Card title="Data Science" links={[{ href: '/products/data-science/', text: 'Jetzt informieren und beauftragen' }]}>
+      <p class="content">
+        Beauftragen Sie mich auf Freelancing-Basis mit Ihren Aufgaben aus Statistik und Datenanalyse. Als Psychologin
+        verfüge ich über eine hochwertige Ausbildung in empirischer Statistik sowie der elektronischen Datenerhebung und
+        -aufbereitung.
+      </p>
+    </Card>
+  </section>
+  <section class="box">
+    <h2 class="title">E-Learning</h2>
+    <p class="subtitle">
+      Auf meiner Seite finden Sie auch interaktive Lehrmedien, mit denen Sie spielerisch Basiskompetenzen aufbauen
+      können.
+    </p>
+    <Card title="Risikokompetenz mit Sokrates" links={[{ href: '/risikokompetenz', text: 'Jetzt ausprobieren' }]}>
+      <p class="content">
+        Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein
+        Quiz-Format mit Sokrates als Quiz Master vermittelt anhand von Medienmeldungen und Alltagsfragen
+        Basisfertigkeiten aus dem Bereich der Risikokompetenz.
+      </p>
+    </Card>
+  </section>
+  <section class="box">
+    <header class="title">
+      <h2>Über mich</h2>
+    </header>
+    <Card title={name.display} links={aboutLinks}>
+      <div class="content"><Fragment set:html={bio} /></div>
+    </Card>
+  </section>
+</HeroPageLayout>

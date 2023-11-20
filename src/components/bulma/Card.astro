@@ -47,7 +47,7 @@ const hasImage = Astro.slots.has('image')
       <footer class="card-footer">
         {links.map(({ text, href, icon }) => (
           <a class="card-footer-item" {href}>
-            {icon ? <Icon name={icon} {text} /> : { text }}
+            {icon ? <Icon name={icon} {text} /> : <span>{text}</span>}
           </a>
         ))}
       </footer>
