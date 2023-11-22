@@ -64,6 +64,7 @@ export default [
       ...tsPlugin.configs['strict-type-checked'].rules,
       ...tsPlugin.configs['stylistic-type-checked'].rules,
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      'no-self-assign': ['off'],
     },
   },
 
