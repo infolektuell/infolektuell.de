@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Brailler from '@components/tools/Brailler.svelte'
 const title = 'Brailler'
 const description = 'Einfach Brailleschrift schreiben wie auf einer mechanischen Braille-Schreibmaschine'
-const locale = await getEntry('locale', 'de-DE')
+const locale = await getEntry('locales', 'de-DE')
 ---
 
 <BaseLayout {title} {description} {locale}>
