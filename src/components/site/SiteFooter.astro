@@ -1,26 +1,26 @@
 ---
-import NavLink from '../nav/NavLink.astro'
+import { getEntry } from 'astro:content'
+import NavItem from '../nav/NavItem.astro'
 import siteConfig from '../../config/site'
-import { legalMenu } from '../../config/menus'
-const today = new Date()
+const legalMenu = await getEntry('menus', 'legal')
 ---
 
 <footer class="footer">
-  <nav class="level" aria-label={legalMenu.name}>
-    <div class="level-left">
-      {
-        legalMenu.items.map(({ href, name }) => (
-          <div class="level-item">
-            <NavLink class="button is-link" {href}>
-              {name}
-            </NavLink>
-          </div>
-        ))
-      }
-    </div>
-  </nav>
-  <p class="content has-text-centered">
-    <span>&copy; {today.getFullYear()}</span><span>{siteConfig.title}.</span><br />
-    <span>Alle Rechte vorbehalten.</span>
-  </p>
+  <div class="container">
+    <nav class="level" aria-label={legalMenu.data.name}>
+      <div class="level-left">
+        {
+          legalMenu.data.items.map((item) => (
+            <div class="level-item">
+              <NavItem class="button is-link" {item} />
+            </div>
+          ))
+        }
+      </div>
+    </nav>
+    <p class="content has-text-centered">
+      <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
+      <span>Alle Rechte vorbehalten.</span>
+    </p>
+  </div>
 </footer>

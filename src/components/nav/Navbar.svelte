@@ -1,5 +1,4 @@
 <script lang="ts">
-import '@fontsource/dejavu-sans'
 export let label = 'Navigation'
 let isExpanded = false
 const toggleMenu = function () {
@@ -8,6 +7,7 @@ const toggleMenu = function () {
 </script>
 
 <nav class="navbar is-info" aria-label="{label}">
+  <div class="container">
   <div class="navbar-brand">
     <slot name="brand" />
     <button
@@ -36,9 +36,5 @@ const toggleMenu = function () {
       </div>
     {/if}
   </div>
+  </div>
 </nav>
-<style>
-  nav {
-    font-family: 'DejaVu sans', sans-serif;
-  }
-</style>

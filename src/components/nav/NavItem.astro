@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import type { MenuItem } from '@entities/menu'
+import Icon from '../bulma/Icon.astro'
+import NavLink from './NavLink.astro'
+type Props = HTMLAttributes<'a'> & {
+  item: MenuItem
+}
+const { item, ...props }: Props = Astro.props
+const { name, icon, emoji, href } = item
+---
+
+<NavLink {href} {...props}>
+  {icon ? <Icon name={icon} size="medium" aria-label={emoji} text={name} /> : <>{name}</>}
+</NavLink>

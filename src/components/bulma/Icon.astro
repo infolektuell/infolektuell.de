@@ -3,21 +3,31 @@ import { Icon as AstroIcon } from 'astro-icon/components'
 type Props = {
   name: string
   text?: string
+  size?: 'small' | 'medium' | 'large'
 }
-const { name, text, ...props }: Props = Astro.props
+const { name, text, size, ...props }: Props = Astro.props
+let svgSize = null
+if (size === 'medium') {
+  svgSize = '2rem'
+}
 ---
 
 {
   text ? (
     <span class="icon-text">
-      <span class="icon">
-        <AstroIcon {name} aria-hidden="true" {...props} />
+      <span class:list={['icon', size ? `is-${size}` : null]}>
+        <AstroIcon {name} size="100%" {...props} />
       </span>
       <span>{text}</span>
     </span>
   ) : (
-    <span class="icon">
-      <AstroIcon {name} aria-hidden="true" {...props} />
+    <span class:list={['icon', size ? `is-${size}` : null]}>
+      <AstroIcon {name} size="100%" {...props} />
     </span>
   )
 }
+<style>
+  span.icon-text {
+    align-items: center;
+  }
+</style>
