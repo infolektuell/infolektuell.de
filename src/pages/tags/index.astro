@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import TagList from '@components/bulma/TagList.astro'
+const title = 'Tags'
+const noindex = true
+const tags = await getCollection('tags')
+const tagItems = tags.map(({ id, data }) => ({ href: `/tags/${id}`, text: data.label }))
+---
+
+<BaseLayout {title} {noindex}>
+  <Header title="Tags" />
+  <TagList size="large" color="link" tags={tagItems} />
+</BaseLayout>
