@@ -1,22 +1,31 @@
 ---
 import { getEntry } from 'astro:content'
-import { baseData } from '@lib/schemas/base'
+import { Icon } from 'astro-icon/components'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import ContactForm from '../components/forms/ContactForm.svelte'
-import VCard from '../components/controls/vcard.astro'
+import Header from '@components/page/Header.astro'
+import Section from '@components/page/Section.astro'
+import ContactForm from '@components/contact/ContactForm.svelte'
+import VCard from '@components/contact/vcard.astro'
+
 const title = 'Kontakt'
+const locale = await getEntry('locales', 'de-DE')
 const person = await getEntry('authors', 'tamara-cook')
-const fm = baseData.parse({ title })
 ---
 
-<BaseLayout {...fm}>
-  <h1>{title}</h1>
-  <p>
-    Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen
-    melden und einen Kennenlerntermin vorschlagen.
-  </p>
-  <ContactForm client:load />
-  <h2>Weitere Kontaktmöglichkeiten</h2>
-  <p>Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.</p>
-  <VCard {person} />
+<BaseLayout {title} {locale}>
+  <Header {title} description="Ihr Weg zu mir" />
+  <Section title="Kontaktformular">
+    <p class="content">
+      Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen
+      melden und einen Kennenlerntermin vorschlagen.
+    </p>
+    <ContactForm client:load>
+      <Icon name="fa6-solid:envelope" slot="emailIcon" />
+      <Icon name="fa6-solid:phone" slot="phoneIcon" />
+    </ContactForm>
+  </Section>
+  <Section title="Weitere Kontaktmöglichkeiten">
+    <p class="content">Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.</p>
+    <VCard {person} />
+  </Section>
 </BaseLayout>

@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
 const title = 'Seite nicht gefunden'
 const noindex = true
 ---
 
 <BaseLayout {title} {noindex}>
-  <h1 class="title">{title}</h1>
-  <p>Eine Seite mit dieser URL existiert nicht.</p>
+  <Header {title} />
+  <p class="content">Eine Seite mit dieser URL existiert nicht.</p>
 </BaseLayout>

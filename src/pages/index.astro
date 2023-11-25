@@ -1,86 +1,74 @@
 ---
 import { getEntry } from 'astro:content'
-import Card from '@components/bulma/Card.astro'
-import HeroPageLayout from '@layouts/HeroPageLayout.astro'
-import image from '../assets/images/placeholder-hero.jpg'
-const hero = {
-  title: 'Training, Beratung und Dienstleistungen für mehr Digitale Kompetenz und Selbstbestimmung',
-  subtitle:
-    'Hier finden Sie verschiedene Lehrangebote und Dienstleistungen rund um das Leben und Arbeiten mit digitalen Technologien sowie Data Science und Data Literacy. Als technisch versierte Psychologin besteht meine Zielsetzung darin, Menschen Kompetenzen zu vermitteln und ihre Lebensqualität zu erhöhen.',
-  image,
-  cta: {
-    text: 'Kostenloses Erstgespräch vereinbaren',
-    href: '/contact/',
-  },
-}
-
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import Section from '@components/page/Section.astro'
+import Article from '@components/page/Article.astro'
+import CTAButton from '@components/page/CTAButton.astro'
+const title = 'Mehr Digitale Kompetenz und Selbstbestimmung'
+const description =
+  'Training, Beratung und Dienstleistungen rund um das Leben und Arbeiten mit digitalen Technologien sowie Data Science und Data Literacy'
+const locale = getEntry('locales', 'de-DE')
 const person = await getEntry('authors', 'tamara-cook')
 const { name, bio } = person.data
-const aboutLinks = [{ ...hero.cta }, { href: ' page about ', text: 'Meine Mission' }]
 ---
 
-<HeroPageLayout {hero}>
-  <section class="box">
-    <h2 class="title">Privatkunden</h2>
-    <Card
-      title="Coachings für Digitale Fitness"
-      links={[{ href: '/products/coachings/', text: 'Finden Sie jetzt Ihr passendes Coaching' }]}
-    >
-      <p class="content">
+<BaseLayout {title} {description} locale={locale.data}>
+  <Header {title} {description}>
+    <CTAButton href="/contact/">Kostenloses Erstgespräch vereinbaren</CTAButton>
+  </Header>
+  <Section title="Für Privatpersonen">
+    <Article title="Coachings für Digitale Fitness">
+      <p>
         In meinen Coachings geht es um digitale Medien und Technik in Privatleben sowie Studium und Beruf. Ich gehe
         individuell auf Ihre Wünsche und Probleme ein und hole Sie da ab, wo Sie stehen. So können Sie mehr aus Ihrem
         digitalen Leben machen.
       </p>
-    </Card>
-    <Card
-      title="Kurse für praktische digitale Kompetenzen"
-      links={[{ href: '/products/courses/', text: 'Finden Sie und bleiben Sie Ihren passenden Kurs' }]}
-    >
-      <p class="content">
+      <CTAButton slot="cta" href="/products/coachings/">Finden Sie jetzt Ihr passendes Coaching</CTAButton>
+    </Article>
+    <Article title="Kurse für praktische digitale Kompetenzen">
+      <p>
         In meinen Kursen können Sie spezifische Kompetenzen für den digitalen Alltag erwerben wie einkaufen, richtig
         informieren, Datenschutz etc.
       </p>
-    </Card>
-  </section>
-  <section class="box">
-    <h2 class="title">Unternehmen</h2>
-    <Card
-      title="Trainings für produktiveres Entwickeln"
-      links={[{ href: '/products/trainings/', text: 'Finden Sie jetzt Ihr passendes Training' }]}
-    >
-      <p class="content">
+      <CTAButton slot="cta" href="/products/courses/">Finden Sie Ihren passenden Kurs</CTAButton>
+    </Article>
+  </Section>
+  <Section title="Für Unternehmen">
+    <Article title="Trainings für produktiveres Entwickeln">
+      <p>
         In meinen Trainings für IT- und Ingenieursbetriebe erlernen Ihre Teams Kompetenzen aus Bereichen wie Devops,
         Qualitätssicherung und Management, um endlich wieder produktiver zu entwickeln.
       </p>
-    </Card>
-    <Card title="Data Science" links={[{ href: '/products/data-science/', text: 'Jetzt informieren und beauftragen' }]}>
-      <p class="content">
+      <CTAButton slot="cta" href="/products/trainings/">Finden Sie jetzt Ihr passendes Training</CTAButton>
+    </Article>
+    <Article title="Data Science">
+      <p>
         Beauftragen Sie mich auf Freelancing-Basis mit Ihren Aufgaben aus Statistik und Datenanalyse. Als Psychologin
         verfüge ich über eine hochwertige Ausbildung in empirischer Statistik sowie der elektronischen Datenerhebung und
         -aufbereitung.
       </p>
-    </Card>
-  </section>
-  <section class="box">
-    <h2 class="title">E-Learning</h2>
+      <CTAButton slot="cta" href="/products/data-science/">Jetzt informieren und beauftragen</CTAButton>
+    </Article>
+  </Section>
+  <Section title="E-Learning">
     <p class="subtitle">
       Auf meiner Seite finden Sie auch interaktive Lehrmedien, mit denen Sie spielerisch Basiskompetenzen aufbauen
       können.
     </p>
-    <Card title="Risikokompetenz mit Sokrates" links={[{ href: '/risikokompetenz', text: 'Jetzt ausprobieren' }]}>
-      <p class="content">
+    <Article title="Risikokompetenz mit Sokrates">
+      <p>
         Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein
         Quiz-Format mit Sokrates als Quiz Master vermittelt anhand von Medienmeldungen und Alltagsfragen
         Basisfertigkeiten aus dem Bereich der Risikokompetenz.
       </p>
-    </Card>
-  </section>
-  <section class="box">
-    <header class="title">
-      <h2>Über mich</h2>
-    </header>
-    <Card title={name.display} links={aboutLinks}>
-      <div class="content"><Fragment set:html={bio} /></div>
-    </Card>
-  </section>
-</HeroPageLayout>
+      <CTAButton slot="cta" href="/risikokompetenz/">Jetzt ausprobieren</CTAButton>
+    </Article>
+  </Section>
+  <Section title="Über mich">
+    <Article title={name.display}>
+      <Fragment set:html={bio} />
+      <CTAButton slot="cta" href="/about/">Meine Mission</CTAButton>
+    </Article>
+  </Section>
+</BaseLayout>

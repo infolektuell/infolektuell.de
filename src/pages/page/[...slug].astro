@@ -1,10 +1,11 @@
 ---
 import { type GetStaticPaths } from 'astro'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '../../components/page/Header.astro'
 import ReadingTime from '../../components/controls/ReadingTime.astro'
 import FormattedDate from '../../components/controls/FormattedDate.astro'
-import { frontmatterSchema } from '../../schemas/frontmatter'
+import { frontmatterSchema } from '../../entities/frontmatter'
 
 type Props = CollectionEntry<'pages'>
 
@@ -17,17 +18,16 @@ export const getStaticPaths: GetStaticPaths = async function () {
 }
 
 const page: Props = Astro.props
-const { title, lang } = page.data
+const { title } = page.data
+const locale = await getEntry(page.data.lang)
 const { Content, remarkPluginFrontmatter } = await page.render()
 const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
 const { minutesRead, lastModified } = fm
-const seo = { title }
 ---
 
-<BaseLayout {seo}>
+<BaseLayout {title} {locale}>
   <article>
-    <header>
-      <h1>{title}</h1>
+    <Header {title}>
       {
         minutesRead && (
           <p>
@@ -36,13 +36,13 @@ const seo = { title }
           </p>
         )
       }
-    </header>
-    <Content />
-    <footer>
+    </Header>
+    <div class="content"><Content /></div>
+    <footer class="box">
       {
         lastModified && (
           <p>
-            Aktualisiert: <FormattedDate date={lastModified} locale={lang.code} />
+            Aktualisiert: <FormattedDate date={lastModified} locale={locale.data.lang} />
           </p>
         )
       }
