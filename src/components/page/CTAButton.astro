@@ -1,0 +1,13 @@
+---
+type Props = {
+  href: string
+}
+const { href } = Astro.props
+---
+
+<a class="button is-primary is-medium is-fullwidth" {href}><slot /></a>
+<style>
+  .button {
+    white-space: normal;
+  }
+</style>
