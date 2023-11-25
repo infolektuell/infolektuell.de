@@ -1,5 +1,5 @@
 ---
-import 'bulma/css/bulma.css'
+import '@assets/styles/bulma.scss'
 import { type ImageMetadata } from 'astro'
 import { type CollectionEntry, getEntry } from 'astro:content'
 import { getImage } from 'astro:assets'
@@ -8,6 +8,8 @@ import Header from '../components/site/SiteHeader.astro'
 import Footer from '../components/site/SiteFooter.astro'
 import siteConfig from '@config/site'
 import defaultSocialImage from '../assets/images/placeholder-social.jpg'
+import BackgroundImage from '@assets/images/background.jpg'
+const backgroundURL = `url(${BackgroundImage.src})`
 
 type Props = {
   locale?: CollectionEntry<'locales'>
@@ -77,10 +79,16 @@ const seo = {
   <body>
     <slot name="before-body" />
     <Header />
-    <slot name="hero" />
     <slot name="breadcrumbs" />
-    <main class="section"><slot /></main>
+    <main class="section"><div class="container"><slot /></div></main>
     <Footer />
     <slot name="after-body" />
+    <style define:vars={{ backgroundURL }}>
+      main {
+        background-image: var(--backgroundURL);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    </style>
   </body>
 </html>
