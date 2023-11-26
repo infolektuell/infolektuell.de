@@ -1,6 +1,5 @@
 import { z } from 'astro:content'
-import { micromark } from 'micromark'
-import { iconSchema } from './icon.ts'
+import { markdownSchema } from './markdown'
 
 const nameSchema = z
   .object({
@@ -53,18 +52,14 @@ export type SocialProvider = z.infer<typeof socialProvider>
 
 export const authorSchema = z.object({
   name: nameSchema,
-  icon: iconSchema.optional(),
+  icon: z.string().optional(),
+  emoji: z.string().emoji().optional(),
   title: z.string().optional(),
   email: z.string().email().optional(),
   phone: phoneNumberSchema.optional(),
   mobile: phoneNumberSchema.optional(),
   address: addressSchema.optional(),
   social: z.record(socialProvider, z.string()).optional(),
-  bio: z
-    .string()
-    .optional()
-    .transform((val) => {
-      return typeof val === 'string' ? micromark(val) : val
-    }),
+  bio: markdownSchema,
 })
 export type Author = z.infer<typeof authorSchema>

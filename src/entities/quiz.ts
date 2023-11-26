@@ -1,15 +1,5 @@
 import { reference, z } from 'astro:content'
-import { micromark } from 'micromark'
-import { math, mathHtml } from 'micromark-extension-math'
-
-const compileMarkdown = (value: string): string => {
-  if (!value) {
-    return ''
-  }
-  return micromark(value, { extensions: [math()], htmlExtensions: [mathHtml()] })
-}
-
-const markdownSchema = z.string().transform(compileMarkdown)
+import { markdownSchema } from './markdown'
 
 export const baseQuestionSchema = z.object({
   text: markdownSchema,
