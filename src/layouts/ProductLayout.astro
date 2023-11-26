@@ -2,7 +2,6 @@
 import { type CollectionEntry } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import TagList from '@components/bulma/TagList.astro'
-import Level from '../components/bulma/Level.astro'
 
 type Props = {
   locale: CollectionEntry<'locales'>
@@ -35,13 +34,17 @@ const tagItems = tags.map(({ data, id }) => ({ href: `/tags/${id}`, text: data.l
           </p>
         )
       }
-      <Level>
-        <p class="level-item" slot="left">
-          <a class="button is-large is-success" href="/contact">Kostenlos Probetermin buchen</a>
-        </p>
+      <div class="level">
+        <div class="level-left">
+          <p class="level-item">
+            <a class="button is-large is-success" href="/contact">Kostenlos Probetermin buchen</a>
+          </p>
+        </div>
         <slot name="details" />
-        <p class="level-item" slot="right"><TagList color="link" size="medium" tags={tagItems} /></p>
-      </Level>
+        <div class="level-right">
+          <p class="level-item"><TagList color="link" size="medium" tags={tagItems} /></p>
+        </div>
+      </div>
     </header>
     <div class="content"><slot /></div>
   </article>
