@@ -4,10 +4,10 @@ import Navbar from '../nav/Navbar.svelte'
 import NavLink from '../nav/NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
 const mainMenu = await getEntry('menus', 'main')
-const { title, items } = mainMenu.data
+const { label, items } = mainMenu.data
 ---
 
-<Navbar client:load label={title}>
+<Navbar client:load {label}>
   <NavLink class="navbar-item" slot="brand" href="/">
     <Logo />
   </NavLink>

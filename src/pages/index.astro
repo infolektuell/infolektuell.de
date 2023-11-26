@@ -8,12 +8,12 @@ import CTAButton from '@components/page/CTAButton.astro'
 const title = 'Mehr Digitale Kompetenz und Selbstbestimmung'
 const description =
   'Training, Beratung und Dienstleistungen rund um das Leben und Arbeiten mit digitalen Technologien sowie Data Science und Data Literacy'
-const locale = getEntry('locales', 'de-DE')
+const locale = await getEntry('locales', 'de-DE')
 const person = await getEntry('authors', 'tamara-cook')
 const { name, bio } = person.data
 ---
 
-<BaseLayout {title} {description} locale={locale.data}>
+<BaseLayout {title} {description} {locale}>
   <Header {title} {description}>
     <CTAButton href="/contact/">Kostenloses Erstgespräch vereinbaren</CTAButton>
   </Header>

@@ -8,5 +8,5 @@ const { name, size, ...props }: Props = Astro.props
 ---
 
 <span class:list={['icon', size ? `is-${size}` : null]}>
-  <AstroIcon {name} size="100%" {...props} />
+  <AstroIcon {name} {...props} />
 </span>

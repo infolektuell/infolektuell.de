@@ -1,44 +1,14 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import Icon from '../bulma/Icon.astro'
-import type { SocialProvider } from '@entities/author'
-export type ProviderConfig = Record<'endpoint' | 'icon' | 'title', string>
-const providers: Record<SocialProvider, ProviderConfig> = {
-  github: {
-    endpoint: 'https://github.com/',
-    title: 'Github',
-    icon: 'fa6-brands:github',
-  },
-  linkedin: {
-    endpoint: 'https://linkedin.com/in/',
-    title: 'Linkedin',
-    icon: 'fa6-brands:linkedin',
-  },
-  mastodon: {
-    endpoint: '',
-    title: 'Mastodon',
-    icon: 'fa6-brands:mastodon',
-  },
-  twitter: {
-    endpoint: 'https://twitter.com/',
-    title: 'Twitter',
-    icon: 'fa6-brands:twitter',
-  },
-  matrix: {
-    endpoint: 'https://matrix.to/#/',
-    title: 'Matrix',
-    icon: 'tabler:brand-matrix',
-  },
-}
 type Props = HTMLAttributes<'a'> & {
-  provider: SocialProvider
-  handle: string
+  icon: string
+  text: string
 }
-const { provider, handle, href, ...props }: Props = Astro.props
-const { endpoint, title, icon } = providers[provider]
-const url = new URL(href ?? `${endpoint}${handle}`)
+const { text, icon, ...props }: Props = Astro.props
 ---
 
-<a href={url} target="_blank" {...props}>
-  <Icon name={icon} text={title} />
+<a class="card-footer-item" {...props}>
+  <Icon name={icon} aria-hidden="true" />
+  <span>{text}</span>
 </a>

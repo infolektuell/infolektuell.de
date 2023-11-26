@@ -1,13 +1,8 @@
 ---
+import type { MenuItem } from '@entities/menu'
 import NavLink from './NavLink.astro'
-import Icon from '../bulma/Icon.astro'
-type Item = {
-  href: string
-  text: string
-  icon?: string
-}
 type Props = {
-  items: Item[]
+  items: MenuItem[]
   separator?: 'arrow' | 'bullet' | 'dot' | 'succeeds'
   size?: 'small' | 'medium' | 'large'
 }
@@ -20,9 +15,9 @@ const { items, separator, size }: Props = Astro.props
 >
   <ul>
     {
-      items.map(({ href, text, icon }) => (
+      items.map((item) => (
         <li>
-          <NavLink {href}>{icon ? <Icon name={icon} {text} /> : { text }}</NavLink>
+          <NavLink {...item} />
         </li>
       ))
     }

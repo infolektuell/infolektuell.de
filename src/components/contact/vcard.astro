@@ -1,86 +1,51 @@
 ---
 import { type CollectionEntry } from 'astro:content'
 import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
-import type { SocialProvider } from '@entities/author'
+import Card from '@components/bulma/Card.astro'
+import NavLink from '@components/nav/NavLink.astro'
+import ContactLink from './ContactLink.astro'
 import SocialLink from './SocialLink.astro'
 
+const telUrl = (str: string) => 'tel:' + str.replace(/\s+/g, '')
 type Props = {
   person: CollectionEntry<'authors'>
 }
 const { person } = Astro.props
-const { name, photo, title, address, email, phone, mobile, social } = person.data
-
-const socialItems = social
-  ? (Object.entries(social) as [SocialProvider, string][]).map(([provider, handle]: [SocialProvider, string]) => ({
-      provider,
-      handle,
-    }))
-  : null
+const vcardUrl = `/vcards/${person.id}.vcf`
+const { name, emoji, photo, title, address, email, phone, mobile, social } = person.data
+const { github, linkedin, mastodon, matrix } = social ?? {}
 ---
 
-<article class="card">
-  <header class="card-header">
-    <p class="card-header-title">Kontaktdaten</p>
-    <a class="card-header-icon" href={`/vcards/${person.id}.vcf`} aria-label="Download VCard">
-      <span class="icon">
-        <Icon name="fa6-regular:address-card" />
-      </span>
-    </a>
-  </header>
-  <div class="card-image">
-    <figure class="image">
-      {photo && <Image alt="Photo" src={photo} />}
-    </figure>
-  </div>
-  <div class="card-content">
+<Card title="Kontaktdaten" {emoji}>
+  {
+    photo && (
+      <figure class="image" slot="image">
+        <Image alt="Photo" src={photo} />
+      </figure>
+    )
+  }
+  <address>
     <p class="title">{name.display}</p>
     <p class="subtitle">{title}</p>
+    {email && <ContactLink href={'mailto:' + email} icon="fa6-solid:envelope" text={email} />}
+    {phone && <ContactLink href={telUrl(phone)} icon="fa6-solid:phone" text={phone} />}
+    {mobile && <ContactLink href={telUrl(mobile)} icon="fa6-solid:mobile" text={mobile} />}
     {
       address && (
-        <address class="has-text-left">
-          {email && (
-            <>
-              <a class="button is-link" href={'mailto:' + email}>
-                <span class="icon">
-                  <Icon name="fa6-solid:envelope" />
-                </span>
-                <span>{email}</span>
-              </a>
-              <br />
-            </>
-          )}
-          {phone && (
-            <>
-              <a class="button is-link" href={'tel:' + phone.replace(/\s+/g, '')}>
-                <span class="icon">
-                  <Icon name="fa6-solid:phone" />
-                </span>
-                <span>{phone}</span>
-              </a>
-              <br />
-            </>
-          )}
-          {mobile && (
-            <>
-              <a class="button is-link" href={'tel:' + mobile.replace(/\s+/g, '')}>
-                <span class="icon">
-                  <Icon name="fa6-solid:mobile" />
-                </span>
-                <span>{mobile}</span>
-              </a>
-              <br />
-            </>
-          )}
+        <p>
           <span>{address.street}</span>
           <br />
           <span>{address.postalCode}</span>
           <span>{address.locality}</span>
-        </address>
+        </p>
       )
     }
-  </div>
-  <footer class="card-footer">
-    {socialItems?.map(({ provider, handle }) => <SocialLink class="card-footer-item" {provider} {handle} />)}
-  </footer>
-</article>
+  </address>
+  <Fragment slot="footer">
+    <NavLink class="card-footer-item" href={vcardUrl} icon="fa6-regular:address-card" text="Download Address Card" />
+    {github && <SocialLink href={`https://github.com/${github}`} icon="fa-brands:github" text="Github" />}
+    {linkedin && <SocialLink href={`https://linkedin.com/in/${linkedin}`} icon="fa-brands:linkedin" text="Linkedin" />}
+    {mastodon && <SocialLink href={mastodon} icon="fa-brands:mastodon" text="Mastodon" />}
+    {matrix && <SocialLink href={`https://matrix.to/#/${matrix}`} icon="tabler:brand-matrix" text="Matrix" />}
+  </Fragment>
+</Card>
