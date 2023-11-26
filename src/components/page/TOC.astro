@@ -1,0 +1,26 @@
+---
+import type { MarkdownHeading } from 'astro'
+type Props = {
+  headings: MarkdownHeading[]
+  href?: string
+}
+const { headings, href }: Props = Astro.props
+---
+
+<ul>
+  {
+    headings.map(({ text, slug }) => (
+      <li>
+        <a class="button is-link" href={`${href ?? ''}#${slug}`}>
+          {text}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+<style>
+  ul,
+  ul li {
+    list-style-type: none;
+  }
+</style>
