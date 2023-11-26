@@ -7,40 +7,49 @@ import NavLink from '../nav/NavLink.astro'
 import AstroBadge from '@assets/images/credits/built-with-astro/tiny.svg'
 import BulmaBadge from '@assets/images/credits/made-with-bulma.png'
 const legalMenu = await getEntry('menus', 'legal')
-const { name, items } = legalMenu.data
+const { label, items } = legalMenu.data
 ---
 
 <footer class="footer">
-  <nav class="container" aria-label={name}>
-    <div class="level">
-      <div class="level-left">
-        {
-          items.map((item) => (
-            <div class="level-item">
-              <NavLink class="button is-link" {...item} />
-            </div>
-          ))
-        }
+  <div class="container">
+    <nav aria-labelledby="sec-legal">
+      <header class="title is-6" id="sec-legal">
+        <h2>{label}</h2>
+      </header>
+      <div class="level">
+        <div class="level-left">
+          {
+            items.map((item) => (
+              <div class="level-item">
+                <NavLink class="button is-link" {...item} />
+              </div>
+            ))
+          }
+        </div>
       </div>
-    </div>
-    <p class="content has-text-centered is-small">
-      <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
-      <span>Alle Rechte vorbehalten.</span>
-    </p>
-    <p class="content has-text-centered is-small">
-      <strong>Credits 💚</strong><br />
-      <a href="https://astro.build" target="_blank" rel="noopener nofollow">
-        <Image src={AstroBadge} alt="Built with Astro" width="128" height="24" />
-      </a>
-      <br />
-      <a href="https://bulma.io" target="_blank" rel="noopener nofollow">
-        <Image src={BulmaBadge} width="128" height="24" alt="Made with Bulma" />
-      </a>
-      <br />
-       Emoji-Icons: <a href="https://openmoji.org/" target="_blank" rel="noopener nofollow">
-        <Emoji char="❇️" size="small" />
-        <span>OpenMoji</span>
-      </a>
-    </p>
-  </nav>
+    </nav>
+    <section aria-labelledby="sec-credits">
+      <header class="title is-6" id="sec-credits">
+        <h2>Credits 💚<br /></h2>
+      </header>
+      <p class="content has-text-centered is-small">
+        <a href="https://astro.build" target="_blank" rel="noopener nofollow">
+          <Image src={AstroBadge} alt="Built with Astro" width="128" height="24" />
+        </a>
+        <br />
+        <a href="https://bulma.io" target="_blank" rel="noopener nofollow">
+          <Image src={BulmaBadge} width="128" height="24" alt="Made with Bulma" />
+        </a>
+        <br />
+         Emoji-Icons: <a href="https://openmoji.org/" target="_blank" rel="noopener nofollow">
+          <Emoji char="❇️" size="small" />
+          <span>OpenMoji</span>
+        </a>
+      </p>
+      <p class="content has-text-centered is-small">
+        <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
+        <span>Alle Rechte vorbehalten.</span>
+      </p>
+    </section>
+  </div>
 </footer>
