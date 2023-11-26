@@ -44,15 +44,14 @@ const hasFooter = Astro.slots.has('footer')
   }
   <div class="card-content"><slot /></div>
   {
-    hasFooter ||
-      (links && (
-        <footer class="card-footer">
-          <slot name="footer">
-            {links?.map((link) => (
-              <NavLink class="card-footer-item is-primary" {...link} />
-            ))}
-          </slot>
-        </footer>
-      ))
+    (hasFooter || links) && (
+      <footer class="card-footer">
+        <slot name="footer">
+          {links?.map((link) => (
+            <NavLink class="card-footer-item is-primary" {...link} />
+          ))}
+        </slot>
+      </footer>
+    )
   }
 </article>
