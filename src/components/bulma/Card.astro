@@ -1,5 +1,7 @@
 ---
 import Icon from './Icon.astro'
+import Emoji from './Emoji.astro'
+import NavLink from '../nav/NavLink.astro'
 type FooterLink = {
   text: string
   href: string
@@ -8,31 +10,30 @@ type FooterLink = {
 type Props = {
   title: string
   href?: string
+  icon?: string
+  emoji?: string
   links?: FooterLink[]
 }
-const { title, href, links }: Props = Astro.props
+const { title, href, icon, emoji, links }: Props = Astro.props
+const TitleTag = href ? 'a' : 'p'
 const hasIcon = Astro.slots.has('icon')
 const hasImage = Astro.slots.has('image')
+const hasFooter = Astro.slots.has('footer')
 ---
 
 <article class="card">
   <header class="card-header">
-    {
-      href ? (
-        <a class="card-header-title" {href}>
-          {title}
-        </a>
-      ) : (
-        <p class="card-header-title">{title}</p>
-      )
-    }
-    {
-      hasIcon && (
-        <div class="card-header-icon">
-          <slot name="icon" />
-        </div>
-      )
-    }
+    <TitleTag class="card-header-title" {href}>{title}</TitleTag>
+    <slot name="icon">
+      {
+        (icon || emoji) && (
+          <div class="card-header-icon">
+            {icon && <Icon name={icon} aria-hidden="true" />}
+            {emoji && !icon && <Emoji char={emoji} aria-hidden="true" />}
+          </div>
+        )
+      }
+    </slot>
   </header>
   {
     hasImage && (
@@ -43,14 +44,15 @@ const hasImage = Astro.slots.has('image')
   }
   <div class="card-content"><slot /></div>
   {
-    links && (
-      <footer class="card-footer">
-        {links.map(({ text, href, icon }) => (
-          <a class="card-footer-item" {href}>
-            {icon ? <Icon name={icon} {text} /> : <span>{text}</span>}
-          </a>
-        ))}
-      </footer>
-    )
+    hasFooter ||
+      (links && (
+        <footer class="card-footer">
+          <slot name="footer">
+            {links?.map((link) => (
+              <NavLink class="card-footer-item is-primary" {...link} />
+            ))}
+          </slot>
+        </footer>
+      ))
   }
 </article>
