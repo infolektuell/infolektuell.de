@@ -34,7 +34,7 @@ const nameSchema = z
   }))
 export type Name = z.infer<typeof nameSchema>
 
-const addressSchema = z.object({
+export const addressSchema = z.object({
   office: z.string().optional(),
   extended: z.string().optional(),
   street: z.string(),

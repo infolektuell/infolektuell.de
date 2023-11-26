@@ -21,7 +21,7 @@ export default defineConfig({
       include: {
         'fa6-regular': ['address-card'],
         'fa6-solid': ['angle-down', 'envelope', 'phone', 'mobile'],
-        'fa6-brands': ['github', 'linkedin', 'mastodon', 'twitter'],
+        'fa6-brands': ['github', 'linkedin', 'mastodon'],
         tabler: ['brand-matrix'],
         openmoji: [
           'abacus',
@@ -33,6 +33,7 @@ export default defineConfig({
           'mobile-phone-with-arrow',
           'postbox',
           'sparkle',
+          'woman',
           'zipper-mouth-face',
         ],
       },

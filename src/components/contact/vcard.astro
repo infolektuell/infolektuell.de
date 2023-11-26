@@ -25,7 +25,7 @@ const { github, linkedin, mastodon, matrix } = social ?? {}
     )
   }
   <address>
-    <p class="title">{name.display}</p>
+    <p class="title is-5">{name.display}</p>
     <p class="subtitle">{title}</p>
     {email && <ContactLink href={'mailto:' + email} icon="fa6-solid:envelope" text={email} />}
     {phone && <ContactLink href={telUrl(phone)} icon="fa6-solid:phone" text={phone} />}
@@ -42,10 +42,10 @@ const { github, linkedin, mastodon, matrix } = social ?? {}
     }
   </address>
   <Fragment slot="footer">
-    <NavLink class="card-footer-item" href={vcardUrl} icon="fa6-regular:address-card" text="Download Address Card" />
-    {github && <SocialLink href={`https://github.com/${github}`} icon="fa-brands:github" text="Github" />}
-    {linkedin && <SocialLink href={`https://linkedin.com/in/${linkedin}`} icon="fa-brands:linkedin" text="Linkedin" />}
-    {mastodon && <SocialLink href={mastodon} icon="fa-brands:mastodon" text="Mastodon" />}
+    <NavLink class="card-footer-item" href={vcardUrl} icon="fa6-regular:address-card" text="Ins Adressbuch" />
+    {github && <SocialLink href={`https://github.com/${github}`} icon="fa6-brands:github" text="Github" />}
+    {linkedin && <SocialLink href={`https://linkedin.com/in/${linkedin}`} icon="fa6-brands:linkedin" text="Linkedin" />}
+    {mastodon && <SocialLink href={mastodon} icon="fa6-brands:mastodon" text="Mastodon" />}
     {matrix && <SocialLink href={`https://matrix.to/#/${matrix}`} icon="tabler:brand-matrix" text="Matrix" />}
   </Fragment>
 </Card>
