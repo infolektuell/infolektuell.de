@@ -1,0 +1,37 @@
+---
+import { getCollection, getEntry } from 'astro:content'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Header from '../../../components/page/Header.astro'
+import Section from '../../../components/page/Section.astro'
+import Article from '../../../components/page/Article.astro'
+import CTAButton from '../../../components/page/CTAButton.astro'
+
+const locale = await getEntry('locales', 'de-DE')
+const title = 'Risikokompetenz'
+const description = 'E-Learning für Risikokompetenz, Numeracy und Statistik'
+const quizzes = await getCollection('quizzes')
+---
+
+<BaseLayout {title} {description} {locale}>
+  <Header title="Risikokompetenz mit Sokrates" description="Ein Quiz-Format zum Erlernen von Risikokompetenz">
+    <p class="content">
+      Immer wieder sind wir in den Medien mit Zahlen, Aussagen und Statistiken konfrontiert, die auf den ersten Blick
+      erschreckend wirken und nach genauerer Betrachtung relativiert werden können. Das ist meistens nicht sehr
+      schwierig, mit Mathekenntnissen auf Realschulniveau sind Sie schon gut aufgestellt. Sokrates als Quiz Master führt
+      spielerisch an den strategischen Umgang mit Zahlen und Schreckensmeldungen und zeigt Ihnen, wie Sie mit einfachen
+      Schritten echten Schrecken von Luftnummern unterscheiden können.
+    </p>
+  </Header>
+  <Section title="Quizzes">
+    {
+      quizzes.map(({ data, id }) => (
+        <Article title={data.title} href={'/risikokompetenz/' + id}>
+          <p>{data.description}</p>
+          <CTAButton slot="cta" href={'/risikokompetenz/' + id}>
+            Spielen
+          </CTAButton>
+        </Article>
+      ))
+    }
+  </Section>
+</BaseLayout>

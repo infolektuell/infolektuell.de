@@ -1,0 +1,27 @@
+---
+import 'katex/dist/katex.css'
+import { type GetStaticPaths } from 'astro'
+import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Quiz from '../../../components/quiz/Quiz.svelte'
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const quizzes = await getCollection('quizzes')
+  return quizzes.map((quiz) => ({
+    params: { slug: quiz.id },
+    props: { quiz },
+  }))
+}
+
+type Props = {
+  quiz: CollectionEntry<'quizzes'>
+}
+
+const { quiz }: Props = Astro.props
+const { title, description } = quiz.data
+const locale = await getEntry(quiz.data.lang)
+---
+
+<BaseLayout {locale} {title} {description}>
+  <Quiz client:load quiz={quiz.data} />
+</BaseLayout>
