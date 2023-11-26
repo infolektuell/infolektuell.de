@@ -1,7 +1,6 @@
 ---
 import { getEntry } from 'astro:content'
 import Navbar from '../nav/Navbar.svelte'
-import NavItem from '../nav/NavItem.astro'
 import NavLink from '../nav/NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
 const mainMenu = await getEntry('menus', 'main')
@@ -9,13 +8,17 @@ const { title, items } = mainMenu.data
 ---
 
 <Navbar client:load label={title}>
-  <NavLink slot="brand" href="/" class="navbar-item">
+  <NavLink class="navbar-item" slot="brand" href="/">
     <Logo />
   </NavLink>
   {
     items
-      .filter((item) => item.alignment === 'start')
-      .map((item) => <NavItem slot="start" class="navbar-item" {item} />)
+      .filter(({ alignment }) => alignment === 'start')
+      .map((item) => <NavLink slot="start" class="navbar-item" {...item} />)
   }
-  {items.filter((item) => item.alignment === 'end').map((item) => <NavItem slot="end" class="navbar-item" {item} />)}
+  {
+    items
+      .filter(({ alignment }) => alignment === 'end')
+      .map((item) => <NavLink slot="end" class="navbar-item" {...item} />)
+  }
 </Navbar>

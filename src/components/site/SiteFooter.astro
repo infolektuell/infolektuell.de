@@ -1,26 +1,46 @@
 ---
 import { getEntry } from 'astro:content'
-import NavItem from '../nav/NavItem.astro'
+import { Image } from 'astro:assets'
 import siteConfig from '../../config/site'
+import Emoji from '@components/bulma/Emoji.astro'
+import NavLink from '../nav/NavLink.astro'
+import AstroBadge from '@assets/images/built-with-astro/tiny.svg'
+import BulmaBadge from '@assets/images/made-with-bulma.png'
 const legalMenu = await getEntry('menus', 'legal')
+const { name, items } = legalMenu.data
 ---
 
 <footer class="footer">
-  <div class="container">
-    <nav class="level" aria-label={legalMenu.data.name}>
+  <nav class="container" aria-label={name}>
+    <div class="level">
       <div class="level-left">
         {
-          legalMenu.data.items.map((item) => (
+          items.map((item) => (
             <div class="level-item">
-              <NavItem class="button is-link" {item} />
+              <NavLink class="button is-link" {...item} />
             </div>
           ))
         }
       </div>
-    </nav>
-    <p class="content has-text-centered">
+    </div>
+    <p class="content has-text-centered is-small">
       <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
       <span>Alle Rechte vorbehalten.</span>
     </p>
-  </div>
+    <p class="content has-text-centered is-small">
+      <strong>Credits 💚</strong><br />
+      <a href="https://astro.build" target="_blank" rel="noopener nofollow">
+        <Image src={AstroBadge} alt="Built with Astro" width="128" height="24" />
+      </a>
+      <br />
+      <a href="https://bulma.io" target="_blank" rel="noopener nofollow">
+        <Image src={BulmaBadge} width="128" height="24" alt="Made with Bulma" />
+      </a>
+      <br />
+       Emoji-Icons: <a href="https://openmoji.org/" target="_blank" rel="noopener nofollow">
+        <Emoji char="❇️" size="small" />
+        <span>OpenMoji</span>
+      </a>
+    </p>
+  </nav>
 </footer>

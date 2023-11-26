@@ -1,22 +1,22 @@
-name: Hauptnavigation
+label: Hauptnavigation
 items:
-  - name: Coachings
+  - text: Coachings
     emoji: 📲
     href: /products/coachings/
-  - name: Kurse
+  - text: Kurse
     emoji: 💡
     href: /products/courses/
-  - name: Trainings
+  - text: Trainings
     emoji: 🎓
     href: /products/trainings/
-  - name: Dienstleistungen
+  - text: Dienstleistungen
     emoji: 📈
     href: /products/services/
-  - name: Über Infolektuell
+  - text: Über Infolektuell
     emoji: 📝
     href: /about/
     alignment: end
-  - name: Kontakt
+  - text: Kontakt
     emoji: 🤝
     href: /contact/
     alignment: end

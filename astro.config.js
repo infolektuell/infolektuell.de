@@ -32,6 +32,7 @@ export default defineConfig({
           'memo',
           'mobile-phone-with-arrow',
           'postbox',
+          'sparkle',
           'zipper-mouth-face',
         ],
       },

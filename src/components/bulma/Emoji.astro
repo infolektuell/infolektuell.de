@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro'
+import chars from '@iconify-json/openmoji/chars.json'
+
+type Props = {
+  char: string
+  size?: 'small' | 'medium' | 'large'
+}
+const { char, size, ...props }: Props = Astro.props
+const code = char.codePointAt(0)?.toString(16)
+const name = `openmoji:${chars[code]}`
+---
+
+<Icon {size} {name} aria-label={char} {...props} />

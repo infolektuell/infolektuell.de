@@ -1,8 +1,8 @@
-name: Rechtliche Links
+label: Rechtliche Links
 items:
-  - name: Datenschutzerklärung
+  - text: Datenschutzerklärung
     emoji: 🤐
     href: /page/privacy/
-  - name: Impressum
+  - text: Impressum
     emoji: 📮
     href: /page/impressum/

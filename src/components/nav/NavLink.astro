@@ -1,11 +1,21 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-type Props = HTMLAttributes<'a'>
-const { href, class: className, ...props }: Props = Astro.props
+import Icon from '@components/bulma/Icon.astro'
+import Emoji from '@components/bulma/Emoji.astro'
+
+type Props = HTMLAttributes<'a'> & {
+  text?: string
+  icon?: string
+  emoji?: string
+}
+const { href, text, icon, emoji, class: className, ...props }: Props = Astro.props
 const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
 <a {href} class:list={[className, { 'is-active': isActive }]} aria-current={isActive ? 'page' : null} {...props}>
+  {icon && <Icon name={icon} size="medium" />}
+  {emoji && !icon && <Emoji char={emoji} size="medium" />}
+  {text && <span>{text}</span>}
   <slot />
 </a>
