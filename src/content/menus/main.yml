@@ -12,9 +12,9 @@ items:
   - text: Dienstleistungen
     emoji: 📈
     href: /products/services/
-  - text: Über Infolektuell
+  - text: Mission
     emoji: 📝
-    href: /about/
+    href: /page/about/
     alignment: end
   - text: Kontakt
     emoji: 🤝
