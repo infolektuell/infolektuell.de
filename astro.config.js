@@ -33,7 +33,7 @@ export default defineConfig({
           'mobile-phone-with-arrow',
           'postbox',
           'sparkle',
-          'woman',
+          'woman-pilot-medium-light-skin-tone',
           'zipper-mouth-face',
         ],
       },
