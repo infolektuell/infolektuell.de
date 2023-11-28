@@ -1,0 +1,28 @@
+---
+import type { ImageMetadata } from 'astro'
+import { getImage } from 'astro:assets'
+import siteConfig from '@config/site'
+import defaultSocialImage from '@assets/images/social.jpg'
+
+export type Props = {
+  title?: string
+  image?: string | ImageMetadata
+  description?: string
+  type?: string
+}
+const { title, description, image, type }: Props = Astro.props
+const socialImage = image ?? defaultSocialImage
+const optimizedSocialImage = await getImage({ src: socialImage, width: 1200, height: 627 })
+---
+
+<meta property="og:title" content={title ?? siteConfig.headline} />
+<meta property="og:type" content={type ?? 'website'} />
+<meta property="og:image" content={optimizedSocialImage.src} />
+<meta property="og:image:url" content={optimizedSocialImage.src} />
+<meta property="og:image:type" content={optimizedSocialImage.options.format} />
+<meta property="og:image:width" content={optimizedSocialImage.attributes.width} />
+<meta property="og:image:height" content={optimizedSocialImage.attributes.height} />
+<meta property="og:description" content={description ?? siteConfig.summary} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content={siteConfig.title} />
+<meta property="og:locale" content={Astro.currentLocale ?? siteConfig.defaultLanguage} />
