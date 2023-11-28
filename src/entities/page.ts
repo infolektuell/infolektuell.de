@@ -11,8 +11,6 @@ export const pageSchema = z.object({
   description: z.string().optional(),
   summary: z.string().optional(),
   order: z.number().int().min(1).default(10),
-  lang: reference('locales').default('de-DE'),
-  draft: z.boolean().default(false),
   private: z.boolean().default(false),
   tags: reference('tags').array().default([]),
 })

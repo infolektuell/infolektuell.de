@@ -1,4 +1,4 @@
-import { reference, z } from 'astro:content'
+import { z } from 'astro:content'
 import { markdownSchema } from './markdown'
 
 export const baseQuestionSchema = z.object({
@@ -60,7 +60,6 @@ export type Question = z.infer<typeof questionSchema>
 export const quizSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
-  lang: reference('locales').default('de-DE'),
   intro: markdownSchema,
   questions: questionSchema.array().default([]),
   outro: markdownSchema,

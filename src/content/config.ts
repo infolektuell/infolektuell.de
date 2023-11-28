@@ -1,7 +1,6 @@
 import { defineCollection, z } from 'astro:content'
 import {
   authorSchema,
-  localeSchema,
   menuSchema,
   tagSchema,
   eventSchema,
@@ -12,11 +11,6 @@ import {
   quizSchema,
   trainingSchema,
 } from '../entities'
-
-const locales = defineCollection({
-  type: 'data',
-  schema: localeSchema,
-})
 
 const menus = defineCollection({
   type: 'data',
@@ -45,9 +39,9 @@ const posts = defineCollection({
   type: 'content',
   schema: ({ image }) =>
     pageSchema.extend({
+      publishedTime: z.coerce.date(),
       cover: image().optional(),
       cover_alt: z.string().optional(),
-      publishedTime: z.coerce.date().default(new Date()),
     }),
 })
 
@@ -83,7 +77,6 @@ const quizzes = defineCollection({
 
 export const collections = {
   authors,
-  locales,
   menus,
   tags,
   coachings,

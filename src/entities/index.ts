@@ -2,8 +2,6 @@ import { z } from 'astro:content'
 
 export * from './author'
 export * from './event'
-export * from './icon'
-export * from './locale'
 export * from './menu'
 export * from './page'
 export * from './product'
