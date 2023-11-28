@@ -1,10 +1,11 @@
 ---
+import siteConfig from '@config/site'
 export type Props = {
   date: Date
-  locale: string
+  locale?: string
 }
 const { date, locale }: Props = Astro.props
-const shortDate = new Intl.DateTimeFormat(locale, {
+const shortDate = new Intl.DateTimeFormat(locale ?? siteConfig.defaultLanguage, {
   dateStyle: 'medium',
   timeStyle: 'short',
 })
