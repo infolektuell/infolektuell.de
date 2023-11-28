@@ -1,0 +1,22 @@
+---
+type Props = {
+  headline: string
+  summary?: string
+  category: string
+}
+const { headline, summary, category }: Props = Astro.props
+---
+
+<header class="box">
+  <h1 class="title">
+    <span>{headline}</span>
+    <span class="tag">{category}</span>
+  </h1>
+  {summary && <p class="subtitle">{summary}</p>}
+  <slot />
+</header>
+<style>
+  header {
+    background: rgba(255, 255, 255, 0.5);
+  }
+</style>

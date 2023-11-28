@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Section from '../page/Section.astro'
+export type Props = {
+  tags: CollectionEntry<'tags'>[]
+}
+const { tags } = Astro.props
+---
+
+<Section title="Zielgruppen">
+  {
+    tags.length > 0 && (
+      <div class="tags are-medium">
+        {tags.map(({ id, data }) => (
+          <a class="tag is-link" href={`/tags/${id}`}>
+            {data.label}
+          </a>
+        ))}
+      </div>
+    )
+  }
+</Section>
