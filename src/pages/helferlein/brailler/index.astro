@@ -1,21 +1,18 @@
 ---
-import { getEntry } from 'astro:content'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
 import Brailler from '@components/tools/Brailler.svelte'
 const title = 'Brailler'
 const description = 'Einfach Brailleschrift schreiben wie auf einer mechanischen Braille-Schreibmaschine'
-const locale = await getEntry('locales', 'de-DE')
+const openGraph = { title, description }
 ---
 
-<BaseLayout {title} {description} {locale}>
-  <article>
-    <header class="title">
-      <h1>{title}</h1>
-    </header>
-    <p class="content">
+<BaseLayout {title} {description} {openGraph}>
+  <Header {title}>
+    <p>
       Legen Sie zuerst die Tasten für die Braille-Punkte fest und drücken dann im Braille-Eingabefeld die Tasten in
       Kombination, um Braillezeichen zu erzeugen.
     </p>
-    <Brailler client:load />
-  </article>
+  </Header>
+  <Brailler client:load />
 </BaseLayout>

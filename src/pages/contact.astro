@@ -8,11 +8,11 @@ import ContactForm from '@components/contact/ContactForm.svelte'
 import VCard from '@components/contact/vcard.astro'
 
 const title = 'Kontakt'
-const locale = await getEntry('locales', 'de-DE')
 const person = await getEntry('authors', 'tamara-cook')
+const openGraph = { title }
 ---
 
-<BaseLayout {title} {locale}>
+<BaseLayout {title} {openGraph}>
   <Header {title} description="Ihr Weg zu mir" />
   <Section title="Kontaktformular">
     <p class="content">

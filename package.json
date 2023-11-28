@@ -49,7 +49,6 @@
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "astro": "^3.6.0",
     "astro-icon": "^1.0.0-next.2",
-    "astro-seo": "^0.8.0",
     "dinero.js": "^1.9.1",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",

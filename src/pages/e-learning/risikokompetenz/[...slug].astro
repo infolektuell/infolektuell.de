@@ -1,7 +1,7 @@
 ---
 import 'katex/dist/katex.css'
 import { type GetStaticPaths } from 'astro'
-import { type CollectionEntry, getCollection, getEntry } from 'astro:content'
+import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Quiz from '../../../components/quiz/Quiz.svelte'
 
@@ -19,9 +19,9 @@ type Props = {
 
 const { quiz }: Props = Astro.props
 const { title, description } = quiz.data
-const locale = await getEntry(quiz.data.lang)
+const openGraph = { title, description }
 ---
 
-<BaseLayout {locale} {title} {description}>
+<BaseLayout {title} {description} {openGraph}>
   <Quiz client:load quiz={quiz.data} />
 </BaseLayout>
