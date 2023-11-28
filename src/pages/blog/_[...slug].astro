@@ -1,0 +1,33 @@
+---
+import { type GetStaticPaths } from 'astro'
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+
+type Props = {
+  post: CollectionEntry<'posts'>
+}
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const posts = await getCollection('posts')
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post }: Props = Astro.props
+const { title, description, headline, summary } = post.data
+const { Content } = await post.render()
+const openGraph = {
+  title: headline ?? title,
+  description: summary ?? description,
+}
+---
+
+<BaseLayout {title} {description} {openGraph}>
+  <article>
+    <Header title={headline ?? title} description={summary} />
+    <div class="content"><Content /></div>
+  </article>
+</BaseLayout>
