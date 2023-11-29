@@ -3,9 +3,12 @@ import { moneySchema, pageSchema } from './index.ts'
 
 export const productSchema = ({ image }: SchemaContext) =>
   pageSchema.extend({
+    headline: z.string().optional(),
+    summary: z.string().optional(),
+    emoji: z.string().emoji().optional(),
+    icon: z.string().optional(),
     cover: image().optional(),
     cover_alt: z.string().optional(),
-    customers: z.enum(['private', 'business', 'education']).default('private'),
   })
 
 export const coachingSchema = (ctx: SchemaContext) =>

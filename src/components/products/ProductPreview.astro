@@ -1,28 +1,18 @@
 ---
-import { type CollectionEntry, getEntries } from 'astro:content'
+import { type CollectionEntry } from 'astro:content'
 import Article from '@components/page/Article.astro'
-import TagList from '@components/bulma/TagList.astro'
-import TOC from '@components/page/TOC.astro'
+import TargetGroup from '@components/products/TargetGroup.astro'
 
 type Props = {
   product: CollectionEntry<'coachings' | 'courses' | 'services' | 'trainings'>
   href: string
 }
 const { product, href }: Props = Astro.props
-const { title, motto } = product.data
-const tags = await getEntries(product.data.tags)
-const { headings } = await product.render()
-const tagItems = tags.map(({ id, data }) => ({ href: `/tags/${id}`, text: data.label }))
+const { title, description, headline, summary, tags } = product.data
+const subtitle = summary ?? description
 ---
 
-<Article {title} {href}>
-  {
-    motto && (
-      <p>
-        <q>{motto}</q>
-      </p>
-    )
-  }
-  <TagList tags={tagItems} size="medium" color="link" />
-  <TOC {href} {headings} />
+<Article title={headline ?? title} href={`${href}${product.slug}`}>
+  {subtitle && <p class="subtitle">{subtitle}</p>}
+  <TargetGroup {tags} />
 </Article>

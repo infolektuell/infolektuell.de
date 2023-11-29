@@ -2,7 +2,6 @@ import { defineCollection, z } from 'astro:content'
 import {
   authorSchema,
   menuSchema,
-  tagSchema,
   eventSchema,
   pageSchema,
   coachingSchema,
@@ -15,11 +14,6 @@ import {
 const menus = defineCollection({
   type: 'data',
   schema: menuSchema,
-})
-
-const tags = defineCollection({
-  type: 'data',
-  schema: tagSchema,
 })
 
 const authors = defineCollection({
@@ -78,7 +72,6 @@ const quizzes = defineCollection({
 export const collections = {
   authors,
   menus,
-  tags,
   coachings,
   courses,
   events,
