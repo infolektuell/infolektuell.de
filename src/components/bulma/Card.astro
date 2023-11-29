@@ -16,7 +16,6 @@ type Props = {
 }
 const { title, href, icon, emoji, links }: Props = Astro.props
 const TitleTag = href ? 'a' : 'p'
-const hasIcon = Astro.slots.has('icon')
 const hasImage = Astro.slots.has('image')
 const hasFooter = Astro.slots.has('footer')
 ---

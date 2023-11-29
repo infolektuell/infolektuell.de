@@ -1,0 +1,18 @@
+---
+export type Props = {
+  tags: string[]
+}
+const { tags } = Astro.props
+---
+
+{
+  tags.length > 0 && (
+  <div class="tags are-medium">
+    {tags.map((tag) => (
+            <a class="tag is-link" href={`/tags/${tag}`}>
+              {tag}
+            </a>
+    ))}
+  </div>
+    )
+  }

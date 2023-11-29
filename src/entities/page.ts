@@ -7,5 +7,7 @@ export const pageSchema = z.object({
   order: z.number().int().min(1).default(10),
   private: z.boolean().default(false),
   tags: z.string().array().default([]),
+  headline: z.string().optional(),
+  summary: z.string().optional(),
 })
 export type Page = z.infer<typeof pageSchema>

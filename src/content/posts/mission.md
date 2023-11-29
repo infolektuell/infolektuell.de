@@ -1,5 +1,6 @@
 ---
 title: Warum Infolektuell
+publishedTime: '2023-11-28T00:00'
 keywords:
   - mentale Belastung
   - geistiger und physischer Stress
@@ -137,5 +138,5 @@ Aufgrund meiner Sehbehinderung muss ich immer wieder **digitale Medien entstöre
 ## Fazit
 
 Wie Sie sehen, ist **selbstbestimmter Informationskonsum** inzwischen ein wichtiges Thema für Ihre **Gesundheit und Sozialbeziehungen**.
-Falls ich Sie überzeugen konnte, buchen Sie doch eines meiner [Trainings](/trainings),
+Falls ich Sie überzeugen konnte, buchen Sie doch eines meiner [Trainings](/products/coachings/),
 damit wir gemeinsam Ihren persönlichen Informationskonsum auf ein neues Niveau heben können.

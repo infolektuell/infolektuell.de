@@ -1,10 +1,14 @@
 import { type SchemaContext, z } from 'astro:content'
-import { moneySchema, pageSchema } from './index.ts'
+import { pageSchema } from './index'
+
+export const moneySchema = z.object({
+  amount: z.number().int().gt(0).default(12000),
+  currency: z.enum(['EUR', 'USD']).default('EUR'),
+})
+export type Money = z.infer<typeof moneySchema>
 
 export const productSchema = ({ image }: SchemaContext) =>
   pageSchema.extend({
-    headline: z.string().optional(),
-    summary: z.string().optional(),
     emoji: z.string().emoji().optional(),
     icon: z.string().optional(),
     cover: image().optional(),

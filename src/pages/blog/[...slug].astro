@@ -1,0 +1,66 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import { frontmatterSchema } from '@entities/frontmatter'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import TagList from '@components/blog/TagList.astro'
+import Header from '@components/page/Header.astro'
+import ReadingTime from '@components/blog/ReadingTime.astro'
+import Section from '@components/page/Section.astro'
+import FormattedDate from '@components/blog/FormattedDate.astro'
+
+export async function getStaticPaths () {
+  const posts = await getCollection('posts')
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+type Props = {
+  post: CollectionEntry<'posts'>
+}
+
+const { post }: Props = Astro.props
+const { title, description, headline, summary, tags, publishedTime } = post.data
+const { Content, remarkPluginFrontmatter } = await post.render()
+const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
+const { minutesRead, lastModified } = fm
+const openGraph = {
+  title: headline ?? title,
+  description: summary ?? description,
+  type: 'article',
+}
+---
+
+<BaseLayout {title} {description} {openGraph}>
+  <article>
+    <Header title={headline ?? title} description={summary}>
+        <p>
+            Veröffentlicht: <FormattedDate date={publishedTime} locale={Astro.currentLocale} />
+        </p>
+      {
+        minutesRead && (
+                      <p>
+                          Lesedauer:
+                          <ReadingTime minutes={minutesRead} />
+                      </p>
+        )
+      }
+    </Header>
+    <div class="content"><Content /></div>
+    {tags.length > 0 && (
+            <Section title="Tags">
+                <TagList {tags} />
+            </Section>
+    )}
+      <footer class="box">
+        {
+          lastModified && (
+                        <p>
+                            Aktualisiert: <FormattedDate date={lastModified} locale={Astro.currentLocale} />
+                        </p>
+          )
+        }
+      </footer>
+  </article>
+</BaseLayout>

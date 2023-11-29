@@ -4,7 +4,6 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import TagList from '@components/bulma/TagList.astro'
 const title = 'Tags'
-const noindex = true
 const coachings = await getCollection('coachings')
 const courses = await getCollection('courses')
 const services = await getCollection('services')
@@ -18,7 +17,7 @@ const tags = [...new Set<string>([
   .map((tag) => ({ href: `/tags/${tag}`, text: tag }))
 ---
 
-<BaseLayout {title} {noindex}>
+<BaseLayout {title} noindex={true}>
   <Header title="Tags" />
   <TagList size="large" color="link" {tags} />
 </BaseLayout>

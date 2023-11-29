@@ -1,15 +1,11 @@
 ---
-import { type GetStaticPaths } from 'astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
-import Header from '../../components/page/Header.astro'
-import ReadingTime from '../../components/controls/ReadingTime.astro'
-import FormattedDate from '../../components/controls/FormattedDate.astro'
-import { frontmatterSchema } from '@entities/frontmatter'
+import Header from '@components/page/Header.astro'
 
 type Props = CollectionEntry<'pages'>
 
-export const getStaticPaths: GetStaticPaths = async function () {
+export const getStaticPaths = async function () {
   const pages = await getCollection('pages')
   return pages.map((page) => ({
     params: { slug: page.slug },
@@ -19,33 +15,11 @@ export const getStaticPaths: GetStaticPaths = async function () {
 
 const page: Props = Astro.props
 const { title, description } = page.data
-const { Content, remarkPluginFrontmatter } = await page.render()
-const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
-const { minutesRead, lastModified } = fm
+const { Content } = await page.render()
 const openGraph = { title, description }
 ---
 
 <BaseLayout {title} {description} {openGraph}>
-  <article>
-    <Header {title}>
-      {
-        minutesRead && (
-          <p>
-            Lesedauer:
-            <ReadingTime minutes={minutesRead} />
-          </p>
-        )
-      }
-    </Header>
+    <Header {title} />
     <div class="content"><Content /></div>
-    <footer class="box">
-      {
-        lastModified && (
-          <p>
-            Aktualisiert: <FormattedDate date={lastModified} locale={Astro.currentLocale} />
-          </p>
-        )
-      }
-    </footer>
-  </article>
 </BaseLayout>
