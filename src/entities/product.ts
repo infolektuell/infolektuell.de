@@ -9,6 +9,7 @@ export type Money = z.infer<typeof moneySchema>
 
 export const productSchema = ({ image }: SchemaContext) =>
   pageSchema.extend({
+    targets: z.string().array().default([]),
     emoji: z.string().emoji().optional(),
     icon: z.string().optional(),
     cover: image().optional(),

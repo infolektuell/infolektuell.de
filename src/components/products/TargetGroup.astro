@@ -1,18 +1,10 @@
 ---
+import TagList from '@components/bulma/TagList.astro'
 export type Props = {
-  tags: string[]
+  targets: string[]
 }
-const { tags } = Astro.props
+const { targets } = Astro.props
+const tags = targets.map((t) => ({ href: `/products/zielgruppen/${t}/`, text: t }))
 ---
 
-{
-  tags.length > 0 && (
-  <div class="tags are-medium">
-    {tags.map((tag) => (
-            <a class="tag is-link" href={`/tags/${tag}`}>
-              {tag}
-            </a>
-    ))}
-  </div>
-    )
-  }
+<TagList {tags} color="link" size="medium" />
