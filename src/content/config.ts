@@ -24,11 +24,6 @@ const authors = defineCollection({
     }),
 })
 
-const pages = defineCollection({
-  type: 'content',
-  schema: pageSchema,
-})
-
 const posts = defineCollection({
   type: 'content',
   schema: ({ image }) =>
@@ -75,7 +70,6 @@ export const collections = {
   coachings,
   courses,
   events,
-  pages,
   posts,
   quizzes,
   services,
