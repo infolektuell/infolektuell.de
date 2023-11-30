@@ -1,7 +1,6 @@
 ---
 title: Versionskontrolle und Qualitätssicherung mit Git
-categories: [Training]
-audience: [IT-Unternehmen, Forschungsteams, Entwicklerteams]
+targets: [IT-Unternehmen, Forschungsteams, Entwicklerteams]
 ---
 
 Git ist die beliebteste Versionskontrolle für Quellcode und selbstverständlicher Bestandteil moderner Softwareentwicklung.

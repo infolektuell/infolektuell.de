@@ -1,8 +1,7 @@
 ---
 title: Statistik- und Datenanalyse
-icon: 👩‍🔬
-categories: [Beratung]
-audience: [Berufstätige, Promovierende, Studierende]
+emoji: 👩‍🔬
+targets: [Unternehmen]
 ---
 
 Daten zu erfassen, auszuwerten und dann noch etwas daraus zu lernen ist nicht nur für Laien schwierig, sondern auch für Profis.

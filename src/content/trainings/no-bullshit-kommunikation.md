@@ -1,11 +1,7 @@
 ---
 title: No Bullshit Kommunikationstraining
-icon: ⚙️
-customers: business
-format:
-  kind: course
-  price-per-hour: { amount: 12000 }
-audience: [Unternehmen, IT-Betriebe, Ingenieursbetriebe]
+emoji: ⚙️
+targets: [Unternehmen, IT-Betriebe, Ingenieursbetriebe]
 ---
 
 Es ist leider ein häufig anzutreffendes Problem, dass sich technische Mitarbeiter in IT- oder Ingenieursbetrieben schwer führen lassen.

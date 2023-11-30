@@ -1,8 +1,7 @@
 ---
 title: Programmieren Lernen
 motto: Ich weiß grad mal, wie man den einschaltet
-audience: [Frauen]
-categories: [Kurs]
+targets: [frauen]
 ---
 
 Manchmal fällt es Frauen leichter, sich einem männlich dominierten Thema wie Informatik und Programmieren anzunähern, wenn sie unter sich sind.

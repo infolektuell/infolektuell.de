@@ -1,9 +1,10 @@
 ---
 title: Digitale Medien im Unterricht
-icon: 👩‍🏫
+emoji: 👩‍🏫
 motto: Das Leben ist zu kurz für schlechte Informationen
-audience: [Lehrpersonen]
-categories: [Training]
+customers: education
+pricePerSession: { amount: 12000 }
+targets: [Lehrpersonen]
 ---
 
 Sie unterrichten und würden gern Ihren Unterricht durch digitale Medien ergänzen?
