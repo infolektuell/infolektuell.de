@@ -7,10 +7,10 @@ import Section from '@components/page/Section.astro'
 import Article from '@components/page/Article.astro'
 import CTAButton from '@components/page/CTAButton.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
+import Bio from '@components/contact/Bio.astro'
 const title = 'Willkommen'
 const { description, headline, summary } = siteConfig
 const person = await getEntry('authors', 'tamara-cook')
-const { name, bio } = person.data
 ---
 
 <BaseLayout {title} {description}>
@@ -66,9 +66,7 @@ const { name, bio } = person.data
     </Article>
   </Section>
   <Section title="Über mich">
-    <Article title={name.display}>
-      <Fragment set:html={bio} />
+      <Bio {person} />
       <CTAButton slot="cta" href="/about/">Meine Mission</CTAButton>
-    </Article>
   </Section>
 </BaseLayout>
