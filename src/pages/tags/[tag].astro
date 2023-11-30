@@ -34,27 +34,27 @@ type Props = {
   trainings: CollectionEntry<'trainings'>[]
 }
 const { tag } = Astro.params
-const title = `Produkte für ${tag}`
+const title = tag
 const { coachings, courses, services, trainings }: Props = Astro.props
 const products = [
   {
     title: 'Coachings',
-    href: '/products/coachings/',
+    basePath: '/products/coachings/',
     products: coachings,
   },
   {
     title: 'Kurse',
-    href: '/products/courses/',
+    basePath: '/products/courses/',
     products: courses,
   },
   {
     title: 'Dienstleistungen',
-    href: '/products/services/',
+    basePath: '/products/services/',
     products: services,
   },
   {
     title: 'Trainings',
-    href: '/products/trainings/',
+    basePath: '/products/trainings/',
     products: trainings,
   },
 ].filter(({ products }) => products.length > 0)
@@ -63,10 +63,10 @@ const products = [
 <BaseLayout {title} noindex={true}>
   <Header {title} />
   {
-    products.map(({ title, href, products }) => (
+    products.map(({ title, basePath, products }) => (
       <Section title={`${title} (${products.length})`}>
         {products.map((product) => (
-          <ProductPreview {product} href={href + product.slug} />
+          <ProductPreview {product} {basePath} />
         ))}
       </Section>
     ))
