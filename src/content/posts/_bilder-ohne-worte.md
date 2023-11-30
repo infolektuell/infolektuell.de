@@ -2,7 +2,6 @@
 title: Bilder mit und ohne Worte
 subtitle: Wann es sinnvoll ist, Grafiken auf Webseiten nicht zu beschriften
 author: tamara-cook
-draft: false
 publishedTime: '2023-11-28T16:26'
 ---
 

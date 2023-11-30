@@ -2,7 +2,6 @@
 title: Ökonomisch attraktive Argumente für gute Softwarearchitektur
 subtitle: Barrierefreiheit für Chatbots
 author: tamara-cook
-draft: true
 publishedTime: '2023-11-28T16:26'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Warum Infolektuell
 publishedTime: '2023-11-28T00:00'
-keywords:
+tags:
   - mentale Belastung
   - geistiger und physischer Stress
   - konzentrieren
