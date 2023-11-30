@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import TagList from '@components/bulma/TagList.astro'
+const title = 'Zielgruppen'
+const coachings = await getCollection('coachings')
+const courses = await getCollection('courses')
+const services = await getCollection('services')
+const trainings = await getCollection('trainings')
+const targets = [...new Set<string>([
+  ...coachings.flatMap(({ data }) => data.targets),
+  ...courses.flatMap(({ data }) => data.targets),
+  ...services.flatMap(({ data }) => data.targets),
+  ...trainings.flatMap(({ data }) => data.targets),
+])]
+  .map((target) => ({ href: `/products/zielgruppen/${target}`, text: target }))
+---
+
+<BaseLayout {title} noindex={true}>
+  <Header {title} />
+  <TagList size="medium" color="link" {targets} />
+</BaseLayout>

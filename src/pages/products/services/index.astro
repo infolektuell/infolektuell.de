@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import Section from '@components/page/Section.astro'
+import ProductPreview from '@components/products/ProductPreview.astro'
+
+const title = 'Dienstleistungen'
+const description = 'Datenanalyse, Statistik, Data Science'
+const services = await getCollection('services')
+const headline = 'Geben Sie Ihre Daten in gute Hände'
+const openGraph = {
+  title: headline,
+  description,
+}
+---
+
+<BaseLayout {title} {description} {openGraph}>
+  <Header title={headline}>
+    <p>
+      Manchmal bringen Computerkurse oder Onlinekurse einen einfach nicht weiter. Wenn Sie keine entspannte Beziehung zu
+      digitaler Technik aufbauen können, sitzt das Problem oft genug nicht „vor dem Bildschirm“, sondern in
+      menschenfeindlicher Technik. In Gruppensituationen fehlt oft der Freiraum, solche spezifischen Stolpersteine
+      herauszuarbeiten und darauf einzugehen. Dafür sind meine Coachings da.
+    </p>
+  </Header>
+  <Section title="Angebote">
+    {services.map((service) => <ProductPreview product={service} basePath={Astro.url.pathname} />)}
+  </Section>
+</BaseLayout>

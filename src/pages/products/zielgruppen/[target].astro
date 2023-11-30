@@ -1,0 +1,75 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/products/Header.astro'
+import Section from '@components/page/Section.astro'
+import ProductPreview from '@components/products/ProductPreview.astro'
+
+export async function getStaticPaths () {
+  const coachings = await getCollection('coachings')
+  const courses = await getCollection('courses')
+  const services = await getCollection('services')
+  const trainings = await getCollection('trainings')
+  const targets = [...new Set<string>([
+    ...coachings.flatMap(({ data }) => data.targets),
+    ...courses.flatMap(({ data }) => data.targets),
+    ...services.flatMap(({ data }) => data.targets),
+    ...trainings.flatMap(({ data }) => data.targets),
+  ])]
+  return targets.map((target) => ({
+    params: { target },
+    props: {
+      coachings: coachings.filter(({ data }) => data.targets.includes(target)),
+      courses: courses.filter(({ data }) => data.targets.includes(target)),
+      services: services.filter(({ data }) => data.targets.includes(target)),
+      trainings: trainings.filter(({ data }) => data.targets.includes(target)),
+    },
+  }))
+}
+
+type Props = {
+  coachings: CollectionEntry<'coachings'>[]
+  courses: CollectionEntry<'courses'>[]
+  services: CollectionEntry<'services'>[]
+  trainings: CollectionEntry<'trainings'>[]
+}
+const { target } = Astro.params
+const title = target
+const headline = `Produkte für ${target}`
+const { coachings, courses, services, trainings }: Props = Astro.props
+const products = [
+  {
+    title: 'Coachings',
+    basePath: '/products/coachings/',
+    products: coachings,
+  },
+  {
+    title: 'Kurse',
+    basePath: '/products/courses/',
+    products: courses,
+  },
+  {
+    title: 'Dienstleistungen',
+    basePath: '/products/services/',
+    products: services,
+  },
+  {
+    title: 'Trainings',
+    basePath: '/products/trainings/',
+    products: trainings,
+  },
+].filter(({ products }) => products.length > 0)
+---
+
+<BaseLayout {title} noindex={true}>
+  <Header {headline} category="Zielgruppe" />
+  {
+    products.map(({ title, basePath, products }) => (
+      <Section title={`${title} (${products.length})`}>
+        {products.map((product) => (
+          <ProductPreview {product} {basePath} />
+        ))}
+      </Section>
+    ))
+  }
+</BaseLayout>

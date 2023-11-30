@@ -1,0 +1,47 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import Dinero from 'dinero.js'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/products/Header.astro'
+import Section from '@components/page/Section.astro'
+import ContactButton from '@components/contact/ContactButton.astro'
+import TargetGroup from '@components/products/TargetGroup.astro'
+
+export const getStaticPaths = async function () {
+  const coachings = await getCollection('coachings')
+  return coachings.map((coaching) => ({
+    params: { slug: coaching.slug },
+    props: { coaching },
+  }))
+}
+
+type Props = {
+  coaching: CollectionEntry<'coachings'>
+}
+const category = 'Coaching'
+const { coaching }: Props = Astro.props
+const { title, description, headline, summary, targets, pricePerSession } = coaching.data
+const price = Dinero(pricePerSession).toFormat('$0,0.00')
+const { Content } = await coaching.render()
+
+const openGraph = {
+  title: headline ?? title,
+  description: summary ?? description,
+}
+---
+
+<BaseLayout {title} {description} {openGraph}>
+  <Header headline={headline ?? title} {summary} {category} />
+  <Section title="Für wen?">
+      <TargetGroup {targets} />
+  </Section>
+  <Section title="Beschreibung">
+      <div class="content">
+      <Content />
+    </div>
+  </Section>
+    <Section title="Überzeugt?">
+        <ContactButton />
+        <p class="content">Preis pro Sitzung: {price}</p>
+    </Section>
+</BaseLayout>

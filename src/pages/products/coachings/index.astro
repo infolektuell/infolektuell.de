@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import Section from '@components/page/Section.astro'
+import ProductPreview from '@components/products/ProductPreview.astro'
+import { Content as Disclaimer, frontmatter as disclaimer } from '@components/products/Disclaimer.md'
+
+const title = 'Coachings'
+const description = 'Medienkompetenz, Barrierefreiheit, technische Ergonomie'
+const headline = 'Coachings für ein maßgeschneidertes digitales Leben'
+const openGraph = {
+  headline,
+  description,
+}
+const coachings = await getCollection('coachings')
+---
+
+<BaseLayout {title} {description} {openGraph}>
+  <Header title={headline}>
+    <p>
+      Können Sie einfach keine entspannte Beziehung zu digitaler Technik aufbauen? Das Problem sitzt oft genug nicht „vor dem Bildschirm“, sondern in
+      menschenfeindlicher Technik. In meinen Coachings passen wir in Ruhe Ihre technische Umgebung an Sie und Ihre Bedürfnisse an.
+    </p>
+  </Header>
+  <Section title="Angebote">
+    {coachings.map((coaching) => <ProductPreview product={coaching} basePath={Astro.url.pathname} />)}
+  </Section>
+  <Section title={disclaimer.title}>
+    <div class="content">
+        <Disclaimer />
+    </div>
+  </Section>
+</BaseLayout>
