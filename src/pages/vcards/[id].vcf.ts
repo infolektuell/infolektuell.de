@@ -19,11 +19,11 @@ export const GET: APIRoute = async function ({ request, params, site }) {
       statusText: 'Not found',
     })
   }
-  const { title: org, icon } = siteConfig
+  const { title: org } = siteConfig
   const card = new VCard()
-  card.set('org', `${icon} ${org}`)
+  card.set('org', org)
   const { name, title, address, phone, mobile, email, social } = profile.data
-  card.set('fn', `${name.given} ${name.family}, ${name.suffix}`)
+  card.set('fn', name.display)
   const nameValue = [name.family, name.given, null, null, name.suffix].map((v) => v ?? '')
   const nProperty = VCard.Property.fromJSON(['n', {}, 'text', nameValue])
   card.setProperty(nProperty)
