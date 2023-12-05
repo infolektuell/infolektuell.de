@@ -5,8 +5,11 @@ import BaseLayout from './BaseLayout.astro'
 import Header from '../components/page/Header.astro'
 type Props = MarkdownLayoutProps<Page>
 const {frontmatter}: Props = Astro.props;
-const { title, description, noindex, nofollow } = frontmatter
-const openGraph = { title, description }
+const { title, description, headline, summary, noindex, nofollow } = frontmatter
+const openGraph = {
+    title: headline ?? title,
+    description: summary ?? description
+}
 ---
 
 <BaseLayout {title} {description} {openGraph} {noindex} {nofollow}>
