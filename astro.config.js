@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx'
 import { remarkHeadingId } from 'remark-custom-heading-id'
 import remarkGitInfo from './src/plugins/remark-git-info'
 import remarkReadingTime from './src/plugins/remark-reading-time'
+import rehypeExternalLinks from 'rehype-external-links'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import icon from 'astro-icon'
@@ -41,6 +42,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
   },
   server: {
     port: 8080,
