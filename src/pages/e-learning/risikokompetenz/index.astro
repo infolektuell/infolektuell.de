@@ -6,12 +6,14 @@ import Section from '../../../components/page/Section.astro'
 import Article from '../../../components/page/Article.astro'
 import CTAButton from '../../../components/page/CTAButton.astro'
 
-const title = 'Risikokompetenz'
-const description = 'E-Learning für Risikokompetenz, Numeracy und Statistik'
+export const title = 'Risikokompetenz'
+export const description = 'Ein Quiz-Formatzum Erlernen von Risikokompetenz, Numeracy und Statistik'
+export const headline = 'Risikokompetenz mit Sokrates'
+export const summary = 'Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein Quiz-Format mit Sokrates als Quiz Master führt spielerisch anhand von Medienmeldungen und Alltagsfragen an das Thema heran.'
 const quizzes = await getCollection('quizzes')
 const openGraph = {
-  title: 'Risikokompetenz mit Sokrates',
-  description: 'Ein Quiz-Format zum Erlernen von Risikokompetenz',
+  title: headline,
+  description: summary,
 }
 ---
 

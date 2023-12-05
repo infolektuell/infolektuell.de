@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content'
+import Section from '@components/page/Section.astro'
+import ProductPreview from '@components/products/ProductPreview.astro'
+type Props = {
+  collection: 'coachings' | 'courses' | 'trainings' | 'services'
+  basePath?: string
+}
+const { collection, basePath }: Props = Astro.props
+const products = await getCollection(collection)
+---
+<Section title="Angebote">
+{products.map((product) => <ProductPreview {product} basePath={basePath ?? Astro.url.pathname} />)}
+</Section>
