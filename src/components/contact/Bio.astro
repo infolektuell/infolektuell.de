@@ -10,4 +10,5 @@ const { name, bio } = person.data
 
 <Article title={name.display}>
     <Fragment set:html={bio} />
+    <slot name="cta" slot="cta" />
 </Article>
