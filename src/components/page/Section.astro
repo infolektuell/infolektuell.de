@@ -1,14 +1,16 @@
 ---
 type Props = {
-  title: string
+  title?: string
 }
 const { title }: Props = Astro.props
 ---
 
 <section class="box">
-  <header class="title is-4">
-    <h2>{title}</h2>
-  </header>
+  {title && (
+          <header class="title is-4">
+              <h2>{title}</h2>
+          </header>
+  )}
   <slot />
 </section>
 <style>
