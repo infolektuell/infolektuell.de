@@ -4,6 +4,7 @@ import Dinero from 'dinero.js'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/products/Header.astro'
 import Section from '@components/page/Section.astro'
+import Description from '@components/products/Description.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import TargetGroup from '@components/products/TargetGroup.astro'
 
@@ -35,11 +36,9 @@ const openGraph = {
   <Section title="Für wen?">
       <TargetGroup {targets} />
   </Section>
-  <Section title="Beschreibung">
-      <div class="content">
-      <Content />
-    </div>
-  </Section>
+    <Description>
+        <Content />
+    </Description>
     <Section title="Überzeugt?">
         <ContactButton />
         <p class="content">Preis pro Sitzung: {price}</p>
