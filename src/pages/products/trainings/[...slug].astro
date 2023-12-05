@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
-import Dinero from 'dinero.js'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/products/Header.astro'
 import Section from '@components/page/Section.astro'
@@ -22,8 +21,7 @@ type Props = {
 
 const category = 'Training'
 const { training }: Props = Astro.props
-const { title, description, headline, summary, targets, sessions } = training.data
-const price = Dinero(training.data.price).toFormat('$0,0.00')
+const { title, description, headline, summary, targets } = training.data
 const { Content } = await training.render()
 
 const openGraph = {
