@@ -1,7 +1,10 @@
 ---
 title: Digitale Technik entstören
 description: Beratung für technische und digitale Ergonomie und Barrierefreiheit
-summary: Technik soll den Menschen dienen, nicht umgekehrt.
+summary: |
+  Können Sie einfach keine entspannte Beziehung zu digitaler Technik aufbauen?
+  Das Problem sitzt oft genug nicht „vor dem Bildschirm“, sondern in menschenfeindlicher Technik.
+  In meinem Entstörungscoaching passen wir in Ruhe Ihre technische Umgebung an Sie und Ihre Bedürfnisse an.
 targets: [senioren]
 ---
 
