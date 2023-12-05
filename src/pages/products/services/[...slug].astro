@@ -7,7 +7,6 @@ import Section from '@components/page/Section.astro'
 import Description from '@components/products/Description.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import TargetGroup from '@components/products/TargetGroup.astro'
-import Description from '../../../components/products/Description.astro'
 
 export const getStaticPaths = async function () {
   const services = await getCollection('services')
@@ -44,9 +43,5 @@ const openGraph = {
     </Description>
     <Section title="Überzeugt?">
         <ContactButton />
-        <dl>
-            <dt>Preis pro Stunde</dt>
-            <dd>{price}</dd>
-        </dl>
     </Section>
 </BaseLayout>
