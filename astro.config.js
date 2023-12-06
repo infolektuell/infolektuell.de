@@ -2,9 +2,7 @@
 
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
-import { remarkHeadingId } from 'remark-custom-heading-id'
-import remarkGitInfo from './src/plugins/remark-git-info'
-import remarkReadingTime from './src/plugins/remark-reading-time'
+import { remarkHeadingId, remarkGitInfo, remarkReadingTime } from './src/plugins/index'
 import rehypeExternalLinks from 'rehype-external-links'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
@@ -13,6 +11,10 @@ import icon from 'astro-icon'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://infolektuell.de',
+  markdown: {
+    remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
+    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
+  },
   integrations: [
     mdx(),
     sitemap(),
@@ -40,10 +42,6 @@ export default defineConfig({
       },
     }),
   ],
-  markdown: {
-    remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
-  },
   server: {
     port: 8080,
   },
