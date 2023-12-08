@@ -12,7 +12,7 @@ const { label, items } = legalMenu.data
 
 <footer class="footer">
   <div class="container">
-    <nav aria-labelledby="sec-legal">
+    <nav aria-labelledby="sec-legal" class="block">
       <header class="title is-6" id="sec-legal">
         <h2>{label}</h2>
       </header>
@@ -28,11 +28,11 @@ const { label, items } = legalMenu.data
         </div>
       </div>
     </nav>
-    <section aria-labelledby="sec-credits">
+    <section aria-labelledby="sec-credits" class="block has-text-centered">
       <header class="title is-6" id="sec-credits">
         <h2>Credits 💚<br /></h2>
       </header>
-      <p class="content has-text-centered is-small">
+      <p class="content is-small">
         <a href="https://astro.build" target="_blank" rel="noopener nofollow">
           <Image src={AstroBadge} alt="Built with Astro" width="128" height="24" />
         </a>
@@ -40,13 +40,8 @@ const { label, items } = legalMenu.data
         <a href="https://bulma.io" target="_blank" rel="noopener nofollow">
           <Image src={BulmaBadge} width="128" height="24" alt="Made with Bulma" />
         </a>
-        <br />
-         Emoji-Icons: <a href="https://openmoji.org/" target="_blank" rel="noopener nofollow">
-          <Emoji char="❇️" size="small" />
-          <span>OpenMoji</span>
-        </a>
       </p>
-      <p class="content has-text-centered is-small">
+      <p class="content is-small">
         <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
         <span>Alle Rechte vorbehalten.</span>
       </p>
