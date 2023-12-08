@@ -10,3 +10,9 @@ const { name, size, ...props }: Props = Astro.props
 <span class:list={['icon', size ? `is-${size}` : null]}>
   <AstroIcon {name} {...props} />
 </span>
+<style>
+    svg {
+        width: 80%;
+        height: 80%;
+    }
+</style>
