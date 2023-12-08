@@ -1,5 +1,8 @@
 ---
 title: Versionskontrolle und Qualitätssicherung mit Git
+headline: Übernehmen Sie mit Git die Kontrolle über Änderungsverläufe in Ihren Code-projekten
+description: Training für Code-Versionierung und Qualitätssicherung mit Git
+summary: Lernen Sie, Ihren Code zu versionieren und reibungslos an gemeinsamen Projekten zu arbeiten
 targets: [Unternehmen, Forschungsteams, Institutionen, Entwicklerteams]
 ---
 

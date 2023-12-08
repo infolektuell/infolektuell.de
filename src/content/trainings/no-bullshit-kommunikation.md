@@ -1,5 +1,8 @@
 ---
 title: No Bullshit Kommunikationstraining
+headline: Richtig führen als Chance für Produktivität
+description: Training für IT- und Ingenieursbetriebe für produktivere Zusammenarbeit durch sinnvolle Kommunikationsmethoden
+summary: Lernen Sie durch bessere Kommunikationsstrategien, Ihre Mitarbeiter effektiv zu führen.
 emoji: ⚙️
 targets: [Unternehmen, IT-Betriebe, Ingenieursbetriebe]
 ---
@@ -17,7 +20,7 @@ Dadurch kenne ich das Umfeld und die unterschiedlichen Perspektiven relativ gut.
 Wer führen will, muss die Menschen und ihre Motive kennen, um die passenden Anreize zu setzen.
 In die technische Entwicklung oder Forschung gehen Menschen z.B. meistens mit einer ausgeprägten intrinsischen Leistungsmotivation und hohen inhaltlichen Ansprüchen.
 Menschen mit geringer intrinsischer Leistungsmotivation brauchen gelegentlich materielle Anreize, um aktiv zu bleiben.
-Bei intrinsisch motivierten Menschen kann eine solche behandlung zum Gegenteil führen,
+Bei intrinsisch motivierten Menschen kann eine solche Behandlung zum Gegenteil führen,
 weil durch sie das Motiv angezweifelt wird und die betreffenden sich beeinflusst fühlen.
 Personen mit ausgeprägtem Affiliationsmotiv in Führungsrollen gehen davon aus, dass durch mehr Socializing, Diversity etc. die Mitarbeiter wieder glücklich werden.
 Bei Entwicklern muss soziale Beziehung aber über den Inhalt geschaffen werden, sonst wird sie als Ablenkung empfunden.
