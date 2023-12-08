@@ -1,22 +1,14 @@
 ---
-import Icon from './Icon.astro'
-import chars from '@iconify-json/openmoji/chars.json'
-// Relax typing for being able to index by string
-const charMap: Record<string, string | undefined> = chars
-const string2hex = (str: string) =>
-  Array.from(str)
-    .map((c) => c.codePointAt(0)?.toString(16))
-    .filter((h) => !!h && h !== 'fe0e' && h !== 'fe0f')
-    .join('-')
-
 type Props = {
   char: string
   size?: 'small' | 'medium' | 'large'
 }
 const { char, size, ...props }: Props = Astro.props
-const hex = string2hex(char)
-const icon = charMap[hex]
-const name = icon ? `openmoji:${icon}` : null
 ---
 
-{name && <Icon {size} {name} aria-label={char} {...props} />}
+<span>{char}</span>
+<style>
+    span {
+        margin-right: 5px;
+    }
+</style>

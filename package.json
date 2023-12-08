@@ -41,7 +41,6 @@
     "@iconify-json/fa6-brands": "^1.1.13",
     "@iconify-json/fa6-regular": "^1.1.13",
     "@iconify-json/fa6-solid": "^1.1.15",
-    "@iconify-json/openmoji": "^1.1.40",
     "@iconify-json/tabler": "^1.1.96",
     "@types/dinero.js": "^1.9.2",
     "@types/vcf": "^2.0.4",
