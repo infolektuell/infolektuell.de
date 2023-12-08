@@ -12,3 +12,13 @@ export const pageSchema = z.object({
   summary: z.string().optional(),
 })
 export type Page = z.infer<typeof pageSchema>
+
+export const pageComparator = <T extends Page>({ data: a }: { data: T }, { data: b }: { data: T }): number => {
+  if (a.order !== b.order) {
+    return a.order - b.order
+  }
+  if (a.title === b.title) {
+    return 0
+  }
+  return a.title > b.title ? 1 : -1
+}
