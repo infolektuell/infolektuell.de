@@ -3,14 +3,17 @@ import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import Section from '@components/page/Section.astro'
+import PostPreview from '@components/blog/PostPreview.astro'
 import ProductPreview from '@components/products/ProductPreview.astro'
 
 export async function getStaticPaths () {
+  const posts = await getCollection('posts')
   const coachings = await getCollection('coachings')
   const courses = await getCollection('courses')
   const services = await getCollection('services')
   const trainings = await getCollection('trainings')
   const tags = [...new Set<string>([
+    ...posts.flatMap(({ data }) => data.tags),
     ...coachings.flatMap(({ data }) => data.tags),
     ...courses.flatMap(({ data }) => data.tags),
     ...services.flatMap(({ data }) => data.tags),
@@ -19,6 +22,7 @@ export async function getStaticPaths () {
   return tags.map((tag) => ({
     params: { tag },
     props: {
+      posts: posts.filter(({ data }) => data.tags.includes(tag)),
       coachings: coachings.filter(({ data }) => data.tags.includes(tag)),
       courses: courses.filter(({ data }) => data.tags.includes(tag)),
       services: services.filter(({ data }) => data.tags.includes(tag)),
@@ -28,6 +32,7 @@ export async function getStaticPaths () {
 }
 
 type Props = {
+  posts: CollectionEntry<'posts'>[]
   coachings: CollectionEntry<'coachings'>[]
   courses: CollectionEntry<'courses'>[]
   services: CollectionEntry<'services'>[]
@@ -35,7 +40,7 @@ type Props = {
 }
 const { tag } = Astro.params
 const title = tag
-const { coachings, courses, services, trainings }: Props = Astro.props
+const { posts, coachings, courses, services, trainings }: Props = Astro.props
 const products = [
   {
     title: 'Coachings',
@@ -62,6 +67,12 @@ const products = [
 
 <BaseLayout {title} noindex={true}>
   <Header {title} />
+  {posts.length > 0 && (
+          <Section title="Beiträge">
+            {posts.map((post) => <PostPreview {post} />)}
+          </Section>
+  )
+  }
   {
     products.map(({ title, basePath, products }) => (
       <Section title={`${title} (${products.length})`}>
