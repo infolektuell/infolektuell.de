@@ -6,15 +6,11 @@ type Props = {
 const { title, href }: Props = Astro.props
 ---
 
-<article class="box">
+<article class="block">
+    <hr>
   <header class="title is-5">
     <h3>{href ? <a {href}>{title}</a> : <>{title}</>}</h3>
   </header>
   <div class="content"><slot /></div>
   <slot name="cta" />
 </article>
-<style>
-  article {
-    background: rgba(255, 255, 255, 0.9);
-  }
-</style>

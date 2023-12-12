@@ -7,12 +7,7 @@ const { title, description }: Props = Astro.props
 ---
 
 <header class="box">
-  <h1 class="title">{title}</h1>
+  <h1 class="title is-4">{title}</h1>
   {description && <p class="subtitle">{description}</p>}
   <slot />
 </header>
-<style>
-  header {
-    background: rgba(255, 255, 255, 0.5);
-  }
-</style>

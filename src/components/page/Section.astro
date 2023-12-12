@@ -7,14 +7,9 @@ const { title }: Props = Astro.props
 
 <section class="box">
   {title && (
-          <header class="title is-4">
-              <h2>{title}</h2>
+          <header>
+              <h2 class="title is-4">{title}</h2>
           </header>
   )}
   <slot />
 </section>
-<style>
-  section {
-    background: rgba(255, 255, 255, 0.5);
-  }
-</style>

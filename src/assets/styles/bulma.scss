@@ -1,23 +1,41 @@
 @charset "utf-8";
+// Import bulma sass utilities and variables
+@import 'bulma/sass/utilities/_all.sass';
 
 // Import DejaVu fonts
 @import '@fontsource/dejavu-sans/index.css';
 @import '@fontsource/dejavu-serif/index.css';
 @import '@fontsource/noto-color-emoji/index.css';
 
+// Hyphenation
+body {
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-chars: 6 3 3;
+  -webkit-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-last: always;
+  -webkit-hyphenate-limit-zone: 8%;
+
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
+
 // Update Bulma's global variables
 $family-sans-serif: 'DejaVu Sans', 'Noto Color Emoji', sans-serif;
 $family-serif: 'DejaVu Serif', 'Noto Color Emoji', serif;
 $family-secondary: $family-serif;
+$body-size: 20px;
+$text: $black;
 $widescreen-enabled: true;
 $fullhd-enabled: false;
-$body-size: 20px;
+$container-max-width: $widescreen;
+$box-background-color: rgba(255, 255, 255, 0.85);
 
 // Import only what you need from Bulma
-@import 'bulma/sass/utilities/_all.sass';
-$text: $black;
-$container-max-width: $widescreen;
-
 @import 'bulma/sass/base/_all.sass';
 @import 'bulma/sass/elements/_all.sass';
 @import 'bulma/sass/form/_all.sass';
