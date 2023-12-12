@@ -14,5 +14,7 @@ const openGraph = {
 
 <BaseLayout {title} {description} {openGraph} {noindex} {nofollow}>
     <Header {title} />
-    <div class="content"><slot /></div>
+    <div class="box">
+        <div class="content"><slot /></div>
+    </div>
 </BaseLayout>

@@ -35,25 +35,16 @@ const openGraph = {
 <BaseLayout {title} {description} {openGraph}>
   <article>
     <Header title={headline ?? title} description={summary}>
-        <p>
-            Veröffentlicht: <FormattedDate date={publishedTime} locale={Astro.currentLocale} />
-        </p>
-      {
-        minutesRead && (
-                      <p>
-                          Lesedauer:
-                          <ReadingTime minutes={minutesRead} />
-                      </p>
-        )
-      }
     </Header>
-    <div class="content"><Content /></div>
+    <div class="box">
+        <div class="content"><Content /></div>
+    </div>
     {tags.length > 0 && (
             <Section title="Tags">
                 <TagList {tags} />
             </Section>
     )}
-      <footer class="box">
+      <footer class="box has-text-small">
         {
           lastModified && (
                         <p>
