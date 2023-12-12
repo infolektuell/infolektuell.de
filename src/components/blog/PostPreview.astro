@@ -18,14 +18,14 @@ const { minutesRead } = fm
 ---
 
 <Article title={headline ?? title} {href}>
-  <p>Veröffentlicht: <FormattedDate date={publishedTime} /></p>
+  <p class="content is-small">Veröffentlicht: <FormattedDate date={publishedTime} /></p>
   {
     minutesRead && (
-                  <p>
+                  <p class="content is-small">
                       Lesedauer:
                       <ReadingTime minutes={minutesRead} />
                   </p>
     )
   }
-  <TagList {tags} />
+  <TagList tags={tags.slice(0, 5)} />
 </Article>
