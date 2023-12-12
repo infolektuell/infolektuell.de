@@ -33,8 +33,7 @@ const openGraph = {
 ---
 
 <BaseLayout {title} {description} {openGraph}>
-  <Header headline={headline ?? title} {summary} {category}>
-  </Header>
+  <Header headline={headline ?? title} {summary} {category} />
     <Section title="Zielgruppe">
         <TargetGroup {targets} />
     </Section>
@@ -43,9 +42,5 @@ const openGraph = {
     </Description>
     <Section title="Überzeugt?">
         <ContactButton />
-        <dl>
-            <dt>Preis pro Person</dt>
-            <dd>{price}</dd>
-        </dl>
     </Section>
 </BaseLayout>
