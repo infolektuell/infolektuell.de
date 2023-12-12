@@ -1,5 +1,5 @@
 ---
-title: Digitale Technik entstören
+title: Digitale Technik „entstören“
 description: Beratung für technische und digitale Ergonomie und Barrierefreiheit
 summary: |
   Können Sie einfach keine entspannte Beziehung zu digitaler Technik aufbauen?
