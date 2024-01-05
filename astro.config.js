@@ -4,6 +4,8 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import { remarkHeadingId, remarkGitInfo, remarkReadingTime } from './src/plugins/index'
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeMermaid from 'rehype-mermaid'
+import rehypeShikiji from 'rehype-shikiji'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import icon from 'astro-icon'
@@ -13,7 +15,12 @@ export default defineConfig({
   site: 'https://infolektuell.de',
   markdown: {
     remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
-    rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank' }],
+      rehypeMermaid,
+      [rehypeShikiji, { theme: 'github-dark' }],
+    ],
+    syntaxHighlight: false,
   },
   integrations: [
     mdx(),
