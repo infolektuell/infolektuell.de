@@ -7,6 +7,7 @@ import Section from '@components/page/Section.astro'
 import Description from '@components/products/Description.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import TargetGroup from '@components/products/TargetGroup.astro'
+import BackButton from '@components/products/BackButton.astro'
 
 export const getStaticPaths = async function () {
   const coachings = await getCollection('coachings')
@@ -43,4 +44,5 @@ const openGraph = {
         <ContactButton />
         <p class="content">Preis pro Sitzung: {price}</p>
     </Section>
+  <BackButton category="coachings" />
 </BaseLayout>
