@@ -2,7 +2,6 @@
 import { getEntry } from 'astro:content'
 import { Image } from 'astro:assets'
 import siteConfig from '../../config/site'
-import Emoji from '@components/bulma/Emoji.astro'
 import NavLink from '../nav/NavLink.astro'
 import AstroBadge from '@assets/images/credits/built-with-astro/tiny.svg'
 import BulmaBadge from '@assets/images/credits/made-with-bulma.png'
@@ -40,6 +39,8 @@ const { label, items } = legalMenu.data
         <a href="https://bulma.io" target="_blank" rel="noopener nofollow">
           <Image src={BulmaBadge} width="128" height="24" alt="Made with Bulma" />
         </a>
+        <br />
+        Artwork: <a href="https://labs.openai.com/">DALL·E 2</a>
       </p>
       <p class="content is-small">
         <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
