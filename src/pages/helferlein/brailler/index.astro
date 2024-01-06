@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import Brailler from '@components/tools/Brailler.svelte'
 const title = 'Brailler'
@@ -16,3 +16,8 @@ const openGraph = { title, description }
   </Header>
   <Brailler client:load />
 </BaseLayout>
+<style is:global lang="scss">
+  @import '@assets/styles/variables.scss';
+  @import 'bulma/sass/form/_all.sass';
+  @import 'bulma/sass/grid/_all.sass';
+</style>

@@ -1,5 +1,4 @@
 ---
-import 'katex/dist/katex.css'
 import { type GetStaticPaths } from 'astro'
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
@@ -25,3 +24,9 @@ const openGraph = { title, description }
 <BaseLayout {title} {description} {openGraph}>
   <Quiz client:load quiz={quiz.data} />
 </BaseLayout>
+<style is:global lang="scss">
+  @import 'katex/dist/katex.css';
+  @import '@assets/styles/variables.scss';
+  @import 'bulma/sass/form/_all.sass';
+  @import 'bulma/sass/components/message.sass';
+</style>
