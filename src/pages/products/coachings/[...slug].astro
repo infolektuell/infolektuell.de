@@ -34,9 +34,11 @@ const openGraph = {
 
 <BaseLayout {title} {description} {openGraph}>
   <Header headline={headline ?? title} {summary} {category} />
+  {targets.length > 0 &&
   <Section title="Für wen?">
       <TargetGroup {targets} />
   </Section>
+  }
     <Description>
         <Content />
     </Description>
