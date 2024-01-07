@@ -20,24 +20,24 @@ const person = await getEntry('authors', 'tamara-cook')
 
 <BaseLayout {title} {description}>
   <Header title={headline} description={summary} />
-  <Section title="Für Privatpersonen">
+  <Section title="Für Einzelpersonen mit und ohne Angehörige">
     <Article title={coachingsList.frontmatter.headline}>
       <p>{coachingsList.frontmatter.summary}</p>
       <CTAButton slot="cta" href="/products/coachings/">Finden Sie jetzt Ihr passendes Coaching</CTAButton>
     </Article>
+  </Section>
+  <Section title="Für Gruppen">
     <Article title={coursesList.frontmatter.headline}>
       <p>{coursesList.frontmatter.summary}</p>
       <CTAButton slot="cta" href="/products/courses/">Finden Sie Ihren passenden Kurs</CTAButton>
     </Article>
-  </Section>
-  <Section title="Für Unternehmen">
     <Article title={trainingsList.frontmatter.headline}>
       <p>{trainingsList.frontmatter.summary}</p>
       <CTAButton slot="cta" href="/products/trainings/">Finden Sie jetzt Ihr passendes Training</CTAButton>
     </Article>
     <Article title={servicesList.frontmatter.headline}>
       <p>{servicesList.frontmatter.summary}</p>
-      <CTAButton slot="cta" href="/products/data-science/">Jetzt informieren und beauftragen</CTAButton>
+      <CTAButton slot="cta" href="/products/services/">Jetzt informieren und beauftragen</CTAButton>
     </Article>
   </Section>
   <Section title="E-Learning">
