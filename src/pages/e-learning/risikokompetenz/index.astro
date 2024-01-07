@@ -30,9 +30,9 @@ const openGraph = {
   <Section title="Quizzes">
     {
       quizzes.map(({ data, id }) => (
-        <Article title={data.title} href={'/risikokompetenz/' + id}>
+        <Article title={data.title} href={'/e-learning/risikokompetenz/' + id}>
           <p>{data.description}</p>
-          <CTAButton slot="cta" href={'/risikokompetenz/' + id}>
+          <CTAButton slot="cta" href={'/e-learning/risikokompetenz/' + id}>
             Spielen
           </CTAButton>
         </Article>
