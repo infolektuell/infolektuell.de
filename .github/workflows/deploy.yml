@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v4
+      - name: ✨ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: 🛠️ Install deps
+        run: npm ci
+      - name: 🛠️ Build
+        run: npm run build
+      - name: 🔐 Create Key File
+        run: install -m 600 -D /dev/null ~/.ssh/id_rsa
+      - name: 🔑 Populate Key
+        run: echo "${{ secrets.PRIVATE_SSH_KEY }}" > ~/.ssh/id_rsa
+      - name: 🔐 Load host keys
+        run: echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: 🚀 Upload
+        run: |
+          rsync --archive --stats -e 'ssh' dist/ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}"
