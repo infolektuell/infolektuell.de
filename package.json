@@ -24,7 +24,7 @@
     "lint:js": "eslint .",
     "validate": "html-validate dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install && playwright-core install --with-deps chromium"
   },
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
