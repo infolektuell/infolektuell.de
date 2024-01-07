@@ -1,9 +1,8 @@
 ---
 title: Digitale Kommunikation
 description: Burnoutprävention bei der Kommunikation via Smartphone
-headline: „Zur Zeit nicht zu erreichen“
-summary: Grenzen setzen bei der Smartphonekommunikation, FOMO überwinden
-targets: [Studierende, Berufstätige, Jugendliche]
+headline: 📱 „Zur Zeit nicht zu erreichen“
+summary: Grenzen setzen bei der Smartphonekommunikation, FOMO überwinden — für Studierende, Berufstätige, Jugendliche und andere digital gestresste
 ---
 
 - Wenn du nicht jederzeit auf **Informationen zugreifen** kannst, fühlst du dich **unwohl**?

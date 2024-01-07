@@ -1,6 +1,8 @@
 ---
 title: Git-Bootstrap
-targets: [Unternehmen, Institutionen, Forschungsteams, Entwicklerteams]
+description: Unternehmensberatung, Devops, Versionskontrolle, Code-Migration zu Git
+headline: 🚀 Produktivere Zusammenarbeit an gemeinsam entwickeltem Quellcode
+summary: Integrieren Sie Git in Ihre Entwicklungsarbeit — Für Entwicklerteams, Forschungsgruppen etc.
 ---
 
 - Sie entwickeln aktiv an Quellcode, der auf einem Shared Drive liegt?

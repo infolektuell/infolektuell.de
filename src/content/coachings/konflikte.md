@@ -1,7 +1,7 @@
 ---
 title: Konflikte
-headline: Soziale oder familiäre Konflikte erfolgreich bewältigen
-targets: [Eltern, Familien]
+headline: 🫂 Soziale oder familiäre Konflikte erfolgreich bewältigen
+summary: Verlieren Sie nicht den Anschluss zu Ihren Angehörigen — für Eltern, Großeltern und Familien
 ---
 
 Haben Sie Kinder und machen sich Gedanken über deren Medienkonsum?

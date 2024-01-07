@@ -1,7 +1,7 @@
 ---
 title: Informationskompetenz
-headline: Gesunder Umgang mit Medien und Informationen
-targets: [Aktive Internetnutzer, Nachrichten-Junkies]
+headline: 💁🏽‍♂️ Gesunder Umgang mit Medien und Informationen
+summary: Bestimmen Sie selbst über Ihren Informationskonsum und tun Sie ihrer psychischen Gesundheit etwas Gutes — für Nachrichten-Junkies und „gut Informierte“
 ---
 
 Verbringen Sie viel Zeit im Internet, auf Gesundheitsportalen, in Twitter-Feeds oder mit Katastrophenmeldungen?

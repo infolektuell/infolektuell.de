@@ -1,9 +1,8 @@
 ---
 title: Datenanalyse und Statistik mit R
 description: Training zu Datenauswertung, Statistik und Datenvisualisierung mit GNU R und Tidyverse
-summary: Lernen Sie und Ihr Team, Daten mit der Statistiksoftware R und diversen Paketen aus der Tidyverse-Familie auszuwerten, statistisch zu analysieren und zu visualisieren.
+summary: Lernen Sie, Daten mit der Statistiksoftware R und diversen Paketen aus der Tidyverse-Familie auszuwerten, statistisch zu analysieren und zu visualisieren.
 order: 20
-targets: [Unternehmen, Institutionen, Forschungsteams]
 ---
 
 [R] ist eine quelloffene Programmiersprache, deren primärer Einsatzzweck in der Durchführung statistischer Berechnungen besteht.

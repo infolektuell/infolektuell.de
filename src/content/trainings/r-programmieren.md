@@ -1,9 +1,8 @@
 ---
 title: Programmieren mit R
 description: Training zum Einstieg in die Programmiersprache GNU R, Code-Entwicklung, Packages
-summary: Lernen Sie und Ihr Team, qualitativ hochwertigen Code in der Programmiersprache R zu entwickeln, als Packages für Ihre Anwender-Kollegen bereitzustellen oder in eine bestehende Infrastruktur zu integrieren.
+summary: Lernen Sie, qualitativ hochwertigen Code in der Programmiersprache R zu entwickeln, als Packages für Ihre Anwender-Kollegen bereitzustellen oder in eine bestehende Infrastruktur zu integrieren.
 order: 20
-targets: [Unternehmen, Institutionen, Entwicklerteams]
 ---
 
 [R] ist eine Programmiersprache, deren primärer Einsatzzweck in der Durchführung statistischer Berechnungen besteht.

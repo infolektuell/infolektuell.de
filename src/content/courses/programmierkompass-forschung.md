@@ -1,9 +1,8 @@
 ---
 title: Programmierkompass für Wissenschaftler
 description: Kurs zu Code Quality und Grundlagen des Programmierens für Wissenschaftler und Hochschulabsolventen als Vorbereitung auf den Berufseinstieg in Softwareindustrie
-headline: Aus der Forschung zum Programmierer
+headline: 🧑🏾‍🔬 Aus der Forschung zum Programmierer
 summary: Was Forscher und Hochschulabsolventen für einen Quereinstieg in die Softwareindustrie wissen müssen, um brauchbare Programmierer zu werden und hochwertigen Code zu schreiben
-targets: [Institutionen]
 ---
 
 - Du hast dein Fachgebiet erfolgreich studiert und evtl. bereits wissenschaftliche Leistungen vorzuweisen?

@@ -1,10 +1,8 @@
 ---
 title: No Bullshit Kommunikationstraining
-headline: Richtig führen als Chance für Produktivität
 description: Training für IT- und Ingenieursbetriebe für produktivere Zusammenarbeit durch sinnvolle Kommunikationsmethoden
-summary: Lernen Sie durch bessere Kommunikationsstrategien, Ihre Mitarbeiter effektiv zu führen.
-emoji: ⚙️
-targets: [Unternehmen, IT-Betriebe, Ingenieursbetriebe]
+headline: Richtig führen als Chance für Produktivität
+summary: Lernen Sie durch bessere Kommunikationsstrategien, Ihre Mitarbeiter effektiv zu führen — Für IT- und Ingenieursbetriebe
 ---
 
 Es ist leider ein häufig anzutreffendes Problem, dass sich technische Mitarbeiter in IT- oder Ingenieursbetrieben schwer führen lassen.

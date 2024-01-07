@@ -1,11 +1,9 @@
 ---
-title: Digitale Technik „entstören“
+title: Ergonomie
+headline: ☮️ Digitale Technik „entstören“
 description: Beratung für technische und digitale Ergonomie und Barrierefreiheit
 summary: |
-  Können Sie einfach keine entspannte Beziehung zu digitaler Technik aufbauen?
-  Das Problem sitzt oft genug nicht „vor dem Bildschirm“, sondern in menschenfeindlicher Technik.
-  In meinem Entstörungscoaching passen wir in Ruhe Ihre technische Umgebung an Sie und Ihre Bedürfnisse an.
-targets: [senioren]
+  Mehr Entspanntheit bei digitalen Aufgaben durch maßgeschneiderte Technik — für Senioren und andere, die sich angenehmere Technik wünschen
 ---
 
 Text ist schwer zu lesen, Touch-Bedienung ist eine Herausforderung, Hände und Augen verkrampfen, schon wieder danebengeklickt …

@@ -1,10 +1,9 @@
 ---
-title: Digitale Medien im Unterricht
-emoji: 👩‍🏫
-motto: Das Leben ist zu kurz für schlechte Informationen
-customers: education
-pricePerSession: { amount: 12000 }
-targets: [Lehrpersonen]
+title: Unterrichtsmethoden
+headline: 👩‍🏫 Digitale Medien im Unterricht
+description: Kurs zu Unterrichtsmethoden mit digitalen Medien, Medienkompetenz
+summary: |
+  Wie Sie Ihren Unterricht sinnvoll und verantwortungsbewusst durch digitale Medien ergänzen können — Für Lehrpersonen mit Ambitionen
 ---
 
 Sie unterrichten und würden gern Ihren Unterricht durch digitale Medien ergänzen?

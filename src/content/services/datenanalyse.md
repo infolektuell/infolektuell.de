@@ -1,7 +1,8 @@
 ---
-title: Statistik- und Datenanalyse
-emoji: 👩‍🔬
-targets: [Unternehmen]
+title: Data Science
+description: Unternehmensberatung, Data Science, Statistik, Datenanalyse und Datenerhebung
+headline: 👩‍🔬 Statistik- und Datenanalyse
+summary: Lassen Sie Ihre Daten kompetent erheben, auswerten und aufbereiten
 ---
 
 Daten zu erfassen, auszuwerten und dann noch etwas daraus zu lernen ist nicht nur für Laien schwierig, sondern auch für Profis.
