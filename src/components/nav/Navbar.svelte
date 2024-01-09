@@ -11,6 +11,7 @@ const toggleMenu = function () {
   <div class="navbar-brand">
     <slot name="brand" />
     <button
+      type="button"
       aria-expanded="{isExpanded}"
       aria-controls="navMenu"
       aria-label="Menü"

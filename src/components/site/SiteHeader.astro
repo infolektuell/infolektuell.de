@@ -3,12 +3,13 @@ import { getEntry } from 'astro:content'
 import Navbar from '../nav/Navbar.svelte'
 import NavLink from '../nav/NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
+import siteConfig from '../../config/site'
 const mainMenu = await getEntry('menus', 'main')
 const { label, items } = mainMenu.data
 ---
 
 <Navbar client:load {label}>
-  <NavLink class="navbar-item" slot="brand" href="/">
+  <NavLink slot="brand" class="navbar-item" aria-label={siteConfig.title} href="/">
     <Logo />
   </NavLink>
   {
