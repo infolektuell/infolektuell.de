@@ -1,15 +1,13 @@
 ---
 type Props = {
-  title?: string
+  title: string
+  label?: string
+  content: boolean
 }
-const { title }: Props = Astro.props
+const { title, label, content }: Props = Astro.props
 ---
 
-<section class="box">
-  {title && (
-          <header class="title is-4">
-              <h2>{title}</h2>
-          </header>
-  )}
-  <slot />
+<section class="box" aria-label={label ?? title}>
+  <h2 class="title is-4">{title}</h2>
+  {content ? (<div class="content"><slot /></div>) : (<slot />)}
 </section>
