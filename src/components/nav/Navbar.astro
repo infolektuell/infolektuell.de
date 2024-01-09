@@ -9,8 +9,8 @@ const { label, transparent, color }: Props = Astro.props
 const classList = ['navbar', { 'is-transparent': transparent ?? false }, color ? `is-${color}` : null]
 ---
 
-// The bulma navbar as a web component
-// See https://bulma.io/documentation/components/navbar/
+{/* The bulma navbar as a web component */}
+{/* See https://bulma.io/documentation/components/navbar/ */}
 <bulma-navbar>
 <nav class:list={classList} aria-label={label}>
   <div class="container">
