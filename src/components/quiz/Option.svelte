@@ -16,7 +16,7 @@ const toggle = () => {
 </script>
 
 <h3 class="block">
-  <button class="button is-link" class:is-active="{selected}" aria-pressed="{selected}" on:click="{toggle}"
+  <button type="button" class="button is-link" class:is-active="{selected}" aria-pressed="{selected}" on:click="{toggle}"
     >{text}</button
   >
 </h3>
