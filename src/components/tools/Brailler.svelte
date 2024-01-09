@@ -10,7 +10,7 @@
   }
   let value: string
 </script>
-<form class="columns">
+<section class="columns" aria-label="Tastatureinstellungen">
   {#each dotFields as dot}
 <div class="column">
   <div class="field">
@@ -21,14 +21,17 @@
   </div>
 </div>
   {/each}
-</form>
-<div class="field">
-  <div class="control">
-    <textarea class="textarea" use:braille={{ keys }} bind:value></textarea>
+</section>
+<section aria-label="Eingabe">
+  <div class="field">
+    <label for="braille-input">Braille-Eingabe</label>
+    <div class="control">
+      <textarea id="braille-input" class="textarea" use:braille={{ keys }} bind:value></textarea>
+    </div>
   </div>
-</div>
+</section>
 <style>
-  form {
+  section.columns {
     width: fit-content
   }
   .braille {
