@@ -1,25 +1,18 @@
 ---
 import { getEntry } from 'astro:content'
-import Navbar from '../nav/Navbar.svelte'
+import type { MenuItem } from '@entities/menu'
+import Navbar from '../nav/Navbar.astro'
 import NavLink from '../nav/NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
 import siteConfig from '../../config/site'
 const mainMenu = await getEntry('menus', 'main')
-const { label, items } = mainMenu.data
+const { label, items }: { label: string, items: Array<MenuItem> } = mainMenu.data
+const startItems = items.filter(({ alignment }) => alignment === 'start').map(({ alignment, ...item }) => item)
+const endItems = items.filter(({ alignment }) => alignment === 'end').map(({ alignment, ...item }) => item)
 ---
 
-<Navbar client:load {label}>
-  <NavLink slot="brand" class="navbar-item" aria-label={siteConfig.title} href="/">
-    <Logo />
-  </NavLink>
-  {
-    items
-      .filter(({ alignment }) => alignment === 'start')
-      .map((item) => <NavLink slot="start" class="navbar-item" {...item} />)
-  }
-  {
-    items
-      .filter(({ alignment }) => alignment === 'end')
-      .map((item) => <NavLink slot="end" class="navbar-item" {...item} />)
-  }
+<Navbar {label} color="info">
+  <NavLink slot="brand" class="navbar-item" aria-label={siteConfig.title} href="/"><Logo /></NavLink>
+  {startItems.map((item) => <NavLink slot="start" class="navbar-item" {...item} />)}
+  {endItems.map((item) => <NavLink slot="end" class="navbar-item" {...item} />)}
 </Navbar>

@@ -1,0 +1,58 @@
+---
+type Color = 'primary' | 'link' | 'info' | 'success' | 'warning' | 'danger' | 'black' | 'white' | 'light' | 'dark'
+type Props = {
+  label: string
+  transparent?: boolean
+  color?: Color
+}
+const { label, transparent, color }: Props = Astro.props
+const classList = ['navbar', { 'is-transparent': transparent ?? false }, color ? `is-${color}` : null]
+---
+
+// The bulma navbar as a web component
+// See https://bulma.io/documentation/components/navbar/
+<bulma-navbar>
+<nav class:list={classList} aria-label={label}>
+  <div class="container">
+    <div class="navbar-brand">
+      <slot name="brand" />
+      <button
+        type="button"
+        class="navbar-burger"
+        data-target="navMenu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Menü"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+      {Astro.slots.has('start') && <div class="navbar-start"><slot name="start" /></div>}
+      {Astro.slots.has('end') && <div class="navbar-end"><slot name="end" /></div>}
+    </div>
+  </div>
+</nav>
+</bulma-navbar>
+  <script>
+  class BulmaNavbar extends HTMLElement {
+    constructor () {
+      super()
+      let isActive = false
+      const $hamburger = this.querySelector<HTMLElement>('.navbar-burger')
+      const $menu = this.querySelector<HTMLElement>('.navbar-menu')
+      $hamburger?.addEventListener('click', function () {
+        isActive = this.classList.toggle('is-active')
+        this.setAttribute('aria-expanded', `${isActive}`)
+        $menu?.classList.toggle('is-active', isActive)
+      })
+    }
+  }
+  customElements.define('bulma-navbar', BulmaNavbar)
+</script>
+<style is:global lang="scss">
+  @import '@assets/styles/variables.scss';
+  @import 'bulma/sass/components/navbar.sass';
+</style>
