@@ -10,7 +10,7 @@ const { icon, text, ...props }: Props = Astro.props
 
 <a class="button is-link is-fullwidth" {...props}>
   <Icon name={icon} aria-hidden="true" />
-  <span>{text}</span>
+  <span set:html={text}></span>
 </a>
 
 <style>
