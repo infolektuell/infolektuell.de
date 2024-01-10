@@ -1,15 +1,11 @@
 ---
+import Section from '@components/page/Section.astro'
 type Props = {
   title?: string
 }
 const { title }: Props = Astro.props
 ---
 
-<section class="box">
-    <header class="title is-4">
-        <h2>{title ?? 'Beschreibung'}</h2>
-    </header>
-  <div class="content">
-      <slot />
-  </div>
-</section>
+<Section title={ title ?? 'Beschreibung' } content={true}>
+  <slot />
+</Section>
