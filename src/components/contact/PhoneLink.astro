@@ -1,0 +1,12 @@
+---
+import ContactLink from './ContactLink.astro'
+type Props = {
+  kind: 'phone' | 'mobile'
+  value: string
+}
+const { kind, value }: Props = Astro.props
+const href = `tel:${value.replace(/\s+/g, '')}`
+const text = value.replace(/\s+/g, '&nbsp;')
+const icon = `fa6-solid:${kind}`
+---
+<ContactLink {href} {icon} {text} />
