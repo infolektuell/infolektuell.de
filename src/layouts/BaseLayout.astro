@@ -34,8 +34,8 @@ const robots = [noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow']
   <body>
     <slot name="before-body" />
     <Header />
-    <slot name="breadcrumbs" />
     <main class="section"><div class="container"><slot /></div></main>
+    <slot name="breadcrumbs" />
     <Footer />
     <slot name="after-body" />
     <style define:vars={{ backgroundURL }}>
