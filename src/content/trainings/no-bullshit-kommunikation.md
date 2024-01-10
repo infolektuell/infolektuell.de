@@ -13,7 +13,7 @@ Falls Sie sich darin wiederfinden können, Buchen Sie für Ihr Unternehmen mein 
 Ich bin qualifizierte Psychologin und habe Berufserfahrung im IT-Bereich.
 Dadurch kenne ich das Umfeld und die unterschiedlichen Perspektiven relativ gut.
 
-## Fachliche Mitarbeiter verstehen und führen
+### Fachliche Mitarbeiter verstehen und führen
 
 Wer führen will, muss die Menschen und ihre Motive kennen, um die passenden Anreize zu setzen.
 In die technische Entwicklung oder Forschung gehen Menschen z.B. meistens mit einer ausgeprägten intrinsischen Leistungsmotivation und hohen inhaltlichen Ansprüchen.
@@ -24,7 +24,7 @@ Personen mit ausgeprägtem Affiliationsmotiv in Führungsrollen gehen davon aus,
 Bei Entwicklern muss soziale Beziehung aber über den Inhalt geschaffen werden, sonst wird sie als Ablenkung empfunden.
 In meinem Training werden die verschiedenen Motive herausgearbeitet und strategisch in die Unternehmenskultur integriert.
 
-## Technische Umsetzungsvorschläge verständlich an Vorgesetzte kommunizieren
+### Technische Umsetzungsvorschläge verständlich an Vorgesetzte kommunizieren
 
 In einer Leitungsposition muss man Entscheidungen treffen und nach oben rechtfertigen können.
 Technischen Mitarbeitern fällt es oft schwer, ihren Vorgesetzten genau die Infos und Prognosen zu geben, die sie brauchen, und die Implementierungsdetails herauszuhalten.
@@ -33,7 +33,7 @@ etwas nicht zu wissen als es nur halb zu wissen.
 Informationshygiene hat Vorteile für alle Beteiligten, denn mehr Informationsdetails bedeuten nicht automatisch mehr Kontrolle.
 In meinem Training kommt diesem Thema eine besondere Bedeutung zu.
 
-## Elemente aus agilen Methoden wie Scrum sinnvoll integrieren
+### Elemente aus agilen Methoden wie Scrum sinnvoll integrieren
 
 Agile Methoden wie das Scrum-Modell haben ihre Berechtigung, die Umsetzung muss aber zum Unternehmen passen.
 Bei Bedarf gehe ich auch auf agile Modelle ein, falls sich Elemente daraus sinnvoll integrieren lassen.

@@ -9,12 +9,12 @@ summary: |
 Sie unterrichten und würden gern Ihren Unterricht durch digitale Medien ergänzen?
 In meinem Kurs erfahren Sie, wie Sie digitale Medien praktisch einsetzen und inhaltlich sinnvoll verknüpfen können.
 
-## Souveräner Umgang mit Digitalen Medien
+### Souveräner Umgang mit Digitalen Medien
 
 Es sollte klar sein, dass es mit der Digitalisierung nicht getan ist, indem man jedem Kind ein iPad schenkt.
 Kinder haben mehr davon, wenn wir einen kompetenten und souveränen Umgang mit digitalen Medien vorleben.
 
-## Datensicherheit und Privatsphäre
+### Datensicherheit und Privatsphäre
 
 Es ist völlig realistisch, privatwirtschaftliche Online-Dienste zu nutzen.
 Bei der Wahl der Dienste sind Sie mit Fragen nach Datenschutz und Datensicherheit konfrontiert.
@@ -23,7 +23,7 @@ Bei der Wahl der Dienste sind Sie mit Fragen nach Datenschutz und Datensicherhei
 - Wie kann ich Aufgaben so gestalten, dass Schüler möglichst wenig voneinander abschreiben und sich die Ergebnisse einem Schüler zuordnen lassen?
 - Gibt es instruktiv und diagnostisch nützliche Aufgabenformate, die weniger anfällig für die oben genannten Probleme sind?
 
-## Lernziele neu gedacht, Umgang mit innovativen Technologien wie Chatbots
+### Lernziele neu gedacht, Umgang mit innovativen Technologien wie Chatbots
 
 Manchmal könnte man den Eindruck entwickeln, das Internet und die neuen Medien würden uns alle kognitiven Anstrengungen abnehmen.
 Das ist ein Trugschluss.
