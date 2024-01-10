@@ -14,7 +14,8 @@ const tags = targets.map((t) => ({ href: `/products/zielgruppen/${t}/`, text: t 
 const href = `${basePath}${product.slug}`
 ---
 
-<Article title={headline ?? title} {href}>
-  {subtitle && <p class="subtitle is-6">{subtitle}</p>}
+<Article title={title} {href}>
+  {headline && <p class="subtitle is-6">{headline}</p>}
   <TagList {tags} color="link" />
+  {subtitle && <p class="content">{subtitle}</p>}
 </Article>

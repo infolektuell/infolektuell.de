@@ -34,7 +34,7 @@ const openGraph = {
 ---
 
 <BaseLayout {title} {description} {openGraph}>
-  <Header headline={headline ?? title} {summary} {category} />
+  <Header {title} {headline} {summary} {category} />
   {targets.length > 0 &&
     <Section title="Zielgruppe">
       <TargetGroup {targets} />
