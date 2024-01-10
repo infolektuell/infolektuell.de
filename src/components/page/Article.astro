@@ -2,15 +2,14 @@
 type Props = {
   title: string
   href?: string
+  label?: string
 }
-const { title, href }: Props = Astro.props
+const { title, href, label }: Props = Astro.props
 ---
 
-<article class="block">
+<article class="block" aria-label={ label ?? title }>
     <hr>
-  <header class="title is-5">
-    <h3>{href ? <a {href}>{title}</a> : <>{title}</>}</h3>
-  </header>
+  <h3 class="title is-5">{href ? <a {href}>{title}</a> : <>{title}</>}</h3>
   <div class="content"><slot /></div>
   <slot name="cta" />
 </article>
