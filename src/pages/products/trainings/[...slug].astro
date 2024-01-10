@@ -6,7 +6,7 @@ import Section from '@components/page/Section.astro'
 import Description from '@components/products/Description.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import TargetGroup from '@components/products/TargetGroup.astro'
-import BackButton from '@components/products/BackButton.astro'
+import Breadcrumbs from '@components/nav/Breadcrumb.astro'
 
 export const getStaticPaths = async function () {
   const trainings = await getCollection('trainings')
@@ -45,5 +45,5 @@ const openGraph = {
     <Section title="Überzeugt?">
         <ContactButton />
     </Section>
-  <BackButton category="trainings" />
+  <Breadcrumbs slot="breadcrumbs" separator="succeeds" items={[{ href: '/products/trainings/', text: 'Trainings', emoji: '🎓' }, { href: Astro.url.pathname, text: title }]} />
 </BaseLayout>
