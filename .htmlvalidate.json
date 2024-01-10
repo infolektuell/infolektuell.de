@@ -11,6 +11,7 @@
       }
     ],
     "no-inline-style": ["off"],
-    "valid-id": ["error", { "relaxed": true }]
+    "valid-id": ["error", { "relaxed": true }],
+    "unique-landmark": ["off"]
   }
 }
