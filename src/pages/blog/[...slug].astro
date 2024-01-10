@@ -34,8 +34,7 @@ const openGraph = {
 
 <BaseLayout {title} {description} {openGraph}>
   <article>
-    <Header title={headline ?? title} description={summary}>
-    </Header>
+    <Header {title} {headline} {summary} />
     <div class="box">
         <div class="content"><Content /></div>
     </div>

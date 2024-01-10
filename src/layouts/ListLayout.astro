@@ -13,6 +13,6 @@ const openGraph = {
 ---
 
 <BaseLayout {title} {description} {openGraph} {noindex} {nofollow}>
-    <Header title={headline ?? title} description={summary} />
+    <Header {title} {headline} {summary} />
     <slot />
 </BaseLayout>

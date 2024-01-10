@@ -8,24 +8,21 @@ import ContactForm from '@components/contact/ContactForm.svelte'
 import VCard from '@components/contact/vcard.astro'
 
 const title = 'Kontakt'
+const headline = 'Ihr Weg zu mir'
+const summary = 'Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen melden und ggf. einen Kennenlerntermin vorschlagen. Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.'
 const person = await getEntry('authors', 'tamara-cook')
 const openGraph = { title }
 ---
 
 <BaseLayout {title} {openGraph}>
-  <Header {title} description="Ihr Weg zu mir" />
+  <Header {title} {headline} {summary} />
   <Section title="Kontaktformular">
-    <p class="content">
-      Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen
-      melden und ggf. einen Kennenlerntermin vorschlagen.
-    </p>
     <ContactForm client:load>
       <Icon name="fa6-solid:envelope" slot="emailIcon" />
       <Icon name="fa6-solid:phone" slot="phoneIcon" />
     </ContactForm>
   </Section>
   <Section title="Weitere Kontaktmöglichkeiten">
-    <p class="content">Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.</p>
     <VCard {person} />
   </Section>
 </BaseLayout>

@@ -1,13 +1,16 @@
 ---
 type Props = {
   title: string
-  description?: string
+  headline?: string
+  summary?: string
 }
-const { title, description }: Props = Astro.props
+const { title, headline, summary }: Props = Astro.props
 ---
 
 <header class="box">
-  <h1 class="title is-4">{title}</h1>
-  {description && <p class="subtitle">{description}</p>}
-  <slot />
+  <h1 class="title">{title}</h1>
+  {headline && <p class="subtitle">{headline}</p>}
+  <slot>
+    {summary && <p class="content">{summary}</p>}
+  </slot>
 </header>

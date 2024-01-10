@@ -1,5 +1,6 @@
 ---
-title: Warum Infolektuell
+title: Mission
+headline: Warum Infolektuell?
 publishedTime: '2023-11-28T00:00'
 keywords:
   - mentale Belastung

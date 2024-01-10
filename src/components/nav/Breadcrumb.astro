@@ -1,29 +1,38 @@
 ---
-import type { MenuItem } from '@entities/menu'
 import NavLink from './NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
+type Item = {
+  emoji?: string
+  text?: string
+  href: string
+}
 type Props = {
-  items: MenuItem[]
-  alignment?: 'centered'|'right'
+  items: Item[]
+  alignment?: 'centered' | 'right'
   separator?: 'arrow' | 'bullet' | 'dot' | 'succeeds'
   size?: 'small' | 'medium' | 'large'
 }
 const { items, alignment, separator, size }: Props = Astro.props
 const { pathname } = Astro.url
-const isActive = (href: string) => href === pathname || href === pathname.replace(/\/$/, '')
+const isActive = (href: string|URL) => href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
 <div class="section has-background-info">
   <div class="container">
     <nav
-      class:list={['breadcrumb', separator ? `has-${separator}-separator` : null, size ? `is-${size}` : null, alignment ? `is-${alignment}` : null]}
+      class:list={[
+        'breadcrumb',
+        separator ? `has-${separator}-separator` : null,
+        size ? `is-${size}` : null,
+        alignment ? `is-${alignment}` : null,
+      ]}
       aria-label="Breadcrumbs"
     >
       <ul>
         <li><NavLink href="/" aria-label="Start"><Logo /></NavLink></li>
         {
-          items.map(({ alignment, ...item }) => (
-            <li class:list={[{ 'is-active': isActive(item.href) }]}>
+          items.map((item) => (
+            <li class:list={[{ 'is-active': isActive(item.href ?? '') }]}>
               <NavLink {...item} />
             </li>
           ))
@@ -39,6 +48,8 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
   $breadcrumb-item-active-color: $white;
 
   @import 'bulma/sass/components/breadcrumb.sass';
+</style>
+<style>
   ul {
     align-items: baseline;
   }

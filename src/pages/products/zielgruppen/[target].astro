@@ -62,7 +62,7 @@ const products = [
 ---
 
 <BaseLayout {title} noindex={true}>
-  <Header {headline} category="Zielgruppe" />
+  <Header title={headline} category="Zielgruppe" />
   {
     products.map(({ title, basePath, products }) => (
       <Section title={`${title} (${products.length})`}>

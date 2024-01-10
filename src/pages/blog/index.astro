@@ -12,7 +12,7 @@ posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.value
 ---
 
 <BaseLayout {title} {description} {openGraph} noindex={true}>
-  <Header {title} {description} />
+  <Header {title} headline={description} />
   <Section title="Beiträge">
     {posts.map((post) => <PostPreview {post} />)}
   </Section>

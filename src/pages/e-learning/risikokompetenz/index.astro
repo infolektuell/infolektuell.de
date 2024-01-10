@@ -1,15 +1,16 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '../../../layouts/BaseLayout.astro'
-import Header from '../../../components/page/Header.astro'
-import Section from '../../../components/page/Section.astro'
-import Article from '../../../components/page/Article.astro'
-import CTAButton from '../../../components/page/CTAButton.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import Section from '@components/page/Section.astro'
+import Article from '@components/page/Article.astro'
+import CTAButton from '@components/page/CTAButton.astro'
 
 export const title = 'Risikokompetenz'
 export const description = 'Ein Quiz-Formatzum Erlernen von Risikokompetenz, Numeracy und Statistik'
-export const headline = 'Risikokompetenz mit Sokrates'
+export const headline = 'Entscheidungen treffen mit Sokrates'
 export const summary = 'Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein Quiz-Format mit Sokrates als Quiz Master führt spielerisch anhand von Medienmeldungen und Alltagsfragen an das Thema heran.'
+export const cta = 'Jetzt ausprobieren'
 const quizzes = await getCollection('quizzes')
 const openGraph = {
   title: headline,
@@ -18,23 +19,13 @@ const openGraph = {
 ---
 
 <BaseLayout {title} {description} {openGraph}>
-  <Header {...openGraph}>
-    <p class="content">
-      Immer wieder sind wir in den Medien mit Zahlen, Aussagen und Statistiken konfrontiert, die auf den ersten Blick
-      erschreckend wirken und nach genauerer Betrachtung relativiert werden können. Das ist meistens nicht sehr
-      schwierig, mit Mathekenntnissen auf Realschulniveau sind Sie schon gut aufgestellt. Sokrates als Quiz Master führt
-      spielerisch an den strategischen Umgang mit Zahlen und Schreckensmeldungen und zeigt Ihnen, wie Sie mit einfachen
-      Schritten echten Schrecken von Luftnummern unterscheiden können.
-    </p>
-  </Header>
+  <Header {title} {headline} {summary} />
   <Section title="Quizzes">
     {
       quizzes.map(({ data, id }) => (
         <Article title={data.title} href={'/e-learning/risikokompetenz/' + id}>
           <p>{data.description}</p>
-          <CTAButton slot="cta" href={'/e-learning/risikokompetenz/' + id}>
-            Spielen
-          </CTAButton>
+          <CTAButton slot="cta" href={'/e-learning/risikokompetenz/' + id}>Spielen</CTAButton>
         </Article>
       ))
     }

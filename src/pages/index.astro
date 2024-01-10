@@ -4,8 +4,7 @@ import siteConfig from '@config/site'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import Section from '@components/page/Section.astro'
-import Article from '@components/page/Article.astro'
-import CTAButton from '@components/page/CTAButton.astro'
+import ListPagePreview from '@components/page/ListPagePreview.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import Bio from '@components/contact/Bio.astro'
 import * as coachingsList from './products/coachings/index.mdx'
@@ -19,36 +18,17 @@ const person = await getEntry('authors', 'tamara-cook')
 ---
 
 <BaseLayout {title} {description}>
-  <Header title={headline} description={summary} />
+  <Header {title} {headline} {summary} />
   <Section title="Für Einzelpersonen mit und ohne Angehörige">
-    <Article title={coachingsList.frontmatter.headline}>
-      <p>{coachingsList.frontmatter.summary}</p>
-      <CTAButton slot="cta" href="/products/coachings/">Finden Sie jetzt Ihr passendes Coaching</CTAButton>
-    </Article>
+    <ListPagePreview {...coachingsList.frontmatter} href="/products/coachings/" />
   </Section>
   <Section title="Für Gruppen">
-    <Article title={coursesList.frontmatter.headline}>
-      <p>{coursesList.frontmatter.summary}</p>
-      <CTAButton slot="cta" href="/products/courses/">Finden Sie Ihren passenden Kurs</CTAButton>
-    </Article>
-    <Article title={trainingsList.frontmatter.headline}>
-      <p>{trainingsList.frontmatter.summary}</p>
-      <CTAButton slot="cta" href="/products/trainings/">Finden Sie jetzt Ihr passendes Training</CTAButton>
-    </Article>
-    <Article title={servicesList.frontmatter.headline}>
-      <p>{servicesList.frontmatter.summary}</p>
-      <CTAButton slot="cta" href="/products/services/">Jetzt informieren und beauftragen</CTAButton>
-    </Article>
+    <ListPagePreview {...coursesList.frontmatter} href="/products/courses/" />
+    <ListPagePreview {...trainingsList.frontmatter} href="/products/trainings/" />
+    <ListPagePreview {...servicesList.frontmatter} href="/products/services/" />
   </Section>
-  <Section title="E-Learning">
-    <p class="subtitle">
-      Auf meiner Seite finden Sie auch interaktive Lehrmedien, mit denen Sie spielerisch Basiskompetenzen aufbauen
-      können.
-    </p>
-    <Article title={risikokompetenzList.headline}>
-      <p>{risikokompetenzList.summary}</p>
-      <CTAButton slot="cta" href="/e-learning/risikokompetenz/">Jetzt ausprobieren</CTAButton>
-    </Article>
+  <Section title="E-Learning" headline="Interaktive Lehrmedien, mit denen Sie spielerisch Basiskompetenzen aufbauen können">
+    <ListPagePreview {...risikokompetenzList} href="/e-learning/risikokompetenz/" />
   </Section>
   <Section title="Über mich">
       <Bio {person}>
