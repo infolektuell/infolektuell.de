@@ -17,7 +17,7 @@ const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
 const { minutesRead } = fm
 ---
 
-<Article title={headline ?? title} {href}>
+<Article {title} {headline} {href}>
   <p class="content is-small">Veröffentlicht: <FormattedDate date={publishedTime} /></p>
   {
     minutesRead && (
