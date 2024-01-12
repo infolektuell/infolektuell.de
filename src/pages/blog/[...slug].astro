@@ -35,7 +35,12 @@ const openGraph = {
 
 <BaseLayout {title} {description} {openGraph}>
   <article>
-    <Header {title} {headline} {summary} />
+    <Header {title} {headline} {summary}>
+      <p class="content is-small">
+        Veröffentlicht: <FormattedDate date={publishedTime} /><br />
+        Lesezeit: <ReadingTime minutes={minutesRead} />
+      </p>
+    </Header>
     <div class="box">
         <div class="content"><Content /></div>
     </div>
@@ -44,7 +49,7 @@ const openGraph = {
                 <TagList {tags} />
             </Section>
     )}
-      <footer class="box has-text-small">
+      <footer class="content is-small">
         {
           lastModified && (
                         <p>
