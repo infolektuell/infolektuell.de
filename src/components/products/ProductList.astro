@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content'
-import { pageComparator } from '@entities/page'
 import Section from '@components/page/Section.astro'
 import ProductPreview from '@components/products/ProductPreview.astro'
 type Props = {
@@ -9,7 +8,15 @@ type Props = {
 }
 const { collection, basePath }: Props = Astro.props
 const products = await getCollection(collection)
-products.sort(pageComparator)
+products.sort(function ({ data: a }, { data: b }) {
+  if (a.order !== b.order) {
+  return a.order - b.order
+  }
+  if (a.title === b.title) {
+  return 0
+  }
+  return a.title > b.title ? 1 : -1
+  })
 ---
 <Section title="Angebote">
 {products.map((product) => <ProductPreview {product} basePath={basePath ?? Astro.url.pathname} />)}
