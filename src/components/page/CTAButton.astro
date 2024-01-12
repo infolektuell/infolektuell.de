@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import Icon from '@components/bulma/Icon.astro'
-import Emoji from '@components/bulma/Emoji.astro'
 
 type Props = HTMLAttributes<'a'> & {
   text?: string
@@ -14,7 +13,7 @@ const { text, icon, emoji, ...props } = Astro.props
 <a class="button is-primary is-medium is-fullwidth" {...props}>
   <slot>
     {icon && <Icon name={icon} size="medium" />}
-    {emoji && !icon && <Emoji char={emoji} size="medium" />}
+    {emoji && !icon && <span>{emoji}</span>}
     {text && <span>{text}</span>}
   </slot>
 </a>

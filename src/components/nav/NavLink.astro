@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 import Icon from '@components/bulma/Icon.astro'
-import Emoji from '@components/bulma/Emoji.astro'
 
 type Props = HTMLAttributes<'a'> & {
   text?: string
@@ -15,7 +14,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 
 <a {href} class:list={[className, { 'is-active': isActive }]} aria-current={isActive ? 'page' : null} {...props}>
   {icon && <Icon name={icon} size="medium" />}
-  {emoji && !icon && <Emoji char={emoji} size="medium" />}
+  {emoji && !icon && <span>{emoji}</span>}
   {text && <span>{text}</span>}
   <slot />
 </a>

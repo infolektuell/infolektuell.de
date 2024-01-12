@@ -1,6 +1,5 @@
 ---
 import Icon from './Icon.astro'
-import Emoji from './Emoji.astro'
 import NavLink from '../nav/NavLink.astro'
 type FooterLink = {
   text: string
@@ -26,9 +25,9 @@ const hasFooter = Astro.slots.has('footer')
     <slot name="icon">
       {
         (icon || emoji) && (
-          <div class="card-header-icon">
-            {icon && <Icon name={icon} aria-hidden="true" />}
-            {emoji && !icon && <Emoji char={emoji} aria-hidden="true" />}
+          <div class="card-header-icon" aria-hidden="true">
+            {icon && <Icon name={icon} />}
+            {emoji && !icon && <span>{emoji}</span>}
           </div>
         )
       }
