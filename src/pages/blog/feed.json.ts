@@ -23,7 +23,7 @@ export const GET: APIRoute = async function ({ site, url }) {
     }),
   )
   const feed = {
-    version: 'https://www.jsonfeed.org/version/1.1',
+    version: 'https://jsonfeed.org/version/1.1',
     title: siteConfig.title,
     home_page_url: site ?? 'https://infolektuell.de',
     feed_url: url,
