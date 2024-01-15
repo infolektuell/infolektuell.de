@@ -10,7 +10,7 @@ import Logo from '@assets/images/logo.png'
 
 export const GET: APIRoute = async function ({ site, generator, url }) {
   const link = site ?? 'https://infolektuell.de'
-  const image = await getImage({ src: Logo })
+  const image = await getImage({ src: Logo, format: 'png', width: 144 })
   const imageUrl = url.origin + image.src
   const posts = await getCollection('posts')
   posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
@@ -42,8 +42,6 @@ export const GET: APIRoute = async function ({ site, generator, url }) {
         <link>${link}</link>
         <title>${siteConfig.title}</title>
         <url>${imageUrl}</url>
-        <width>231</width>
-        <height>50</height>
       </image>
     `,
   })
