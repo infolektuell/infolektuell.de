@@ -1,11 +1,16 @@
 ---
 import Icon from '@components/bulma/Icon.astro'
-type Props = {
-  href: string
-}
-const { href }: Props = Astro.props
+import Section from '@components/page/Section.astro'
 ---
-<a class="button is-primary" {href}>
-  <Icon name="rss-solid" />
-  <span>Feed abonnieren und nichts mehr verpassen</span>
-</a>
+<Section title="Feed Abonnieren">
+  <div class="buttons">
+    <a class="button is-primary" href={Astro.url.pathname + 'feed.json'}>
+      <Icon name="json-feed" />
+      <span>JSON</span>
+    </a>
+    <a class="button is-primary" href={Astro.url.pathname + 'rss.xml'}>
+      <Icon name="rss-solid" />
+      <span>RSS</span>
+    </a>
+  </div>
+</Section>

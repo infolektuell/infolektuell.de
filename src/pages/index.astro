@@ -15,11 +15,11 @@ import * as risikokompetenzList from './e-learning/risikokompetenz/index.astro'
 const title = 'Willkommen'
 const { description, headline, summary } = siteConfig
 const person = await getEntry('authors', 'tamara-cook')
-const rssLink = `${Astro.url.href}/blog/rss.xml`
 ---
 
 <BaseLayout {title} {description}>
-  <link slot="after-head" rel="alternate" type="application/rss+xml" title="RSS" href={rssLink} />
+  <link slot="after-head" rel="alternate" title="Blog Feed" type="application/feed+json" href={new URL(Astro.url + 'blog/feed.json', Astro.site)} />
+  <link slot="after-head" rel="alternate" title="Blog Feed" type="application/rss+xml" href={new URL(Astro.url + 'blog/rss.xml', Astro.site)} />
   <Header {title} {headline} {summary} />
   <Section title="Für Einzelpersonen mit und ohne Angehörige">
     <ListPagePreview {...coachingsList.frontmatter} href="/products/coachings/" />

@@ -7,17 +7,17 @@ import Subscribe from '@components/blog/Subscribe.astro'
 import PostPreview from '@components/blog/PostPreview.astro'
 const title = 'Blog'
 const description = 'Kommentare, Einordnungen und der ganze Rest'
-const rssLink = `${Astro.url.href}/rss.xml`
 const openGraph = { title, description }
 const posts = await getCollection('posts')
 posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
 ---
 
 <BaseLayout {title} {description} {openGraph} noindex={true}>
-  <link slot="after-head" rel="alternate" type="application/rss+xml" title="RSS" href={rssLink} />
+  <link slot="after-head" rel="alternate" title="Blog Feed" type="application/feed+json" href={new URL(Astro.url + 'feed.json', Astro.site)} />
+  <link slot="after-head" rel="alternate" title="Blog Feed" type="application/rss+xml" href={new URL(Astro.url + 'rss.xml', Astro.site)} />
   <Header {title} headline={description} />
+  <Subscribe />
   <Section title="Beiträge">
-    <Subscribe href={rssLink} />
     {posts.map((post) => <PostPreview {post} />)}
   </Section>
 </BaseLayout>
