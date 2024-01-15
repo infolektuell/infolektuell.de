@@ -10,7 +10,7 @@ Header set Cache-Control "public, max-age=3600"
 </FilesMatch>
 
 # Set correct mime type for web feeds
-<Files rss.xml >
+<Files feed.rss.xml >
     AddType application/rss+xml xml
 </Files>
 <Files feed.json >
