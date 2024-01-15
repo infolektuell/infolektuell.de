@@ -2,8 +2,7 @@ import type { APIRoute } from 'astro'
 import { getImage } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import rss, { type RSSFeedItem } from '@astrojs/rss'
-import { micromark } from 'micromark'
-import sanitizeHtml from 'sanitize-html'
+import { renderPost } from '../../plugins/feed'
 import siteConfig from '@config/site'
 import { dedent } from 'ts-dedent'
 import Logo from '@assets/images/logo.png'
@@ -15,15 +14,15 @@ export const GET: APIRoute = async function ({ site, generator, url }) {
   const posts = await getCollection('posts')
   posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
   const items: RSSFeedItem[] = await Promise.all(
-    posts.map(({ slug, data, body }) => {
-      const content = micromark(body)
+    posts.map(async ({ slug, data, body }) => {
+      const content = await renderPost(body)
       const { title, headline: description } = data
       return {
         title,
         description,
         pubDate: data.publishedTime,
         link: `/blog/${slug}`,
-        content: sanitizeHtml(content),
+        content,
       }
     }),
   )
