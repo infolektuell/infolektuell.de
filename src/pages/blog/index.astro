@@ -3,17 +3,21 @@ import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import Section from '@components/page/Section.astro'
+import Subscribe from '@components/blog/Subscribe.astro'
 import PostPreview from '@components/blog/PostPreview.astro'
 const title = 'Blog'
 const description = 'Kommentare, Einordnungen und der ganze Rest'
+const rssLink = `${Astro.url.href}/rss.xml`
 const openGraph = { title, description }
 const posts = await getCollection('posts')
 posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
 ---
 
 <BaseLayout {title} {description} {openGraph} noindex={true}>
+  <link slot="after-head" rel="alternate" type="application/rss+xml" title="RSS" href={rssLink} />
   <Header {title} headline={description} />
   <Section title="Beiträge">
+    <Subscribe href={rssLink} />
     {posts.map((post) => <PostPreview {post} />)}
   </Section>
 </BaseLayout>

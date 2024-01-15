@@ -8,7 +8,7 @@ const { name, size, ...props }: Props = Astro.props
 ---
 
 <span class:list={['icon', size ? `is-${size}` : null]}>
-  <AstroIcon {name} {...props} />
+  <AstroIcon {name} {...props} aria-hidden="true" />
 </span>
 <style>
     svg {

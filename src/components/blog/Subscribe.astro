@@ -1,0 +1,11 @@
+---
+import Icon from '@components/bulma/Icon.astro'
+type Props = {
+  href: string
+}
+const { href }: Props = Astro.props
+---
+<a class="button is-primary" {href}>
+  <Icon name="rss-solid" />
+  <span>Feed abonnieren und nichts mehr verpassen</span>
+</a>
