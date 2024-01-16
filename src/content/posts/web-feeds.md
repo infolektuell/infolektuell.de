@@ -6,7 +6,7 @@ publishedTime: '2024-01-16'
 ---
 
 Wer Wert darauf legt, vielseitig informiert zu sein, wird sich auf vielen unterschiedlichen Zeitungsportalen, Social-Media-Kanälen, Blogs etc. aufhalten.
-Da kommen viele Clicks zusammen und ständig gibt es Werbung zu sehen.
+Da kommen viele Klicks zusammen und ständig gibt es Werbung zu sehen.
 Eigentlich wäre es doch fantastisch, wenn man ohne Ablenkung in Ruhe die neuesten angefallenen Nachrichten lesen könnte,
 ohne dass etwas blinkt oder der Text durch irgendwelche Links zum Weiterlesen zerrissen wird.
 Eine solche Technik gibt es bereits: Web Feeds.
@@ -19,13 +19,13 @@ Dabei wird nur der Inhalt abgerufen, nicht die zusätzlichen Navigationslinks un
 Zum Abrufen nutzt man spezielle Programme (Feedreader), die den Inhalt lesefreundlich darstellen.
 Wenn man die Nachrichten einer Website abonnieren möchte, fügt man diese Seite als Quelle im bevorzugten Feedreader hinzu.
 Mit der Zeit wächst so eine Quellensammlung heran, ähnlich der Abonnements bei sozialen Netzwerken.
-Der Unterschied ist: Keine sozialen plattformen oder Drittanbieter kennen die eigene Quellensammlung.
+Der Unterschied ist: Keine sozialen Plattformen oder Drittanbieter kennen die eigene Quellensammlung.
 
 Es gibt viele Feedreader zur Auswahl, von schlicht bis komplex ist für die meisten etwas dabei.
 Das Wissen, wie Feeds angeboten und gelesen werden können, ist offen dokumentiert.
 Jeder Entwickler dieser Welt kann in der eigenen Website Feeds anbieten oder ein Programm zum Lesen von Feeds entwickeln.
 Gängige Formate sind [RSS], [Atom] und [JSON Feed].
-Nutzer müssen den Inhalt dieser Dokumente nicht kennen, sie sind nur als referenz hier verlinkt.
+Nutzer müssen den Inhalt dieser Dokumente nicht kennen, sie sind nur als Referenz hier verlinkt.
 Aus einer mehr juristischen Perspektive gedacht entsprechen diese Dokumente Gesetzestexten oder Regeln, auf die sich die Entwicklerwelt geeinigt hat, oder kurz Standards.
 Wenn sich alle Beteiligten daran orientieren, können sie Bausteine entwickeln, die gut zusammenspielen,
 wie hier das Anbieten der Feeds auf der einen Seite und das Abrufen auf der anderen.
@@ -44,7 +44,7 @@ Hier ein paar Vorschläge:
 - Für Android ist vielleicht der [Offline RSS Reader] interessant.
 - [Podcast Addict] kann auch mit RSS-Feeds umgehen.
 - Wer bereits [Thunderbird] nutzt, hat damit auch einen Feedreader.
-- Für windows habe ich noch keine wirklich empfehlenswerten Optionen außer Thunderbird.
+- Für Windows habe ich noch keine wirklich empfehlenswerten Optionen außer Thunderbird.
 
 [netnewswire]: https://netnewswire.com
 [offline rss reader]: https://play.google.com/store/apps/details?id=com.vanniktech.rssreader
@@ -56,8 +56,8 @@ Hier ein paar Vorschläge:
 Viele Seiten, die Feeds anbieten, enthalten einen Button zum Abonnieren.
 Erkennbar sind diese Buttons durch ihre Icons:
 
-- [![RSS](https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg)](https://commons.wikimedia.org/wiki/File:Feed-icon.svg)
-- ![JSON Feed](https://jsonfeed.org/graphics/icon.png)
+- ![RSS](/feeds/rss-icon.svg)
+- ![JSON Feed](/feeds/json-feed-icon.png)
 
 [Mein Blog](/blog/) enthält ebenfalls solche Buttons oben über den Beiträgen.
 Damit wird der installierte Feedreader auf Nachfrage hin automatisch geöffnet und der Feed zur eigenen Sammlung hinzugefügt.
@@ -67,7 +67,7 @@ Falls der Feed nicht mehr interessant ist, kann er einfach wieder aus der Sammlu
 ## Feed abonnieren (manuell)
 
 Manchmal sind die Abonnement-Buttons nicht so prominent oder überhaupt nicht vorhanden.
-Den RSS-Feed einer Website manuell zu abonnieren heißt kurz gesagt, die Adresse der Website in den Reader zu kopieren.
+Den Feed einer Website manuell zu abonnieren heißt kurz gesagt, die Adresse der Website in den Feedreader zu kopieren.
 Mit etwas Übung läuft dieser Prozess sogar irgendwann flüssiger als der Weg über den Button.
 
 1. Seite im Browser besuchen, z.B. mein Blog unter <https://infolektuell.de/blog>
