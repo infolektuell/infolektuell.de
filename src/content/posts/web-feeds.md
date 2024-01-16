@@ -40,13 +40,16 @@ So banal es klingt, aber das Prinzip ist technischen Laien viel zu wenig bewusst
 Zunächst sollte man einen Feedreader finden, der einem sympathisch ist.
 Hier ein paar Vorschläge:
 
-- Für iPhone und Mac kann ich [NetNewsWire] empfehlen.
+- Für iPhone und Mac kann ich [NetNewsWire] oder [ReadKit] empfehlen.
+- Nur für Mac: [Vienna]
 - Für Android ist vielleicht der [Offline RSS Reader] interessant.
 - [Podcast Addict] kann auch mit RSS-Feeds umgehen.
 - Wer bereits [Thunderbird] nutzt, hat damit auch einen Feedreader.
-- Für Windows habe ich noch keine wirklich empfehlenswerten Optionen außer Thunderbird.
+- Auch Microsoft Outlook kann Feeds lesen.
 
 [netnewswire]: https://netnewswire.com
+[vienna]: https://www.vienna-rss.com
+[readkit]: https://readkit.app
 [offline rss reader]: https://play.google.com/store/apps/details?id=com.vanniktech.rssreader
 [podcast addict]: https://podcastaddict.com
 [thunderbird]: https://www.thunderbird.net
