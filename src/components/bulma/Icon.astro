@@ -3,12 +3,13 @@ import { Icon as AstroIcon } from 'astro-icon/components'
 type Props = {
   name: string
   size?: 'small' | 'medium' | 'large'
+  label?: string
 }
-const { name, size, ...props }: Props = Astro.props
+const { name, size, label, ...props }: Props = Astro.props
 ---
 
 <span class:list={['icon', size ? `is-${size}` : null]}>
-  <AstroIcon {name} {...props} aria-hidden="true" />
+  <AstroIcon {name} aria-label={label} aria-hidden={!label} {...props} />
 </span>
 <style>
     svg {
