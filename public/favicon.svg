@@ -1,19 +1,19 @@
-<svg class="typst-doc" viewBox="0 0 16 16" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="16"><svg class="typst-doc" viewBox="0 0 16 16" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
     <g>
         <g transform="translate(0 0)">
-            <path class="typst-shape" fill="#7fdbff" d="M 0 0 L 0 16 L 16 16 L 16 0 Z "/>
+            <path class="typst-shape" fill="#7fdbff" d="M 0 0 L 0 16 L 16 16 L 16 0 Z "></path>
         </g>
         <g transform="translate(5.3408203125 13.318359375)">
-            <g class="typst-text" transform="scale(0.0068359375 -0.0068359375)">
-                <use xlink:href="#g0" x="0" fill="#000000"/>
+            <g class="typst-text" transform="scale(1, -1)">
+                <use xlink:href="#gEFF6548FF7D5875CC023EE7B34AE91B7" x="0" fill="#000000"></use>
             </g>
         </g>
-        <g transform="translate(0 0)"/>
     </g>
-    <defs id="glyph">
-        <symbol id="g0" overflow="visible">
-            <path d="M 298 1325 Q 298 1429 374.5 1492.5 Q 451 1556 531 1556 Q 611 1556 650 1507.5 Q 689 1459 689 1404 Q 689 1301 613 1237.5 Q 537 1174 457 1174 Q 377 1174 337.5 1222 Q 298 1270 298 1325 Z M 447 121 L 599 121 L 576 0 L -81 0 L -58 121 L 93 121 L 253 942 L 102 942 L 125 1063 L 630 1063 L 447 121 Z M 534 1315 Q 558 1335 562 1353.5 Q 566 1372 566 1386 Q 566 1400 552 1417.5 Q 538 1435 508 1435 Q 478 1435 453.5 1415 Q 429 1395 423 1365 Q 417 1335 433.5 1315 Q 450 1295 480 1295 Q 510 1295 534 1315 Z M 214 121 L 326 121 L 486 942 L 374 942 L 214 121 Z "/>
+    <defs id="SvgjsDefs1001">
+        <symbol id="SvgjsSymbol1000" overflow="visible">
+            <path d="M 2.0371094 9.057617 Q 2.0371094 9.768555 2.5600586 10.202637 Q 3.0830078 10.636719 3.6298828 10.636719 Q 4.176758 10.636719 4.4433594 10.305176 Q 4.709961 9.973633 4.709961 9.597656 Q 4.709961 8.893555 4.1904297 8.459473 Q 3.6708984 8.025391 3.1240234 8.025391 Q 2.5771484 8.025391 2.307129 8.353516 Q 2.0371094 8.681641 2.0371094 9.057617 Z M 3.055664 0.82714844 L 4.0947266 0.82714844 L 3.9375 0 L -0.55371094 0 L -0.39648438 0.82714844 L 0.6357422 0.82714844 L 1.7294922 6.439453 L 0.6972656 6.439453 L 0.8544922 7.2666016 L 4.3066406 7.2666016 L 3.055664 0.82714844 Z M 3.6503906 8.989258 Q 3.8144531 9.125977 3.8417969 9.252441 Q 3.8691406 9.378906 3.8691406 9.474609 Q 3.8691406 9.5703125 3.7734375 9.689941 Q 3.6777344 9.80957 3.4726563 9.80957 Q 3.2675781 9.80957 3.1000977 9.672852 Q 2.9326172 9.536133 2.8916016 9.331055 Q 2.850586 9.125977 2.963379 8.989258 Q 3.0761719 8.852539 3.28125 8.852539 Q 3.4863281 8.852539 3.6503906 8.989258 Z M 1.4628906 0.82714844 L 2.2285156 0.82714844 L 3.3222656 6.439453 L 2.5566406 6.439453 L 1.4628906 0.82714844 Z "></path>
         </symbol>
     </defs>
-    <defs id="clip-path"/>
-</svg>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: invert(100%); } }
+</style></svg>

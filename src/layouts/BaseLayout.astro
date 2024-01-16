@@ -1,6 +1,7 @@
 ---
 import '@assets/styles/bulma.scss'
 import OpenGraph, { type Props as OGProps } from '@components/site/OpenGraph.astro'
+import FavIcon, { type Props as OGProps } from '@components/site/FavIcon.astro'
 import Header from '../components/site/SiteHeader.astro'
 import Footer from '../components/site/SiteFooter.astro'
 import siteConfig from '@config/site'
@@ -26,6 +27,7 @@ const robots = [noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow']
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titleString}</title>
     <link rel="canonical" href={new URL(Astro.url, Astro.site)} />
+    <FavIcon />
     {description && <meta name="description" content={description} />}
     <meta name="robots" content={robots.join(', ')} />
     <OpenGraph {...openGraph} />
