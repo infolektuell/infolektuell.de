@@ -56,22 +56,14 @@ Hier ein paar Vorschläge:
 
 ## Feed abonnieren (automatisch)
 
-Viele Seiten, die Feeds anbieten, enthalten einen Button zum Abonnieren.
-Erkennbar sind diese Buttons durch ihre Icons:
+Viele Seiten, die Feeds anbieten, machen dies durch charakteristische Icons sichtbar:
 
 - ![RSS](/feeds/rss-icon.svg)
 - ![JSON Feed](/feeds/json-feed-icon.png)
 
-[Mein Blog](/blog/) enthält ebenfalls solche Buttons oben über den Beiträgen.
-Damit wird der installierte Feedreader auf Nachfrage hin automatisch geöffnet und der Feed zur eigenen Sammlung hinzugefügt.
-Von nun an werden dort regelmäßig die neuesten Artikel geladen und können dort komfortabel gelesen werden.
-Falls der Feed nicht mehr interessant ist, kann er einfach wieder aus der Sammlung gelöscht werden.
-
-## Feed abonnieren (manuell)
-
-Manchmal sind die Abonnement-Buttons nicht so prominent oder überhaupt nicht vorhanden.
-Den Feed einer Website manuell zu abonnieren heißt kurz gesagt, die Adresse der Website in den Feedreader zu kopieren.
-Mit etwas Übung läuft dieser Prozess sogar irgendwann flüssiger als der Weg über den Button.
+[Mein Blog](/blog/) enthält ebenfalls Links mit solchen Icons oben über den Beiträgen.
+Diese Links sind aber i.d.R. nicht zum Klicken da, sondern dienen hauptsächlich zur Information und Werbung.
+Abonniert wird der Feed einer website stattdessen, indem man die Adresse der offenen Seite in den Feedreader kopiert.
 
 1. Seite im Browser besuchen, z.B. mein Blog unter <https://infolektuell.de/blog>
 2. Adresse aus der Adressleiste oder direkt von hier kopieren
@@ -79,9 +71,20 @@ Mit etwas Übung läuft dieser Prozess sogar irgendwann flüssiger als der Weg �
 4. Dort auf „Feed hinzufügen“, „Neuer Feed“ o.Ä. gehen
 5. Adresse ins Eingabefeld einfügen und suchen bzw. hinzufügen
 
+Von nun an werden dort regelmäßig die neuesten Artikel geladen und können komfortabel gelesen werden.
 Mit der Zeit kann man sich angewöhnen, bei jeder interessanten Seite zu testen, ob sie sich als Feed abonnieren lässt.
-Es wird deutlich häufiger angeboten als es promotet wird.
+Es wird deutlich häufiger angeboten als es sichtbar promotet wird.
 Selbst Youtube-Kanäle lassen sich als Feed abonnieren, probieren Sie es aus.
+Falls der Feed nicht mehr interessant ist, kann er einfach wieder aus der Sammlung gelöscht werden.
+
+## Feed abonnieren (manuell)
+
+Normalerweise sollten die obigen Schritte funktionieren, aber manchmal findet der Feedreader den Feed der Website nicht über die normale Adresse.
+Hier kommen noch einmal die Links mit den Icons ins Spiel, die nicht zum Klicken gedacht sind.
+Hinter ihnen verbirgt sich nämlich die Adresse zum eigentlichen Feed.
+Sollten Sie über den obigen Weg keinen Erfolg haben,
+kopieren Sie die Adresse des Links (Rechtsklick bzw. Kontextmenü) und fügen sie wie oben in den Feedreader ein.
+Die Adresse endet z.B. auf `.xml`, `.rss.xml` oder `.json`.
 
 ## Aggregator-Dienste
 

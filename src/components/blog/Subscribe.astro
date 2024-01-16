@@ -4,10 +4,10 @@ import Section from '@components/page/Section.astro'
 ---
 <Section title="Feed Abonnieren">
   <div class="buttons">
-    <a class="button is-primary" href={'feed:' + Astro.url + 'feed.json'}>
+    <a class="button is-info" href={Astro.url + 'feed.json'}>
       <Icon name="json-feed" size="large" label="JSON" />
     </a>
-    <a class="button is-primary" href={'feed:' + Astro.url + 'feed.rss.xml'}>
+    <a class="button is-info" href={Astro.url + 'feed.rss.xml'}>
       <Icon name="rss-solid" size="large" label="RSS" />
     </a>
     <a class="button is-info" href="/blog/web-feeds/"><span>ℹ️</span><span>Anleitung</span></a>
