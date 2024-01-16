@@ -2,8 +2,8 @@
 title: Bilder mit und ohne Worte
 headline: Wann es sinnvoll ist, Grafiken auf Webseiten nicht zu beschriften
 author: tamara-cook
-publishedTime: '2024-01-12T00:00'
-tags: [Schildbürgerstreich, Webdesign]
+publishedTime: '2024-01-12'
+tags: [Schildbürgerstreich, Accessibility]
 ---
 
 Moderne Webseiten enthalten i.d.R. neben Text auch Bilder und andere Medien.
