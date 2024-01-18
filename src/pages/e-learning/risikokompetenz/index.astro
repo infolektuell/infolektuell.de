@@ -7,7 +7,7 @@ import Article from '@components/page/Article.astro'
 import CTAButton from '@components/page/CTAButton.astro'
 
 export const title = 'Risikokompetenz'
-export const description = 'Ein Quiz-Formatzum Erlernen von Risikokompetenz, Numeracy und Statistik'
+export const description = 'Ein Quiz-Format zum Erlernen von Risikokompetenz, Numeracy und Statistik'
 export const headline = 'Entscheidungen treffen mit Sokrates'
 export const summary = 'Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein Quiz-Format mit Sokrates als Quiz Master führt spielerisch anhand von Medienmeldungen und Alltagsfragen an das Thema heran.'
 export const cta = 'Jetzt ausprobieren'
@@ -20,7 +20,7 @@ const openGraph = {
 
 <BaseLayout {title} {description} {openGraph}>
   <Header {title} {headline} {summary} />
-  <Section title="Anmerkungen" content="true">
+  <Section title="Anmerkungen" content={true}>
     <dl>
       <dt>Privatsphäre 🙈</dt>
       <dd>
