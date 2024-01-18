@@ -2,7 +2,7 @@
 title: Satire mit und ohne Sinn
 headline: Ist das Kunst oder kann das weg?
 tags: [Informationsselektion, Satire]
-publishedTime: '2024-01-12T00:00'
+publishedTime: 2024-01-12
 ---
 
 Eines vorweg: Niemand hat es verdient zu sterben, weil er oder sie schlechte Kunst produziert hat.
@@ -23,7 +23,7 @@ wird nach und nach die eigenen Wissenslücken mit diesem Zerrbild füllen.
 Da kann man sich für noch so aufgeklärt und diszipliniert halten, alles bewusst wahrgenommene wird mit der Zeit auch im Geist ankommen.
 Das Wissen über den realen Gegenstand muss stark genug sein, sonst wird Satire mit der Zeit diese Lücken ausfüllen.
 Es ist mental weniger anstrengend, bestimmte Inhalte einfach nicht mehr zu konsumieren, statt sich hinterher auseinanderzusetzen,
-dass das *ja alles nur Satire und nicht echt sei*.
+dass das _ja alles nur Satire und nicht echt sei_.
 Wenn man einfach Frust ablassen will oder nach Bestätigung und Zugehörigkeit sucht, kann man sich auch ein Hobby suchen oder Sport machen.
 Spott und Schadenfreude bringen nur kurzfristige Befriedigung und sind oft der falsche Weg, solche sozialen Bedürfnisse nachhaltig zu erfüllen.
 
@@ -80,15 +80,15 @@ aber als Satire lohnen sich diese Peinlichkeiten nicht und machen das Leben nur 
 Allein das Konzept von investigativer Satire ist schon in sich widersprüchlich, weil Satire nicht abbildet, sondern verzerrt.
 Aus ähnlichen Gründen habe ich schon viel Satire mit politischen Bezügen aussortiert, selbst und gerade wenn ich die Positionen teile:
 
-- Ich halte Homöopathie, Anthroposophie und die meisten Verschwörungstheorien für Schwachsinn.
+- Homöopathie, Anthroposophie und die meisten Verschwörungstheorien halte ich für Schwachsinn.
   Ich brauche aber kein Unterhaltungsprogramm, das mich aufwertet, indem es die anderen lächerlich macht.
-- Ich habe Mailab sehr gern geschaut, als ihr Fokus noch auf der Chemie und den Naturwissenschaften lag.
+- Mailab habe ich sehr gern geschaut, als ihr Fokus noch auf der Chemie und den Naturwissenschaften lag.
   Schon die Hinwendung zu den Sozialwissenschaften habe ich eher als unvorteilhaft wahrgenommen,
   ihr zweites Buch habe ich im Gegensatz zum ersten Buch als belanglos empfunden.
-    Als die identitätspolitisch gefärbten Inhalte immer mehr zunahmen, hat es sich für mich vom Erkenntnisgewinn her überhaupt nicht mehr gelohnt,
-    woraufhin ich den Kanal schweren Herzens deabonnierte.
-      Kritische Gegenreaktionen auf den Kanal in Form von Satire sehe ich mir trotzdem nicht an,
-      das würde mich nur wieder neu aufregen und an meiner Meinung nichts ändern.
+  Als die identitätspolitisch gefärbten Inhalte immer mehr zunahmen, hat es sich für mich vom Erkenntnisgewinn her überhaupt nicht mehr gelohnt,
+  woraufhin ich den Kanal schweren Herzens deabonnierte.
+  Kritische Gegenreaktionen auf den Kanal in Form von Satire sehe ich mir trotzdem nicht an,
+  das würde mich nur wieder neu aufregen und an meiner Meinung nichts ändern.
 
 ## Fazit
 
@@ -96,7 +96,7 @@ Generell kann ich Satire nur dann empfehlen, wenn man sich auch weiterhin mit ih
 Mir hat z.B. Shalom Auslander dabei geholfen, Kritik an meinem christlichen Glauben zunächst überhaupt zuzulassen und mich schließlich davon zu emanzipieren.
 In seinen grotesken Erzählungen verarbeitet er seine orthodox religiös geprägte Erziehung als eine Art Selbsttherapie.
 Hier ist auch wieder sehr wichtig zu betonen, dass der Satiriker selbst keine Alternative anbietet, sondern nur am Fundament rüttelt.
-Diese *Rüttelmomente* konnten Diskussionen mit Atheisten nicht herbeiführen, weder durch rationale Argumente, noch durch moralische Erpressung.
+Diese _Rüttelmomente_ konnten Diskussionen mit Atheisten nicht herbeiführen, weder durch rationale Argumente, noch durch moralische Erpressung.
 Die meisten Atheisten haben erkenntnistheoretisch gesehen auch nicht so richtig gute Argumente auf Lager, das würde ich immer noch so sehen.
 Sie schießen sich zu sehr auf die Inhalte der Religion ein und versuchen sie zu widerlegen, statt einfach zu fragen, was überhaupt für sie spricht.
 Ich bin mr Auslander tatsächlich dankbar dafür, dass er es geschafft hat, an meinem Fundament zu rütteln.

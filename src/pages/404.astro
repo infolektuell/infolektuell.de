@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+import BackButton from '@components/nav/BackButton.astro'
+const title = 'Seite nicht gefunden'
+const summary = 'Sie haben versucht eine Seite aufzurufen, die nicht existiert.'
+const backText = 'Zur letzten Seite zurückkehren'
+---
+
+<BaseLayout {title} noindex={true}>
+  <Header {title} {summary} />
+  <BackButton>{backText}</BackButton>
+</BaseLayout>

@@ -1,7 +1,8 @@
 ---
 title: Mission
 headline: Warum Infolektuell?
-publishedTime: '2023-11-28T00:00'
+emoji: 📝
+publishedTime: 2023-11-28
 keywords:
   - mentale Belastung
   - geistiger und physischer Stress

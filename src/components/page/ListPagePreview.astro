@@ -1,11 +1,9 @@
 ---
+import type { Page } from '@entities/page'
 import Article from './Article.astro'
 import CTAButton from './CTAButton.astro'
 
-type Props = {
-  title: string
-  headline: string
-  summary: string
+type Props = Page & {
   href: string
   cta?: string
 }
@@ -13,6 +11,6 @@ const { title, headline, summary, href, cta }: Props = Astro.props
 ---
 
 <Article {title} {headline} {href} >
-  <p>{summary}</p>
+  {summary && <p>{summary}</p>}
   {cta && <CTAButton slot="cta" {href}>{cta}</CTAButton>}
 </Article>

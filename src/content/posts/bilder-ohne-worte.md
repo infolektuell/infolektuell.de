@@ -2,7 +2,7 @@
 title: Bilder mit und ohne Worte
 headline: Wann es sinnvoll ist, Grafiken auf Webseiten nicht zu beschriften
 author: tamara-cook
-publishedTime: '2024-01-12'
+publishedTime: 2024-01-12
 tags: [Schildbürgerstreich, Accessibility]
 ---
 

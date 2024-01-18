@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ProductList from '@components/products/ProductList.astro'
+import Product from '@components/products/Product.astro'
+import Breadcrumb from '@components/nav/Breadcrumb.astro'
+
+export const getStaticPaths = async function () {
+  const products = await getCollection('products')
+  return products.map((product) => {
+    let parents = product.slug.includes('/') ? products.filter(({ slug }) => product.slug !== slug && product.slug.startsWith(slug)) : null
+    if (parents?.length === 0) { parents = null }
+    let children = /index.mdx?$/.test(product.id) ? products.filter(({ slug }) => slug !== product.slug && slug.startsWith(product.slug)) : null
+    if (children?.length === 0) { children = null }
+    return {
+      params: { slug: product.slug },
+      props: { product, parents, children }
+    }
+  })
+}
+
+type Props = {
+  product: CollectionEntry<'products'>
+  parents: CollectionEntry<'products'>[]
+  children?: CollectionEntry<'products'>[]
+}
+const { product, parents, children }: Props = Astro.props
+const { title, description, headline, summary, emoji } = product.data
+const openGraph = {
+  title: headline ?? title,
+  description: summary ?? description,
+}
+const breadcrumbs = parents?.map(({ data, slug }) => ({ text: data.title, emoji: data.emoji, href: '/products' + slug })) ?? []
+breadcrumbs.push({ text: title, emoji, href: Astro.url.pathname })
+---
+<BaseLayout {title} {description} {openGraph} noindex={!!children}>
+  {children ? <ProductList {product} {children} /> : <Product {product} parent={parents?.[0]} />}
+  <Breadcrumb slot="breadcrumbs" items={breadcrumbs} />
+</BaseLayout>

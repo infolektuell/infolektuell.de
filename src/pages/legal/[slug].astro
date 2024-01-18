@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Header from '@components/page/Header.astro'
+
+export const getStaticPaths = async function () {
+  const pages = await getCollection('pages')
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }))
+}
+
+type Props = {
+  page: CollectionEntry<'pages'>
+}
+const { page }: Props = Astro.props
+const { title, description, headline, summary, noindex, nofollow } = page.data
+const openGraph = {
+  title: headline ?? title,
+  description: summary ?? description
+}
+const { Content } = await page.render()
+---
+
+<BaseLayout {title} {description} {openGraph} {noindex} {nofollow}>
+  <Header {title} {headline} {summary} />
+  <div class="box">
+    <div class="content"><Content /></div>
+  </div>
+</BaseLayout>

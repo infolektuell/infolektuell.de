@@ -1,18 +1,22 @@
 ---
-import { getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
 import siteConfig from '../../config/site'
 import NavLink from '../nav/NavLink.astro'
 import AstroBadge from '@assets/images/credits/built-with-astro/tiny.svg'
 import BulmaBadge from '@assets/images/credits/made-with-bulma.png'
-const legalMenu = await getEntry('menus', 'legal')
-const { label, items } = legalMenu.data
+const pages = await getCollection('pages')
+const items = pages.map(({ slug, data }) => ({
+  text: data.title,
+  emoji: data.emoji,
+  href: `/legal/${slug}`,
+}))
 ---
 
 <footer class="footer">
   <div class="container">
     <nav aria-labelledby="sec-legal" class="block">
-      <h2 class="title is-6" id="sec-legal">{label}</h2>
+      <h2 class="title is-6" id="sec-legal">Rechtliche Links</h2>
       <div class="level">
         <div class="level-left">
           {

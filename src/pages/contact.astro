@@ -7,7 +7,8 @@ import Section from '@components/page/Section.astro'
 import ContactForm from '@components/contact/ContactForm.svelte'
 import VCard from '@components/contact/vcard.astro'
 
-const title = 'Kontakt'
+export const title = 'Kontakt'
+export const emoji = '🤝'
 const headline = 'Ihr Weg zu mir'
 const summary = 'Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen melden und ggf. einen Kennenlerntermin vorschlagen. Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.'
 const person = await getEntry('authors', 'tamara-cook')

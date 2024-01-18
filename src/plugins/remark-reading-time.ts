@@ -1,18 +1,16 @@
-import type { RemarkPlugin } from '@astrojs/markdown-remark'
-import type { Node } from 'unist'
+// noinspection SpellCheckingInspection
+
+import { type RemarkPlugin } from '@astrojs/markdown-remark'
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
-import type { VFile } from 'vfile'
 
 const plugin: RemarkPlugin = function remarkReadingTime() {
-  return function (tree: Node, file: VFile) {
-    const data = file.data.astro
-    if (!data?.frontmatter) {
-      return
-    }
+  return function (tree, file) {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
-    data.frontmatter.minutesRead = Math.ceil(readingTime.minutes)
+    file.data.astro ??= { frontmatter: {} }
+    const fm = file.data.astro.frontmatter
+    fm.minutesRead = Math.ceil(readingTime.minutes)
   }
 }
 

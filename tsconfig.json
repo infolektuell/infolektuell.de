@@ -8,9 +8,9 @@
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@entities/*": ["src/entities/*"]
+      "@pages/*": ["src/pages/*"],
+      "@entities/*": ["src/entities/*"],
     },
     "strictNullChecks": true,
-    "typeRoots": ["node_modules/@types", "./types", "./node_modules/@types"]
-  }
+  },
 }

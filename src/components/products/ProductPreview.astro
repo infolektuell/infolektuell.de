@@ -4,13 +4,12 @@ import Article from '@components/page/Article.astro'
 import TagList from '@components/bulma/TagList.astro'
 
 type Props = {
-  product: CollectionEntry<'coachings' | 'courses' | 'services' | 'trainings'>
-  basePath: string
+  product: CollectionEntry<'products'>
 }
-const { product, basePath }: Props = Astro.props
+const { product }: Props = Astro.props
 const { title, headline, summary, targets } = product.data
 const tags = targets.map((t) => ({ href: `/products/zielgruppen/${t}/`, text: t }))
-const href = `${basePath}${product.slug}`
+const href = `/products/${product.slug}`
 ---
 
 <Article {title} {headline} {href}>

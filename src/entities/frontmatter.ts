@@ -1,7 +1,7 @@
 import { z } from 'astro:content'
 
 export const frontmatterSchema = z.object({
-  minutesRead: z.number().min(1),
+  minutesRead: z.number().min(0),
   lastModified: z.coerce.date().optional(),
 })
 

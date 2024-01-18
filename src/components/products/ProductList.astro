@@ -1,14 +1,15 @@
 ---
-import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import Header from '@components/page/Header.astro'
 import Section from '@components/page/Section.astro'
 import ProductPreview from '@components/products/ProductPreview.astro'
 type Props = {
-  collection: 'coachings' | 'courses' | 'trainings' | 'services'
-  basePath?: string
+  product: CollectionEntry<'products'>
+  children: CollectionEntry<'products'>[]
 }
-const { collection, basePath }: Props = Astro.props
-const products = await getCollection(collection)
-products.sort(function ({ data: a }, { data: b }) {
+const { product, children }: Props = Astro.props
+const { title, headline, summary } = product.data
+children.sort(function ({ data: a }, { data: b }) {
   if (a.order !== b.order) {
   return a.order - b.order
   }
@@ -17,7 +18,15 @@ products.sort(function ({ data: a }, { data: b }) {
   }
   return a.title > b.title ? 1 : -1
   })
+const { Content } = await product.render()
 ---
+
+<Header {title} {headline} {summary} />
 <Section title="Angebote">
-{products.map((product) => <ProductPreview {product} basePath={basePath ?? Astro.url.pathname} />)}
+{children.map((p) => <ProductPreview product={p} />)}
 </Section>
+{product.body.length > 0 && (
+<section class="box" aria-label="Disclaimer">
+  <div class="content"><Content /></div>
+</section>
+  )}

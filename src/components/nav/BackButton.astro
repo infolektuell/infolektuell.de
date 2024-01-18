@@ -1,0 +1,21 @@
+<div class="section has-background-info">
+  <div class="container">
+    <nav>
+      <back-button>
+        <button type="button" class="button is-link is-fullwidth"><slot>Zurück</slot></button>
+      </back-button>
+    </nav>
+  </div>
+</div>
+<script>
+  class BackButton extends HTMLElement {
+    constructor () {
+      super()
+      const $button = this.querySelector<HTMLElement>('button')
+      $button?.addEventListener('click', function () {
+        history.back()
+      })
+    }
+  }
+  customElements.define('back-button', BackButton)
+</script>

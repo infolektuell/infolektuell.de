@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Header from './Header.astro'
+import Section from '@components/page/Section.astro'
+import Description from '@components/products/Description.astro'
+import ContactButton from '@components/contact/ContactButton.astro'
+import TargetGroup from '@components/products/TargetGroup.astro'
+import Price from '@components/products/Price.astro'
+
+type Props = {
+  product: CollectionEntry<'products'>
+  parent: CollectionEntry<'products'>
+}
+const { product, parent }: Props = Astro.props
+const { title, headline, summary, targets, price } = product.data
+const category = parent?.data?.title
+const { Content } = await product.render()
+---
+
+<Header {title} {headline} {summary} {category} />
+{targets.length > 0 &&
+<Section title="Zielgruppen">
+  <TargetGroup {targets} />
+</Section>
+  }
+<Description>
+  <Content />
+</Description>
+<Section title="Interessiert?">
+  <ContactButton />
+  {price?.hourly && <p class="content">Preis pro Sitzung: <Price price={price.hourly} /></p>}
+</Section>

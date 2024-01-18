@@ -1,20 +1,22 @@
 ---
 import { getEntry } from 'astro:content'
 import siteConfig from '@config/site'
+import { pageSchema } from '@entities/page'
 import BaseLayout from '@layouts/BaseLayout.astro'
 import Header from '@components/page/Header.astro'
 import Section from '@components/page/Section.astro'
 import ListPagePreview from '@components/page/ListPagePreview.astro'
 import ContactButton from '@components/contact/ContactButton.astro'
 import Bio from '@components/contact/Bio.astro'
-import * as coachingsList from './products/coachings/index.mdx'
-import * as coursesList from './products/courses/index.mdx'
-import * as servicesList from './products/services/index.mdx'
-import * as trainingsList from './products/trainings/index.mdx'
 import * as risikokompetenzList from './e-learning/risikokompetenz/index.astro'
 const title = 'Willkommen'
 const { description, headline, summary } = siteConfig
 const person = await getEntry('authors', 'tamara-cook')
+const coachingsList = await getEntry('products', 'coachings')
+const coursesList = await getEntry('products', 'courses')
+const servicesList = await getEntry('products', 'services')
+const trainingsList = await getEntry('products', 'trainings')
+const risikokompetenz = pageSchema.parse(risikokompetenzList)
 ---
 
 <BaseLayout {title} {description}>
@@ -22,15 +24,15 @@ const person = await getEntry('authors', 'tamara-cook')
   <link slot="after-head" rel="alternate" type="application/rss+xml" href={new URL(Astro.url + 'blog/feed.rss.xml', Astro.site)} title="Infolektuell Blog RSS Feed" />
   <Header {title} {headline} {summary} />
   <Section title="Für Einzelpersonen mit und ohne Angehörige">
-    <ListPagePreview {...coachingsList.frontmatter} href="/products/coachings/" />
+    <ListPagePreview {...coachingsList.data} href="/products/coachings/" />
   </Section>
   <Section title="Für Gruppen">
-    <ListPagePreview {...coursesList.frontmatter} href="/products/courses/" />
-    <ListPagePreview {...trainingsList.frontmatter} href="/products/trainings/" />
-    <ListPagePreview {...servicesList.frontmatter} href="/products/services/" />
+    <ListPagePreview {...coursesList.data} href="/products/courses/" />
+    <ListPagePreview {...trainingsList.data} href="/products/trainings/" />
+    <ListPagePreview {...servicesList.data} href="/products/services/" />
   </Section>
   <Section title="E-Learning" headline="Interaktive Lehrmedien, mit denen Sie spielerisch Basiskompetenzen aufbauen können">
-    <ListPagePreview {...risikokompetenzList} href="/e-learning/risikokompetenz/" />
+    <ListPagePreview {...risikokompetenz} href="/e-learning/risikokompetenz/" />
   </Section>
   <Section title="Über mich">
       <Bio {person}>

@@ -1,6 +1,6 @@
 ---
-layout: '@layouts/PageLayout.astro'
 title: Impressum
+emoji: 📮
 noindex: true
 ---
 

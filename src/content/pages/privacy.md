@@ -1,6 +1,6 @@
 ---
-layout: '@layouts/PageLayout.astro'
 title: Datenschutzerklärung
+emoji: 🤐
 noindex: true
 ---
 

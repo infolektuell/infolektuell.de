@@ -2,7 +2,7 @@
 title: Web Feeds
 headline: Eine infolektuelle Methode zum Lesen von News aus dem Web
 tags: [Informationsselektion, News]
-publishedTime: '2024-01-16'
+publishedTime: 2024-01-16
 ---
 
 Wer Wert darauf legt, vielseitig informiert zu sein, wird sich auf vielen unterschiedlichen Zeitungsportalen, Social-Media-Kanälen, Blogs etc. aufhalten.

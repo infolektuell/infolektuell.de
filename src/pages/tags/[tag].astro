@@ -8,35 +8,29 @@ import ProductPreview from '@components/products/ProductPreview.astro'
 
 export async function getStaticPaths () {
   const posts = await getCollection('posts')
-  const coachings = await getCollection('coachings')
-  const courses = await getCollection('courses')
-  const services = await getCollection('services')
-  const trainings = await getCollection('trainings')
+  const products = await getCollection('products')
   const tags = [...new Set<string>([
     ...posts.flatMap(({ data }) => data.tags),
-    ...coachings.flatMap(({ data }) => data.tags),
-    ...courses.flatMap(({ data }) => data.tags),
-    ...services.flatMap(({ data }) => data.tags),
-    ...trainings.flatMap(({ data }) => data.tags),
+    ...products.flatMap(({ data }) => data.tags),
   ])]
   return tags.map((tag) => ({
     params: { tag },
     props: {
       posts: posts.filter(({ data }) => data.tags.includes(tag)),
-      coachings: coachings.filter(({ data }) => data.tags.includes(tag)),
-      courses: courses.filter(({ data }) => data.tags.includes(tag)),
-      services: services.filter(({ data }) => data.tags.includes(tag)),
-      trainings: trainings.filter(({ data }) => data.tags.includes(tag)),
+      coachings: products.filter(({ data, id }) => id.startsWith('coachings/') && data.tags.includes(tag)),
+      courses: products.filter(({ id, data }) => id.startsWith('courses/') && data.tags.includes(tag)),
+      services: products.filter(({ id, data }) => id.startsWith('services/') && data.tags.includes(tag)),
+      trainings: products.filter(({ id, data }) => id.startsWith('trainings/') && data.tags.includes(tag)),
     },
   }))
 }
 
 type Props = {
   posts: CollectionEntry<'posts'>[]
-  coachings: CollectionEntry<'coachings'>[]
-  courses: CollectionEntry<'courses'>[]
-  services: CollectionEntry<'services'>[]
-  trainings: CollectionEntry<'trainings'>[]
+  coachings: CollectionEntry<'products'>[]
+  courses: CollectionEntry<'products'>[]
+  services: CollectionEntry<'products'>[]
+  trainings: CollectionEntry<'products'>[]
 }
 const { tag } = Astro.params
 const title = tag
@@ -44,22 +38,18 @@ const { posts, coachings, courses, services, trainings }: Props = Astro.props
 const products = [
   {
     title: 'Coachings',
-    basePath: '/products/coachings/',
     products: coachings,
   },
   {
     title: 'Kurse',
-    basePath: '/products/courses/',
     products: courses,
   },
   {
     title: 'Dienstleistungen',
-    basePath: '/products/services/',
     products: services,
   },
   {
     title: 'Trainings',
-    basePath: '/products/trainings/',
     products: trainings,
   },
 ].filter(({ products }) => products.length > 0)
@@ -74,10 +64,10 @@ const products = [
   )
   }
   {
-    products.map(({ title, basePath, products }) => (
+    products.map(({ title, products }) => (
       <Section title={`${title} (${products.length})`}>
         {products.map((product) => (
-          <ProductPreview {product} {basePath} />
+          <ProductPreview {product} />
         ))}
       </Section>
     ))

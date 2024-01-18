@@ -5,16 +5,10 @@ import Header from '@components/page/Header.astro'
 import TagList from '@components/bulma/TagList.astro'
 const title = 'Tags'
 const posts = await getCollection('posts')
-const coachings = await getCollection('coachings')
-const courses = await getCollection('courses')
-const services = await getCollection('services')
-const trainings = await getCollection('trainings')
+const products = await getCollection('products')
 const tags = [...new Set<string>([
   ...posts.flatMap(({ data }) => data.tags),
-  ...coachings.flatMap(({ data }) => data.tags),
-  ...courses.flatMap(({ data }) => data.tags),
-  ...services.flatMap(({ data }) => data.tags),
-  ...trainings.flatMap(({ data }) => data.tags),
+  ...products.flatMap(({ data }) => data.tags),
 ])]
   .map((tag) => ({ href: `/tags/${tag}`, text: tag }))
 ---

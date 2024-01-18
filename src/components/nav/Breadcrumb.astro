@@ -22,14 +22,14 @@ const isActive = (href: string|URL) => href === pathname || href === pathname.re
     <nav
       class:list={[
         'breadcrumb',
-        separator ? `has-${separator}-separator` : null,
+        separator ? `has-${separator}-separator` : 'has-succeeds-separator',
         size ? `is-${size}` : null,
         alignment ? `is-${alignment}` : null,
       ]}
       aria-label="Breadcrumbs"
     >
       <ul>
-        <li><NavLink href="/" aria-label="Start"><Logo /></NavLink></li>
+        <li><NavLink href="/" emoji="🏠" aria-label="Start"><Logo /></NavLink></li>
         {
           items.map((item) => (
             <li class:list={[{ 'is-active': isActive(item.href ?? '') }]}>

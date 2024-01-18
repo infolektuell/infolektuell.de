@@ -1,18 +1,20 @@
 ---
-import { getEntry } from 'astro:content'
-import type { MenuItem } from '@entities/menu'
+import { getCollection, getEntry } from 'astro:content'
 import Navbar from '../nav/Navbar.astro'
 import NavLink from '../nav/NavLink.astro'
 import Logo from '@components/nav/Logo.astro'
-import siteConfig from '../../config/site'
-const mainMenu = await getEntry('menus', 'main')
-const { label, items }: { label: string, items: Array<MenuItem> } = mainMenu.data
-const startItems = items.filter(({ alignment }) => alignment === 'start').map(({ alignment, ...item }) => item)
-const endItems = items.filter(({ alignment }) => alignment === 'end').map(({ alignment, ...item }) => item)
+import siteConfig from '@config/site'
+import * as blog from '@pages/blog/index.astro'
+import * as contact from '@pages/contact.astro'
+const productPages = await getCollection('products', ({ slug }) => !slug.includes('/'))
+productPages.sort((a, b) => a.data.order - b.data.order)
+const missionPost = await getEntry('posts', 'mission')
 ---
 
-<Navbar {label} color="info">
+<Navbar label="'Hauptmenü'" color="info">
   <NavLink slot="brand" class="navbar-item" aria-label={siteConfig.title} href="/"><Logo /></NavLink>
-  {startItems.map((item) => <NavLink slot="start" class="navbar-item" {...item} />)}
-  {endItems.map((item) => <NavLink slot="end" class="navbar-item" {...item} />)}
+  {productPages.map(({ data, slug }) => <NavLink slot="start" class="navbar-item" href={'/products/' + slug} text={data.title} emoji={data.emoji} />)}
+  <NavLink slot="end" class="navbar-item" href="/blog/" text={blog.title} emoji={blog.emoji} />
+  <NavLink slot="end" class="navbar-item" href={'/blog/' + missionPost.slug} text={missionPost.data.title} emoji={missionPost.data.emoji} />
+  <NavLink slot="end" class="navbar-item" href="/contact/" text={contact.title} emoji={contact.emoji} />
 </Navbar>

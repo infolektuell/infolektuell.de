@@ -1,6 +1,6 @@
 ---
 type Props = {
-  category: string
+  category?: string
   title: string
   headline?: string
   summary?: string
@@ -10,8 +10,10 @@ const { category, title, headline, summary }: Props = Astro.props
 
 <header class="box">
   <h1 class="title">
-      <span class="tag">{category}</span>
+    {category && (
+    <span class="tag">{category}</span>
       <br />
+    )}
     <span>{title}</span>
   </h1>
   {headline && <p class="subtitle is-5">{headline}</p>}
