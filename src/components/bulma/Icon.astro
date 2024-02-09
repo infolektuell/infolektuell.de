@@ -12,7 +12,7 @@ const { name, size, label, ...props }: Props = Astro.props
   <AstroIcon {name} aria-label={label} aria-hidden={!label} {...props} />
 </span>
 <style>
-    svg {
+    [data-icon] {
         width: 80%;
         height: 80%;
     }
