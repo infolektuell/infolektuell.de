@@ -20,6 +20,12 @@ export default defineConfig({
       rehypeMermaid,
       [rehypeShikiji, { theme: 'github-dark' }],
     ],
+    remarkRehype: {
+      footnoteLabel: 'Fußnoten',
+      footnoteBackLabel(referenceIndex, rereferenceIndex) {
+        return 'Hochspringen nach: ' + (referenceIndex + 1) + (rereferenceIndex > 1 ? '-' + rereferenceIndex : '')
+      },
+    },
     syntaxHighlight: false,
   },
   integrations: [
