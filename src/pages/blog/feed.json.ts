@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
-import { renderPost } from '../../plugins/feed'
+import { processor } from '../../plugins/feed'
 import siteConfig from '@config/site'
 
 export const GET: APIRoute = async function ({ site, url }) {
@@ -10,7 +10,7 @@ export const GET: APIRoute = async function ({ site, url }) {
     posts.map(async ({ slug, data, body }) => {
       const postUrl = `${url.origin}/blog/${slug}`
       const { title, headline: description } = data
-      const content = await renderPost(body)
+      const { code: content } = await processor.render(body)
       return {
         id: postUrl,
         url: postUrl,
