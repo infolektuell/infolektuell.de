@@ -30,6 +30,7 @@ const robots = [noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow']
     <FavIcon />
     {description && <meta name="description" content={description} />}
     <meta name="robots" content={robots.join(', ')} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <OpenGraph {...openGraph} />
     <slot name="after-head" />
   </head>
