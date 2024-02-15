@@ -16,7 +16,7 @@ jobs:
       - name: ✨ Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 21
           cache: npm
       - name: 🛠️ Install deps
         run: npm ci
@@ -29,5 +29,13 @@ jobs:
       - name: 🔐 Load host keys
         run: echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: 🚀 Upload
+        env:
+          SSH_URL: '${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}'
         run: |
-          rsync --archive --delete --stats -e 'ssh' dist/ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}"
+          rsync -r --delete --checksum --out-format="%n" dist/ $SSH_URL > rsync-report.txt
+      - name: Index modified pages
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_URL: https://infolektuell.de
+        run: |
+          node ./script/rsync-indexnow.js rsync-report.txt
