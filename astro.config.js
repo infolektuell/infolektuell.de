@@ -10,9 +10,10 @@ import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import icon from 'astro-icon'
 
+const site = 'https://infolektuell.de'
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://infolektuell.de',
+  site,
   markdown: {
     remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
     rehypePlugins: [
@@ -30,7 +31,11 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter(page) {
+        return !page.startsWith(site + '/tags/') && !page.startsWith(site + '/legal/')
+      },
+    }),
     svelte(),
     icon({
       iconDir: 'src/assets/icons',
