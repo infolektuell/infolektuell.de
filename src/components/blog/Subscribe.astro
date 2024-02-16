@@ -1,15 +1,25 @@
 ---
-import Icon from '@components/bulma/Icon.astro'
+import { Icon } from 'astro-icon/components'
 import Section from '@components/page/Section.astro'
+type Props = {
+  basePath?: string
+}
+const { basePath = Astro.url.pathname }: Props = Astro.props
 ---
 <Section title="Feed Abonnieren">
   <div class="buttons">
-    <a class="button is-info" href={Astro.url + 'feed.json'}>
-      <Icon name="json-feed" size="large" label="JSON" />
+    <a class="button is-info" href={basePath + 'feed.json'}>
+      <Icon name="feed/json" title="JSON-Feed" />
     </a>
-    <a class="button is-info" href={Astro.url + 'feed.rss.xml'}>
-      <Icon name="rss-solid" size="large" label="RSS" />
+    <a class="button is-info" href={basePath + 'feed.rss.xml'}>
+      <Icon name="feed/rss" title="RSS-Feed" />
     </a>
     <a class="button is-info" href="/blog/web-feeds/"><span>ℹ️</span><span>Anleitung</span></a>
   </div>
 </Section>
+<style>
+  [data-icon] {
+    width: 3rem;
+    height: 3rem;
+  }
+</style>

@@ -8,6 +8,7 @@ import ReadingTime from '@components/blog/ReadingTime.astro'
 import Section from '@components/page/Section.astro'
 import FormattedDate from '@components/blog/FormattedDate.astro'
 import Breadcrumb from '@components/nav/Breadcrumb.astro'
+import Subscribe from '@components/blog/Subscribe.astro'
 import * as parent from './index.astro'
 
 export async function getStaticPaths () {
@@ -60,5 +61,6 @@ const openGraph = {
         }
       </footer>
   </article>
+  <Subscribe basePath="/blog/" />
   <Breadcrumb slot="breadcrumbs" items={[{ href: '/blog/', text: parent.title, emoji: parent.emoji }, { href: Astro.url.pathname, text: title }]} />
 </BaseLayout>
