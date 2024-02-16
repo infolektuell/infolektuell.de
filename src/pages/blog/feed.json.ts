@@ -1,9 +1,10 @@
 import type { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
-import { processor } from '../../plugins/feed'
+import { createPostRenderer } from '../../plugins/feed'
 import siteConfig from '@config/site'
 
 export const GET: APIRoute = async function ({ site, url }) {
+  const processor = await createPostRenderer()
   const posts = await getCollection('posts')
   posts.sort((a, b) => b.data.publishedTime.valueOf() - a.data.publishedTime.valueOf())
   const items = await Promise.all(

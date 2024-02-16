@@ -2,12 +2,13 @@ import type { APIRoute } from 'astro'
 import { getImage } from 'astro:assets'
 import { getCollection } from 'astro:content'
 import rss, { type RSSFeedItem } from '@astrojs/rss'
-import { processor } from '../../plugins/feed'
+import { createPostRenderer } from '../../plugins/feed'
 import siteConfig from '@config/site'
 import { dedent } from 'ts-dedent'
 import Logo from '@assets/images/logo.png'
 
 export const GET: APIRoute = async function ({ site, generator, url }) {
+  const processor = await createPostRenderer()
   const link = site ?? 'https://infolektuell.de'
   const image = await getImage({ src: Logo, format: 'png', width: 144 })
   const imageUrl = url.origin + image.src

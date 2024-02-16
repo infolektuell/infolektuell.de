@@ -15,12 +15,6 @@ const site = 'https://infolektuell.de'
 export default defineConfig({
   site,
   markdown: {
-    remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
-    rehypePlugins: [
-      [rehypeExternalLinks, { target: '_blank' }],
-      rehypeMermaid,
-      [rehypeShikiji, { theme: 'github-dark' }],
-    ],
     remarkRehype: {
       footnoteLabel: 'Fußnoten',
       footnoteBackLabel(referenceIndex, rereferenceIndex) {
@@ -28,6 +22,12 @@ export default defineConfig({
       },
     },
     syntaxHighlight: false,
+    remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime],
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank' }],
+      rehypeMermaid,
+      [rehypeShikiji, { theme: 'github-dark' }],
+    ],
   },
   integrations: [
     mdx(),
