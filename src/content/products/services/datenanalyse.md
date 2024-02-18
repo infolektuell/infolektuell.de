@@ -9,6 +9,16 @@ Daten zu erfassen, auszuwerten und dann noch etwas daraus zu lernen ist nicht nu
 Ich biete Dienstleistungen rund um Datenanalyse, Statistik und Datenaufbereitung auf Freelancing-Basis an.
 Als Psychologin verfüge ich über eine hochwertige Ausbildung in empirischer Statistik und habe bereits an IT-Aufgaben im Forschungsdatenmanagement mitgearbeitet.
 
+## Datenanalyse für Unternehmen
+
+Sie möchten als Unternehmen, Schule etc. Fragen datenbasiert beantworten?
+Vielleicht haben Sie schon Daten erhoben und möchten wissen, ob diese Daten schon Antworten hergeben?
+Ich kann für Sie Daten auswerten, Berichte erstellen und ggf. Datenerhebung auch technisch konzipieren und implementieren.
+Beispiele könnten sein:
+
+- Evaluation von Maßnahmen oder Prozessen
+- Testungen zu Usability und Barrierefreiheit
+
 ## Beratung für Abschlussarbeiten und Promotionen
 
 Während meiner Studienzeit habe ich Studierende verschiedener Disziplinen erfolgreich bei der Umsetzung ihrer Abschlussarbeiten begleitet
@@ -16,13 +26,6 @@ und bei der Wahl geeigneter statistischer Methoden beraten.
 Hier ging es vor allem darum, das Vorhaben zu strukturieren und eine klare Vorstellung über den Verlauf zu entwickeln.
 Dies umfasst i.d.R. den kompletten Prozess vom Definieren der Fragestellungen über die Datenerhebung und Analyse bis zur Beantwortung der Fragestellung.
 Bevor Sie es also immer weiter vor sich herschieben, buchen Sie mich besser, damit wir Ordnung in die Sache bringen.
-
-## Datenanalyse für Unternehmen
-
-Sie möchten als Unternehmen, Schule etc. Fragen datenbasiert beantworten?
-Hier könnte es sich z.B. um die Evaluation von Maßnahmen, Interventionen oder Prozessen handeln.
-Vielleicht haben Sie schon Daten erhoben und möchten wissen, ob diese Daten schon Antworten hergeben?
-Ich kann für Sie Daten auswerten, Berichte erstellen und ggf. Datenerhebung auch technisch konzipieren und implementieren.
 
 ## Datenschutz und personenbezogene Daten
 
