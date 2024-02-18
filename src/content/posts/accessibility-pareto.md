@@ -135,4 +135,16 @@ Wer sich nicht willkommen fühlt, hat schnell keine Lust mehr, zur Verbesserung 
 Es gibt auch kleine Softwareunternehmen, die beides (Barrierefreiheit und Feedback) vorbildlich umgesetzt haben, z.B. mit dem Programm [Audio Hijack].
 Das Tool würde ich immer wieder kaufen.
 
+## Wie geht es weiter?
+
+Das allgemeine Prinzip sollte inzwischen deutlich geworden sein.
+Die Übertragung auf das eigene Produkt oder Angebot fällt jedoch nicht immer leicht und erfordert etwas Routine.
+Im Rahmen meiner [Dienstleistungen für Datenanalyse](/products/services/datenanalyse/) können Sie mich gern für Ihr Unternehmen anfragen und ein Angebot erhalten.
+Ich unterstütze Sie auf verschiedene Weise bei der konkreten Umsetzung:
+
+- Workflow-Analyse für Ihr Angebot
+- Entwicklung geeigneter Testaufgaben
+- Implementierung der Voraussetzungen für die Durchführung und Auswertung der Testungen
+- Schulung des Personals, sodass Sie selbständig Ihre Testungen weiterentwickeln können und barrierefrei bleiben
+
 [audio hijack]: https://rogueamoeba.com/audiohijack/
