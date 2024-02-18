@@ -1,9 +1,8 @@
-import 'dotenv/config'
 import { resolve } from 'node:path'
 import { readFile } from 'node:fs/promises'
 
 const fileContent = await readFile(resolve(process.argv[2]), 'utf-8')
-const files = fileContent.split('\n').filter((f) => f.endsWith('.html'))
+const files = fileContent.split('\n').filter((f) => f.endsWith('.html') && !f.startsWith('tags/'))
 if (files.length > 0) {
   const urlList = files.map((f) => process.env.SITE_URL + '/' + f.replace(/index.html$/, ''))
   const body = {
