@@ -1,0 +1,16 @@
+@charset "utf-8";
+// Import fonts to be used by bulma
+@import '@fontsource/dejavu-sans/index.css';
+@import '@fontsource/dejavu-serif/index.css';
+@import '@fontsource/noto-color-emoji/index.css';
+
+// Import variables to customize bulma
+@import './variables.scss';
+
+// Import only what you need from Bulma
+@import 'bulma/sass/base/all';
+@import 'bulma/sass/elements/all';
+@import 'bulma/sass/components/level';
+@import 'bulma/sass/helpers/all';
+@import 'bulma/sass/layout/section';
+@import 'bulma/sass/layout/footer';
