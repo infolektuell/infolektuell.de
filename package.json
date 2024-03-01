@@ -23,7 +23,7 @@
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "validate": "html-validate dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky && playwright-core install --with-deps chromium"
+    "prepare": "husky && playwright install-deps chromium"
   },
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
@@ -56,6 +56,7 @@
     "mdast-util-to-string": "^4.0.0",
     "micromark": "^4.0.0",
     "micromark-extension-math": "^3.0.0",
+    "playwright": "^1.42.0",
     "prettier": "^3.0.2",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-svelte": "^3.0.3",
