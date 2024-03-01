@@ -23,7 +23,7 @@
     "lint:md": "markdownlint --ignore-path .gitignore .",
     "validate": "html-validate dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky && playwright install-deps chromium"
+    "prepare": "husky && playwright install chromium"
   },
   "dependencies": {
     "@botpoison/browser": "^0.1.30",
