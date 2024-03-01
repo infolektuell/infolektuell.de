@@ -8,7 +8,7 @@ summary: Publizieren Sie Ihre Texte im Web mit ansprechendem Design und überzeu
 :::blockquote{cite=https://www.projekt-gutenberg.org/goethe/faust1/chap004.html}
 :span[Wagner:]{.has-text-grey-darker}\
 Allein der Vortrag macht des Redners Glück;\
-Ich fühl es wohl, noch bin ich weit zurück.\
+Ich fühl es wohl, noch bin ich weit zurück.
 
 :span[Faust:]{.has-text-grey-darker}\
 Such' er den redlichen Gewinn!\
