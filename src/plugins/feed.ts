@@ -1,5 +1,8 @@
 import { type AstroMarkdownOptions, createMarkdownProcessor } from '@astrojs/markdown-remark'
-import { remarkHeadingId } from './remark-heading-id'
+import remarkDirective from 'remark-directive'
+import remarkMath from 'remark-math'
+import { remarkHeadingId, remarkDirectives } from './index'
+import rehypeKatex from 'rehype-katex'
 import { rehypeReplaceRelativeLinks } from './rehype-replace-relative-links'
 
 export const createPostRenderer = async function () {
@@ -11,8 +14,11 @@ export const createPostRenderer = async function () {
       },
     },
     syntaxHighlight: false,
-    remarkPlugins: [remarkHeadingId],
-    rehypePlugins: [[rehypeReplaceRelativeLinks, { prefix: 'https://infolektuell.de' }]],
+    remarkPlugins: [remarkHeadingId, remarkDirective, remarkDirectives, remarkMath],
+    rehypePlugins: [
+      [rehypeReplaceRelativeLinks, { prefix: 'https://infolektuell.de' }],
+      [rehypeKatex, { output: 'mathml' }],
+    ],
   }
   return createMarkdownProcessor(markdownOptions)
 }
