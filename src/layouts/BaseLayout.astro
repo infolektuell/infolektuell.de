@@ -1,13 +1,15 @@
 ---
 import '@assets/styles/index.scss'
 import 'katex/dist/katex.min.css'
+import { getImage } from 'astro:assets'
 import OpenGraph, { type Props as OGProps } from '@components/site/OpenGraph.astro'
 import FavIcon from '@components/site/FavIcon.astro'
 import Header from '../components/site/SiteHeader.astro'
 import Footer from '../components/site/SiteFooter.astro'
 import siteConfig from '@config/site'
-import BackgroundImage from '@assets/images/background/background.jpg'
-const backgroundURL = `url(${BackgroundImage.src})`
+import background from '@assets/images/background/background.jpg'
+const optimizedBackground = await getImage({ src: background, format: 'webp' })
+const backgroundURL = `url(${optimizedBackground.src})`
 
 type Props = {
   title?: string
