@@ -1,13 +1,17 @@
-# infolektuell.github.io
+# infolektuell.de
 
-This is the source repo for my infolektuell business website.
+This is the source repo for my business website <infolektuell.de>.
 
 ## Development
 
 - Install [Node.js].
 - Install dependencies: `npm i`
 - Run dev server: `npm start`
-- Open <http://localhost:8080> in your browser.
-- Edit files and watch the changes reflected in the browser
+- Open the site in your browser: Press `o + enter`
+- Edit source files and watch the changes reflected in the browser
+
+## License
+
+[CC By 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 [node.js]: https://nodejs.org

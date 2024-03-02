@@ -1,18 +1,19 @@
 {
-  "name": "infolektuell.github.io",
+  "name": "infolektuell.de",
   "version": "1.0.0",
-  "description": "Source repo for my infolektuell website",
-  "author": "",
-  "license": "ISC",
+  "description": "Source repo for my website infolektuell.de",
+  "author": "Tamara Cook",
+  "license": "CC-BY-4.0",
   "keywords": [],
   "type": "module",
   "private": true,
   "engines": {
     "node": ">=21.0.0"
   },
+  "homepage": "https://infolektuell.de",
   "repository": {
     "type": "git",
-    "url": "https://github.com/infolektuell/infolektuell.github.io.git"
+    "url": "git@github.com:infolektuell/infolektuell.de.git"
   },
   "scripts": {
     "start": "astro dev",

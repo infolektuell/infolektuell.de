@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
 import siteConfig from '../../config/site'
 import NavLink from '../nav/NavLink.astro'
+import License from './License.astro'
 import AstroBadge from '@assets/images/credits/built-with-astro/tiny.svg'
 import BulmaBadge from '@assets/images/credits/made-with-bulma.png'
 const pages = await getCollection('pages')
@@ -44,10 +45,7 @@ const items = pages.map(({ slug, data }) => ({
         <br />
         Icons: <a href="https://fontawesome.com/" target="_blank" rel="noopener nofollow">Font Awesome</a>
       </p>
-      <p class="content is-small">
-        <span>&copy; {`${new Date().getFullYear()} ${siteConfig.title}`}</span><br />
-        <span>Alle Rechte vorbehalten.</span>
-      </p>
+      <License />
     </section>
   </div>
 </footer>

@@ -1,0 +1,28 @@
+---
+import { getEntry } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import Logo from '../nav/Logo.astro'
+import siteConfig from '@config/site'
+const licenseUrl = 'https://creativecommons.org/licenses/by/4.0/'
+const author = await getEntry('authors', siteConfig.author)
+const { name } = author.data
+const year = `${new Date().getFullYear()}`
+---
+<p class="content is-small" xmlns:cc="http://creativecommons.org/ns" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
+                                                                                      rel="cc:attributionURL"
+                                                                                                               aria-label={siteConfig.title}
+                                                                                      href={Astro.site}><Logo /></a>
+  &copy; {year} von <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="/contact/">{name.display}</a>
+  ist lizenziert unter der <a class=license" href={licenseUrl} target="_blank"
+                       rel="license noopener noreferrer">CC BY 4.0<Icon name="license/cc" aria-hidden="true" /><Icon name="license/by" aria-hidden="true" /></a></p>
+
+<style>
+  a.license {
+    display: inline-block;
+  }
+  [data-icon] {
+    height: 22px!important;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+  }
+</style>
