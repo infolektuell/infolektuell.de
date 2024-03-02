@@ -1,6 +1,6 @@
 # infolektuell.de
 
-This is the source repo for my business website <infolektuell.de>.
+This is the source repo for my business website [infolektuell.de](https://infolektuell.de).
 
 ## Development
 
