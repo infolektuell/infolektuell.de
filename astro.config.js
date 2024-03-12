@@ -1,19 +1,19 @@
 // noinspection JSUnusedGlobalSymbols
 
 import { defineConfig } from 'astro/config'
+import { rehypeShiki } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import remarkMath from 'remark-math'
 import remarkDirective from 'remark-directive'
 import { remarkHeadingId, remarkGitInfo, remarkDirectives, remarkReadingTime } from './src/plugins/index'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeMermaid from 'rehype-mermaid'
-import rehypeShikiji from 'rehype-shikiji'
 import rehypeKatex from 'rehype-katex'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import icon from 'astro-icon'
-
 const site = 'https://infolektuell.de'
+
 // https://astro.build/config
 export default defineConfig({
   site,
@@ -24,14 +24,19 @@ export default defineConfig({
         return 'Hochspringen nach: ' + (referenceIndex + 1) + (rereferenceIndex > 1 ? '-' + rereferenceIndex : '')
       },
     },
-    syntaxHighlight: false,
     remarkPlugins: [remarkHeadingId, remarkGitInfo, remarkReadingTime, remarkDirective, remarkDirectives, remarkMath],
     rehypePlugins: [
-      [rehypeExternalLinks, { target: '_blank' }],
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+        },
+      ],
       rehypeKatex,
       rehypeMermaid,
-      [rehypeShikiji, { theme: 'github-dark' }],
+      rehypeShiki,
     ],
+    syntaxHighlight: false,
   },
   integrations: [
     mdx(),
