@@ -6,11 +6,9 @@ import TagList from '@components/bulma/TagList.astro'
 const title = 'Tags'
 const posts = await getCollection('posts')
 const products = await getCollection('products')
-const tags = [...new Set<string>([
-  ...posts.flatMap(({ data }) => data.tags),
-  ...products.flatMap(({ data }) => data.tags),
-])]
-  .map((tag) => ({ href: `/tags/${tag}`, text: tag }))
+const tags = [
+  ...new Set<string>([...posts.flatMap(({ data }) => data.tags), ...products.flatMap(({ data }) => data.tags)]),
+].map((tag) => ({ href: `/tags/${tag}/`, text: tag }))
 ---
 
 <BaseLayout {title} noindex={true}>
