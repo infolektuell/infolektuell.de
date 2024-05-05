@@ -10,7 +10,7 @@ type Props = {
   post: CollectionEntry<'posts'>
 }
 const { post }: Props = Astro.props
-const href = `/blog/${post.slug}`
+const href = `/blog/${post.slug}/`
 const { title, headline, tags, publishedTime } = post.data
 const { remarkPluginFrontmatter } = await post.render()
 const fm = frontmatterSchema.parse(remarkPluginFrontmatter)
@@ -21,10 +21,10 @@ const { minutesRead } = fm
   <p class="content is-small">Veröffentlicht: <FormattedDate date={publishedTime} /></p>
   {
     minutesRead && (
-                  <p class="content is-small">
-                      Lesedauer:
-                      <ReadingTime minutes={minutesRead} />
-                  </p>
+      <p class="content is-small">
+        Lesedauer:
+        <ReadingTime minutes={minutesRead} />
+      </p>
     )
   }
   <TagList tags={tags.slice(0, 5)} />

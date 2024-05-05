@@ -9,7 +9,7 @@ type Props = {
 const { product }: Props = Astro.props
 const { title, headline, summary, targets } = product.data
 const tags = targets.map((t) => ({ href: `/products/zielgruppen/${t}/`, text: t }))
-const href = `/products/${product.slug}`
+const href = `/products/${product.slug}/`
 ---
 
 <Article {title} {headline} {href}>

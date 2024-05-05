@@ -10,7 +10,7 @@ const pages = await getCollection('pages')
 const items = pages.map(({ slug, data }) => ({
   text: data.title,
   emoji: data.emoji,
-  href: `/legal/${slug}`,
+  href: `/legal/${slug}/`,
 }))
 ---
 

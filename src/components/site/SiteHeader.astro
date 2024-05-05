@@ -13,8 +13,18 @@ const missionPost = await getEntry('posts', 'mission')
 
 <Navbar label="'Hauptmenü'" color="info">
   <NavLink slot="brand" class="navbar-item" aria-label={siteConfig.title} href="/"><Logo /></NavLink>
-  {productPages.map(({ data, slug }) => <NavLink slot="start" class="navbar-item" href={'/products/' + slug} text={data.title} emoji={data.emoji} />)}
+  {
+    productPages.map(({ data, slug }) => (
+      <NavLink slot="start" class="navbar-item" href={'/products/' + slug + '/'} text={data.title} emoji={data.emoji} />
+    ))
+  }
   <NavLink slot="end" class="navbar-item" href="/blog/" text={blog.title} emoji={blog.emoji} />
-  <NavLink slot="end" class="navbar-item" href={'/blog/' + missionPost.slug} text={missionPost.data.title} emoji={missionPost.data.emoji} />
+  <NavLink
+    slot="end"
+    class="navbar-item"
+    href={'/blog/' + missionPost.slug + '/'}
+    text={missionPost.data.title}
+    emoji={missionPost.data.emoji}
+  />
   <NavLink slot="end" class="navbar-item" href="/contact/" text={contact.title} emoji={contact.emoji} />
 </Navbar>

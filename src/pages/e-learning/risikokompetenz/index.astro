@@ -9,7 +9,8 @@ import CTAButton from '@components/page/CTAButton.astro'
 export const title = 'Risikokompetenz'
 export const description = 'Ein Quiz-Format zum Erlernen von Risikokompetenz, Numeracy und Statistik'
 export const headline = 'Entscheidungen treffen mit Sokrates'
-export const summary = 'Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein Quiz-Format mit Sokrates als Quiz Master führt spielerisch anhand von Medienmeldungen und Alltagsfragen an das Thema heran.'
+export const summary =
+  'Risikokompetenz ist die Fähigkeit, in ungewissen Situationen vernünftig und effizient zu entscheiden. Mein Quiz-Format mit Sokrates als Quiz Master führt spielerisch anhand von Medienmeldungen und Alltagsfragen an das Thema heran.'
 export const cta = 'Jetzt ausprobieren'
 const quizzes = await getCollection('quizzes')
 const openGraph = {
@@ -24,23 +25,26 @@ const openGraph = {
     <dl>
       <dt>Privatsphäre 🙈</dt>
       <dd>
-        Ich kann nicht mitlesen, was jemand beim Durchspielen eines Quiz antwortet.
-        Das Quiz läuft bei den Besuchern im Browser und mein Server bekommt davon bis auf den Seitenaufruf nichts mit.
+        Ich kann nicht mitlesen, was jemand beim Durchspielen eines Quiz antwortet. Das Quiz läuft bei den Besuchern im
+        Browser und mein Server bekommt davon bis auf den Seitenaufruf nichts mit.
       </dd>
       <dt>Hilfsmittel 🛠️</dt>
       <dd>
         Notizen, Taschenrechner, numerische Programmiersprachen wie Python oder R etc. sind ausdrücklich erwünscht.
-        Profis lassen sich von technischen Hilfsmitteln bei der Durchführung von Statistik unterstützen, warum soll man sich da mit Kopfrechnen extra selbst sabotieren?
-        Wir spielen hier kein Rechenkönig, sondern wollen Fragen beantworten.
+        Profis lassen sich von technischen Hilfsmitteln bei der Durchführung von Statistik unterstützen, warum soll man
+        sich da mit Kopfrechnen extra selbst sabotieren? Wir spielen hier kein Rechenkönig, sondern wollen Fragen
+        beantworten.
       </dd>
     </dl>
   </Section>
   <Section title="Quizzes">
     {
       quizzes.map(({ data, id }) => (
-        <Article title={data.title} href={'/e-learning/risikokompetenz/' + id}>
+        <Article title={data.title} href={'/e-learning/risikokompetenz/' + id + '/'}>
           <p>{data.description}</p>
-          <CTAButton slot="cta" href={'/e-learning/risikokompetenz/' + id}>Spielen</CTAButton>
+          <CTAButton slot="cta" href={'/e-learning/risikokompetenz/' + id}>
+            Spielen
+          </CTAButton>
         </Article>
       ))
     }

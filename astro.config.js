@@ -17,6 +17,7 @@ const site = 'https://infolektuell.de'
 // https://astro.build/config
 export default defineConfig({
   site,
+  trailingSlash: 'always',
   markdown: {
     remarkRehype: {
       footnoteLabel: 'Fußnoten',
