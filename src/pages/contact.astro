@@ -10,7 +10,8 @@ import VCard from '@components/contact/vcard.astro'
 export const title = 'Kontakt'
 export const emoji = '🤝'
 const headline = 'Ihr Weg zu mir'
-const summary = 'Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen melden und ggf. einen Kennenlerntermin vorschlagen. Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.'
+const summary =
+  'Schreiben Sie mir einfach über das Kontaktformular. Ich werde mich dann innerhalb von zwei Werktagen bei Ihnen melden und ggf. einen Kennenlerntermin vorschlagen. Telefonisch erreichen Sie mich am besten vormittags zwischen 10:00 und 12:00.'
 const person = await getEntry('authors', 'tamara-cook')
 const openGraph = { title }
 ---
@@ -27,9 +28,3 @@ const openGraph = { title }
     <VCard {person} />
   </Section>
 </BaseLayout>
-<style is:global lang="scss">
-  @import '@assets/styles/bulma/variables.scss';
-  @import 'bulma/sass/form/_all.sass';
-  @import 'bulma/sass/components/message.sass';
-  @import 'bulma/sass/components/card.sass';
-</style>

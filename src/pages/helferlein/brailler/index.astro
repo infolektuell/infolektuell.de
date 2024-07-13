@@ -5,7 +5,8 @@ import Brailler from '@components/tools/Brailler.svelte'
 const title = 'Brailler'
 const description = 'Eingabefeld zum schreiben von Braillezeichen'
 const headline = 'Einfach Brailleschrift schreiben wie auf einer mechanischen Braille-Schreibmaschine'
-const summary = 'Legen Sie zuerst die Tasten für die Braille-Punkte fest und drücken dann im Braille-Eingabefeld die Tasten in Kombination, um Braillezeichen zu erzeugen.'
+const summary =
+  'Legen Sie zuerst die Tasten für die Braille-Punkte fest und drücken dann im Braille-Eingabefeld die Tasten in Kombination, um Braillezeichen zu erzeugen.'
 const openGraph = { title: headline, description: summary }
 ---
 
@@ -13,8 +14,3 @@ const openGraph = { title: headline, description: summary }
   <Header {title} {headline} {summary} />
   <Brailler client:load />
 </BaseLayout>
-<style is:global lang="scss">
-  @import '@assets/styles/bulma/variables.scss';
-  @import 'bulma/sass/form/_all.sass';
-  @import 'bulma/sass/grid/_all.sass';
-</style>

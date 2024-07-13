@@ -1,3 +1,52 @@
 @charset "utf-8";
-@import './bulma/common.scss';
-@import './typography.scss';
+$white-transparent: hsla(0, 0%, 100%, 0.85);
+
+@forward 'bulma/sass/utilities';
+@forward 'bulma/sass/base';
+
+@forward 'bulma/sass/elements/block';
+@forward 'bulma/sass/elements/box';
+@forward 'bulma/sass/elements/button';
+@forward 'bulma/sass/elements/content';
+@forward 'bulma/sass/elements/table';
+@forward 'bulma/sass/elements/tag';
+@forward 'bulma/sass/elements/title';
+
+@forward 'bulma/sass/components/breadcrumb';
+@forward 'bulma/sass/components/card';
+@forward 'bulma/sass/components/message';
+@forward 'bulma/sass/components/navbar';
+@forward 'bulma/sass/form';
+@forward 'bulma/sass/grid';
+@forward 'bulma/sass/layout';
+@forward 'bulma/sass/base/skeleton';
+// @forward "bulma/sass/helpers";
+
+@use 'bulma/sass/themes/light';
+@use 'bulma/sass/themes/setup';
+
+// Hyphenation
+@forward 'typography';
+
+:root {
+  @include light.light-theme;
+  @include setup.setup-theme;
+  --bulma-family-primary: 'Dejavu Sans', 'Noto Color Emoji', sans-serif;
+  --bulma-family-secondary: 'Dejavu Serif', serif;
+  --bulma-widescreen-enabled: true;
+  --bulma-fullhd-enabled: false;
+  --bulma-text: var(--bulma-black);
+  --bulma-body-size: 20px;
+  --bulma-container-max-width: var(--bulma-widescreen);
+  --bulma-breadcrumb-item-color: var(--bulmawhite);
+  --bulma-breadcrumb-item-hover-color: var(--bulma-link-text);
+  --bulma-breadcrumb-item-active-color: var(--bulma-white);
+  --bulma-box-background-color: $white-transparent;
+}
+
+// Fonts
+@import '@fontsource/dejavu-sans/latin.css';
+@import '@fontsource/dejavu-sans/latin-italic.css';
+@import 'noto-color-emoji';
+@import '@fontsource/dejavu-serif/latin.css';
+@import '@fontsource/dejavu-serif/latin-italic.css';

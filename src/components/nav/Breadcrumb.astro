@@ -14,7 +14,7 @@ type Props = {
 }
 const { items, alignment, separator, size }: Props = Astro.props
 const { pathname } = Astro.url
-const isActive = (href: string|URL) => href === pathname || href === pathname.replace(/\/$/, '')
+const isActive = (href: string | URL) => href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
 <div class="section has-background-info">
@@ -41,14 +41,6 @@ const isActive = (href: string|URL) => href === pathname || href === pathname.re
     </nav>
   </div>
 </div>
-<style is:global lang="scss">
-  @import '@assets/styles/bulma/variables.scss';
-  $breadcrumb-item-color: $white;
-  $breadcrumb-item-hover-color: $link;
-  $breadcrumb-item-active-color: $white;
-
-  @import 'bulma/sass/components/breadcrumb.sass';
-</style>
 <style>
   ul {
     align-items: baseline;

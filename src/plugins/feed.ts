@@ -1,7 +1,8 @@
 import { type AstroMarkdownOptions, createMarkdownProcessor } from '@astrojs/markdown-remark'
+import remarkHeadingId from 'remark-custom-heading-id'
 import remarkDirective from 'remark-directive'
 import remarkMath from 'remark-math'
-import { remarkHeadingId, remarkDirectives } from './index'
+import { remarkDirectives } from './index'
 import rehypeKatex from 'rehype-katex'
 import { rehypeReplaceRelativeLinks } from './rehype-replace-relative-links'
 
