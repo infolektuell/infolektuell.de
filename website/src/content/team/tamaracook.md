@@ -1,6 +1,6 @@
 ---
 name: 'Tamara Cook'
-headshot: './images/ares.jpg'
+headshot: './images/tamaracook.jpg'
 jobTitle: 'Accessibility Consultant'
 publish: true
 order: 1
