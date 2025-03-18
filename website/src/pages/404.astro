@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro'
+import Button from '@components/ui/Button.astro'
+
+const title = '404'
+const seoTitle = 'Seite nicht gefunden'
+const seoDescription = 'Die aufgerufene Seite existiert nicht oder wurde verschoben.'
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <div class="w-full min-h-[80vh] flex items-center">
+    <div class="site-container mx-auto px-4 py-base text-center">
+      <div class="max-w-2xl mx-auto">
+        <h1 class="mb-4 text-9xl font-bold text-primary" data-aos="fade-up">{title}</h1>
+        <h2 class="mb-8" data-aos="fade-up" data-aos-delay="100">Seite nicht gefunden</h2>
+        <p class="text-body-base mb-12" data-aos="fade-up" data-aos-delay="200">
+          Die aufgerufene Seite existiert nicht oder wurde verschoben. Bitte überprüfen Sie die Adresse oder gehen Sie
+          zurück zur Startseite.
+        </p>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <Button href="/" variant="primary" size="lg"> Zurück zur Startseite </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

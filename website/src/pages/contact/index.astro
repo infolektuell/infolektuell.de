@@ -1,0 +1,24 @@
+---
+import Layout from '@layouts/Layout.astro'
+import InnerHero from '@components/sections/InnerHero.astro'
+import ContactInfo from '@components/sections/ContactInfo.astro'
+
+const seoTitle = 'Kontakt'
+const seoDescription = 'Kontaktmöglichkeiten, Adresse, Telefonnummer, Email oder Kontaktformular'
+const heroContent = {
+  title: 'So erreichen Sie mich',
+  description:
+    'Bei Interesse an meinen Dienstleistungen oder bei weiteren Fragen nehmen Sie bitte gern Kontakt zu mir auf.',
+}
+---
+
+<Layout title={seoTitle} description={seoDescription} footerCta={false}>
+  <InnerHero content={heroContent} />
+  <ContactInfo title="Kontaktinformationen" background="base" padding="base">
+    <p class="base">Ich freue mich darauf, Sie kennenzulernen.</p>
+    <p class="base">
+      Sie können mir jederzeit eine Anfrage über das Kontaktformular senden. Ansonsten erreichen Sie mich auch per Email
+      oder telefonisch an Werktagen von 10:00 bis 16:00.
+    </p>
+  </ContactInfo>
+</Layout>

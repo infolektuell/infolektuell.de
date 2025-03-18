@@ -1,0 +1,13 @@
+title: Allgemeine Fragen
+description: Antworten auf häufig gestellte Fragen zu meinen Dienstleistungen und zu Barrierefreiheit im Allgemeinen
+items:
+  - question: Wer sollte auf barrierefreie Umsetzung achten?
+    answer: Eigentlich alle, denn der gesunde Durchschnittsmensch ohne physische oder mentale Einschränkungen ist eine Minderheit unter Ihren Nutzern und nicht die Regel. Falls Sie einen Onlineshop oder eine Kommunikationsplattform betreiben, sind sie zu barrierefreier Umsetzung verpflichtet.
+  - question: Wie lässt sich herausfinden, ob ein digitales Angebot barrierefrei ist?
+    answer: Am zuverlässigsten und treffsichersten lassen sich Barrieren aufspüren, indem Sie Ihre Angebote durch Menschen mit unterschiedlichen Einschränkungen und Fähigkeiten ausprobieren lassen. Von Tools wie dem W3C Validator rate ich besonders Einsteigern ab, da deren Fehlerraten extrem hoch sind und keine Priorisierung der Probleme stattfindet. Wenn Sie bei mir ein kostenloses Erstgespräch vereinbaren, erhalten Sie von mir eine Einschätzung zu Ihrem Handlungsbedarf, sofern Sie die Website oder App in Ihrer Anfrage angeben.
+  - question: 'Warum ist Barrierefreiheit so wichtig?'
+    answer: 'Wenn bei Ihrem Angebot Barrierefreiheit nicht berücksichtigt wurde, können wahrscheinlich viele Menschen es nicht erfolgreich und zweckdienlich nutzen und werden somit von der Teilhabe im Arbeits- oder Privatleben ausgeschlossen. Eine zumindest milde körperliche oder mentale Einschränkung zu haben ist die Regel, nicht die Ausnahme. Falls Ihnen solche Menschen bisher nicht begegnet sind, liegt es möglicherweise daran, dass diese Menschen an Barrieren in Ihrem Angebot scheitern und sich davon abwenden.'
+  - question: 'Bieten Sie auch Zertifizierungen für Angebote oder Produkte an?'
+    answer: 'Nein, und ich halte Zertifikate auch nicht für besonders sinnvoll oder gar zielführend. Betroffenen gegenüber müssen Sie nichts durch ein Aushängeschild beweisen oder in Rechtsdokumenten erklären, denn sie stellen es spätestens dann fest, wenn sie versuchen, Ihr Angebot zu nutzen. Ich kann Sie zum Einen bei der Einhaltung rechtlicher Vorgaben unterstützen, zum Anderen kann ich Sie z.B. bei der Auswahl von Tools oder Software Dritter darin coachen, auf relevante Best Practices zu achten.'
+  - question: 'Lassen sich digitale Angebote automatisch im Nachhinein barrierefrei machen?'
+    answer: 'Definitiv nein, auch nicht durch KI. Wenn Barrierefreiheit kein Nachgedanke ist, sondern von Anfang an Teil des Entwicklungsprozesses, lässt sie sich allerdings sehr kostengünstig und pragmatisch umsetzen. Bei einem schon länger bestehenden Angebot sollte eine Migrationsphase eingeplant werden.'

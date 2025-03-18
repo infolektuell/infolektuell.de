@@ -1,0 +1,19 @@
+- id: header
+  items:
+    - name: Über mich
+      link: /team/tamaracook/
+    - name: Blog
+      link: /blog/
+
+- id: footer
+  items:
+    - name: YouTube
+      link: https://youtube.com/@infolektuell
+      target: _blank
+
+- id: legal
+  items:
+    - name: Datenschutz 🤐
+      link: /legal/privacy/
+    - name: Impressum 📮
+      link: /legal/impressum/

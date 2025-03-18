@@ -1,0 +1,78 @@
+---
+import { getEntry } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+import Hero from '@components/sections/Hero.astro'
+// import SplitPanel from '@components/sections/SplitPanel.astro';
+import Features from '@components/sections/Features.astro'
+// import Stats from '@components/sections/Stats.astro';
+import { featureLists } from '@data/features'
+import Faqs from '@components/sections/Faqs.astro'
+import RecentPosts from '@components/sections/RecentPosts.astro'
+import heroImage from '../assets/images/home/default-hero-2.jpg'
+
+const seoTitle = 'Willkommen'
+const seoDescription = 'Beratung, Coaching und Testung für Digitale Barrierefreiheit'
+
+const heroContent = {
+  title: 'Digitale Barrierefreiheit für Web, Mobile und desktop',
+  description:
+    'Barrierefreiheit ist ein wichtiges Qualitätsmerkmal für Websites und Apps, damit viele Menschen Ihre Produkte nutzen und schätzen können. Anbieter bestimmter Anwendungen sind bereits zu barrierefreier Umsetzung verpflichtet. Bei mir erhalten Sie effiziente und maßgeschneiderte Strategien und Lösungen.',
+  buttons: [
+    {
+      text: 'YouTube-Kanal besuchen',
+      link: 'https://youtube.com/@infolektuell',
+      target: '_blank',
+    },
+  ],
+  backgroundImage: heroImage,
+  overlayOpacity: 0.2,
+}
+
+const featuresSection = {
+  eyebrow: 'Dienstleistungen',
+  title: 'Das passende Angebot für kleine bis mittelständische Unternehmen',
+  description:
+    'Ob Einzelunternehmen oder Mittelstand, ob Sie selbst entwickeln oder lediglich einen Webauftritt haben, Sie erhalten ein auf Ihre Bedarfe und Voraussetzungen zugeschnittenes Angebot, für mehr Barrierefreiheit und mehr zufriedene Kunden.',
+  features: featureLists.main.features,
+  button: {
+    text: 'Beratungsgespräch vereinbaren',
+    link: '/contact',
+    variant: 'primary' as const,
+  },
+}
+
+const FooterCta = {
+  eyebrow: 'Loslegen',
+  title: 'Zögern Sie nicht länger und nehmen Sie Ihre Barrierefreiheit in die Hand.',
+  description:
+    'Integrieren Sie Barrierefreiheit Schritt für Schritt in Ihre Prozesse, generieren Sie schnell erste Erfolge und erweitern Sie Ihre Zielgruppe potentieller Kunden.',
+  hideCta: false,
+  button: {
+    text: 'Kostenlose Erstberatung vereinbaren',
+    link: '/contact',
+    target: '_blank',
+  },
+}
+
+const mainFaq = await getEntry('faq', 'main')
+
+const recentPostsSection = {
+  eyebrow: 'Aktuelles',
+  title: 'Überzeugen Sie sich von meiner Arbeitsweise',
+  description:
+    'Anleitungen, Fallbeispiele und Erfahrungsberichte über gute und schlechte Umsetzung von Barrierefreiheit',
+  button: {
+    text: 'Übersicht aller Beiträge',
+    link: '/blog',
+    variant: 'primary' as const,
+  },
+}
+---
+
+<Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
+  <Hero content={heroContent} />
+  <Features content={featuresSection} padding="base" background="light" />
+  <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} />
+  <!--<Logos content={logosSection} background="base" padding='small'/>-->
+  {mainFaq && <Faqs faqs={mainFaq} eyebrow="FAQs" background="base" padding="base" />}
+</Layout>

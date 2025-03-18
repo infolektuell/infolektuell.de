@@ -1,0 +1,106 @@
+---
+import { FORM_SUBMIT_ENDPOINT, CONTACT_FORM_ID, BOTPOISON_PUBLIC_KEY } from 'astro:env/server'
+import Button from '@components/ui/Button.astro'
+import Input from '@components/ui/form/Input.astro'
+import Textarea from '@components/ui/form/Textarea.astro'
+import Radio from '@components/ui/form/Radio.astro'
+import Checkbox from '@components/ui/form/Checkbox.astro'
+
+const formAction = `${FORM_SUBMIT_ENDPOINT}/${CONTACT_FORM_ID}`
+
+const hearAboutTitle = 'Auf welchem Weg haben Sie mich gefunden?'
+const hearAboutOptions = [
+  { label: 'Suchmaschine', value: 'search' },
+  { label: 'Social Media', value: 'social' },
+  { label: 'Mundpropaganda', value: 'referral' },
+  { label: 'Andere', value: 'other' },
+]
+
+const interestTitle = 'Ihre Aufgabengebiete'
+const interestOptions = [
+  { label: 'Entwicklung', value: 'development' },
+  { label: 'Design, Content', value: 'design' },
+  { label: 'Management, Product Owner etc.', value: 'management' },
+  { label: 'Rechtliche Aufgaben', value: 'law' },
+]
+
+const serviceTitle = 'An welchen Dienstleistungen sind Sie interessiert?'
+const serviceOptions = [
+  { label: 'Einzelcoaching', value: 'coaching' },
+  { label: 'Schulung für Teams', value: 'course' },
+  { label: 'Testung und Anforderungsanalyse', value: 'testing' },
+  { label: 'Beratung, Prozessoptimierung und DevOps für Teams', value: 'marketing' },
+]
+
+const formBackground = 'light'
+---
+
+<form class="space-y-6 bg-white p-6 rounded-lg" action={formAction} data-botpoison-public-key={BOTPOISON_PUBLIC_KEY}>
+  <input type="hidden" name="_feedback.language" value="de" />
+  <input type="hidden" name="_feedback.success.title" value="Vielen Dank" />
+  <input
+    type="hidden"
+    name="_feedback.success.message"
+    value="Ich habe Ihre Anfrage erhalten und werde sie zum nächstmöglichen Zeitpunkt beantworten."
+  />
+  <input type="hidden" name="_feedback.error.title" value="Nicht zugestellt" />
+  <input
+    type="hidden"
+    name="_feedback.error.message"
+    value="Beim Absenden Ihrer Anfrage ist ein Problem aufgetreten. Bitte versuchen Sie es ggf. später noch einmal oder nutzen Sie einen der anderen Kontaktwege."
+  />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Input label="Name" id="name" name="name" required background={formBackground} />
+    <Input label="Email" type="email" id="email" name="email" required background={formBackground} />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Input label="Telefon (optional für Rückfragen)" type="tel" id="phone" name="phone" background={formBackground} />
+    <Input label="Firma" id="company" name="company" background={formBackground} />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Radio
+      label={hearAboutTitle}
+      id="hear-about"
+      name="hear-about"
+      options={hearAboutOptions}
+      required
+      background={formBackground}
+    />
+    <Checkbox
+      label={interestTitle}
+      id="interests"
+      name="interests"
+      options={interestOptions}
+      background={formBackground}
+    />
+  </div>
+
+  <Textarea label="Ihre Nachricht" id="message" name="message" required background={formBackground} />
+
+  <Checkbox
+    label="Hiermit stimmen Sie der Verarbeitung Ihrer Angaben entsprechend der Datenschutzerklärung zu."
+    id="terms"
+    name="terms"
+    required
+    background={formBackground}
+  />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <Checkbox
+      label={serviceTitle}
+      id="service"
+      name="service"
+      options={serviceOptions}
+      required
+      background={formBackground}
+    />
+  </div>
+  <div class="mt-6">
+    <Button type="submit">Submit</Button>
+  </div>
+</form>
+<script>
+  import '@botpoison/browser'
+</script>

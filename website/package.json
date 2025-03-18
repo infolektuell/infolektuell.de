@@ -1,0 +1,46 @@
+{
+  "name": "infolektuell.de",
+  "version": "1.0.0",
+  "description": "Source repo for my website infolektuell.de",
+  "author": "Tamara Cook",
+  "license": "CC-BY-4.0",
+  "keywords": [],
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=21.0.0"
+  },
+  "homepage": "https://infolektuell.de",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:infolektuell/infolektuell.de.git"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@botpoison/browser": "^0.1.30",
+    "aos": "^2.3.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/bruno-ace-sc": "^5.2.5",
+    "@fontsource/dejavu-sans": "^5.2.5",
+    "@fontsource/dejavu-serif": "^5.2.5",
+    "@fontsource/noto-sans": "^5.2.6",
+    "@infolektuell/noto-color-emoji": "^0.2.0",
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/aos": "^3.0.7",
+    "astro": "^5.5.2",
+    "lucide-astro": "^0.482.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.3.3",
+    "rehype-external-links": "^3.0.0",
+    "remark-custom-heading-id": "^2.0.0"
+  }
+}

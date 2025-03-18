@@ -148,5 +148,5 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node,astro
 
-# Preview versions are generated from source
-/public/preview/
+# Logos are generated from source
+/src/assets/logos/
