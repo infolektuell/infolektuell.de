@@ -4,6 +4,8 @@
       link: /team/tamaracook/
     - name: Blog
       link: /blog/
+    - name: Kontakt
+      link: /contact/
 
 - id: footer
   items:

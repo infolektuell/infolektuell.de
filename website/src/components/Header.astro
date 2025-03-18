@@ -3,11 +3,12 @@ import { getEntry } from 'astro:content'
 import Logo from '@components/Logo.astro'
 import { Menu, X, ChevronDown } from 'lucide-astro'
 import Button from '@components/ui/Button.astro'
+import { siteConfig } from '@data/config'
 
 const headerMenu = await getEntry('menus', 'header')
 const ctaButton = {
-  name: 'Kostenloses Erstgespräch vereinbaren!',
-  link: '/contact',
+  name: 'Kostenloses Erstgespräch buchen!',
+  link: siteConfig.calendar,
 }
 
 // Get the current path to determine active menu item

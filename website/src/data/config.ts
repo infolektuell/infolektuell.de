@@ -1,8 +1,9 @@
 export const siteConfig = {
   companyName: 'Infolektuell',
   siteUrl: 'https://infolektuell.de',
+  calendar: 'https://calendly.com/infolektuell/30min',
   Socials: {
-    youtube: 'https://youtube.com/infolektuell',
+    youtube: 'https://youtube.com/@infolektuell',
     Github: 'https://github.com/infolektuell',
     LinkedIn: 'https://linkedin.com/in/tamaracook',
     Email: 'info@infolektuell.de',
