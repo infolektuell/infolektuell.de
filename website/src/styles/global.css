@@ -1,9 +1,7 @@
 @import 'tailwindcss';
-@import '@fontsource/dejavu-sans/latin.css';
-@import '@fontsource/dejavu-sans/latin-italic.css';
+@import '@fontsource/dejavu-sans/index.css';
 @import '@infolektuell/noto-color-emoji';
-@import '@fontsource/dejavu-serif/latin.css';
-@import '@fontsource/dejavu-serif/latin-italic.css';
+@import '@fontsource/dejavu-serif/index.css';
 
 @theme {
   --color-primary: #3557c1;
