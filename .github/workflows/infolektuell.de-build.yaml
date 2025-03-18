@@ -1,0 +1,64 @@
+# To better understand this file read this:
+# https://docs.ionos.space/docs/github-actions-customization/
+
+name: "Deploy Now: Execute Build"
+
+on:
+  workflow_call:
+    inputs:
+      site-url:
+        required: true
+        type: string
+      branch-id:
+        required: true
+        type: string
+
+env:
+  DEPLOYMENT_FOLDER: website/build/dist
+
+jobs:
+# Please do not rename this job
+  build-project:
+    name: build infolektuell.de
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 23
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: v22.x
+
+      - name: Build Node assets
+        env:
+          CI: true
+          BOTPOISON_PUBLIC_KEY: "${{ secrets.BOTPOISON_PUBLIC_KEY }}"
+          FORM_SUBMIT_ENDPOINT: "${{ secrets.FORM_SUBMIT_ENDPOINT }}"
+          CONTACT_FORM_ID: "${{ secrets.CONTACT_FORM_ID }}"
+          SITE_URL: ${{ inputs.site-url }}
+        run: |
+          ./gradlew build
+
+# Please do not touch the following action
+      - name: Store deployment content
+        uses: ionos-deploy-now/artifact-action@v1
+        with:
+          api-key: ${{ secrets.IONOS_API_KEY }}
+          service-host: api-eu.ionos.space
+          project-id: c6248caf-3954-4816-881e-08692ebd0810
+          branch-id: ${{ inputs.branch-id }}
+          version: ${{ github.sha }}
+          folder: ${{ env.DEPLOYMENT_FOLDER }}
+          config-file: .deploy-now/infolektuell.de/config.yaml
+          action: upload
