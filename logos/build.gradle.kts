@@ -22,10 +22,10 @@ typst.sourceSets {
 
     val youtube by registering {
         addSourceSet(common)
-        documents = listOf("logo", "favicon")
+        documents = listOf("logo")
         format {
-            pdf.enabled = false
             png.enabled = true
+            png.ppi = 800
         }
     }
 }

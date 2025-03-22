@@ -1,6 +1,21 @@
-#import "/src/common/typst/templates.typ": logo
-#show: logo
-#text(font: "DejaVu Serif")[ⅈ𝕟𝕗𝕠lektuell]
+#let logo(body) = context [
+  #set text(lang: "de", font: "DejaVu Serif", fill: white)
+  #set align(center+horizon)
+  #set page(
+    width: 1in,
+    height: 1in,
+    margin: 0mm,
+    fill: gradient.radial(rgb("#003884"), rgb("#020234"), focal-radius: 0%, radius: 100%)
+  )
+  #page(body)
+]
 
-// ⅈ kursiv bb
-// 𝕚 bb
+#logo[
+  #text(size: 18pt)[ⅈ𝕟𝕗𝕠]
+  #linebreak()
+  #text(size: 14pt)[lektuell]
+]
+
+#logo[
+  #text(size: 20pt)[ⅈ]
+]
