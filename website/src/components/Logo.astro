@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../assets/astro.svg'
 interface Props {
   variant?: 'header' | 'footer' | 'dark'
 }
@@ -23,6 +21,11 @@ const getLogoClass = () => {
 ---
 
 <a href="/" class:list={['logo font-logo transition-colors duration-200 font-light', getLogoClass()]}>
-  <Image src={logo} alt="" class="hidden" />
   <span>ⅈ𝕟𝕗𝕠lektuell</span>
 </a>
+<style>
+  .logo {
+  color: white;
+    background: radial-gradient(ellipse at center, #003884 0, #020234 100%);
+  }
+</style>
