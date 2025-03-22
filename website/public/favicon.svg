@@ -1,0 +1,19 @@
+<svg class="typst-doc" viewBox="0 0 16 16" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <g>
+        <g transform="translate(0 0)">
+            <path class="typst-shape" fill="#7fdbff" d="M 0 0 L 0 16 L 16 16 L 16 0 Z "/>
+        </g>
+        <g transform="translate(5.3408203125 13.318359375)">
+            <g class="typst-text" transform="scale(0.0068359375 -0.0068359375)">
+                <use xlink:href="#g0" x="0" fill="#000000"/>
+            </g>
+        </g>
+        <g transform="translate(0 0)"/>
+    </g>
+    <defs id="glyph">
+        <symbol id="g0" overflow="visible">
+            <path d="M 298 1325 Q 298 1429 374.5 1492.5 Q 451 1556 531 1556 Q 611 1556 650 1507.5 Q 689 1459 689 1404 Q 689 1301 613 1237.5 Q 537 1174 457 1174 Q 377 1174 337.5 1222 Q 298 1270 298 1325 Z M 447 121 L 599 121 L 576 0 L -81 0 L -58 121 L 93 121 L 253 942 L 102 942 L 125 1063 L 630 1063 L 447 121 Z M 534 1315 Q 558 1335 562 1353.5 Q 566 1372 566 1386 Q 566 1400 552 1417.5 Q 538 1435 508 1435 Q 478 1435 453.5 1415 Q 429 1395 423 1365 Q 417 1335 433.5 1315 Q 450 1295 480 1295 Q 510 1295 534 1315 Z M 214 121 L 326 121 L 486 942 L 374 942 L 214 121 Z "/>
+        </symbol>
+    </defs>
+    <defs id="clip-path"/>
+</svg>
