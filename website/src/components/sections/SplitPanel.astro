@@ -63,15 +63,7 @@ const textColor = getTextColor(background)
       {
         imagePosition === 'left' && (
           <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--border-radius-base)] border border-black">
-            <Image
-              {src}
-              {alt}
-              width={800}
-              height={600}
-              class="w-full h-full object-cover"
-              quality={80}
-              format="webp"
-            />
+            <Image {src} {alt} width={800} height={600} class="w-full h-full object-cover" quality={80} format="webp" />
           </div>
         )
       }
@@ -116,15 +108,7 @@ const textColor = getTextColor(background)
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            <Image
-              {src}
-              {alt}
-              width={800}
-              height={600}
-              class="w-full h-full object-cover"
-              quality={80}
-              format="webp"
-            />
+            <Image {src} {alt} width={800} height={600} class="w-full h-full object-cover" quality={80} format="webp" />
           </div>
         )
       }
