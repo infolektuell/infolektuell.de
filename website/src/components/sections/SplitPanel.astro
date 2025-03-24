@@ -12,7 +12,7 @@ interface Content {
   description?: string
   image: {
     src: string | any
-    alt: string
+    alt?: string
   }
   buttons?: {
     text: string
@@ -43,6 +43,7 @@ const {
 } = Astro.props
 
 const { eyebrow, headline, subheadline, description, image, buttons = [] } = content
+const { src, alt = '' } = image
 
 const paddingClass = getPaddingClass({ padding, paddingTop, paddingBottom })
 const bgColor = getBackgroundColor(background)
@@ -63,8 +64,8 @@ const textColor = getTextColor(background)
         imagePosition === 'left' && (
           <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--border-radius-base)] border border-black">
             <Image
-              src={image.src}
-              alt={image.alt}
+              {src}
+              {alt}
               width={800}
               height={600}
               class="w-full h-full object-cover"
@@ -116,8 +117,8 @@ const textColor = getTextColor(background)
             data-aos-delay="100"
           >
             <Image
-              src={image.src}
-              alt={image.alt}
+              {src}
+              {alt}
               width={800}
               height={600}
               class="w-full h-full object-cover"

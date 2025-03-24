@@ -27,7 +27,7 @@ const categories = await getEntries(post.data.categories)
       featuredImage && (
         <Image
           src={featuredImage}
-          alt={title}
+          alt=""
           width={600}
           height={338}
           class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
@@ -38,7 +38,7 @@ const categories = await getEntries(post.data.categories)
   </div>
 
   <div class="py-4 px-4 flex flex-col flex-grow relative">
-    <!-- Date at the top -->
+    {/* Date at the top */}
     <div class="text-sm text-gray-600 mb-3 group-hover:text-primary/80 transition-colors duration-300">
       <Date date={publishDate} />
     </div>
@@ -53,7 +53,7 @@ const categories = await getEntries(post.data.categories)
       {excerpt}
     </p>
 
-    <!-- Categories as hashtags at the bottom -->
+    {/* Categories as hashtags at the bottom */}
     <div class="absolute bottom-4 left-4 flex flex-wrap">
       {
         categories.map((category) => (
