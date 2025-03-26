@@ -1,0 +1,10 @@
+{
+    "contacts": [
+        {
+            "email_address": "info@infolektuell.de",
+            "matrix_id": "@tamaracha:infolektuell.de",
+            "role": "m.role.admin"
+        }
+    ],
+    "support_page": "https://infolektuell.de/contact/"
+}

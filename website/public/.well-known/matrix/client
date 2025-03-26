@@ -1,0 +1,17 @@
+{
+    "cc.etke.synapse-admin": {
+        "asManagedUsers": [
+            "^@slackbot:infolektuell\\.de$",
+            "^@slack_[a-zA-Z0-9\\-]+:infolektuell\\.de$",
+            "^@telegrambot:infolektuell\\.de$",
+            "^@telegram_[a-zA-Z0-9]+:infolektuell\\.de$"
+        ],
+        "menu": [],
+        "restrictBaseUrl": [
+            "https://matrix.infolektuell.de"
+        ]
+    },
+    "m.homeserver": {
+        "base_url": "https://matrix.infolektuell.de"
+    }
+}
