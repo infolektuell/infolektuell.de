@@ -1,23 +1,5 @@
 - id: header
   items:
-    - name: Hilfstechnologien nach Plattform
-      link: '/resources/assistive-tech/'
-      showArrow: true
-      children:
-        - name: Web
-          link: '/resources/assistive-tech/web/'
-        - name: iOS
-          link: '/resources/assistive-tech/ios/'
-        - name: Android
-          link: '/resources/assistive-tech/android/'
-        - name: Cross-Platform
-          link: '/resources/assistive-tech/crossplatform/'
-        - name: Windows
-          link: '/resources/assistive-tech/windows/'
-        - name: macOS
-          link: '/resources/assistive-tech/macos/'
-        - name: Linux
-          link: '/resources/assistive-tech/linux/'
     - name: Über mich
       link: /team/tamaracook/
     - name: Blog
