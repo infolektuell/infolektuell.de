@@ -20,11 +20,9 @@ const categories = await getEntries(post.data.categories)
   data-aos="fade-up"
   data-aos-delay={index * 100}
 >
-  <div
-    class="relative aspect-[16/9] overflow-hidden border-black border-b group-hover:border-primary transition-colors duration-300"
-  >
-    {
-      featuredImage && (
+  {
+    featuredImage && (
+      <div class="relative aspect-[16/9] overflow-hidden border-black border-b group-hover:border-primary transition-colors duration-300">
         <Image
           src={featuredImage}
           alt=""
@@ -32,10 +30,10 @@ const categories = await getEntries(post.data.categories)
           height={338}
           class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
         />
-      )
-    }
-    <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-  </div>
+        <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+      </div>
+    )
+  }
 
   <div class="py-4 px-4 flex flex-col flex-grow relative">
     {/* Date at the top */}
