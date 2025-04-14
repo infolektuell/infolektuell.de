@@ -1,13 +1,13 @@
 ---
 import { getEntry } from 'astro:content'
-import Logo from '@components/Logo.astro'
 import { Menu, X, ChevronDown } from 'lucide-astro'
+import Logo from '@components/Logo.astro'
 import Button from '@components/ui/Button.astro'
 import { siteConfig } from '@data/config'
 
 const headerMenu = await getEntry('menus', 'header')
 const ctaButton = {
-  name: 'Kostenloses Erstgespräch buchen!',
+  name: 'Kostenloses Erstgespräch buchen',
   link: siteConfig.calendar,
 }
 
@@ -27,11 +27,12 @@ const isCurrentPage = (link: string) => {
   <div class="site-container mx-auto px-4 mt-4">
     <div class="flex justify-between items-center bg-white py-4 rounded-lg px-4 border-black border">
       <Logo />
-      {
-        headerMenu && (
-          <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Hauptnavigation">
-            <ul class="hidden lg:flex lg:gap-8 items-center">
-              {headerMenu.data.items.map((item, index) => (
+      <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
+        {/* Desktop Menu */}
+        <ul class="hidden lg:flex lg:gap-8 items-center">
+          {
+            headerMenu &&
+              headerMenu.data.items.map((item, index) => (
                 <li class="relative group">
                   <div class="flex items-center gap-1">
                     <a
@@ -42,8 +43,6 @@ const isCurrentPage = (link: string) => {
                           ? 'text-nav-text-current font-semibold'
                           : 'text-nav-text hover:text-nav-text-hover',
                       ]}
-                      aria-expanded={item.children ? 'false' : undefined}
-                      aria-haspopup={item.children ? 'true' : undefined}
                       aria-current={isCurrentPage(item.link) ? 'page' : undefined}
                     >
                       {item.name}
@@ -55,17 +54,19 @@ const isCurrentPage = (link: string) => {
                         />
                       )}
                     </a>
+                    {item.children && (
+                      <button type="button" class="sr-only" aria-expanded="false" aria-label={item.name} />
+                    )}
                   </div>
                   {item.children && (
                     <ul
                       class:list={[
                         'submenu absolute mt-2 bg-nav-submenu-bg border-black border rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
-                        index === headerMenu?.data?.items?.length - 1 ? 'right-0' : 'left-0',
+                        index === headerMenu.data.items.length - 1 ? 'right-0' : 'left-0',
                       ]}
-                      role="menu"
                     >
                       {item.children.map((child) => (
-                        <li role="none">
+                        <li>
                           <a
                             href={child.link}
                             class:list={[
@@ -74,7 +75,6 @@ const isCurrentPage = (link: string) => {
                                 ? 'text-nav-text-current font-semibold'
                                 : 'text-nav-text hover:text-nav-text-hover',
                             ]}
-                            role="menuitem"
                             aria-current={isCurrentPage(child.link) ? 'page' : undefined}
                           >
                             {child.name}
@@ -84,29 +84,36 @@ const isCurrentPage = (link: string) => {
                     </ul>
                   )}
                 </li>
-              ))}
-            </ul>
+              ))
+          }
+        </ul>
 
-            <Button href={ctaButton.link} variant="primary">
-              {ctaButton.name}
-            </Button>
+        <div class="hidden lg:flex">
+          <Button href={ctaButton.link} variant="primary">{ctaButton.name}</Button>
+        </div>
 
-            <button
-              class="mobile-menu-button relative z-30 p-2 border-none cursor-pointer bg-transparent lg:hidden"
-              aria-label="Toggle Menu"
-              aria-expanded="false"
-            >
-              <span class="menu-icon block">
-                <Menu size={24} class="text-body-base" />
-              </span>
-              <span class="close-icon hidden">
-                <X size={24} class="text-white" />
-              </span>
-            </button>
+        {/* Mobile Menu Button */}
+        <button
+          class="mobile-menu-button relative z-30 p-2 border-none cursor-pointer bg-transparent lg:hidden"
+          aria-label="Toggle Menu"
+          aria-expanded="false"
+        >
+          <span class="menu-icon block">
+            <Menu size={24} class="text-body-base" />
+          </span>
+          <span class="close-icon hidden">
+            <X size={24} class="text-white" />
+          </span>
+        </button>
 
-            <div class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-primary lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto">
-              <ul class="flex flex-col gap-4">
-                {headerMenu.data.items.map((item) => (
+        {/* Mobile Menu Panel */}
+        <div
+          class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-primary lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto"
+        >
+          <ul class="flex flex-col gap-4">
+            {
+              headerMenu &&
+                headerMenu.data.items.map((item) => (
                   <li>
                     <div class="text-white">
                       <div class="flex items-center justify-between">
@@ -160,154 +167,167 @@ const isCurrentPage = (link: string) => {
                       )}
                     </div>
                   </li>
-                ))}
-              </ul>
+                ))
+            }
+          </ul>
 
-              <div class="mt-8 pb-8">
-                <Button href={ctaButton.link} variant="ghostLight">
-                  {ctaButton.name}{' '}
-                </Button>
-              </div>
-            </div>
-          </nav>
-        )
-      }
+          {/* Updated mobile CTA button styling */}
+          <div class="mt-8 pb-8">
+            <Button href={ctaButton.link} variant="ghostLight">{ctaButton.name} </Button>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
+</header>
 
-  <script>
-    // Desktop Menu
-    const desktopMenuItems = document.querySelectorAll('.group')
+<script>
+  // Desktop Menu
+  const desktopMenuItems = document.querySelectorAll('.group')
 
-    desktopMenuItems.forEach((item) => {
-      const link = item.querySelector('a')
-      const submenu = item.querySelector('.submenu')
-      const submenuLinks = submenu?.querySelectorAll('a')
+  desktopMenuItems.forEach((item) => {
+    const link = item.querySelector('a')
+    const button = item.querySelector('button')
+    const submenu = item.querySelector('.submenu')
+    const submenuLinks = submenu?.querySelectorAll('a')
 
-      if (submenu && link) {
-        // Handle hover
-        item.addEventListener('mouseenter', () => {
-          showSubmenu(submenu as HTMLElement, link as HTMLElement)
-        })
-
-        item.addEventListener('mouseleave', () => {
-          hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-        })
-
-        // Handle keyboard navigation
-        link.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowDown' && item.children) {
-            e.preventDefault()
-            showSubmenu(submenu as HTMLElement, link as HTMLElement)
-            submenuLinks?.[0]?.focus()
-          }
-        })
-
-        // Don't show submenu on focus, only on hover or arrow key
-        link.addEventListener('focus', () => {
-          hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-        })
-
-        // Keyboard navigation within submenu
-        submenuLinks?.forEach((submenuLink, index) => {
-          submenuLink.addEventListener('keydown', (e) => {
-            const lastIndex = submenuLinks.length - 1
-
-            switch (e.key) {
-              case 'ArrowDown':
-                e.preventDefault()
-                if (index < lastIndex) {
-                  submenuLinks[index + 1].focus()
-                }
-                break
-              case 'ArrowUp':
-                e.preventDefault()
-                if (index > 0) {
-                  submenuLinks[index - 1].focus()
-                } else {
-                  link.focus()
-                  hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-                }
-                break
-              case 'Escape':
-                e.preventDefault()
-                hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-                link.focus()
-                break
-              case 'Tab':
-                // Allow normal tab behavior but close submenu
-                hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-                break
-            }
-          })
-        })
-
-        // Close submenu when focus leaves
-        document.addEventListener('focusin', (e) => {
-          if (item && !item.contains(e.target as Node)) {
-            hideSubmenu(submenu as HTMLElement, link as HTMLElement)
-          }
-        })
-      }
-    })
-
-    // Helper functions
-    function showSubmenu(submenu: HTMLElement, link: HTMLElement) {
-      submenu.classList.remove('invisible', 'opacity-0')
-      submenu.classList.add('visible', 'opacity-100')
-      link.setAttribute('aria-expanded', 'true')
-    }
-
-    function hideSubmenu(submenu: HTMLElement, link: HTMLElement) {
-      submenu.classList.add('invisible', 'opacity-0')
-      submenu.classList.remove('visible', 'opacity-100')
-      link.setAttribute('aria-expanded', 'false')
-    }
-
-    // Simple mobile submenu toggle
-    document.querySelectorAll('.mobile-submenu-button').forEach((button) => {
-      button.addEventListener('click', () => {
-        const submenu = button.parentElement?.nextElementSibling as HTMLElement
-        const chevron = button.querySelector('svg')
-
-        // Toggle submenu
-        if (submenu) {
-          submenu.classList.toggle('hidden')
-          chevron?.classList.toggle('rotate-180')
-          const isExpanded = submenu.classList.contains('hidden') ? 'false' : 'true'
-          button.setAttribute('aria-expanded', isExpanded)
+    if (submenu && link && button) {
+      // Handle keyboard navigation
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' && item.children) {
+          e.preventDefault()
+          showSubmenu(submenu as HTMLElement, button as HTMLElement)
+          submenuLinks?.[0]?.focus()
         }
       })
-    })
 
-    // Mobile menu toggle with scroll lock
-    const mobileMenuButton = document.querySelector('.mobile-menu-button')
-    const mobileMenu = document.querySelector('.mobile-menu')
-    const menuIcon = document.querySelector('.menu-icon')
-    const closeIcon = document.querySelector('.close-icon')
+      button.addEventListener('click', (e) => {
+        if (item.children) {
+          e.preventDefault()
+          const isExpanded = button.getAttribute('aria-expanded') === 'true'
+          if (isExpanded) {
+            hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+          } else {
+            showSubmenu(submenu as HTMLElement, button as HTMLElement)
+            submenuLinks?.[0]?.focus()
+          }
+        }
+      })
 
-    mobileMenuButton?.addEventListener('click', () => {
-      const isHidden = mobileMenu?.classList.contains('hidden')
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' && item.children) {
+          e.preventDefault()
+          showSubmenu(submenu as HTMLElement, button as HTMLElement)
+          submenuLinks?.[0]?.focus()
+        }
+      })
 
-      if (isHidden) {
-        document.body.style.overflow = 'hidden'
-        mobileMenu?.classList.remove('hidden')
-        requestAnimationFrame(() => {
-          mobileMenu?.classList.remove('opacity-0', 'scale-95')
-          mobileMenu?.classList.add('opacity-100', 'scale-100')
+      // Don't show submenu on focus, only on hover or arrow key
+      link.addEventListener('focus', () => {
+        hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+      })
+
+      // Keyboard navigation within submenu
+      submenuLinks?.forEach((submenuLink, index) => {
+        submenuLink.addEventListener('keydown', (e) => {
+          const lastIndex = submenuLinks.length - 1
+
+          switch (e.key) {
+            case 'ArrowDown':
+              e.preventDefault()
+              if (index < lastIndex) {
+                submenuLinks[index + 1].focus()
+              }
+              break
+            case 'ArrowUp':
+              e.preventDefault()
+              if (index > 0) {
+                submenuLinks[index - 1].focus()
+              } else {
+                link.focus()
+                hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+              }
+              break
+            case 'Escape':
+              e.preventDefault()
+              hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+              link.focus()
+              break
+            case 'Tab':
+              // Allow normal tab behavior but close submenu
+              hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+              break
+          }
         })
-        menuIcon?.classList.add('hidden')
-        closeIcon?.classList.remove('hidden')
-      } else {
-        document.body.style.overflow = ''
-        mobileMenu?.classList.add('opacity-0', 'scale-95')
-        mobileMenu?.classList.remove('opacity-100', 'scale-100')
-        setTimeout(() => {
-          mobileMenu?.classList.add('hidden')
-        }, 200)
-        menuIcon?.classList.remove('hidden')
-        closeIcon?.classList.add('hidden')
+      })
+
+      // Close submenu when focus leaves
+      document.addEventListener('focusin', (e) => {
+        if (item && !item.contains(e.target as Node)) {
+          hideSubmenu(submenu as HTMLElement, button as HTMLElement)
+        }
+      })
+    }
+  })
+
+  // Helper functions
+  function showSubmenu(submenu: HTMLElement, button: HTMLElement) {
+    submenu.classList.remove('invisible', 'opacity-0')
+    submenu.classList.add('visible', 'opacity-100')
+    button.setAttribute('aria-expanded', 'true')
+  }
+
+  function hideSubmenu(submenu: HTMLElement, button: HTMLElement) {
+    submenu.classList.add('invisible', 'opacity-0')
+    submenu.classList.remove('visible', 'opacity-100')
+    button.setAttribute('aria-expanded', 'false')
+  }
+
+  // Simple mobile submenu toggle
+  document.querySelectorAll('.mobile-submenu-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const submenu = button.parentElement?.nextElementSibling as HTMLElement
+      const chevron = button.querySelector('svg')
+
+      // Toggle submenu
+      if (submenu) {
+        submenu.classList.toggle('hidden')
+        chevron?.classList.toggle('rotate-180')
+        const isExpanded = submenu.classList.contains('hidden') ? 'false' : 'true'
+        button.setAttribute('aria-expanded', isExpanded)
       }
     })
-  </script>
-</header>
+  })
+
+  // Mobile menu toggle with scroll lock
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  const menuIcon = document.querySelector('.menu-icon')
+  const closeIcon = document.querySelector('.close-icon')
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden')
+
+    if (isHidden) {
+      document.body.style.overflow = 'hidden'
+      mobileMenu?.classList.remove('hidden')
+      requestAnimationFrame(() => {
+        mobileMenu?.classList.remove('opacity-0', 'scale-95')
+        mobileMenu?.classList.add('opacity-100', 'scale-100')
+      })
+      menuIcon?.classList.add('hidden')
+      closeIcon?.classList.remove('hidden')
+      mobileMenuButton?.setAttribute('aria-expanded', 'true')
+    } else {
+      document.body.style.overflow = ''
+      mobileMenu?.classList.add('opacity-0', 'scale-95')
+      mobileMenu?.classList.remove('opacity-100', 'scale-100')
+      setTimeout(() => {
+        mobileMenu?.classList.add('hidden')
+      }, 200)
+      menuIcon?.classList.remove('hidden')
+      closeIcon?.classList.add('hidden')
+      mobileMenuButton?.setAttribute('aria-expanded', 'false')
+    }
+  })
+</script>
