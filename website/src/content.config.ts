@@ -79,6 +79,20 @@ const legal = defineCollection({
   }),
 })
 
+const assistiveTech = defineCollection({
+  loader: glob({ base: './src/content/assistive-tech', pattern: '**/*.mdx' }),
+  schema: z.object({
+    title: z.string(),
+    lastUpdated: z.date(),
+    seo: z
+      .object({
+        title: z.string().optional(),
+        description: z.string().optional(),
+      })
+      .optional(),
+  }),
+})
+
 const faq = defineCollection({
   loader: glob({ base: './src/content/faq', pattern: '**/*.yml' }),
   schema: z.object({
@@ -92,4 +106,4 @@ const faq = defineCollection({
       .array(),
   }),
 })
-export const collections = { menus, categories, blog, team, legal, faq }
+export const collections = { menus, categories, blog, team, 'assistive-tech': assistiveTech, legal, faq }
