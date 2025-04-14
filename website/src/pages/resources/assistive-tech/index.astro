@@ -32,12 +32,12 @@ const heroContent = {
             }).format(entry.data.lastUpdated)
 
             return (
-              <div class="border-b border-body-base/10 pb-6">
-                <a href={`/resources/assistive-tech/${entry.id}/`} class="group">
+              <article class="border-b border-body-base/10 pb-6">
+                <a href={`/resources/assistive-tech/${entry.id}/`} class="group" aria-label={entry.data.title}>
                   <h2 class="text-medium group-hover:text-accent transition-colors">{entry.data.title}</h2>
                   <p class="text-sm text-body-base/80 mt-2">Zuletzt aktualisiert: {formattedDate}</p>
                 </a>
-              </div>
+              </article>
             )
           })
         }
