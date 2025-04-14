@@ -2,3 +2,22 @@
 title: Cross-platform und Hilfstechnologien
 lastUpdated: 2025-04-14
 ---
+
+## Java, AWT, Swing, SWT
+
+- Java Accessibility API / java access bridge: `javax.accessibility`
+- SWT ist sehr zugänglich, weil native Steuerelemente genutzt werden
+
+## JavaFX
+
+Unterstützt Windows und macOS, Linux-Integration mit A11Y APIs fehlt derzeit noch.
+
+- Klassen: `AccessibleRole`, `AccessibleAttribute`, `AccessibleAction`
+
+## QT
+
+Unterstützt Windows, macOS (mit gewissen Schwächen) und Linux GTK.
+
+- [Accessibility](https://doc.qt.io/qt-6/accessible.html)
+- [Accessibility for QWidget Applications](https://doc.qt.io/qt-6/accessible-qwidget.html)
+- `QAccessibleInterface`, `QAccessible`
