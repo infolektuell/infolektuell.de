@@ -33,15 +33,16 @@
     "@astrojs/mdx": "^4.2.6",
     "@astrojs/sitemap": "^3.3.1",
     "@astrojs/svelte": "^7.0.13",
+    "@lucide/astro": "^0.503.0",
     "@tailwindcss/vite": "^4.1.5",
     "@types/aos": "^3.0.7",
     "astro": "^5.7.10",
-    "lucide-astro": "^0.503.0",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^3.3.3",
     "rehype-external-links": "^3.0.0",
     "remark-custom-heading-id": "^2.0.0",
+    "simple-icons": "^14.12.3",
     "svelte": "^5.28.2",
     "typescript": "^5.8.3"
   }
