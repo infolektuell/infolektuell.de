@@ -1,5 +1,6 @@
 import { defineCollection, z, reference } from 'astro:content'
 import { glob, file } from 'astro/loaders'
+import type { Icon } from '@lucide/astro'
 
 const menuItemSchema = z.object({
   name: z.string(),
@@ -106,4 +107,54 @@ const faq = defineCollection({
       .array(),
   }),
 })
-export const collections = { menus, categories, blog, team, 'assistive-tech': assistiveTech, legal, faq }
+
+const stats = defineCollection({
+  loader: glob({ base: './src/content/stats', pattern: '**/*.yml' }),
+  schema: z.object({
+    title: z.string().optional(),
+    description: z.string().optional(),
+    button: z.object({
+      link: z.string(),
+      text: z.string(),
+      variant: z.enum(['primary', 'secondary', 'accent', 'ghostLight', 'ghostDark']).default('primary')
+    }).optional(),
+    stats: z
+      .object({
+        value: z.number(),
+        label: z.string(),
+        prefix: z.string().optional(),
+        suffix: z.string().optional(),
+      })
+      .array(),
+  }),
+})
+
+const partners = defineCollection({
+  loader: glob({ base: './src/content/partners', pattern: '**/*.yml' }),
+  schema: ({ image }) => z.object({
+    title: z.string().optional(),
+    description: z.string().optional(),
+    logos: z.object({
+      name: z.string(),
+      logo: image(),
+    }).array(),
+  })
+})
+
+const features = defineCollection({
+  loader: glob({ base: './src/content/features', pattern: '**/*.yml' }),
+  schema: z.object({
+    title: z.string().optional(),
+    features: z.object({
+      icon: z.string().transform(async (val: string): Promise<typeof Icon | undefined> => {
+        const icons = import.meta.glob<{ default: typeof Icon }>('@lucide/astro/icons/*.svg')
+        const icon = await icons[val]?.()
+        return icon?.default
+      }),
+      title: z.string(),
+      description: z.string(),
+    }).array(),
+  }),
+})
+
+export const collections = { menus, categories, blog, team, 'assistive-tech': assistiveTech, legal, faq, features, partners, stats }

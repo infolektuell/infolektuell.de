@@ -1,0 +1,10 @@
+  stats:
+    - value: 10
+      label: Theme Configurations
+    - value: 11
+      label: Pre-Built Components
+    - value: 48
+      label: Team Members
+    - value: 500000
+      label: Lines of Code
+      prefix: '+'

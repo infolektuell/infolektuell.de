@@ -3,10 +3,9 @@ import { getEntry } from 'astro:content'
 import Layout from '@layouts/Layout.astro'
 import Hero from '@components/sections/Hero.astro'
 import CTABanner from '@components/sections/CtaBanner.astro'
+import Faqs from '@components/sections/Faqs.astro'
 import Features from '@components/sections/Features.astro'
 import { siteConfig } from '@data/config'
-import { featureLists } from '@data/features'
-import Faqs from '@components/sections/Faqs.astro'
 import RecentPosts from '@components/sections/RecentPosts.astro'
 import heroImage from '../assets/images/home/marburg_gewitterwolken_dämmerung.webp'
 
@@ -33,12 +32,12 @@ const heroContent = {
   overlayOpacity: 0.2,
 }
 
+const mainFeatures = await getEntry('features', 'main')
 const featuresSection = {
   eyebrow: 'Dienstleistungen',
   title: 'Das passende Angebot für kleine bis mittelständische Unternehmen',
   description:
     'Ob Einzelunternehmen oder Mittelstand, ob Sie selbst entwickeln oder lediglich einen Webauftritt haben, Sie erhalten ein auf Ihre Bedarfe und Voraussetzungen zugeschnittenes Angebot, für mehr Barrierefreiheit und mehr zufriedene Kunden.',
-  features: featureLists.main.features,
   button: {
     text: 'Beratungsgespräch vereinbaren',
     link: '/contact/',
@@ -86,7 +85,7 @@ const recentPostsSection = {
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
   <Hero content={heroContent} />
-  <Features content={featuresSection} padding="base" background="light" />
+  {mainFeatures && <Features content={featuresSection} features={mainFeatures} padding="base" background="light" />}
   <CTABanner content={assistiveTech} />
   <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} />
   <!--<Logos content={logosSection} background="base" padding='small'/>-->

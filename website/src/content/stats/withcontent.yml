@@ -1,0 +1,12 @@
+stats:
+  - value: 10
+    label: Color Schemes
+  - value: 14.53
+    label: Core Bundle Size
+    suffix: KB
+  - value: 11
+    label: Pre-Built Components
+  - value: 10
+    label: Build Time
+    prefix: '<100'
+    suffix: s

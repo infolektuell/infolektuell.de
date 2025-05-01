@@ -1,0 +1,20 @@
+features:
+  - title: Dev Coaching
+    icon: zap
+    description: Erweitern Sie mit mir Ihre persönlichen technischen Skills, Barrieren aufzuspüren und zu beheben
+  - title: Schulungen für Teams
+    icon: shield
+    description: Integrieren Sie Barrierefreiheit in Ihre Workflows und machen sie sie zur Gewohnheit
+  - title: Testung und Analyse
+    icon: Tablet-smartphone
+    description: |
+      Ich erstelle aussagekräftige Berichte über bei Ihnen gefundene Barrieren und wie sie zu beheben sind.
+  - title: Schnellbericht
+    icon: smile
+    description: Ein erstes Screening können Sie bereits kostenlos im Rahmen eines Erstgesprächs erhalten.
+  - title: Rechtssicherheit
+    icon: type
+    description: Vermeiden Sie rechtliche Probleme mit geringem Aufwand.
+  - title: Beratung
+    icon: code-xml
+    description: Technische Umsetzung, DevOps, interne Abläufe

@@ -1,5 +1,5 @@
 ---
-import type { Feature } from '@data/features'
+import type { CollectionEntry } from 'astro:content'
 import Button from '@components/ui/Button.astro'
 import Eyebrow from '@components/ui/Eyebrow.astro'
 import { getPaddingClass, getBackgroundColor, getTextColor } from '@utils/styleUtils'
@@ -15,8 +15,8 @@ export interface Props {
       link: string
       variant?: 'primary' | 'secondary' | 'ghostLight' | 'ghostDark'
     }
-    features: Feature[]
   }
+  features: CollectionEntry<'features'>
   background?: ThemeColor
   padding?: PaddingSize
   paddingTop?: PaddingSize
@@ -24,9 +24,10 @@ export interface Props {
 }
 
 const {
-  content: { eyebrow, title, description, button, features },
+  content: { eyebrow, title, description, button },
+  features,
   background = 'base',
-} = Astro.props
+}: Props = Astro.props
 
 const bgColor = getBackgroundColor(background)
 const textColor = getTextColor(background)
@@ -66,7 +67,7 @@ const paddingClass = getPaddingClass({
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-auto-fit gap-8 auto-rows-fr">
       {
-        features.map((feature, index) => (
+        features.data.features.map(({ title, description, icon: Icon }, index) => (
           <div
             class:list={[
               'p-6 rounded-lg border border-black',
@@ -76,11 +77,11 @@ const paddingClass = getPaddingClass({
             data-aos="fade-up"
             data-aos-delay={index * 100}
           >
-            <div class:list={['w-12 h-12 flex items-center justify-center rounded-lg mb-4', 'bg-primary']}>
-              <feature.icon size={24} class="text-white" />
-            </div>
-            <h3 class:list={['text-h4 mb-2', textColor]}>{feature.title}</h3>
-            <p class:list={['text-base', textColor, 'opacity-90']}>{feature.description}</p>
+            {Icon && <div class:list={['w-12 h-12 flex items-center justify-center rounded-lg mb-4', 'bg-primary']}>
+              <Icon size={24} class="text-white" />
+            </div>}
+            <h3 class:list={['text-h4 mb-2', textColor]}>{title}</h3>
+            <p class:list={['text-base', textColor, 'opacity-90']}>{description}</p>
           </div>
         ))
       }
