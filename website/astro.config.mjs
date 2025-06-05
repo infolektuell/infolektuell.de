@@ -1,12 +1,9 @@
 import { defineConfig, envField } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 import sitemap from '@astrojs/sitemap'
-
 import remarkHeadingId from 'remark-custom-heading-id'
 import rehypeExternalLinks from 'rehype-external-links'
-
 import mdx from '@astrojs/mdx'
-
 import svelte from '@astrojs/svelte'
 
 // Get the site URL from environment variable or use a default for local development
@@ -65,7 +62,7 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
       filter: (page) => !page.includes('/404'), // Only exclude 404 page
-      entryLimit: 10000, // Increase entry limit if you have many pages
+      entryLimit: 10000, // Increase the entry limit if you have many pages
     }),
     mdx(),
     svelte(),

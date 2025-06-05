@@ -37,6 +37,10 @@ const blog = defineCollection({
       publishDate: z.date(),
       publish: z.boolean().optional(),
       categories: reference('categories').array(),
+      video: z.object({
+        id: z.string(),
+        title: z.string().optional(),
+      }).optional(),
       seo: z
         .object({
           title: z.string().optional(),

@@ -1,5 +1,6 @@
 ---
 import { getCollection, getEntries, render } from 'astro:content'
+import { YouTube } from '@astro-community/astro-embed-youtube'
 import Layout from '@layouts/Layout.astro'
 import CategoryPill from '@components/ui/CategoryPill.astro'
 import Date from '@components/ui/Date.astro'
@@ -87,6 +88,7 @@ else if (!seoImage && post.data.featuredImage) {
         />
       )
     }
+    {post.data.video && <YouTube id={post.data.video.id} title={post.data.video.title} playlabel="Video zum Artikel Abspielen" />}
 
     <div class="mt-8">
       <Content />
