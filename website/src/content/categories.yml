@@ -1,3 +1,7 @@
 - id: case-studies
   name: Fallbeispiele
   description: Glanzlichter und Verbrechen aus der Praxis
+- id: quick-tests
+  name: Schnelltests
+  description: |
+    Hier werden populäre digitale Angebote auf Barrierefreiheit getestet, inkl. Screencast. Das Prinzip ist bestechend einfach: Ich versuche blind mit einem Screenreader die Funktionen des Angebots zu nutzen, für die es gedacht ist. Gelingt dies, gilt der Test als vorläufig bestanden. Es handelt sich demnach um praxisnahe E2E-Tests und nicht um formale Kriterienprüfung.
