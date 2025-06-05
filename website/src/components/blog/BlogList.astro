@@ -23,7 +23,7 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
     data-aos-delay="100"
   >
     <div class="w-full">
-      <h2 class="text-lg font-semibold mb-4">Filter by Categories:</h2>
+      <h2 class="text-lg font-semibold mb-4">Nach Kategorien filtern</h2>
       <div class="flex flex-wrap gap-2">
         <a
           href="/blog"
@@ -33,7 +33,7 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
               : 'bg-background text-body-base hover:bg-background-light hover:text-body-light'
           }`}
         >
-          Show All
+          Alle anzeigen
         </a>
         {
           categories.map((category) => (
@@ -53,9 +53,9 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
       </div>
     </div>
     <p class="text-small text-body-base text-left sm:text-right whitespace-nowrap">
-      Showing <span class="font-bold text-primary">{posts.length}</span> of <span class="font-bold text-primary"
+      <span class="font-bold text-primary">{posts.length}</span> von <span class="font-bold text-primary"
         >{allPosts.length}</span
-      > posts
+      > Beiträgen
     </p>
   </div>
 

@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content'
 import { blogSetting } from '../../data/config'
 import PaginatedBlogLayout from '../../components/blog/PaginatedBlogLayout.astro'
 
+const title="Blog"
+const subtitle="Barrierefreiheit — Grundlagen und Praxisalltag"
+
 // Get current page from URL, default to 1
 const currentPage = parseInt(Astro.url.searchParams.get('page') || '1')
 
@@ -30,6 +33,6 @@ const paginatedPosts = sortedPosts.slice(start, end)
   {currentPage}
   {totalPages}
   baseUrl="/blog"
-  title="Blog"
-  subtitle="Latest articles and news from the team"
+  {title}
+  {subtitle}
 />
