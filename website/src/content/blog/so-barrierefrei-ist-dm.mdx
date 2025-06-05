@@ -1,0 +1,78 @@
+---
+title: So barrierefrei ist der Onlineshop von DM
+excerpt: Die Drogeriekette DM bietet auch einen Onlineshop an. Ich habe einen Schnelltest durchgeführt um zu prüfen, ob sich der Onlineshop zweckmäßig mit einem Screenreader nutzen lässt.
+categories: [case-studies, quick-tests]
+publishDate: 2025-06-06
+video:
+  id: 16Ujip2FzCo
+  title: So barrierefrei ist DM
+seo:
+  title: Barrierefreiheit von DM
+  description: Erfahren Sie hier, wie barrierefrei der Onlineshop der Drogeriekette DM tatsächlich ist.
+---
+
+## Warum DM?
+
+DM ist eine drogeriekette, und drogerieartikel gehören zum Alltag.
+Teilhabe ist auch Alltagsbewältigung, in dem Sinne müssen auch Menschen mit Behinderung Zugang zu den entsprechenden digitalen Angeboten haben.
+DM richtet sich ausdrücklich an den deutschen Markt, zudem gilt hier die deutsche Gesetzgebung.
+Es ist somit ein geeigneter Kandidat für meine Schnelltests.
+
+## Vorbedingungen
+
+Ich habe den DM-Onlineshop noch nie genutzt, bin also nicht voreingenommen.
+Ein Kundenkonto muss als Teil des Tests registriert werden.
+
+## Aufgabe
+
+Wäsche wird normalerweise mit Waschmittel gewaschen.
+In diesem Fall sollen es Pods sein, da sie sehr praktisch in der Verwendung sind.
+Die Dosierung stimmt, nichts kleckert oder krümelt herum.
+wie so oft gibt es diese Art von produkten in günstig und teuer, außerdem verschiedene Packungsgrößen.
+Preisliche Vergleichbarkeit wird hier über den Preis pro Waschladung hergestellt, analog zum Arbeitspreis bei Stromtarifen.
+All diese Details müssen zugänglich sein, um informiert einkaufen zu können. Die gesuchten Artikel sind:
+
+- Waschmittel-Pods Color für Buntwäsche (große Packung, ca 100 Stück)
+- Vollwaschmittel-Pods für weiße Wäsche (kleinere Packung, eher 20 Stück)
+- Preis maximal 30 Cent pro Waschladung, nicht viel höher
+
+Die Aufgaben sind also folgende:
+
+- Kundenkonto registrieren
+- Waschmittel suchen
+- Suchergebnisse vergleichen und herausfinden, was am besten zu den eigenen Anforderungen passt
+- Ausgewählte Produkte in den Warenkorb legen
+- Inhalt des Warenkorbs kaufen
+
+## Ergebnis 👍🏼
+
+Bis auf ein paar Kritikpunkte auf hohem Niveau hat DM diesen Test sehr gut bestanden.
+
+1. Auch hier das obligatorische cookie-Banner ohne Focus-Trapping, das fast jeder falsch macht. Das kann zu Problemen führen, ist aber kein totaler Showstopper. Wenn man zu akzeptieren vergisst, weil man ja alles auch so lesen kann, kommt es evtl. zu Fehlfunktionen, weil das Modal noch offen herumhängt.
+2. Es gibt visuell unsichtbare Sprunglinks. Das ist keine Barriere, sondern eher zu viel des Guten. Screenreader bieten Navigationsmöglichkeiten, um sich auf gut strukturierten Seiten zu bewegen und z.B. Navigationen direkt anzuspringen. Im Video wird man sehen, dass ich kein einziges Mal einen SkipLink nutze. Solche Links könnten evtl. eine Hilfestellung für reine Tastaturbenutzer sein, Blinde brauchen sie kaum. Durch das Verstecken sind sie aber nur für Blinde zugänglich, ihr möglicher Nutzen verpufft weitgehend. Das heißt: entweder weglassen oder sichtbar machen.
+3. In der Navigation fällt positiv auf, dass der Bereich „Mein Konto“ keine Hover-Effekte hat, sondern sich auf- und zuklappen lässt. Das ist sauber mit dem Attribut `aria-expanded` gelöst, sodass der Screenreader auslesen kann, ob es gerade aus- oder eingeklappt ist.
+4. Die Leute bei dM wissen anscheinend, was Überschriften sind und wie diese als hilfreiche Strukturnavigation eingesetzt werden können.
+5. Das Formular für die Registrierung ist mit nativen Inputs umgesetzt und übersichtlich. Das Feld zum Auswählen des Geburtsjahres könnte allerdings auf einem realistischeren Wert starten.
+6. Das Captcha am Ende ließe sich noch wegoptimieren. Es gibt doch inzwischen kryptografische Ansätze wie [Turnstile] oder [Botpoison]. Das wäre datenschutzfreundlicher und kein Mensch wird damit gestört.
+7. Registrierung und Anmeldung hat problemlos funktioniert.
+8. Das Suchfeld in der Navigation ist leicht aufzufinden.
+9. Beim Suchen nach „Waschmittel Pods“ erhalte ich sofort eine Liste relevanter Treffer.
+10. Zum Einstellen des Sortierkriteriums wurde ein natives Select verwendet, keine Custom-Sperenzchen. Dadurch war es mir leicht möglich, ein anderes Kriterium zu wählen. Der Name „ist die aktuelle Sortierung“ darf auch gern „aktuelle Sortierung“ sein. Wichtigste Information möglichst weit an den Anfang, Füllwörter vermeiden.
+11. Die Suchtreffer lassen sich gut auslesen. Hier könnte es noch die Navigation erleichtern, wenn entweder die Namen der Produkte jeweils eine Überschrift 2. Ordnung wären oder jeder Treffer in ein eigenes `article`-Element eingeschlossen wäre. Es lässt sich zwar auch von Link zu Link springen, aber Überschriften wären eindeutiger.
+12. Wo man die Angabe der Waschladungen findet (WL), musste ich kurz rätseln.
+13. Bitte die Bilder mit den Rating-Sternen verstecken. Hierzu einfach ein leeres Alt-Attribut setzen: `alt=""`. Die Information ist ja lesbar und die Bilder sind nicht bedeutungstragend. Sie erhöhen nur den kognitiven Load für Blinde.
+14. Artikel lassen sich gut vergleichen und in den Warenkorb legen.
+15. „Zur Kasse“ konnte nicht mit dem Screenreader oder der Maus betätigt werden, sondern nur via Tastatur-Fokus (Tab und Enter). Weniger versierte Nutzer könnten hier evtl. straucheln.
+16. Rechnungsadresse und Packstation ließen sich entspannt eingeben. Gut ist, dass die Felder nicht zu interaktiv sind und nicht ständig versuchen, schlauer zu sein als man selbst. Das klappt bei Adressen nämlich fast nie.
+17. Ich hatte Überweisung als zahlungsmittel gewählt, weil ich davon ausging, dass dieser Weg unkomplizierter wäre als über Paypal. Dahinter versteckt sich aber der Dienst Klarna. Das sollte an der Stelle angemerkt werden, damit man weiß, was auf einen zukommt.
+
+## Fazit
+
+Das ist doch einmal ein veritables Positivbeispiel.
+Niemand kann behaupten, Barrierefreiheit sei kaum bis unmöglich umzusetzen.
+Eine selbständige Nutzung ohne Hilfe ist mir weitgehend mühelos gelungen, ich konnte den Einkauf ohne Probleme abschließen.
+Es war sogar einer der aufgeräumtesten und funktionalsten Onlineshops, die mir in letzter Zeit begegnet sind.
+Hier werde ich sicher wieder einkaufen.
+
+[turnstile]: https://www.cloudflare.com/application-services/products/turnstile/
+[botpoison]: https://botpoison.com/
