@@ -26,7 +26,7 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
       <h2 class="text-lg font-semibold mb-4">Nach Kategorien filtern</h2>
       <div class="flex flex-wrap gap-2">
         <a
-          href="/blog"
+          href="/blog/"
           class={`px-4 sm:px-6 py-2 sm:py-3 leading-none rounded-md text-small flex items-center justify-center transition-colors border border-primary duration-200 ${
             !currentCategory
               ? 'bg-primary text-body-dark shadow-md'
@@ -38,7 +38,7 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
         {
           categories.map((category) => (
             <a
-              href={`/category/${category.id}`}
+              href={`/category/${category.id}/`}
               class={`px-4 sm:px-6 py-2 sm:py-3 leading-none rounded-md text-small flex items-center justify-center transition-colors border border-primary duration-200 ${
                 currentCategory === category.id
                   ? 'bg-primary text-body-dark shadow-md'
