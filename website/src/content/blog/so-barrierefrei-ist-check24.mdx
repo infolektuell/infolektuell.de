@@ -1,0 +1,67 @@
+---
+title: So barrierefrei ist Check24
+excerpt: Sinn von Check24 ist das Vergleichen von Tarifen für Strom, Gas und mehr. Ich habe es einem Praxistest unterzogen um zu prüfen, ob es sich mit einem Screenreader zweckmäßig nutzen lässt.
+categories: [case-studies, quick-tests]
+publishDate: 2025-06-02
+video:
+  id: KfSvxdfNdPU
+  title: So barrierefrei ist Check24
+seo:
+  title: Barrierefreiheit von Check24
+  description: Erfahren Sie hier, wie barrierefrei das Vergleichsportal Check24 tatsächlich ist.
+---
+
+## Warum Check24?
+
+Wer Check24 nutzt, möchte Tarife, Bankkonten und vieles mehr vergleichen, um zu einem möglichst zur eigenen Situation passenden und dabei günstigen Angebot zu gelangen.
+Damit wird es leichter, Geld zu sparen und auf Preiserhöhungen zu reagieren, die hin und wieder ins Haus stehen.
+Solche Vergleichsportale stehen einem breiten Publikum zur Verfügung und spontane Preiserhöhungen sind recht üblich geworden.
+Falls diese Portale nicht barrierefrei sind, sehe ich darin einen Nachteil für die konsequente Teilhabe von Menschen mit Behinderung.
+Check24 richtet sich ausdrücklich an den deutschen Markt, zudem gilt hier die deutsche Gesetzgebung.
+Es ist somit ein geeigneter Kandidat für meine Schnelltests.
+
+## Aufgabe
+
+Nachtspeicherheizungen werden mit Strom betrieben und es gibt speziell dafür ausgelegte Stromtarife.
+Der Verbrauch ist im Winter erheblich höher als im Sommer, und der Arbeitspreis in den warmen Jahreszeiten meist im harmlosen Bereich.
+Um winterliche Überraschungen in Form spontaner Preiserhöhungen zu vermeiden ist es sinnvoll, rechtzeitig vor dem nächsten Winter zu prüfen, ob man auf einen Tarif mit Preisgarantie über den kommenden Winter wechseln kann.
+Die Aufgaben sind also folgende:
+
+- Nachtspeichertarife (Heizstrom) suchen
+- Gefundene Tarife vergleichen
+- Auf einen günstigeren Tarif wechseln, falls vorhanden
+
+## Vorbedingungen
+
+Ich hatte Check24 knapp ein Jahr vor diesem Test zum letzten Mal genutzt, habe es von damals aber als recht aufgeräumt, übersichtlich und funktional in Erinnerung.
+Es hatte mir gute Dienste geleistet, um die heftigen Strompreisschwankungen vor zwei Jahren mit einigermaßen geringen Einbußen zu überstehen.
+
+## Ergebnis 👎🏼
+
+Die Barrierefreiheit von Check24 ist innerhalb der letzten Zeit enorm degradiert.
+
+1. Klar, das obligatorische cookie-Banner ohne Focus-Trapping, das fast jeder falsch macht. Das kann zu Problemen führen, ist aber kein totaler Showstopper. Wenn man zu akzeptieren vergisst, weil man ja alles auch so lesen kann, kommt es evtl. zu Fehlfunktionen, weil das Modal noch offen herumhängt.
+2. Die Navigation ist deutlich voller als vor einem Jahr. Sie enthält inzwischen auch Hover-Effekte, die den Fokus beim Navigieren mit dem Screenreader wegspringen lassen. Wer diese Hover-Unsitte populär gemacht hat, gehört in die Vorhölle. Hover-Styles sind hingegen sogar wichtig für Barrierefreiheit, weil sie anzeigen, wo sich die Maus gerade befindet und ob dieses Etwas interaktiv ist.
+3. Überschriften werden nicht zur besseren Strukturierung eingesetzt, sondern nur für ablenkende Werbung. Die erste ist z.B. 5. Ordnung und will mir Reisen verkaufen.
+4. Natürlich wird auch die App beworben, aber zum einen möchte ich erst mal tun, wofür ich hier bin, und zum anderen habe ich keine Lust auf mobile Apps, die nur glorifizierte Websites sind. Investiert lieber in gute Barrierefreiheit, statt in unsinnige Apps. Gilt auch für Krankenkassen & Co.
+5. Der Fokus springt ebenfalls auf dem Suchfeld weg.
+6. Nach dem Absenden der Suche werden Reifen- und Felgenvergleiche per Hover eingeblendet, die ich gar nicht gesucht hatte. Äußerst mysteriös.
+7. Nachtspeicher oder Heizstrom konnte ich nicht finden, somit habe ich den Stromvergleich geöffnet.
+8. Das Suchformular für Plz und Verbrauch ist eigenwillig gebaut. Das Steuerelement zum Anpassen des Verbrauchs ist kein Eingabefeld oder Button.
+9. Ein Workaround für solche Fälle ist, die Maus auf solche Elemente zu ziehen und zu klicken. Das klappt aber nicht, weil es von irgendeinem Submenü zugedeckt wird, das noch durch die Hover-Effekte eingeblendet ist. Sagte ich schon, dass der Einsatz von Hover-Effekten eine Todsünde ist?
+10. Das Filterformular zum Filtern nach Kriterien ist sehr unübersichtlich gestaltet. Manches wiederholt sich und teils ist nicht klar, wie die einzelnen Elemente inhaltlich zusammen gehören. Hier ist `fieldset` dein Freund.
+11. Die Suchergebnisse beginnen mit einer Überschrift 1. Ordnung, aber nach der Überschrift kommen nochmal Filter, was die gute Navigationsmöglichkeit konterkariert.
+12. Dass die Filter-Optionen doppelt vorgelesen werden, spricht für den Einsatz einer CSS-Only-Implementierung. [CSS-Only-Widgets sind nie barrierefrei][css-only].
+13. Die einzelnen Tarife befinden sich in Tabellen, mit denen VoiceOver unter Firefox nicht interagieren kann. Nur mit Tab sind die interaktiven Elemente erreichbar, aber diese enthalten nicht die gesamte Information. Ich kann also die Details wie Preise nicht lesen und somit nichts vergleichen. Sich deswegen mit einem anderen Browser durchschlagen zu müssen, lasse ich nicht gelten.
+14. Infolgedessen kann ich auch nicht den Referenztarif anpassen.
+15. Was genau bedeutet „Weiter?“ Dieser Button könnte eine aussagekräftigere Beschriftung vertragen.
+16. Warum sind die Bewertungsangaben eigentlich Klickbar?
+
+## Fazit
+
+Dieses Angebot ist definitiv nicht barrierefrei, weil eine selbständige und erfolgreiche Nutzung der Funktionen nicht gelungen ist.
+Ich würde mit Sicherheit sehende Hilfe hinzuziehen, die den Tarifvergleich für mich vornimmt.
+
+In einem halben Jahr oder wenn Check24 mich darum bitten sollte, werde ich den Test wiederholen.
+
+[css-only]: https://adrianroselli.com/2023/03/css-only-widgets-are-inaccessible.html
