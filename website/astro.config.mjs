@@ -7,10 +7,9 @@ import mdx from '@astrojs/mdx'
 import svelte from '@astrojs/svelte'
 
 // Get the site URL from environment variable or use a default for local development
-const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321'
 
 export default defineConfig({
-  site,
+  site: 'https://infolektuell.de',
   outDir: './build/dist',
   trailingSlash: 'always',
   i18n: {
