@@ -59,8 +59,8 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString()
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow" />
     {/* Blog Feeds */}
-    <link rel="alternate" type="application/feed+json" href={new URL(Astro.url + 'feed.json', Astro.site)} title="Infolektuell Blog JSON Feed" />
-    <link rel="alternate" type="application/rss+xml" href={new URL(Astro.url + 'feed.rss.xml', Astro.site)} title="Infolektuell Blog RSS Feed" />
+    <link rel="alternate" type="application/feed+json" href={new URL('/blog/feed.json', Astro.site)} title="Infolektuell Blog JSON Feed" />
+    <link rel="alternate" type="application/rss+xml" href={new URL('/blog/feed.rss.xml', Astro.site)} title="Infolektuell Blog RSS Feed" />
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
     <meta property="og:url" content={fullCanonicalUrl} />
