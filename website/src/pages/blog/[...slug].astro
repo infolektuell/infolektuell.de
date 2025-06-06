@@ -19,8 +19,8 @@ const categories = await getEntries(post.data.categories)
 const { Content } = await render(post)
 
 // Use SEO data from frontmatter if available, fallback to regular post data
-const seoTitle = post.data.seo?.title || post.data.title
-const seoDescription = post.data.seo?.description || post.data.excerpt
+const seoTitle = post.data.seo?.title ?? post.data.title
+const seoDescription = post.data.seo?.description ?? post.data.description
 
 // For SEO image, use the seo.image if provided, otherwise use the featured image
 // The Layout component expects a string for the image, so we need to handle that
@@ -28,14 +28,11 @@ let seoImage: string | undefined = post.data.seo?.image
 
 // If seoImage is provided but not an absolute URL, make it absolute
 if (seoImage && !seoImage.startsWith('http')) {
-  const siteUrl = import.meta.env.SITE || 'https://titan-core.vercel.app'
-  seoImage = new URL(seoImage.startsWith('/') ? seoImage : `/${seoImage}`, siteUrl).toString()
+  seoImage = new URL(seoImage.startsWith('/') ? seoImage : `/${seoImage}`, Astro.site).toString()
 }
 // If no SEO image is specified, but we have a featured image, use its URL
 else if (!seoImage && post.data.featuredImage) {
-  // For Astro image objects, we need to create an absolute URL
-  const siteUrl = import.meta.env.SITE || 'https://titan-core.vercel.app'
-  seoImage = new URL(post.data.featuredImage.src, siteUrl).toString()
+  seoImage = new URL(post.data.featuredImage.src, Astro.site).toString()
 }
 ---
 
@@ -62,7 +59,7 @@ else if (!seoImage && post.data.featuredImage) {
     <div class="mt-42 mb-12 text-center">
       <h1>{post.data.title}</h1>
       <div class="flex items-center justify-center gap-4 text-gray-600">
-        <Date date={post.data.publishDate} />
+        <Date date={post.data.pubDate} />
         {
           post.data.categories && (
             <div class="flex flex-wrap gap-2">

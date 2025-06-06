@@ -1,4 +1,4 @@
-import { defineCollection, z, reference } from 'astro:content'
+import { type CollectionEntry, defineCollection, z, reference } from 'astro:content'
 import { glob, file } from 'astro/loaders'
 import type { Icon } from '@lucide/astro'
 
@@ -32,10 +32,10 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      excerpt: z.string(),
+      description: z.string(),
       featuredImage: image().optional(),
-      publishDate: z.date(),
-      publish: z.boolean().optional(),
+      pubDate: z.date(),
+      draft: z.boolean().default(false),
       categories: reference('categories').array(),
       video: z.object({
         id: z.string(),
@@ -50,7 +50,6 @@ const blog = defineCollection({
         .optional(),
     }),
 })
-
 const team = defineCollection({
   loader: glob({ base: './src/content/team', pattern: '**/*.md' }),
   schema: ({ image }) =>
@@ -162,3 +161,7 @@ const features = defineCollection({
 })
 
 export const collections = { menus, categories, blog, team, 'assistive-tech': assistiveTech, legal, faq, features, partners, stats }
+
+export const sortBlogPosts = function (posts: CollectionEntry<'blog'>[]) {
+  return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+}

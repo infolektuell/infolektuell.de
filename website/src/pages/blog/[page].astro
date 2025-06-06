@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
-import { blogSetting } from '../../data/config'
-import PaginatedBlogLayout from '../../components/blog/PaginatedBlogLayout.astro'
+import { blogSetting } from '@data/config'
+import PaginatedBlogLayout from '@components/blog/PaginatedBlogLayout.astro'
+import { sortBlogPosts } from 'src/content.config'
 export const prerender = true
 
 // Get static paths for all possible pages
@@ -10,11 +11,11 @@ export async function getStaticPaths() {
 
   // Filter posts
   const filteredPosts = allPosts.filter((post) => {
-    return import.meta.env.DEV || post.data.publish !== false
+    return import.meta.env.DEV || !post.data.draft
   })
 
   // Sort posts by date
-  const sortedPosts = filteredPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  const sortedPosts = sortBlogPosts(filteredPosts)
 
   const totalPosts = sortedPosts.length
   const totalPages = Math.ceil(totalPosts / blogSetting.postsPerPage)

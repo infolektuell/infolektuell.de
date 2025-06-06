@@ -20,7 +20,7 @@ interface Props {
   currentCategory?: string
 }
 
-const { posts: paginatedPosts, currentPage, totalPages, baseUrl, title, subtitle, currentCategory } = Astro.props
+const { posts: paginatedPosts, currentPage, totalPages, baseUrl, title, subtitle, currentCategory }: Props = Astro.props
 
 // Generate pagination URLs
 const nextPage = currentPage < totalPages ? `${baseUrl}/${currentPage + 1}` : null

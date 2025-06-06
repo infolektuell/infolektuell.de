@@ -1,8 +1,8 @@
 ---
 title: Wie Alarme auf dem Smartphone (nicht) umgesetzt werden sollten
-excerpt: Mittlerweile können iOS-Geräte akustische Alarme ausgeben, wenn sie per Mobilfunk Gefahreninformationen empfangen. Die Umsetzung ist jedoch undurchdacht und weist Mängel der Barrierefreiheit auf.
+description: Mittlerweile können iOS-Geräte akustische Alarme ausgeben, wenn sie per Mobilfunk Gefahreninformationen empfangen. Die Umsetzung ist jedoch undurchdacht und weist Mängel der Barrierefreiheit auf.
 categories: [case-studies]
-publishDate: 2025-03-16
+pubDate: 2025-03-16
 seo:
   title: Smartphone-Alarme richtig umsetzen
   description: Erfahren Sie hier, worauf es bei der Implementierung von Alarmen auf Mobilgeräten ankommt.

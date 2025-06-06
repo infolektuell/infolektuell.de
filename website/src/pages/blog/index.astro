@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
-import { blogSetting } from '../../data/config'
-import PaginatedBlogLayout from '../../components/blog/PaginatedBlogLayout.astro'
+import { blogSetting } from '@data/config'
+import PaginatedBlogLayout from '@components/blog/PaginatedBlogLayout.astro'
+import { sortBlogPosts } from 'src/content.config'
 
 const title="Blog"
 const subtitle="Barrierefreiheit — Grundlagen und Praxisalltag"
@@ -14,11 +15,11 @@ const allPosts = await getCollection('blog')
 
 // Then apply filters if needed
 const filteredPosts = allPosts.filter((post) => {
-  return import.meta.env.DEV || post.data.publish !== false
+  return import.meta.env.DEV || !post.data.draft
 })
 
 // Sort posts by date
-const sortedPosts = filteredPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+const sortedPosts = sortBlogPosts(filteredPosts)
 
 // Calculate pagination
 const totalPosts = sortedPosts.length
