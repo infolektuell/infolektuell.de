@@ -1,3 +1,9 @@
+- id: knowledge-base
+  name: Grundlagen
+  description: Allgemeine Accessibility-Themen
+- id: tutorials
+  name: Tutorials
+  description: Accessibility-Skills
 - id: case-studies
   name: Fallbeispiele
   description: Glanzlichter und Verbrechen aus der Praxis
