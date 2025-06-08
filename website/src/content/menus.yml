@@ -1,15 +1,15 @@
 - id: header
   items:
-    - name: Über mich
+    - name: Über mich 👩🏼‍💻
       link: /team/tamaracook/
-    - name: Blog
+    - name: Blog 📓
       link: /blog/
-    - name: Kontakt
+    - name: Kontakt 📥
       link: /contact/
 
 - id: footer
   items:
-    - name: YouTube
+    - name: YouTube 📹
       link: https://youtube.com/@infolektuell
       target: _blank
 
