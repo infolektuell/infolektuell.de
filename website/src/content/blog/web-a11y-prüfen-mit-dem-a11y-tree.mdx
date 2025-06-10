@@ -10,6 +10,8 @@ seo:
   title: Barrierefreiheit prüfen mit dem Accessibility Tree
   description: Lerne hier, die Barrierefreiheit deiner Website mit dem Web Accessibility Tree zu testen
 ---
+import Image from '@components/ui/LinkImage.astro'
+import firefoxAccessibilityInspector from '@assets/images/a11y-tree/firefox-barrierefreiheitsansicht.png'
 
 ## Testen ist wichtig
 
@@ -62,79 +64,143 @@ Firefox bietet hier die beste Unterstützung, daher solltest du bitte einen Fire
 3. Wähle „Barrierefreiheitseigenschaften untersuchen“
 
 Der A11Y Tree öffnet sich gleich an der Stelle, die deinem ausgewählten Element entspricht.
+Er ist eine Baumstruktur und folgt einem bestimmten Standard: [ARIA] (Accessible Rich Internet Applications).[^tree-validator]
+
+[^tree-validator]: Ich frage mich, warum es noch keinen Validator gibt, der diese Datenstruktur validieren könnte.
+Das wäre eigentlich naheliegender als das HTML zu validieren.
+Vermutlich weil der Standard definiert wurde, lange bevor JSON populär wurde.
+
+<Image src={firefoxAccessibilityInspector} alt="Barrierefreiheitsansicht in Firefox für diesen Artikel mit ausgewählter Titelüberschrift" />
 
 ## Accessibility Tree lesen
 
-Der A11Y Tree ist im Grunde nur ein Datendokument mit Baumstruktur, du könntest ihn sogar als JSON exportieren.
-Er folgt einem bestimmten Standard: [ARIA] (Accessible Rich Internet Applications).
-Ich frage mich, warum es noch keinen Validator gibt, der diese Datenstruktur validieren könnte.
-Das wäre eigentlich naheliegender als das HTML zu validieren.
-
 Es geht um Controls und ihre Beschreibung, wie oben schon erklärt wurde.
-Jedes Element im A11Y Tree beschreibt ein Control.
-Der ARIA-Standard definiert eine Sammlung von Rollen (Typen/Klassen/Kategorien), denen die Controls zugeordnet werden können.
-Diese Rollen verleihen deinen Controls Semantik und sagen dem Screenreader, was man damit machen kann und welche Art von Inhalt sie anzeigen.
-Das hier sind Beispiele für interaktive Rollen, aber es gibt auch Rollen ohne Interaktionsmöglichkeiten wie z.B. `image`, `progressbar` oder `paragraph`.
+Jedes Element im A11Y Tree beschreibt ein Control und lässt sich auf ein DOM-Node zurückführen.
+In der Barrierefreiheitsansicht auf der rechten Seite werden die Eigenschaften des ausgewählten Control angezeigt.
+Die **allerwichtigsten Eigenschaften** eines jeden Control sind
 
+1. `name` ist die individuelle Bezeichnung für dieses Control. Sie ist i.d.R. aus dem Text des entsprechenden DOM-Node abgeleitet und wird von Screenreadern vorgelesen, auch wenn das Control noch Kindelemente hat.
+2. `role` beschreibt semantisch, welche Art von Control es ist, was es kann und welche Inhalte es anzeigt. Der ARIA-Standard legt fest, welche Rollen es gibt.
+3. `description` (optional) ist ein zusätzlicher Hilfetext. Er entspricht vom Prinzip her einem Tooltip, also ein Ort für Hinweise, die sich nicht sofort aufdrängen sollen, sondern nur bei Interesse sichtbar werden.
+
+Hier ein paar Beispiele für Rollen ohne und mit Interaktionsfähigkeit:
+
+- `image` zeigt eine Grafik an.
+- `progressbar` dient zur Anzeige eines relativen Fortschritts zwischen 0 % und 100 %.
 - Ein Link kann aktiviert werden und führt zu einem verknüpften Zielort.
 - Ein Button kann aktiviert werden und löst eine definierte Aktion aus.
 - Eine Checkbox kann aktiviert werden, wodurch ihr Zustand zwischen _ausgewählt_ und _nicht ausgewählt_ wechselt.
 
-Wirf einen Blick in den A11Y Tree auf der rechten Seite, wo die Eigenschaften des ausgewählten Control angezeigt werden.
-Dort ist immer als zweite Eigenschaft von oben die Eigenschaft `role` aufgeführt.
-Wenn ein Element die Rolle `generic` hat, bedeutet das, dass es keine spezielle Rolle hat und somit auch nicht die entsprechende Semantik.
-Der Screenreader erfährt dann z.B. nicht, dass man es aktivieren/klicken kann, obwohl ein Event Handler daran gebunden wurde.
+Damit ein Screenreader die Spezialfähigkeiten eines Control nutzen kann, muss jeweils die richtige Rolle gesetzt sein.
+Bei semantisch geschriebenem HTML ist das meistens bereits der Fall, weil der Browser für viele HtML-Tags eine sinnvolle Rolle ableiten kann.
+Das heißt also: Je besser dein HTML, desto weniger Arbeit hast du hinterher mit Nachbessern.
 
-Die Eigenschaft `name` ist immer ganz oben der erste Eintrag und enthält die individuelle Bezeichnung für dieses Control.
-So könntest du z.B. ein `button` Control mit dem Namen `Abspielen` haben.
-Diese beiden Eigenschaften sollte jedes Control haben.
-Auch wenn das Control noch Kindelemente hat, ist dieser Name das, was ein Screenreader vorliest.
-Die Kindelemente werden damit allerdings nicht versteckt, was aber i.d.R. auch kein Problem darstellt.
-Die optionale Eigenschaft `description` kann eine etwas ausführlichere Zusatzbeschreibung oder Anweisungen enthalten.
+Viele Rollen erfordern noch jeweils bestimmte zusätzliche Eigenschaften, damit ihre Funktionsweise vollständig beschrieben ist und Screenreader damit richtig umgehen können.
+Auch für Tastaturnavigation ohne Screenreader machen Fehler sich schnell bemerkbar.
+Zu einem vol funktionsfähigen button gehört z.B.:
 
-Jetzt wird die Sache komplexer.
-Besonders die interaktiven Rollen erfordern, dass jeweils bestimmte zusätzliche Eigenschaften definiert sind, damit Screenreader das Control richtig bedienen können.
-Ein Button-Control sollte also unter `actions` unbedingt zumindest eine Click-Action aufgeführt haben und unter `states` sollte `focusable` enthalten sein, sonst stimmt da etwas nicht.
-Hier jede Rolle und ihre Anforderungen zu beschreiben würde den Rahmen dieses Artikels sprengen, siehe unten für Nachschlagemöglichkeiten.
-Das ist sehr umfangreich, das lernt man nicht alles an einem Nachmittag.
+- Actions: Drücken
+- State: Focusable (da interaktives Element)
+
+Hier jede Rolle und ihre Anforderungen zu beschreiben würde den Rahmen dieses Artikels sprengen, der Standard ist sehr umfangreich.
 Um den Lernprozess abzukürzen, kannst du natürlich auch mich und meine Dienstleistungen in Anspruch nehmen.
 
-## Accessibility Tree schreiben und korrigieren
+## Accessibility Tree korrigieren
 
-Bisher ging es nur darum, was im A11Y Tree stehen muss, aber noch nicht darum, wie du ihn schreiben, korrigieren und ergänzen kannst.
-Musst du jetzt den kompletten A11Y Tree selbst schreiben?
-Nein, zum Glück nicht; oder nur dann, wenn du **extrem schlechtes HTML** geschrieben hast.
 Nochmal zur Erinnerung: Das DOM ist die Grundlage, und somit auch dein HTML.
+Der Browser bemüht sich, aus dem DOM einen möglichst guten A11Y Tree zu erstellen.
+Je semantischer dein HTML, desto besser das Ergebnis.
 
-1. Viele HTML-Elemente haben eine Default-Rolle, z.B. das `a`-Tag hat die Rolle `link`, `button` ist `button`. Je semantischer du also HTML einsetzt, desto mehr kann der Browser die Landkarte implizit mit der Rolle und den benötigten Zusatzeigenschaften ausfüllen. Rollen und Tags sind nicht dasselbe, es gibt nicht genau für jedes Tag eine Rolle oder umgekehrt.
-2. Manchmal ist es nötig, etwas explizit zu ergänzen oder nachzubessern. Das geschieht in HTML durch das `role`-Attribut und die `aria-*`-Attribute. Sie können Eigenschaften überschreiben, die sich der Browser sonst implizit erschlossen und ausgefüllt hätte.
-3. Eigenschaften kann der Browser teilweise aus den Kindelementen eines Controls erschließen/inferieren. Die `name`-Eigenschaft wird z.B. aus dem Text der Kindelemente erschlossen, wenn du nichts explizit angibst.
+### Link
 
-Auch hier gebe ich nur ein Beispiel.
-Bleiben wir bei der `name`-Eigenschaft im A11Y Tree.
-Manchmal ergibt es nicht so richtig Sinn, was vom Browser vorausgefüllt wurde.
-Vielleicht fehlt ein Detail, oder der Text ist zu lang für eine Bezeichnung.
-Mit dem HTML-Attribut `aria-label` auf dem betroffenen HTML-Element kannst du die `name`-Eigenschaft seines Control auf einen festgelegten Textwert setzen.
-Dieser Text wird dann auch von Screenreadern vorgelesen.
+```html
+<a href="/register/">Registrieren</a>
+```
 
-Du kannst auch Controls komplett aus dem a11Y Tree entfernen, sofern sie für Screenreader überflüssig sind.
-Dafür solltest du aber gute Gründe haben, und Ästhetikempfinden ist ehrlich gesagt oft kein guter Ratgeber bei dieser Frage.
+- name: Registrieren
+- role: link
+- value (rollenspezifisch): http://example.org/register/
+- actions: enthält springen
+- states: enthält focusable
 
-- Gleichzeitig visuell und im A11Y Tree entfernen: HTML-Attribut `hidden` oder CSS-Eigenschaft `display: none;` bzw. `visibility: hidden`
-- Nur aus dem A11Y Tree entfernen: HTML-Attribut `aria-hidden`
+### Bild mit Alternativtext
+
+```html
+<img src="/images/doc.png" alt="Hund"/>
+```
+
+- name: Hund
+- role: image
+- value (rollenspezifisch): http://example.org/images/doc.png
+
+### Button
+
+```html
+<button type="button">Submit</button>
+```
+
+- name: Submit
+- role: button
+- actions: enthält drücken
+- states: enthält focusable
+
+### Kaputter Fake-Button
+
+Die HTML-Tags `div` und `span` führen zu recht armseligen A11Y Trees ohne Semantik.
+
+```html
+<span id="submitButton" class="btn btn-primary">Submit</span>
+```
+
+- name: Submit
+- role: generic (also keine spezielle Rolle)
+
+### Reparierter Button
+
+Hier musst du entweder **sinnvollere Elemente** nutzen (bevorzugt), oder mit speziellen HTML-Attributen den A11Y Tree ergänzen.
+
+- Das `role`-Attribut überschreibt die standardmäßig gesetzte rolle für ein HTML-Tag.
+- Das `tabindex`-Attribut macht Elemente fokussierbar.
+
+```html
+<span role="button" tabindex="0" id="submitButton" class="btn btn-primary">Submit</span>
+```
+
+- name: Submit
+- role: button
+- actions: enthält drücken
+- states: enthält focusable
+
+### Menu toggle
+
+Die `aria-*`-Attribute können besonders für komplexere Fälle zum Patchen des A11Y Tree genutzt werden.
+
+```html
+<button aria-label="Toggle Menu" aria-expanded="false">
+  <svg class="menu-icon" aria-hidden="true"></svg>
+</button>
+```
+
+- name: Toggle menu
+- role: button
+- states: enthält focusable, collapsed und expandable. Durch expandable und collapsed/expanded wird dem Screenreader mitgeteilt, dass dieser Button einen anderen Bereich aus- und einklappen kann. Und nein, einfach an dieser Stelle eine Checbox zu nutzen ist nicht barrierefrei.
+- Das SVG-Icon taucht nicht als Kind im A11Y Tree auf. Es hat für Screenreader keine Relevanz und kann versteckt werden.
 
 Bitte versuche, möglichst viel **gutes und semantisches HTML** zu schreiben und ARIA-Attribute nur als Notfall-Override für den letzten Schliff zu nutzen.
-Das hilft übrigens auch der SEO.
+Das hilft übrigens auch der SEO, und automatisierte A11Y-Tests kommen zu genaueren Ergebnissen.
+Der Umgang mit den ARiA-Attributen in komplexeren Szenarien erfordert zudem sehr viel Einarbeitungszeit.
+Du kannst die Referenzen unten nutzen und es auf eigene Faust versuchen, schneller und effizienter ist jedoch das Hinzuziehen von Expertise und Erfahrungswerten.
 
 ## Fazit
 
 Du hast nun eine einsteigerfreundliche Methode an der Hand, mit der du starten solltest und die du dir am besten beim Entwickeln angewöhnen solltest.
-Mit der Zeit wirst du sicherer werden im Umgang mit A11Y-Themen und es wird du wirst besser nachvollziehen können, warum ein Screenreader eigentlich dies oder jenes (nicht) vorliest.
+Mit der Zeit wirst du sicherer werden im Umgang mit A11Y-Themen und du wirst besser nachvollziehen können, warum ein Screenreader eigentlich dies oder jenes (nicht) vorliest.
 
 ## Referenzen
 
 - Eintrag auf MDN: [Accessibility Tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)
 - Eintrag auf MDN: [WAI ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles)
+- Eintrag auf MDN: [ARIA states and properties (attributes)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes)
 - Übersicht zu Standards für Web Accessibility: [WAI ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
 - ARIA-Spezifikation: [Accessible Rich Internet Applications (WAI-ARIA) 1.2][aria]
 
