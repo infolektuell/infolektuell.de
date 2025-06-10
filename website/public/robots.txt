@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
+User-agent: *
+Disallow: /blog/feed.rss.xml
+
+
+User-agent: *
+Disallow: /blog/feed.json
+
 # Sitemap location
-Sitemap: https://infolektuell.de/sitemap-index.xml 
+Sitemap: https://infolektuell.de/sitemap-index.xml
