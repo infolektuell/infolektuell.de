@@ -639,6 +639,23 @@ body {
   background-size: var(--s) var(--s);
 }
 
+     /* Style the footnotes section. */
+   .footnotes {
+     border-top: 1px solid #30363d;
+   }
+
+   .footnotes ol, .footnotes p {
+     font-size: smaller;
+   }
+/* Place `[` and `]` around footnote calls. */
+[data-footnote-ref]::before {
+  content: '[';
+}
+
+[data-footnote-ref]::after {
+  content: ']';
+}
+
 /* Style the pre element containing the code */
 pre {
   padding: 1rem;

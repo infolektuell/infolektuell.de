@@ -37,6 +37,12 @@ export default defineConfig({
     },
   },
   markdown: {
+    remarkRehype: {
+      footnoteLabel: 'Fußnoten',
+      footnoteBackLabel(referenceIndex, rereferenceIndex) {
+        return 'Hochspringen zu: ' + (referenceIndex + 1) + (rereferenceIndex > 1 ? '-' + rereferenceIndex : '')
+      },
+    },
     remarkPlugins: [remarkHeadingId],
     rehypePlugins: [
       [
