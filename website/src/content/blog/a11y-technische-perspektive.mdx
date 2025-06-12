@@ -1,0 +1,135 @@
+---
+title: Wie funktioniert Accessibility?
+description: Meiner Auffassung nach tun sich viele Devs deshalb schwer mit Accessibility, weil das technische Fundament zu selten erklärt wird. Das führt zu etlichen Missverständnissen und Verunsicherung. In diesem Artikel erfährst du die Basics darüber, wie Accessibility technisch gesehen funktioniert.
+categories: [knowledge-base]
+pubDate: 2025-06-11
+video:
+  id: 9t9MPDL1QcI
+  title: Was ist a11y? - Accessibility Erklärung und Tipps
+seo:
+  description: Erfahre hier, auf welcher technischen Grundlage Accessibility beruht, um bei der Umsetzung zielführendere entscheidungen zu treffen.
+---
+import Image from '@components/ui/LinkImage.astro'
+import wikipediaAppearance from '@assets/images/wikipedia-flohwalzer.png'
+import macAssistiveTech from '@assets/images/mac-bedienungshilfen.png'
+import windowsAssistiveTech from '@assets/images/windows11-einstellungen-barrierefreiheit.png'
+import windowsTTS from '@assets/images/windows11-einstellungen-sprachausgabe.png'
+import audioHijack from '@assets/images/audio-hijack.png'
+
+Wie soll man Accessibility kompetent umsetzen, wenn man die Funktionsweise nicht kennt?
+Über Barrierefreiheit wird viel geschrieben und gesprochen, aber meistens steht die politische Dimension im Vordergrund oder spezifische inhaltliche Themen.
+Wie soll man Grafiken richtig beschriften? Warum soll man ARIA-Attribute nur sparsam einsetzen?
+Ohne das technische Grundverständnis kann man nur Empfehlungen kopieren, genau wie man nur Code kopieren und einfügen kann, wenn man die Grundlagen des Programmierens eigentlich nicht beherrscht.
+
+## Begriffe
+
+Es gibt einige unterschiedliche Bezeichnungen für das Thema, die dasselbe bedeuten, aber eine unterschiedliche Perspektive hervorheben.
+
+- Accessibility (A11Y) 🧑🏾‍💻 ist die technische Facette.
+- Zugänglichkeit 🧑🏾‍💻 🇩🇪 ist die deutsche Übersetzung von A11Y.
+- Digitale Barrierefreiheit ♿ 👩🏼‍🦯 🧏🏽‍♂️ 💻 ist die politisch-gesellschaftliche Facette, also das bevorzugte Wort in Medien und Politik.
+
+## Orientierung statt Guidelines
+
+Musst du alle Gesetze und Regeln kennen und befolgen um ethisch zu handeln? Hoffentlich nicht. Ganz im Gegenteil, dein Verhalten könnte dadurch sehr unethisch werden.
+Zuerst wärest du völlig überfordert bei dem Versuch, alles zu verstehen und zu verinnerlichen.
+Wenn du einigermaßen damit durch wärest, würdest du erkennen, dass du die Spielräume stark zu deinen Gunsten auslegen und auf deinen Vorteil optimieren kannst, und trotzdem bleibt dein Verhalten nach der Definition zwar moralisch, aber ggf. unethisch.
+
+Etwas Ähnliches passiert in meinen Augen mit den Guidelines für Zugänglichkeit.
+Viel entscheidender ist es, ein Grundverständnis für das Thema entwickeln zu können, statt jede Regel peinlich genau abzuhaken.
+Das gibt dir mehr Entscheidungskompetenz.
+Sich an regeln festzuhalten ist etwas für Menschen, die etwas beurteilen wollen, ohne es zu können.
+
+**Barrierefreiheit bedeutet die eigenständige und selbstbestimmte Nutzbarkeit eines Produkts, möglichst unabhängig von körperlichen oder mentalen Einschränkungen. Ziel ist die Gewährleistung gesellschaftlicher Teilhabe an Privat- und Arbeitsleben sowie politische Mitbestimmung u.A.**
+
+Auf diesen Kern lässt sich die gesamte mediale Debatte zusammenfassen.
+Selbstverständlich ist das ein Ideal, das immer wieder Kompromisse erfordert.
+
+## Zugänglichkeit ist Usability und UX für alle
+
+Inzwischen sind digitale Angebote meistens keine Hypertext-Dokumente mehr, sondern interaktive und komplexe Anwendungen.
+Die gravierendsten Zugänglichkeitsprobleme erlebe ich daher als Folge vernachlässigter UX und Usability, weniger mit UI-Design assoziiert.
+Klar kann man immer noch eine leserlichere Schriftart auswählen, die Farben und Kontraste noch mehr abstimmen, die Bildbeschreibungen noch etwas besser formulieren, aber die echten Showstopper stecken meistens in schlecht umgesetzter UX.
+User müssen ständig geführte Prozesse durchlaufen wie z.B. ein neues Konto registrieren oder nach Produkten suchen.
+Je komplizierter diese Abläufe gestaltet sind, desto mehr Schritte enthalten sie, desto größer das Risiko für technisch bedingte Barrieren.
+Das gilt auch bei mentalen Einschränkungen oder reduzierter kognitiver Leistungsfähigkeit, weil jede Verkomplizierung oder ablenkende Reize auch zusätzlichen _Cognitive Load_ bedeuten.
+Barrieren machen das ganze Produkt oder Angebot für die Betroffenen **nutzlos**; nicht unbequem, sondern schlichtweg **unbrauchbar**.
+
+Wer möchte, dass seine digitalen Angebote tatsächlich gern genutzt werden und nicht nur, weil mittels SeO und Monopolstellung genug Werbung dafür gemacht wurde, sollte unbedingt auf UX und Usability optimieren, um möglichst viele Zielgruppen nachhaltig anzusprechen und durch Qualität zu überzeugen.
+In meiner Rubrik [Schnelltests](/category/quick-tests/) führe ich regelmäßig Testungen an populären digitalen Angeboten auf dem deutschen Markt durch. Dort wird dieser Punkt sehr anschaulich bestätigt.
+
+<Image src={macAssistiveTech} alt="Das Fenster für Bedienungshilfen in den Systemeinstellungen von macOS" />
+
+## Zugänglichkeit ist Maschinenlesbarkeit für assistive Technologien
+
+Im Zentrum stehen assistive Technologien wie z.B. Screenreader, Bildschirmlupe, Sprachsteuerung, Sprachausgabe etc.
+Diese Technologien sind im Betriebssystem installierte Hintergrundprogramme und vermitteln zwischen User und deiner Website, App oder Game.
+Sie sind für Betroffene User so etwas wie Partner, Assistenten, Körpererweiterung.
+Im besten Fall ist es eine sehr gut eingespielte Partnerschaft.
+Deine Aufgabe als Entwickler ist nicht, diese Funktionen wie Sprachausgabe oder Vergrößerung selbst wieder nachzubauen.
+Das ist völliger Schwachsinn, weil diese Funktionen längst da sind.
+
+Deine Aufgabe ist dafür zu sorgen, dass deine App Screenreadern & Co genug Informationen über sich bereitstellt, damit sie Inhalte sinnvoll auslesen und die Funktionalitäten nutzen können.
+Das funktioniert über spezielle Accessibility-APIs, die von grafischen Apps implementiert werden müssen und von Screenreadern als Informationsquelle genutzt werden.
+Diese APIs geben einen sog. **Accessibility Tree** zurück.
+Die Elemente einer UI sind sowieso schon in einer Baumstruktur angeordnet, auch wenn es visuell nicht so aussieht.
+Der Accessibility Tree ist eine vereinfachte Form dieses UI-Baums, die Angaben zu jedem Element darüber enthält, welchen Text es hat, welche Art von Element es ist, was es kann usw.
+Besonders für Screenreader ist er **die eine autoritäre Informationsquelle und Zugang** zu deiner App oder Website.
+Normalerweise wird er größtenteils beim Entwickeln einer App oder Website schon automatisch vorausgefüllt, aber du musst damit rechnen, gelegentlich nachzubessern.
+In meinem [Artikel über den Umgang mit dem Web Accessibility Tree](/blog/web-a11y-pr%C3%BCfen-mit-dem-a11y-tree/) ist das praxisorientierte beschrieben.
+
+<Image src={windowsAssistiveTech} alt="Das Fenster für Barrierefreiheit unter Windows 11" />
+
+Jedes UI-Toolkit hat eigene Interfaces oder etwas Vergleichbares zum Implementieren der Accessibility APIs.
+Auf dieser Homepage biete ich auch eine [Linksammlung](/resources/assistive-tech/) für plattformspezifische Screenreader, APIs und Specs an.
+
+<Image src={windowsTTS} alt="Das Fenster für Sprachausgabe unter Windows 11" />
+
+## Die beste Barrierefreiheit ist unsichtbar
+
+Die wenigsten Betroffenen haben ein Interesse daran, zum Störfaktor zu werden oder Umstände zu bereiten.
+Aber sie wollen einfach nur in Frieden konsumieren, arbeiten, wählen gehen usw.
+Es geht nicht um politisches „sichtbar machen“, sondern schlichtweg um Dinge wie Verbraucherschutz.
+
+Im Idealfall sollte niemandem aktiv auffallen, dass Barrierefreiheit umgesetzt wurde, weil alles durch gute UX mühelos funktioniert.
+Barrierefreiheit muss sich nicht in den Vordergrund spielen oder das Design schlecht machen, das kann sogar kontraproduktiv werden.
+Wenn das passiert, ist der Grund meistens Einfallslosigkeit und Unkenntnis, manchmal vielleicht auch Virtue Signalling.
+
+Ein solches Negativbeispiel ist Wikipedia mit den Buttons zum Anpassen der Darstellung, die sich einem bei jedem Artikel über dem Inhalt aufdrängen.
+Ich habe diesen Bereich mithilfe des Adblockers Ublock Origin ausgeblendet, weil er mich zu sehr gestört hat.
+
+<Image src={wikipediaAppearance} alt="Der Artikel über den Flohwalzer auf Wikipedia" />
+
+## Gute Architektur und Semantik sind 3/4 der Miete für Zugänglichkeit
+
+Zugänglichkeit ist an sich ein komplexes Thema, das hohe Detailkenntnis erfordert, aber allgemeine Qualität in der Softwareentwicklung ist die beste Basis dafür.
+Zugänglichkeit ist der sensible Faktor, der zuerst darunter leidet, wenn Qualitätskriterien in der Softwareentwicklung vernachlässigt werden.
+Wer sie von Anfang an mit einbezieht, wird es später mit der Zugänglichkeit deutlich leichter haben.
+
+Architektur patterns wie Flux oder MVVM motivieren dich, Inhalt und Verhalten deiner App semantisch abzubilden, lange bevor Zugänglichkeit auf den Plan tritt.
+Nebenbei erhöhen sie auch noch die Testbarkeit deiner komponenten.
+Mit dieser Grundlage können auftretende Zugänglichkeitsprobleme wesentlich schneller und zuverlässiger behoben werden.
+Wenn z.B. dein ViewModel die Informationen bereits hergibt, ist es keine große Sache mehr, sie im View noch an der richtigen Accessibility-Property mit einzubinden.
+
+## Zugänglichkeit ist machbar
+
+Der Mythus hält sich hartnäckig, Zugänglichkeit müsse unwirtschaftlich sein.
+Das ist aber häufig nicht die Schuld von Zugänglichkeit, sondern ist bedingt durch unwirtschaftliche und kurzsichtige Geschäftspraktiken.
+
+- Qualitätssicherung in der Softwareentwicklung wird tot gespart, Junior Devs erhalten kaum die Gelegenheit zu lernen, wie man solide Software schreibt.
+- Zugänglichkeit wird aus einer formalen bürokratischen Richtung heraus gedacht und durchgesetzt, kreative praxisnahe Ansätze abseits der ausgetretenen Pfade werden zu wenig genutzt.
+- Statt zumindest vorübergehend Expertise ins Team zu holen (Beratung, Schulung, Prozessintegration), werden Mitarbeiter genötigt, sich alles über Zugänglichkeit auf eigene Faust beizubringen. Das ist extrem ineffizient und unwirtschaftlich.
+
+Ein dickes Budget ist kein Garant für Barrierefreiheit und diese Idee eines speziellen Budgets ergibt nur dann Sinn, wenn man Zugänglichkeit nur als Nachgedanken und erzwungene Pflichterfüllung begreift, der maximal umständlich umgesetzt werden muss.
+Wird Zugänglichkeit als Qualitätskriterium in der Softwareentwicklung gelebt (ähnlich wie Mobile First), braucht es auch kein spezielles Budget dafür.
+
+Wenn du es besser machen willst und gleichzeitig angenehmer, dann [kontaktiere mich](/contact/) doch am besten gleich zu meinen Dienstleistungen.
+Ich lege Wert darauf, Zugänglichkeit durch Heben der allgemeinen Qualität und UX zu erreichen und möglichst wenig durch Spezialbehandlungen.
+
+Ein hervorragendes Positivbeispiel sind übrigens die Apps von [Rogue Amoeba] wie z.B. [audio hijack].
+Das Budget dieser Firma dürfte deutlich begrenzter sein alz z.B. das von Google, und dennoch ist das Ergebnis weit überzeugender.
+
+<Image src={audioHijack} alt="Das Programm „Audio Hijack“ mit einer geöffneten Session zum Aufnehmen von Videokonferenzen" />
+
+[Rogue Amoeba]: https://rogueamoeba.com/
+[audio hijack]: https://rogueamoeba.com/audiohijack/
