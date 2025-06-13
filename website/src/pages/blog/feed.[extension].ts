@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets'
 import { getCollection, getEntry } from 'astro:content'
 import { sortBlogPosts } from 'src/content.config'
 import { type Item, Feed } from "feed";
-import { createPostRenderer } from '@markdown-plugins/feed'
+import { mdxToHtml } from '@markdown-plugins/feed'
 import { SEO } from '@data/config'
 import Logo from '@assets/logo.svg'
 
@@ -13,12 +13,15 @@ export const getStaticPaths = function () {
       params: { extension: 'rss.xml' }
     },
     {
+      params: { extension: 'atom.xml' }
+    },
+    {
       params: { extension: 'json' }
     },
   ]
 }
 export const GET: APIRoute = async function ({ url, params, generator, currentLocale }) {
-  const processor = await createPostRenderer()
+  // const processor = await createPostRenderer()
   const image = await getImage({ src: Logo, format: 'png', width: 144 })
   const feed = new Feed({
     title: SEO.SiteName,
@@ -44,7 +47,8 @@ export const GET: APIRoute = async function ({ url, params, generator, currentLo
     posts.map(async ({ id, data, body }) => {
       const { title, description, pubDate } = data
       const author = await getEntry(data.author)
-      const { code: content } = await processor.render(body ?? description)
+      // const { code: content } = await processor.render(body ?? description)
+      const content = await mdxToHtml(body ?? description, url.origin)
       return {
         title,
         description,
@@ -68,14 +72,21 @@ export const GET: APIRoute = async function ({ url, params, generator, currentLo
   items.forEach(item => {
     feed.addItem(item)
   });
-  if (params.extension == 'rss.xml') {
+  if (params.extension === 'rss.xml') {
     return new Response(feed.rss2(), {
       headers: {
         'Content-Type': 'application/rss+xml',
       },
     })
   }
-  if (params.extension == 'json') {
+  if (params.extension === 'atom.xml') {
+    return new Response(feed.atom1(), {
+      headers: {
+        'Content-Type': 'application/atom+xml',
+      },
+    })
+  }
+  if (params.extension === 'json') {
     return new Response(feed.json1(), {
       headers: {
         'Content-Type': 'application/feed+json',
