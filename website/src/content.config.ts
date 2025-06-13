@@ -33,6 +33,7 @@ const blog = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      author: reference('team').default('tamaracook'),
       featuredImage: image().optional(),
       pubDate: z.date(),
       draft: z.boolean().default(false),
