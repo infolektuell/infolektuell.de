@@ -48,7 +48,9 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
+          rel: ['noopener', 'noreferrer', 'nofollow'],
           target: '_blank',
+          properties: { 'aria-description': 'Externer Link, öffnet in neuem Fenster' }
         },
       ],
     ],
