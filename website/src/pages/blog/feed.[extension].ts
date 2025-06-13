@@ -62,10 +62,6 @@ export const GET: APIRoute = async function ({ url, params, generator, currentLo
           }
         ],
         content,
-        video: data.video && {
-          title: data.video.title,
-          url: 'https://auto.be/' + data.video.id,
-        },
       }
     }),
   )
