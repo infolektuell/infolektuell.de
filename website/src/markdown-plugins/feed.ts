@@ -1,6 +1,6 @@
 import { type AstroMarkdownOptions, createMarkdownProcessor } from '@astrojs/markdown-remark'
 import remarkHeadingId from 'remark-custom-heading-id'
-import { rehypeReplaceRelativeLinks } from '@markdown-plugins/rehype-replace-relative-links'
+import { rehypeAbsoluteUrl } from '@markdown-plugins/rehype-absolute-url.ts'
 
 export const createPostRenderer = async function () {
   const markdownOptions: AstroMarkdownOptions = {
@@ -13,7 +13,7 @@ export const createPostRenderer = async function () {
     syntaxHighlight: false,
     remarkPlugins: [remarkHeadingId],
     rehypePlugins: [
-      [rehypeReplaceRelativeLinks, { prefix: 'https://infolektuell.de' }],
+      [rehypeAbsoluteUrl, { prefix: 'https://infolektuell.de' }],
     ],
   }
   return createMarkdownProcessor(markdownOptions)

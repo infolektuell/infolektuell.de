@@ -5,7 +5,7 @@ export type Options = {
   prefix: string
 }
 
-export const rehypeReplaceRelativeLinks = function ({ prefix }: Options) {
+export const rehypeAbsoluteUrl = function ({ prefix }: Options) {
   return (tree: Root) => {
     visit(tree, 'element', (node: Element) => {
       if (node.tagName !== 'a') {
