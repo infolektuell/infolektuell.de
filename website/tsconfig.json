@@ -12,7 +12,7 @@
       "@data/*": ["./src/data/*"],
       "@utils/*": ["./src/utils/*"],
       "@assets/*": ["./src/assets/*"],
-      "@markdown-plugins/*": ["src/markdown-plugins/*"]
+      "@lib/*": ["src/lib/*"]
     }
   }
 }

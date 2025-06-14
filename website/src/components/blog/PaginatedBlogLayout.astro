@@ -35,6 +35,11 @@ const heroContent = {
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
+  <Fragment slot="feeds">
+    <link rel="alternate" type="application/atom+xml" href={new URL('feed.atom.xml', Astro.url)} title="Blog RSS Feed" />
+    <link rel="alternate" type="application/feed+json" href={new URL('feed.json', Astro.url)} title="Blog JSON Feed" />
+    <link rel="alternate" type="application/rss+xml" href={new URL('feed.rss.xml', Astro.url)} title="Blog RSS Feed" />
+  </Fragment>
   <main>
     <InnerHero content={heroContent} />
     <BlogList posts={paginatedPosts} {currentCategory} />

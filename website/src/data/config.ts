@@ -2,6 +2,7 @@ export const siteConfig = {
   companyName: 'Infolektuell',
   siteUrl: 'https://infolektuell.de',
   calendar: 'https://calendly.com/infolektuell/30min',
+  copyright: `Alle Rechte vorbehalten ${new Date().getFullYear()}, Tamara Cook`,
   Socials: {
     youtube: 'https://youtube.com/@infolektuell',
     Github: 'https://github.com/infolektuell',

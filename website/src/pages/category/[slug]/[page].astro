@@ -29,7 +29,7 @@ export async function getStaticPaths() {
     const totalPosts = sortedPosts.length
     const totalPages = Math.ceil(totalPosts / blogSetting.postsPerPage)
 
-    // Create paths for all pages except page 1 (which is handled by [...slug].astro)
+    // Create paths for all pages except page 1 (which is handled by index.astro)
     return Array.from({ length: totalPages - 1 }, (_, i) => {
       const page = i + 2 // Start from page 2
       const start = (page - 1) * blogSetting.postsPerPage
