@@ -1,0 +1,269 @@
+---
+title: So findest du den optimalen Stimmklang für deine Videos
+description: Schlechte Klangqualität oder eine schlecht verständliche Stimme kann für ein Video schädlicher sein als Bildfehler. Mit einer systematischen Herangehensweise kannst du rein softwareseitig das Beste aus deiner Stimme herausholen, ohne zwingend zusätzliches Hardware-Equipment zu benötigen.
+categories: [knowledge-base]
+pubDate: 2025-06-23
+seo:
+  description: Erfahre hier, wie du bei Audio-Aufnahmen deinen Stimmklang optimieren kannst.
+---
+import Image from '@components/ui/LinkImage.astro'
+import loopbackScreencast from '@assets/images/sound-check/loopback-screencast.png'
+import audioHijackSweeten from '@assets/images/sound-check/audio-hijack-sweeten.png'
+import audioHijackScreencast from '@assets/images/sound-check/audio-hijack-screencast.png'
+
+Schlechte Klangqualität oder eine schlecht verständliche Stimme kann für ein Video schädlicher sein als Bildfehler.[^1]
+Mit welchen Mitteln kann man nun als YouTuber den eigenen Stimmklang verbessern, wenn man blind und Mac-User ist?
+
+[^1]: Video: [So bearbeiten professionelle YouTuber ihre Stimme | So geht YouTube](https://youtu.be/j79zr0JHVuE?feature=shared)
+
+## Vorbedingungen
+
+Ich habe hier ein MacBook Air, 13" mit M3-Chip von 2024.
+Bisher nutze ich das integrierte Mikrofon und kein externes.
+Vielleicht kommt das noch irgendwann, aber ich werde vorläufig keines kaufen.
+Das integrierte ist gar nicht mal so übel, damit habe ich auch schon spontan Musik aufgenommen.
+Im weiteren Verlauf wird es also ausschließlich um softwareseitige Ansätze gehen.
+
+## Ziele
+
+Als erster Schritt sollten Zielsetzung und Scope festgelegt werden.
+
+- Die Stimme soll akustisch gut wahrnehmbar sein.
+- Die Stimme soll gut verständlich sein.
+- Das Klangprofil der Stimme kann noch etwas abgerundet werden durch Hervorheben der Anteile, die in gesprochener Sprache besonders relevant sind. Das kann der Stimme mehr Festigkeit und Wärme geben.
+- Bonus: Störende Hintergrundgeräusche sollten möglichst reduziert sein, um den Stimmklang nicht zu beeinträchtigen.
+
+Der Klang der Stimme in Aufnahmen wird mit sog. Audioeffekten verändert.
+Allgemein empfehlenswerte Effekte und Maßnahmen sind:
+
+1. Normalisierung: Die Lautstärke der Aufnahme wird insgesamt so verschoben, dass der lauteste Punkt bei 0 dB liegt. Damit ist es so laut wie sinnvoll möglich ohne zu übersteuern. Außerdem wird es dadurch robuster gegenüber verlustbehafteten Konvertierungen, bei denen die Bittiefe geändert wird.
+2. Equalizer: Hebt oder senkt die Lautstärke je nach Frequenzbereich. Bei gesprochener Sprache sind Frequenzen unter 100 Hz (brummend) und über 16 kHz (fiepend) überflüssig/unhörbar bis störend und können abgesenkt werden. Die für Verständlichkeit und Wärme relevanten Anteile dazwischen können angehoben werden.
+3. Compressor: Ebnet die Lautstärke der Aufnahme ein. Dies kann für Empfänger mit schlechten akustischen Bedingungen zu besserer Verständlichkeit beitragen, ist aber auch ein ästhetisches Zugeständnis.
+4. Rauschunterdrückung: Kann störende Hintergrundgeräusche wie Rascheln reduzieren und Stimmen klarer hervorheben. Sie ist aber mit großer Vorsicht einzusetzen.
+
+Sie müssen und sollen nicht immer alle eingesetzt werden, sondern sind mehr als Bausteine zu verstehen.
+Jeder dieser Bausteine verändert deine Stimme und vernichtet einen kleinen Teil der originalen Information.
+Die Auswahl hängt stark vom Einsatzzweck und deinen Prioritäten ab.
+Auf dem schlechtesten Android-Handy der Welt noch verstanden zu werden ist eine andere Zielsetzung als ein authentischerer und gleichzeitig professioneller Wohlklang.
+
+## Audio-Software
+
+Medienproduktion ist ein eigenartiges Gebiet.
+Entweder es soll eine vollautomatisch funktionierende Blackbox (am besten mit KI) sein, ohne dass man davon etwas mitbekommt.
+Oder es ist eine Raketenwissenschaft, die häufig in „Profisoftware“ gegossen wurde, deren Usability extrem zu wünschen übrig lässt.
+Damit meine ich nicht, dass solcher Software Features fehlen, ganz im Gegenteil.
+Aber die Workflows sind nicht auf effizienz hin ausgelegt, sondern auf „Ich zupfe so lange visuell an allem herum, bis ich zufrieden bin.“
+Und wer hätte es gedacht bei diesem Vorzeichen? Nur wenige von ihnen sind barrierefrei.
+Wir erinnern uns: **Usability ist eine wichtige Voraussetzung für wirklich gelungene und inklusive Barrierefreiheit**.
+
+Zurück zum Thema: Benötigt wird also Software, die Effekte auf Audio anwenden kann.
+Außerdem ist noch die Frage offen, in welchem Produktionsschritt dies geschehen soll.
+
+### Nachbearbeitung
+
+Als Erstes legt sich der Gedanke nahe, die Optimierung in die Postproduktion zu integrieren.
+Hierfür wird ein Audio-Editor benötigt.
+
+- Audacity ist unter Windows einigermaßen zugänglich, unter macOS aber in weiten Teilen nicht.
+- Adobe-Produkte verweigere ich schon aus moralischen Gründen, weil Adobe uns Blinde schon mit Flash und PDF mehr als genug exkludiert und benachteiligt hat.
+- Es ist erstaunlich schwierig, zugängliche Audio-Editoren zu finden, die mächtig genug sind und die oben genannten Effekte mitbringen.
+- Warum zur Hölle implementiert eigentlich niemand das Auswählen von Audio mittels ⇧ + →! Besteht die ganze Medienbranche aus Mauszombys?
+
+### Aufnahme
+
+Ein anderer Ansatz ist, die Effekte schon auf das Audio anzuwenden, bevor es in die Aufnahme gelangt.
+Benötigt wird also kein Schnittprogramm, sondern ein Programm, das Audio aus einer Quelle wie z.B. dem Mikrofon gezielt einsammeln, verarbeiten und weitergeben kann.
+Das entspricht den modularen Hardware-Lösungen aus dem Musikbereich, nur eben als virtuelle Softwarelösung.
+Ein Softwarehersteller, der es zu wahrer Meisterschaft auf diesem Gebiet gebracht hat, ist [Rogue Amoeba](https://rogueamoeba.com/).
+Glücklicherweise bin ich schon lange Fan von denen und besitze bereits Lizenzen für alle Apps, die für das Vorhaben dieses Artikels benötigt werden:
+
+1. [Audio Hijack] kann nicht nur Audio aus allen möglichen Eingabegeräten aufnehmen und über Ausgabegeräte ausgeben, sondern dazwischen auch Effekte anwenden. Damit wird die virtuelle Audio-Pipeline gebaut.
+2. [Loopback] kann virtuelle Audiogeräte erstellen. Um die Stimme aufzuwerten wird ein Gerät benötigt, das sowohl Ein- als auch Ausgabe ist, damit die Audio-Pipeline hineingeschickt werden kann und das Programm für die Videoaufnahme es gleichzeitig als Quelle nutzen kann.
+3. Das Audioschnittprogramm [Fission] oder gern auch ein anderes, weil Normalisierung sich am lautesten Punkt einer fertigen Aufnahme ausrichtet.
+
+Die Usability und Barrierefreiheit dieser Programme sind von einer Qualität, die ihresgleichen sucht.
+Ein wesentlicher Bestandteil des Erfolgsrezeptes ist die **modulare Architektur**.
+Du hast also nicht das eine überladene Programm, das alles können will und alles vereinnahmt, sondern sinnvoll voneinander abgegrenzte Module, die jeweils einen bestimmten Aufgabenbereich abdecken.
+
+[audio hijack]: https://rogueamoeba.com/audiohijack/
+[loopback]: https://rogueamoeba.com/loopback/
+[fission]: https://rogueamoeba.com/fission/
+
+## Konfiguration
+
+Der Ansatz, die Stimme schon vor der Aufnahme zu optimieren, ist für mich der eindeutige Sieger.
+Bevor es an die eigentliche Optimierung geht, werden die Programme konfiguriert.
+
+### Virtuelles Audiogerät
+
+In Loopback sollte ein Pass-Through-Gerät angelegt werden, nennen wir es einmal _Screencast_.
+Es ist direkt richtig angelegt, wenn man ein neues Gerät erstellt und ihm einen sinnvollen Namen gibt.
+Wenn die Audio-Pipeline konfiguriert ist, kannst du dieses Gerät anstelle eines Mikrofons in jedem Programm auswählen, das ein Eingabegerät verlangt.
+Das kann ein Programm für die Videoaufnahme sein, aber z.B. auch der Zoom-Client, um in Online-Meetings besonders gut zu klingen.
+Die Audio-Pipeline muss dann allerdings aktiv sein.
+
+<Image src={loopbackScreencast} alt="Screenshot vol Loopback mit konfiguriertem Pass-Through-Gerät" />
+
+### Audio-Pipeline
+
+In Audio Hijack sollte eine neue Session angelegt werden, also ein neues Aufnahme-Setup.
+Im [Online-Manual] ist die Bedienung des Programms sehr gut beschrieben.
+Bei der Auswahl eines Templates bietet sich das Template _Sweeten_ als Startpunkt an.
+Die hier ausgelegte Pipeline schickt sämtliches System-Audio durch einige Effekte und abschließend in das systemweit gewählte Ausgabegerät.
+Damit werden sämtliche Geräusche, Musik usw. aufgepeppt, die dein Computer abspielt.
+
+[online-manual]: https://rogueamoeba.com/support/manuals/audiohijack/
+
+<Image src={audioHijackSweeten} alt="Screenshot von Audio Hijack mit Sweeten-Session. Sie besteht aus einer linearen Kette, die auf System-Audio nacheinander mehrere Effekte anwendet und sie dann über die System-Ausgabe ausgibt. Equalizer, Compressor und Magic Boost führen zu einem volleren Klangbild." />
+
+Einiges muss aber noch geändert werden.
+In der Sidebar unter _Info_ kann ein Name angegeben werden, z.B. _Screencast_.
+Für die nächsten Änderungen werden die Module unter _Blocks_ in der Sidebar benötigt.
+Diese Blocks sind die Bausteine zum Erstellen individueller Pipelines.
+Sie können in das Grid kopiert, umsortiert und auch wieder gelöscht werden.
+
+1. die Quelle _System-Wide Audio_ durch _Input Device_ ersetzen und dort _MacBook Air-Mikrofon_ als Audio Device einstellen. Die neue Quelle verbindet sich automatisch mit dem Block rechts daneben.
+2. Das Ausgabegerät auf unser virtuelles Screencast-Gerät ändern.
+3. Magic Boost löschen.
+4. Im Equalizer das Preset _Spoken Word_ auswählen.
+5. Im Compressor den Modus _Voice_ auswählen.
+6. Den Advanced Block Speech Denoise ins Grid auf das Input Device kopieren, sodass es zwischen Quelle und Equalizer landet.
+7. Zuletzt noch einen Recorder als Output einfügen und horizontal so zurechtschieben, dass er seinen Input vom Compressor erhält. Hier divergiert somit der Verlauf, weil der Compressor sowohl in das virtuelle Screencast-Gerät als auch in den Datei-Recorder gespeist wird.
+
+<Image src={audioHijackScreencast} alt="Screenshot von Audio Hijack mit konfigurierter Screencast-Session. Sie wendet auf die Mikrofon-Eingabe mehrere Effekte zur Verbesserung der Klangqualität gesprochener Sprache an und gibt sie sowohl über das virtuelle Screencast-Gerät als auch in einen Recorder zur Aufnahme von Audio-Dateien aus." />
+
+## Testaufnahmen
+
+Endlich ist eine Pipeline für Sprachaufnahmen mit potenziell sinnvollen Effekten konfiguriert und es können Testaufnahmen erstellt werden.
+Hierfür ist der Recorder gedacht.
+Am besten erstellst du systematisch für jede interessante Konstellation eine Aufnahme, statt orientierungslos und willkürlich herumzutesten.
+In der Softwareentwicklung nennt sich dieses Vorgehen auch **parametrisches Testen**.
+
+1. Als Startkonstellation alle Effekte in der Pipeline auf _Off_ setzen (nicht löschen). Das meinte ich mit **Usability**.
+2. Eine Aufnahme ohne Normalisierung und eine mit nachträglicher Normalisierung erstellen.
+3. Der Reihe nach Effekt für Effekt auf _On_ setzen und jeweils Schritt 2 durchführen.
+4. Optional noch Aufnahmen mit weiteren realistischen Parametern erstellen, z.B. mit und ohne Geraschel.
+
+So erhältst du einen Satz an Aufnahmen, die du vergleichen kannst, um die Tauglichkeit für deinen Einsatzzweck zu bewerten.
+Im Folgenden kommentiere ich exemplarisch meine Serie an Testaufnahmen.
+
+### Kontrollgruppe
+
+Hier wird die Auswirkung von Normalisierung hörbar, ohne weitere Effekte anzuwenden.
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/01-roh.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Aufnahme ohne Effekte</figcaption>
+</figure>
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/02-normalisiert.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme ohne Effekte</figcaption>
+</figure>
+
+Normalisierung hebt die Lautstärke auf ein angenehmes Maß und nimmt kaum Einfluss auf das Klangbild.
+Sie lohnt sich in jedem Fall für ein besseres Ergebnis im Video.
+
+### Rauschunterdrückung
+
+Hin und wieder sind leise Hintergrundgeräusche zu hören, wenn auch nicht extrem.
+Traditionell war Rauschentfernung nur dann sinnvoll, wenn die Aufnahme wirklich extrem minderwertig und kaum verständlich war, z.B. bei aufgenommenen E-Lectures in einem „Hörsaal“ mit äußerst ungünstiger Akustik.
+Audio Hijack bringt jedoch eine ML-basierte auf Sprache ausgelegte Rauschentfernung mit, die einen Test wert ist.
+So ein aufwändiges Feature ohne Mehrwert würde sich für die Hersteller kaum lohnen.
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/03-denoise.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Aufnahme mit Speech Denoise</figcaption>
+</figure>
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/04-denoise-normalisiert.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme mit Speech Denoise</figcaption>
+</figure>
+
+Der Klang wird noch ein bisschen sauberer, fast schon etwas steril.
+Für mein Empfinden lohnt sich dieses Modul dennoch, weil die Stimme weitgehend intakt bleibt.
+Es wird im Folgenden beibehalten.
+
+### Equalizer
+
+Meine Stimme hat Anteile im höheren Frequenzbereich, die ich als etwas „kieksend“ empfinde.
+Sie treten besonders in Momenten von Unsicherheit hervor, weil ich wahrscheinlich nicht genug Stütze gebe und die Stimme dann bricht.
+Ich möchte aber in den Videos selbstbewusster und professioneller klingen.
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/05-equalizer.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Aufnahme mit Speech Denoise und Equalizer</figcaption>
+</figure>
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/06-equalizer-normalisiert.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme mit Speech Denoise und Equalizer</figcaption>
+</figure>
+
+Diese Variante finde ich tatsächlich sympathischer und gefälliger.
+Normalisierung lohnt sich nach wie vor.
+
+### Compressor
+
+Auf schlechten Lautsprechern oder unter schlechten akustischen Bedingungen ist Sprache leichter verständlich, wenn es nicht zu breite Schwankungen in der Lautstärke gibt.
+Ein Compressor ebnet die Lautstärke ein.
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/07-compressor.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Aufnahme mit Speech Denoise, Equalizer und Compressor</figcaption>
+</figure>
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/08-compressor-normalisiert.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme mit Speech Denoise, Equalizer und Compressor</figcaption>
+</figure>
+
+Diese Version finde ich unsympathischer als die vorige.
+Sie klingt für mich flacher, unpersönlicher, fast schon nach Telefon, unangenehm nah.
+Hier muss ich eine Entscheidung treffen zwischen Ästhetik und Verständlichkeit um jeden Preis.
+Wahrscheinlich werde ich den Compressor für die Produktion nicht nutzen.
+
+### Gefahren des Compressors
+
+Was passiert, wenn Hintergrundrauschen oder Geräusche nicht vorher bereinigt wurden?
+Werden die dann auch angehoben?
+Das lässt sich durch Erstellen von Aufnahmen mit und ohne Speech Denoise herausfinden, in der jeweils durch Bewegungen geraschelt wird.
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/09-geraschel-ohne-denoise-mit-compressor.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme mit Rascheln durch Bewegung, ohne Speech Denoise, aber mit Equalizer und Compressor</figcaption>
+</figure>
+
+<figure>
+<audio controls>
+<source src="/media/soundcheck/10-geraschel-mit-denoise-und-compressor.mp3" type="audio/mpeg" />
+</audio>
+<figcaption>Normalisierte Aufnahme mit Rascheln durch Bewegung, Speech Denoise, Equalizer und Compressor</figcaption>
+</figure>
+
+Tatsächlich ist die Version ohne Speech Denoise und mit Compressor wahnsinnig schlecht.
+Die Version mit Speech Denoise und Compressor ist akzeptabel.
+
+### Fazit
+
+Mein Favorit ist die Version mit Speech Denoise und Equalizer.
+Den zweiten Platz belegt die Version mit zusätzlichem Compressor.
