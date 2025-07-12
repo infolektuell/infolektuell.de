@@ -74,15 +74,15 @@ let filteredPosts = sortBlogPosts(allPosts).slice(0, postsToShow)
       )
     }
 
-    <div class="posts-grid">
+    <ul class="posts-grid">
       {
         filteredPosts.map((post, index) => (
-          <div>
+          <li>
             <BlogPost post={post} index={index} />
-          </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
 
     {filteredPosts.length === 0 && <p class="text-center text-gray-500 py-8">No posts found.</p>}
   </div>

@@ -23,12 +23,16 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
 
 <section class:list={['relative', paddingClass]}>
   <div class="site-container mx-auto px-4">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 xl:gap-x-8 xl:gap-y-14">
+    <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 xl:gap-x-8 xl:gap-y-14">
       {
         sortedTeamMembers.map((member, index) => (
-          <div class="flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100} data-aos-duration="800">
-            <a href={`/team/${member.id}`} class="flex flex-col group rounded-md">
-              <div class="relative mb-4 overflow-hidden rounded-md">
+          <li class="flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100} data-aos-duration="800">
+            <article class="flex flex-col group rounded-md">
+              <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary">
+                <a href={`/team/${member.id}/`}>{member.data.name}</a>
+              </h3>
+              <a class="text-xsmall text-body-base" tabindex="-1" href={`/team/${member.id}/`}>{member.data.jobTitle}</a>
+              <a tabindex="-1" href={`/team/${member.id}/`} class="relative mb-4 overflow-hidden rounded-md order-[-1]">
                 <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20  group-hover:transition-all  group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
                 {member.data.headshot ? (
                   <Image
@@ -49,15 +53,11 @@ const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order
                     </span>
                   </div>
                 )}
-              </div>
-              <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary">
-                {member.data.name}
-              </h3>
-              <p class="text-xsmall text-body-base">{member.data.jobTitle}</p>
-            </a>
-          </div>
+              </a>
+            </article>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>
