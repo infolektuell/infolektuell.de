@@ -5,6 +5,7 @@ import remarkHeadingId from 'remark-custom-heading-id'
 import rehypeExternalLinks from 'rehype-external-links'
 import mdx from '@astrojs/mdx'
 import svelte from '@astrojs/svelte'
+import astroBrokenLinksChecker from 'astro-broken-link-checker';
 
 // Get the site URL from environment variable or use a default for local development
 
@@ -64,6 +65,10 @@ export default defineConfig({
     },
   },
   integrations: [
+    astroBrokenLinksChecker({
+      logFilePath: 'broken-links.log', // Optional: specify the log file path
+      checkExternalLinks: false // Optional: check external links (currently, caching to disk is not supported, and it is slow )
+    }),
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
