@@ -1,19 +1,16 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { type  CollectionEntry, getCollection } from 'astro:content'
+import { getActiveCategories } from '@pages/blog/_queries'
 import BlogPost from './BlogPost.astro'
 
-interface Props {
+type Props = {
   posts: CollectionEntry<'blog'>[]
   currentCategory?: string
 }
 
-const { posts, currentCategory } = Astro.props
-// Get all posts to determine active categories
-const allPosts = await getCollection('blog', ({ data }) => {
-  return import.meta.env.DEV || !data.draft
-})
-const categoryIds = new Set(allPosts.flatMap((p) => p.data.categories).map((c) => c.id))
-const categories = await getCollection('categories', (c) => categoryIds.has(c.id))
+const { posts, currentCategory }: Props = Astro.props
+const categories = await getActiveCategories()
+const allPosts = await getCollection('blog')
 ---
 
 <section class="site-container mx-auto px-4 py-base">
@@ -27,6 +24,7 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
       <div class="flex flex-wrap gap-2">
         <a
           href="/blog/"
+          aria-current={Astro.url.pathname === '/blog/' ? 'page' : null}
           class={`px-4 sm:px-6 py-2 sm:py-3 leading-none rounded-md text-small flex items-center justify-center transition-colors border border-primary duration-200 ${
             !currentCategory
               ? 'bg-primary text-body-dark shadow-md'
@@ -38,7 +36,8 @@ const categories = await getCollection('categories', (c) => categoryIds.has(c.id
         {
           categories.map((category) => (
             <a
-              href={`/category/${category.id}/`}
+              href={`/blog/categories/${category.id}/`}
+              aria-current={Astro.url.pathname.endsWith(category.id + '/') ? 'page' : null}
               class={`px-4 sm:px-6 py-2 sm:py-3 leading-none rounded-md text-small flex items-center justify-center transition-colors border border-primary duration-200 ${
                 currentCategory === category.id
                   ? 'bg-primary text-body-dark shadow-md'

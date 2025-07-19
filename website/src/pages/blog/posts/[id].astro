@@ -1,20 +1,26 @@
 ---
-import { getCollection, getEntries, render } from 'astro:content'
+/** A blog post */
+import { type CollectionEntry, getEntries, render } from 'astro:content'
+import { Image } from 'astro:assets'
 import { YouTube } from '@astro-community/astro-embed-youtube'
 import Layout from '@layouts/Layout.astro'
 import CategoryPill from '@components/ui/CategoryPill.astro'
 import Date from '@components/ui/Date.astro'
-import { Image } from 'astro:assets'
+import { getFinalPosts } from '@pages/blog/_queries'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  const posts = await getFinalPosts(false)
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { id: post.id },
     props: { post },
   }))
 }
 
-const { post } = Astro.props
+type Props = {
+  post: CollectionEntry<'blog'>
+}
+
+const { post }: Props = Astro.props
 const categories = await getEntries(post.data.categories)
 const { Content } = await render(post)
 

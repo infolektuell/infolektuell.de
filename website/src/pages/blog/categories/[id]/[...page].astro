@@ -1,0 +1,42 @@
+---
+/** All blog posts within a category paginated */
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import { getFinalPosts, getActiveCategories } from '@pages/blog/_queries'
+import { blogSetting } from '@data/config'
+import PaginatedBlogLayout from '@components/blog/PaginatedBlogLayout.astro'
+
+export const getStaticPaths: GetStaticPaths = async function ({ paginate }) {
+  const categories = await getActiveCategories()
+  const posts = await getFinalPosts()
+  return categories.flatMap(category => {
+    const filteredPosts = posts.filter(p => p.data.categories.some(c => c.id === category.id))
+    return paginate(
+      filteredPosts,
+      {
+        params: { id: category.id },
+        props: { category },
+        pageSize: blogSetting.postsPerPage,
+      }
+    )
+  })
+}
+
+type Props = {
+  page: Page<CollectionEntry<'blog'>>
+  category: CollectionEntry<'categories'>
+}
+const { page, category }: Props = Astro.props
+const { data } = page
+const title = category.data.name
+const subtitle = category.data.description
+---
+
+<PaginatedBlogLayout
+  posts={data}
+  currentPage={page.currentPage}
+  totalPages={page.lastPage}
+  baseUrl="/blog/posts/"
+  {title}
+  {subtitle}
+/>

@@ -1,6 +1,6 @@
+/** Feed of all blog posts */
 import type { APIRoute, GetStaticPaths } from 'astro'
-import { getCollection } from 'astro:content'
-import { sortBlogPosts } from 'src/content.config'
+import { getFinalPosts } from '@pages/blog/_queries'
 import { generateFeed } from '@lib/feeds/converters.ts'
 import { SEO, siteConfig } from '@data/config.ts'
 
@@ -17,7 +17,6 @@ export const GET: APIRoute = async function (ctx) {
     description: SEO.defaultDescription,
     copyright: siteConfig.copyright,
   }
-  const posts = await getCollection('blog')
-  sortBlogPosts(posts)
+  const posts = await getFinalPosts()
   return await generateFeed(ctx, posts, options)
 }

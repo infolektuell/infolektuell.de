@@ -1,12 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import { ChevronLeft, ChevronRight } from '@lucide/astro'
+import Layout from '@layouts/Layout.astro'
 import BlogList from './BlogList.astro'
 import InnerHero from '../sections/InnerHero.astro'
 import Button from '../ui/Button.astro'
-import { ChevronLeft, ChevronRight } from '@lucide/astro'
 import blogHeroImage from '@assets/images/blog-hero-2.jpg'
 
-const seoTitle = 'Blog'
 const seoDescription =
   'Erfahre hier mehr über Grundlagen und Praxisbeispiele zu digitaler Barrierefreiheit und Accessibility'
 
@@ -34,7 +33,7 @@ const heroContent = {
 }
 ---
 
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={title} description={seoDescription}>
   <Fragment slot="feeds">
     <link rel="alternate" type="application/atom+xml" href={new URL('feed.atom.xml', Astro.url)} title="Blog RSS Feed" />
     <link rel="alternate" type="application/feed+json" href={new URL('feed.json', Astro.url)} title="Blog JSON Feed" />

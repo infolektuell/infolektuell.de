@@ -1,0 +1,30 @@
+---
+/** All blog posts paginated */
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import PaginatedBlogLayout from '@components/blog/PaginatedBlogLayout.astro'
+import { getFinalPosts } from '@pages/blog/_queries'
+import { blogSetting } from '@data/config'
+
+export const getStaticPaths: GetStaticPaths = async function ({ paginate }) {
+  const posts = await getFinalPosts()
+  return paginate(posts, { pageSize: blogSetting.postsPerPage })
+}
+
+type Props = {
+  page: Page<CollectionEntry<'blog'>>
+}
+const { page }: Props = Astro.props
+const { data } = page
+const title="Blog"
+const subtitle="Barrierefreiheit — Grundlagen und Praxisalltag"
+---
+
+<PaginatedBlogLayout
+  posts={data}
+  currentPage={page.currentPage}
+  totalPages={page.lastPage}
+  baseUrl="/blog/"
+  {title}
+  {subtitle}
+/>
