@@ -1,11 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
-import { sortBlogPosts } from 'src/content.config'
 import BlogPost from '@components/blog/BlogPost.astro'
 import Button from '@components/ui/Button.astro'
 import Eyebrow from '@components/ui/Eyebrow.astro'
 import { getPaddingClass, getBackgroundColor, getTextColor } from '@utils/styleUtils'
 import type { PaddingSize, ThemeColor } from '@utils/styleUtils'
+import { getFinalPosts, getFinalPostsByCategory } from '@pages/blog/_queries'
 
 export interface Props {
   content?: {
@@ -38,13 +37,7 @@ const paddingClass = getPaddingClass({
 })
 
 // Fetch posts
-const allPosts = await getCollection('blog', ({ data }) => {
-  const isPublished = import.meta.env.DEV || !data.draft
-  if (!category) return isPublished
-  const hasTag = data.categories.some((c) => c.id === category)
-  return isPublished && hasTag
-})
-let filteredPosts = sortBlogPosts(allPosts).slice(0, postsToShow)
+const posts = (!category ? await getFinalPosts() : await getFinalPostsByCategory(category)).slice(0, postsToShow)
 ---
 
 <section class:list={['relative', bgColor, paddingClass]}>
@@ -76,7 +69,7 @@ let filteredPosts = sortBlogPosts(allPosts).slice(0, postsToShow)
 
     <ul class="posts-grid">
       {
-        filteredPosts.map((post, index) => (
+        posts.map((post, index) => (
           <li>
             <BlogPost post={post} index={index} />
           </li>
@@ -84,7 +77,7 @@ let filteredPosts = sortBlogPosts(allPosts).slice(0, postsToShow)
       }
     </ul>
 
-    {filteredPosts.length === 0 && <p class="text-center text-gray-500 py-8">No posts found.</p>}
+    {posts.length === 0 && <p class="text-center text-gray-500 py-8">No posts found.</p>}
   </div>
 </section>
 
