@@ -12,6 +12,9 @@
     - name: YouTube 📹
       link: https://youtube.com/@infolektuell
       target: _blank
+    - name: LinkedIn 🔗
+      link: https://linkedin.com/company/infolektuell
+      target: _blank
 
 - id: legal
   items:
